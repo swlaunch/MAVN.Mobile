@@ -1,0 +1,17 @@
+{
+  "DApp": {
+    "LinkWalletAppUrlTemplate": "https://customer-website.mavn-dev.open-source.exchange/en/dapp-linking?internal-address={internalAddress}&link-code={linkCode}"
+  },
+  "PasswordStrength": {
+    "MinimumLength": 8,
+    "MaximumLength": 50,
+    "MinUpperCase": 1,
+    "MinLowerCase": 1,
+    "MinNumbers": 1,
+    "MinSpecialSymbols": 1,
+    "SpecialCharacters": "!@#$%&",
+    "Spaces": true
+  },
+  "CustomerSupportPhoneNumber": "+971-80036227",
+  "PrivacyAndTermsUrl": "https://customer-website.mavn-test.open-source.exchange/en/terms/"
+}

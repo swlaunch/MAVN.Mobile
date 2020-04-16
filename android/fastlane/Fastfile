@@ -1,0 +1,124 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+
+# ----RUN TESTS ONLY----
+
+    desc "Runs all the Android and Flutter tests"
+    lane :test do
+      gradle(task: "test")
+      Dir.chdir "../.." do
+        sh("flutter", "packages", "get") # flutter packages get
+        sh("flutter", "clean") # flutter clean
+        sh("flutter", "test") # flutter test
+      end
+    end
+
+
+# ----LOCAL BUILD LANES----
+   desc "Run local Dev build"
+   lane :local_dev_release do
+     _build_dev_release
+   end
+
+  desc "Run local Test build"
+  lane :local_test_release do
+    _build_test_release
+  end
+
+  desc "Run local Staging build"
+  lane :local_staging_release do
+    _build_staging_release
+  end
+
+  desc "Run local Production signed build"
+  lane :local_prod_release do
+    _build_prod_release("apk")
+  end
+
+
+# ----APP CENTER LANES----
+
+  desc "Run and push DEV release build to Internal App Center"
+  lane :deploy_dev_internal_appcenter do
+    _upload_to_appcenter("Lykke-Mavn", "../build/app/outputs/apk/dev/release/app-dev-release.apk", "77ff31fc8e4c1b1d1df0bc9108c3396f3361b949", "Lykke-Mavn")
+  end
+
+  desc "Run and push Test release build to Internal App Center"
+  lane :deploy_test_internal_appcenter do
+    _upload_to_appcenter("Lykke-Mavn", "../build/app/outputs/apk/qa/release/app-qa-release.apk", "77ff31fc8e4c1b1d1df0bc9108c3396f3361b949", "Lykke-Mavn")
+  end
+
+# --------- CUSTOM FUNCTIONS --------- #
+# --------- BUILD FUNCTIONS --------- #
+def _build_test_release
+   _build_release("qa", "apk")
+end
+
+def _build_dev_release
+   _build_release("dev", "apk")
+end
+
+def _build_staging_release
+   _build_release("staging", "apk")
+end
+
+def _build_prod_release(buildType)
+   _build_release("prod", buildType)
+end
+
+def _build_release(flavor, buildType)
+  build_number = number_of_commits
+  mainFile = case flavor
+    when "prod"
+      "lib/main_prod.dart"
+    when "staging"
+       "lib/main_staging.dart"
+    when "qa"
+      "lib/main_qa.dart"
+    when "dev"
+      "lib/main_dev.dart"
+  end
+
+  Dir.chdir "../.." do
+    sh("flutter", "packages", "get")
+    sh("flutter", "clean")
+    sh("flutter", "build", buildType, "--release", "--flavor", flavor, "-t", mainFile, "--build-number", "#{build_number}")
+  end
+end
+
+# --------- UPLOAD FUNCTIONS --------- #
+def _upload_to_appcenter(appName, apkPath, apiToken , ownerName)
+  appcenter_upload(
+    api_token: apiToken,
+    owner_name: ownerName,
+    app_name: appName,
+    apk: apkPath
+  )
+end
+
+def _upload_to_playstore_beta
+  upload_to_play_store(
+    track: 'alpha',
+    skip_upload_images: true,
+    skip_upload_screenshots: true,
+    aab: '../build/app/outputs/bundle/prodRelease/app.aab'
+  )
+end
+
+end

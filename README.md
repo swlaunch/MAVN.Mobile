@@ -1,4 +1,4 @@
-# Lykke Mobile mavn
+# Open MAVN
 
 ## Run tests with coverage:
 1. (Optional - if you don't have lcov installed) brew install lcov

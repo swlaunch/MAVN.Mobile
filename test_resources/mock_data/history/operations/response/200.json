@@ -1,0 +1,10 @@
+{
+  "Operations": [
+    {
+      "Type": "SendTransfer",
+      "Timestamp": "2019-06-28T14:22:10.000Z",
+      "Amount": "16"
+    }
+  ],
+  "TotalCount": 100
+}

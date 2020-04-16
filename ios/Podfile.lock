@@ -1,0 +1,386 @@
+PODS:
+  - "app_settings (3.0.0+1)":
+    - Flutter
+  - barcode_scan (0.0.1):
+    - Flutter
+    - MTBBarcodeScanner
+  - camera (0.0.1):
+    - Flutter
+  - clipboard_manager (0.0.3):
+    - Flutter
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
+  - Firebase/Analytics (6.13.0):
+    - Firebase/Core
+  - Firebase/Core (6.13.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 6.1.6)
+  - Firebase/CoreOnly (6.13.0):
+    - FirebaseCore (= 6.4.0)
+  - Firebase/DynamicLinks (6.13.0):
+    - Firebase/CoreOnly
+    - FirebaseDynamicLinks (~> 4.0.5)
+  - Firebase/Messaging (6.13.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 4.1.9)
+  - Firebase/RemoteConfig (6.13.0):
+    - Firebase/CoreOnly
+    - FirebaseRemoteConfig (~> 4.4.5)
+  - firebase_analytics (0.0.1):
+    - Firebase/Analytics (~> 6.0)
+    - Firebase/Core
+    - Flutter
+  - firebase_core (0.0.1):
+    - Firebase/Core
+    - Flutter
+  - firebase_core_web (0.1.0):
+    - Flutter
+  - firebase_crashlytics (0.0.1):
+    - Crashlytics
+    - Fabric
+    - Firebase/Core
+    - Flutter
+  - firebase_dynamic_links (0.1.0):
+    - Firebase/DynamicLinks
+    - Flutter
+  - firebase_messaging (0.0.1):
+    - Firebase/Core
+    - Firebase/Messaging
+    - Flutter
+  - firebase_remote_config (0.0.1):
+    - Firebase/RemoteConfig
+    - Flutter
+  - FirebaseABTesting (3.1.2):
+    - FirebaseAnalyticsInterop (~> 1.3)
+    - FirebaseCore (~> 6.1)
+    - Protobuf (>= 3.9.2, ~> 3.9)
+  - FirebaseAnalytics (6.1.6):
+    - FirebaseCore (~> 6.4)
+    - FirebaseInstanceID (~> 4.2)
+    - GoogleAppMeasurement (= 6.1.6)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (= 0.3.9011)
+  - FirebaseAnalyticsInterop (1.4.0)
+  - FirebaseCore (6.4.0):
+    - FirebaseCoreDiagnostics (~> 1.0)
+    - FirebaseCoreDiagnosticsInterop (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Logger (~> 6.2)
+  - FirebaseCoreDiagnostics (1.1.2):
+    - FirebaseCoreDiagnosticsInterop (~> 1.0)
+    - GoogleDataTransportCCTSupport (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Logger (~> 6.2)
+    - nanopb (~> 0.3.901)
+  - FirebaseCoreDiagnosticsInterop (1.1.0)
+  - FirebaseDynamicLinks (4.0.5):
+    - FirebaseAnalyticsInterop (~> 1.3)
+    - FirebaseCore (~> 6.2)
+  - FirebaseInstanceID (4.2.7):
+    - FirebaseCore (~> 6.0)
+    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/UserDefaults (~> 6.0)
+  - FirebaseMessaging (4.1.10):
+    - FirebaseAnalyticsInterop (~> 1.3)
+    - FirebaseCore (~> 6.2)
+    - FirebaseInstanceID (~> 4.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Reachability (~> 6.2)
+    - GoogleUtilities/UserDefaults (~> 6.2)
+    - Protobuf (>= 3.9.2, ~> 3.9)
+  - FirebaseRemoteConfig (4.4.5):
+    - FirebaseABTesting (~> 3.1)
+    - FirebaseAnalyticsInterop (~> 1.4)
+    - FirebaseCore (~> 6.2)
+    - FirebaseInstanceID (~> 4.2)
+    - GoogleUtilities/Environment (~> 6.2)
+    - "GoogleUtilities/NSData+zlib (~> 6.2)"
+    - Protobuf (>= 3.9.2, ~> 3.9)
+  - Flutter (1.0.0)
+  - flutter_image_compress (0.0.1):
+    - Flutter
+    - Mantle
+    - SDWebImageWebPCoder
+  - flutter_native_image (0.0.1):
+    - Flutter
+  - flutter_open_whatsapp (0.0.1):
+    - Flutter
+  - flutter_plugin_android_lifecycle (0.0.1):
+    - Flutter
+  - flutter_secure_storage (3.3.1):
+    - Flutter
+  - flutter_sim_country_code (0.0.1):
+    - Flutter
+  - GoogleAppMeasurement (6.1.6):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (= 0.3.9011)
+  - GoogleDataTransport (3.2.0)
+  - GoogleDataTransportCCTSupport (1.2.2):
+    - GoogleDataTransport (~> 3.2)
+    - nanopb (~> 0.3.901)
+  - GoogleUtilities/AppDelegateSwizzler (6.3.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.3.2)
+  - GoogleUtilities/Logger (6.3.2):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.3.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.3.2):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.3.2)"
+  - GoogleUtilities/Reachability (6.3.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (6.3.2):
+    - GoogleUtilities/Logger
+  - libwebp (1.1.0):
+    - libwebp/demux (= 1.1.0)
+    - libwebp/mux (= 1.1.0)
+    - libwebp/webp (= 1.1.0)
+  - libwebp/demux (1.1.0):
+    - libwebp/webp
+  - libwebp/mux (1.1.0):
+    - libwebp/demux
+  - libwebp/webp (1.1.0)
+  - local_auth (0.0.1):
+    - Flutter
+  - Mantle (2.1.0):
+    - Mantle/extobjc (= 2.1.0)
+  - Mantle/extobjc (2.1.0)
+  - MTBBarcodeScanner (5.0.11)
+  - nanopb (0.3.9011):
+    - nanopb/decode (= 0.3.9011)
+    - nanopb/encode (= 0.3.9011)
+  - nanopb/decode (0.3.9011)
+  - nanopb/encode (0.3.9011)
+  - native_device_orientation (0.0.1):
+    - Flutter
+  - package_info (0.0.1):
+    - Flutter
+  - path_provider (0.0.1):
+    - Flutter
+  - path_provider_macos (0.0.1):
+    - Flutter
+  - Protobuf (3.11.0)
+  - SDWebImage/Core (5.7.1)
+  - SDWebImageWebPCoder (0.6.0):
+    - libwebp (~> 1.0)
+    - SDWebImage/Core (~> 5.7)
+  - shared_preferences (0.0.1):
+    - Flutter
+  - shared_preferences_macos (0.0.1):
+    - Flutter
+  - shared_preferences_web (0.0.1):
+    - Flutter
+  - sms_autofill (0.0.1):
+    - Flutter
+  - store_redirect (0.0.1):
+    - Flutter
+  - url_launcher (0.0.1):
+    - Flutter
+  - url_launcher_macos (0.0.1):
+    - Flutter
+  - url_launcher_web (0.0.1):
+    - Flutter
+  - webview_flutter (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - app_settings (from `.symlinks/plugins/app_settings/ios`)
+  - barcode_scan (from `.symlinks/plugins/barcode_scan/ios`)
+  - camera (from `.symlinks/plugins/camera/ios`)
+  - clipboard_manager (from `.symlinks/plugins/clipboard_manager/ios`)
+  - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
+  - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
+  - firebase_core_web (from `.symlinks/plugins/firebase_core_web/ios`)
+  - firebase_crashlytics (from `.symlinks/plugins/firebase_crashlytics/ios`)
+  - firebase_dynamic_links (from `.symlinks/plugins/firebase_dynamic_links/ios`)
+  - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
+  - firebase_remote_config (from `.symlinks/plugins/firebase_remote_config/ios`)
+  - Flutter (from `Flutter`)
+  - flutter_image_compress (from `.symlinks/plugins/flutter_image_compress/ios`)
+  - flutter_native_image (from `.symlinks/plugins/flutter_native_image/ios`)
+  - flutter_open_whatsapp (from `.symlinks/plugins/flutter_open_whatsapp/ios`)
+  - flutter_plugin_android_lifecycle (from `.symlinks/plugins/flutter_plugin_android_lifecycle/ios`)
+  - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
+  - flutter_sim_country_code (from `.symlinks/plugins/flutter_sim_country_code/ios`)
+  - local_auth (from `.symlinks/plugins/local_auth/ios`)
+  - native_device_orientation (from `.symlinks/plugins/native_device_orientation/ios`)
+  - package_info (from `.symlinks/plugins/package_info/ios`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - path_provider_macos (from `.symlinks/plugins/path_provider_macos/ios`)
+  - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+  - shared_preferences_macos (from `.symlinks/plugins/shared_preferences_macos/ios`)
+  - shared_preferences_web (from `.symlinks/plugins/shared_preferences_web/ios`)
+  - sms_autofill (from `.symlinks/plugins/sms_autofill/ios`)
+  - store_redirect (from `.symlinks/plugins/store_redirect/ios`)
+  - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
+  - url_launcher_macos (from `.symlinks/plugins/url_launcher_macos/ios`)
+  - url_launcher_web (from `.symlinks/plugins/url_launcher_web/ios`)
+  - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Crashlytics
+    - Fabric
+    - Firebase
+    - FirebaseABTesting
+    - FirebaseAnalytics
+    - FirebaseAnalyticsInterop
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCoreDiagnosticsInterop
+    - FirebaseDynamicLinks
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - FirebaseRemoteConfig
+    - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleDataTransportCCTSupport
+    - GoogleUtilities
+    - libwebp
+    - Mantle
+    - MTBBarcodeScanner
+    - nanopb
+    - Protobuf
+    - SDWebImage
+    - SDWebImageWebPCoder
+
+EXTERNAL SOURCES:
+  app_settings:
+    :path: ".symlinks/plugins/app_settings/ios"
+  barcode_scan:
+    :path: ".symlinks/plugins/barcode_scan/ios"
+  camera:
+    :path: ".symlinks/plugins/camera/ios"
+  clipboard_manager:
+    :path: ".symlinks/plugins/clipboard_manager/ios"
+  firebase_analytics:
+    :path: ".symlinks/plugins/firebase_analytics/ios"
+  firebase_core:
+    :path: ".symlinks/plugins/firebase_core/ios"
+  firebase_core_web:
+    :path: ".symlinks/plugins/firebase_core_web/ios"
+  firebase_crashlytics:
+    :path: ".symlinks/plugins/firebase_crashlytics/ios"
+  firebase_dynamic_links:
+    :path: ".symlinks/plugins/firebase_dynamic_links/ios"
+  firebase_messaging:
+    :path: ".symlinks/plugins/firebase_messaging/ios"
+  firebase_remote_config:
+    :path: ".symlinks/plugins/firebase_remote_config/ios"
+  Flutter:
+    :path: Flutter
+  flutter_image_compress:
+    :path: ".symlinks/plugins/flutter_image_compress/ios"
+  flutter_native_image:
+    :path: ".symlinks/plugins/flutter_native_image/ios"
+  flutter_open_whatsapp:
+    :path: ".symlinks/plugins/flutter_open_whatsapp/ios"
+  flutter_plugin_android_lifecycle:
+    :path: ".symlinks/plugins/flutter_plugin_android_lifecycle/ios"
+  flutter_secure_storage:
+    :path: ".symlinks/plugins/flutter_secure_storage/ios"
+  flutter_sim_country_code:
+    :path: ".symlinks/plugins/flutter_sim_country_code/ios"
+  local_auth:
+    :path: ".symlinks/plugins/local_auth/ios"
+  native_device_orientation:
+    :path: ".symlinks/plugins/native_device_orientation/ios"
+  package_info:
+    :path: ".symlinks/plugins/package_info/ios"
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
+  path_provider_macos:
+    :path: ".symlinks/plugins/path_provider_macos/ios"
+  shared_preferences:
+    :path: ".symlinks/plugins/shared_preferences/ios"
+  shared_preferences_macos:
+    :path: ".symlinks/plugins/shared_preferences_macos/ios"
+  shared_preferences_web:
+    :path: ".symlinks/plugins/shared_preferences_web/ios"
+  sms_autofill:
+    :path: ".symlinks/plugins/sms_autofill/ios"
+  store_redirect:
+    :path: ".symlinks/plugins/store_redirect/ios"
+  url_launcher:
+    :path: ".symlinks/plugins/url_launcher/ios"
+  url_launcher_macos:
+    :path: ".symlinks/plugins/url_launcher_macos/ios"
+  url_launcher_web:
+    :path: ".symlinks/plugins/url_launcher_web/ios"
+  webview_flutter:
+    :path: ".symlinks/plugins/webview_flutter/ios"
+
+SPEC CHECKSUMS:
+  app_settings: d103828c9f5d515c4df9ee754dabd443f7cedcf3
+  barcode_scan: 33f586d02270046fc6559135038b34b5754eaa4f
+  camera: 38cc83ae9a5667bb5a71c7d9edaf60a91920fd4e
+  clipboard_manager: f4800834e62cc26b1cc4e0a92a35cd452dd8b827
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
+  firebase_analytics: dacdcfc524d722fff13dcff942f0dfa47e6be567
+  firebase_core: dc539d4bdc69894823e4a6e557034a9e48960f21
+  firebase_core_web: d501d8b946b60c8af265428ce483b0fff5ad52d1
+  firebase_crashlytics: 36c88d34d725558fc09f7bb2610cc13bfa15be37
+  firebase_dynamic_links: cbb9595bfa14fa51daa01fe2ccb071fbb759ad5b
+  firebase_messaging: edab61b94fb3bfb399f32f9d4dedb5196d680084
+  firebase_remote_config: b909942ae016c4b1dc115bc3846ae6181808a98d
+  FirebaseABTesting: 0d10f3cdc3fa00f3f175b5b56c1003c8e888299f
+  FirebaseAnalytics: 45f36d9c429fc91d206283900ab75390cd05ee8a
+  FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
+  FirebaseCore: 307ea2508df730c5865334e41965bd9ea344b0e5
+  FirebaseCoreDiagnostics: 511f4f3ed7d440bb69127e8b97c2bc8befae639e
+  FirebaseCoreDiagnosticsInterop: e9b1b023157e3a2fc6418b5cb601e79b9af7b3a0
+  FirebaseDynamicLinks: db62e9da4788f9c5ebce2028dab933a0c158cfe2
+  FirebaseInstanceID: ebd2ea79ee38db0cb5f5167b17a0d387e1cc7b6e
+  FirebaseMessaging: 089b7a4991425783384acc8bcefcd78c0af913bd
+  FirebaseRemoteConfig: 6ad68503c04701b8d9d709240711bc0bf6edaf94
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_image_compress: 082f8daaf6c1b0c9fe798251c750ef0ecd98d7ae
+  flutter_native_image: 9c0b7451838484458e5b0fae007b86a4c2d4bdfe
+  flutter_open_whatsapp: 4b54cd5403cfe53414e4252fd52fc27f79635f58
+  flutter_plugin_android_lifecycle: 47de533a02850f070f5696a623995e93eddcdb9b
+  flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
+  flutter_sim_country_code: 364e91e71f067cdec1dd1228eb4d1f13ab1a54e5
+  GoogleAppMeasurement: dfe55efa543e899d906309eaaac6ca26d249862f
+  GoogleDataTransport: 8e9b210c97d55fbff306cc5468ff91b9cb32dcf5
+  GoogleDataTransportCCTSupport: ef79a4728b864946a8aafdbab770d5294faf3b5f
+  GoogleUtilities: 547a86735c6f0ee30ad17e94df4fc21f616b71cb
+  libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
+  local_auth: 2571c49920ae469f46d5557435fad8fa473a5e88
+  Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
+  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  native_device_orientation: e24d00be281de72996640885d80e706142707660
+  package_info: 48b108e75b8802c2d5e126f208ef540561c98aef
+  path_provider: fb74bd0465e96b594bb3b5088ee4a4e7bb1f2a9d
+  path_provider_macos: f760a3c5b04357c380e2fddb6f9db6f3015897e0
+  Protobuf: 394b2bf29ec303f4325e3ee4892c09e675647152
+  SDWebImage: 5d4cf6afccd9ac1d2ee701ed0c4917cbb1b80536
+  SDWebImageWebPCoder: ff8ccd473fc8064c1600d0d6eb1ce8d60ea7c202
+  shared_preferences: 430726339841afefe5142b9c1f50cb6bd7793e01
+  shared_preferences_macos: f3f29b71ccbb56bf40c9dd6396c9acf15e214087
+  shared_preferences_web: 141cce0c3ed1a1c5bf2a0e44f52d31eeb66e5ea9
+  sms_autofill: c461043483362c3f1709ee76eaae6eb570b31686
+  store_redirect: 2977747cf81689a39bd62c248c2deacb7a0d131e
+  url_launcher: a1c0cc845906122c4784c542523d8cacbded5626
+  url_launcher_macos: fd7894421cd39320dce5f292fc99ea9270b2a313
+  url_launcher_web: e5527357f037c87560776e36436bf2b0288b965c
+  webview_flutter: bec7599de6bfbe8008a739aa3ebd7b364ea9d0cd
+
+PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
+
+COCOAPODS: 1.9.1

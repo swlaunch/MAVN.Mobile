@@ -1,0 +1,4 @@
+{
+  "message": "Your account has been locked. Try again in N min.",
+  "retryPeriodInMinutes" : 5
+}

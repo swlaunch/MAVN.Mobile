@@ -1,0 +1,50 @@
+PasswordStrength:
+  MinimumLength:
+    settings-key: PasswordValidation-MinLength
+  MaximumLength:
+    settings-key: PasswordValidation-MaxLength
+  MinUpperCase:
+    settings-key: PasswordValidation-MinUpperCase
+  MinLowerCase:
+    settings-key: PasswordValidation-MinLowerCase
+  MinNumbers:
+    settings-key: PasswordValidation-MinNumbers
+  MinSpecialSymbols:
+    settings-key: PasswordValidation-MinSpecialSymbols
+  SpecialCharacters:
+    settings-key: PasswordValidation-AllowedSpecialSymbols
+  Spaces:
+    settings-key: PasswordValidation-AllowWhiteSpaces
+CustomerSupportPhoneNumber:
+  settings-key: CustomerSupportPhoneNumber
+CustomerSupportEmail:
+  settings-key: CustomerSupportEmail
+PrivacyAndTermsUrl:
+  settings-key: Mobile-PrivacyAndTermsUrl
+PrivacyUrl:
+  settings-key: Mobile-PrivacyUrl
+DApp:
+  LinkWalletAppUrlTemplate:
+    settings-key: DApp-LinkWalletAppUrlTemplate
+TokenPrecision:
+  settings-key: Mobile-TokenPrecision
+Registration:
+  VerificationCodeExpirationPeriod:
+    settings-key: Mobile-VerificationCodeExpirationPeriod
+BaseCurrencyCode:
+    settings-key: Constant-BaseCurrencyCode
+TokenSymbol:
+    settings-key: Constant-TokenSymbol
+AppVersion:
+  LatestAppVersion:
+    settings-key: Mobile-LatestAppVersion
+  LatestMandatoryUpgradeAppVersion:
+    settings-key: Mobile-LatestMandatoryUpgradeAppVersion
+PinCode:
+  PinCodeLength:
+    settings-key: PinCodeLength
+  PinCodeWarningAttemptCount:
+    settings-key: PinCodeWarningAttemptCount
+  PinCodeMaximumAttemptCount:
+    settings-key: PinCodeMaximumAttemptCount
+

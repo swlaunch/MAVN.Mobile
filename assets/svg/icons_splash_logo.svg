@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="288px" height="288px" viewBox="0 0 288 288" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50.0157587%" y1="-23.3202558%" x2="50.0157587%" y2="127.31617%" id="linearGradient-1">
+            <stop stop-color="#FF0029" offset="0%"></stop>
+            <stop stop-color="#AB00FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-21.8074374%" y1="6.92544057%" x2="98.3276669%" y2="143.349124%" id="linearGradient-2">
+            <stop stop-color="#FF9100" offset="0%"></stop>
+            <stop stop-color="#FF0029" offset="51.53%"></stop>
+            <stop stop-color="#AB00FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Shape_5_" transform="translate(8.000000, 14.000000)">
+            <polygon id="Path" fill="url(#linearGradient-1)" points="61.9812498 260.437499 136.446875 184.796875 210.765624 260.437499 210.765624 215.199999 136.446875 139.559375 61.9812498 215.199999 61.9812498 215.199999 61.9812498 215.199999"></polygon>
+            <polygon id="Path" fill="#FF8F1C" points="0 107.39375 105.45625 107.39375 136.446875 139.559375 31.5781249 139.559375 31.5781249 139.559375 31.5781249 139.559375"></polygon>
+            <polygon id="Path" fill="url(#linearGradient-2)" points="272.746874 107.39375 168.025 107.39375 168.025 32.3406249 136.446875 0.0281249974 136.446875 139.559375 241.756249 139.559375 241.756249 139.559375 241.756249 139.559375"></polygon>
+        </g>
+    </g>
+</svg>

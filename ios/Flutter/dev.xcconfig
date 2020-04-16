@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug-dev.xcconfig"
+#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.release-dev.xcconfig"
+#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.profile-dev.xcconfig"
+#include "Generated.xcconfig"
+
+GOOGLE_SERVICE_PLIST = GoogleService-Info.dev.plist
+FLUTTER_TARGET = lib/main_dev.dart
+APP_DISPLAY_NAME = MAVN Dev
+ENVIRONMENT_PLIST = dev.plist

@@ -1,0 +1,5 @@
+{
+  "error": "LoginAttemptsWarning",
+  "message": "You have N more attempts to sign in, or your account will be temporarily locked.",
+  "attemptsLeft": 5
+}

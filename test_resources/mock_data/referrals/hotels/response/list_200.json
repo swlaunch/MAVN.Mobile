@@ -1,0 +1,41 @@
+{
+  "HotelReferrals": [
+    {
+      "Id": "string",
+      "Status": "Pending",
+      "TimeStamp": "2019-09-26T09:47:41.607Z",
+      "Email": "1mail@maill.com",
+      "CustomerId": "string",
+      "FirstName": "string",
+      "LastName": "string",
+      "Status": "Pending"
+    },
+    {
+      "Id": "string",
+      "Status": "Confirmed",
+      "TimeStamp": "2019-09-26T09:47:41.607Z",
+      "Email": "mail@maill.com",
+      "CustomerId": "string",
+      "FirstName": "string",
+      "LastName": "string"
+    },
+    {
+      "Id": "string",
+      "Status": "Expired",
+      "TimeStamp": "2019-09-26T09:47:41.607Z",
+      "Email": "mail@maill.com",
+      "CustomerId": "string",
+      "FirstName": "string",
+      "LastName": "string"
+    },
+    {
+      "Id": "string",
+      "Status": "Used",
+      "TimeStamp": "2019-09-26T09:47:41.607Z",
+      "Email": "mail@maill.com",
+      "CustomerId": "string",
+      "FirstName": "string",
+      "LastName": "string"
+    }
+  ]
+}

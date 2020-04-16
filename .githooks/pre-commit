@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+printf "\e[33;1m%s\e[0m\n" 'Running the Flutter formatter'
+flutter format .
+printf "\e[33;1m%s\e[0m\n" 'Finished running the Flutter formatter'
+
+exec < /dev/tty
+
+read -p "Do you wish to run the localisation script? " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  printf "\e[33;1m%s\e[0m\n" 'Updating localisation files'
+  sh ./update_english_localisations.sh
+  printf "\e[33;1m%s\e[0m\n" 'Finished updating localisation files'
+fi

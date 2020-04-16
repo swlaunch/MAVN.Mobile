@@ -1,0 +1,10 @@
+[{
+  "Balance": 25000000,
+  "AssetSymbol": "ABC",
+  "IsWalletBlocked": false,
+  "TotalEarned": 25000000,
+  "TotalSpent": 0,
+  "PrivateWalletAddress": "privateWalletAddress",
+  "PublicWalletAddress": "publicWalletAddress",
+  "PublicAddressLinkingStatus": "Pending"
+}]

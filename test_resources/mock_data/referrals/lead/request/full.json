@@ -1,0 +1,10 @@
+{
+  "FirstName": "stubFirstName",
+  "LastName": "stubLastName",
+  "CountryPhoneCodeId": 0,
+  "PhoneNumber": "stubPhoneNumber",
+  "Email": "stubEmail",
+  "Note": "stubNote",
+  "CampaignId": "stubInvoiceId"
+}
+

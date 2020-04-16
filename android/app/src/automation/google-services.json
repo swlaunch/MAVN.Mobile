@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "130742079094",
+    "firebase_url": "https://lykke-mavn-mobile-dev.firebaseio.com",
+    "project_id": "lykke-mavn-mobile-dev",
+    "storage_bucket": "lykke-mavn-mobile-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130742079094:android:a631a0f5087c233d",
+        "android_client_info": {
+          "package_name": "com.lykke.mavn.automation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "130742079094-t2m6b2m6ehlber0d4l6oth1eqvhmkukr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Ypthliy4t4BV2tsUGExphxr3FO7J-0Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "130742079094-t2m6b2m6ehlber0d4l6oth1eqvhmkukr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

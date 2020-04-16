@@ -1,0 +1,42 @@
+{
+  "EarnRules": [
+    {
+      "Conditions": [
+        {
+          "Id": "eca9b09b-c852-4810-d77b-08d736988817",
+          "Type": "hotel-stay",
+          "DisplayName": "Customer: Stay in Hotel",
+          "ImmediateReward": "300000",
+          "CompletionCount": 2,
+          "PartnerIds": [],
+          "HasStaking": false,
+          "StakeAmount": null,
+          "StakingPeriod": 1,
+          "StakeWarningPeriod": 1,
+          "StakingRule": 0.00,
+          "BurningRule": 0.00,
+          "RewardType": "Fixed",
+          "AmountInTokens": null,
+          "AmountInCurrency": 0.00,
+          "UsePartnerCurrencyRate": false
+        }
+      ],
+      "OptionalConditions": [],
+      "Id": "93a6f0b6-3715-474a-4401-08d736988815",
+      "Title": "Offer title",
+      "Status": "Active",
+      "Description": "Offer description",
+      "ImageUrl": "",
+      "Reward": "600000",
+      "AmountInTokens": 0,
+      "AmountInCurrency": 0,
+      "RewardType": "Fixed",
+      "FromDate": "2019-09-11T09:26:14.748Z",
+      "ToDate": "2019-09-12T09:26:14.748Z",
+      "CreatedBy": "string",
+      "CreationDate": "2019-09-11T13:50:19.199Z",
+      "CompletionCount": 2
+    }
+  ],
+  "TotalCount": 1
+}

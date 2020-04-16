@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "35121196834",
+    "firebase_url": "https://mavn-dev.firebaseio.com",
+    "project_id": "mavn-dev",
+    "storage_bucket": "mavn-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35121196834:android:5e5405eed41127d649bf7b",
+        "android_client_info": {
+          "package_name": "com.lykke.mavn.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35121196834-4diqht65401ticfb6jur59uvkoupecg1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lykke.mavn.dev",
+            "certificate_hash": "3ff6bc4146662450ea0bb8dcc5241fe84906250e"
+          }
+        },
+        {
+          "client_id": "35121196834-aspisujmvsvrf0hcp31t5qa5rt15al85.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFXBM-cJfhrUAkpY7pEZ-zUVwU64re00Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35121196834-aspisujmvsvrf0hcp31t5qa5rt15al85.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "35121196834-s8a63cf7bko1ng2eb8vit7fc8q2eitv1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lykke.mavn.dev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,11 @@
+{
+  "PartnerMessageId": "TestPartnerMessageId",
+  "PartnerId": "TestPartnerId",
+  "PartnerName": "TestPartnerName",
+  "LocationId": null,
+  "LocationName": null,
+  "CustomerId": "TestCustomerId",
+  "Timestamp": "2019-09-17T07:28:13.368Z",
+  "Subject": "Test Subject",
+  "Message":  "<html><body><p>Test message</p></body></html>"
+}

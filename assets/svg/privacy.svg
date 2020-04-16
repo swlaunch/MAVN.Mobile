@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Privacy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="24"></rect>
+    </defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1132.000000, -129.000000)" id="Privacy">
+            <g transform="translate(1129.000000, 128.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g mask="url(#mask-2)" id="Path" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <g transform="translate(4.000000, 2.000000)">
+                        <path d="M8,20 C8,20 16,16 16,10 L16,3 L8,0 L0,3 L0,10 C0,16 8,20 8,20 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

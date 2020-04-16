@@ -1,0 +1,33 @@
+{
+  "RealEstateProperties": [
+    {
+      "Name": "BD Downtown Views-27-2710",
+      "Instalments": [
+        {
+          "Id": "QkQgRG93bnRvd24gVmlld3MtMjctMjcxMCMjIzQxNzE2NyMjIzUwNTEyNTY0IyMjRE0jIyM4MQ==",
+          "AmountInTokens": "20.952",
+          "AmountInFiat": 104.76,
+          "DueDate": "2019-01-10T00:00:00.000Z",
+          "Name": "Charges for  LAND REG",
+          "FiatCurrencyCode": "AED"
+        },
+        {
+          "Id": "QkQgRG93bnRvd24gVmlld3MtMjctMjcxMCMjIzQxNzE2NyMjIzUxNDU4MDc0IyMjSU5WIyMjODE=",
+          "AmountInTokens": "880.4",
+          "AmountInFiat": 4402.0,
+          "DueDate": "2019-07-31T00:00:00.000Z",
+          "Name": "88060 as of 31-JUL-19 - BD Downtown Views-27-2710",
+          "FiatCurrencyCode": "AED"
+        },
+        {
+          "Id": "QkQgRG93bnRvd24gVmlld3MtMjctMjcxMCMjIzQxNzE2NyMjIzUxNjgzMDE2IyMjSU5WIyMjODE=",
+          "AmountInTokens": "40.8",
+          "AmountInFiat": 204.0,
+          "DueDate": "2019-08-31T00:00:00.000Z",
+          "Name": "88060 as of 31-AUG-19 - BD Downtown Views-27-2710",
+          "FiatCurrencyCode": "AED"
+        }
+      ]
+    }
+  ]
+}

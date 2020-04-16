@@ -1,0 +1,13 @@
+{
+  "FirstName": "stubFirstName",
+  "LastName": "stubLastName",
+  "PhoneNumber": "stubPhoneNumber",
+  "Email": "stubEmail",
+  "IsEmailVerified": true,
+  "IsPhoneNumberVerified": true,
+  "IsAccountBlocked": false,
+  "CountryPhoneCode": "stubCountryCodeCode",
+  "CountryPhoneCodeId": 0,
+  "CountryOfNationalityId": 0,
+  "CountryOfNationalityName": "stubCountryName"
+}

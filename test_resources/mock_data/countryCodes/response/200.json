@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 0,
+    "Code": "stubCode",
+    "CountryName": "stubName",
+    "CountryIso2Code": "stubCountryIso2Code",
+    "CountryIso3Code": "stubCountryIso3Code"
+  },
+  {
+    "Id": 1,
+    "Code": "stubCode",
+    "CountryName": "stubName",
+    "CountryIso2Code": "stubCountryIso2Code",
+    "CountryIso3Code": "stubCountryIso3Code"
+  }
+]
