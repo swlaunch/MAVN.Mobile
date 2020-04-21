@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/feature_pin/bloc/biometic_type_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_pin/bloc/biometic_type_output.dart';
@@ -41,7 +41,7 @@ void main() {
         BiometricTypeUninitializedState(),
         BiometricTypeLoadedState(
           assetName: SvgAssets.iconFingerPrint,
-          label: LocalizedStrings.useFingerprintButton,
+          label: LazyLocalizedStrings.useFingerprintButton,
         ),
       ]);
     });
@@ -58,7 +58,7 @@ void main() {
         BiometricTypeUninitializedState(),
         BiometricTypeLoadedState(
           assetName: SvgAssets.iconFaceId,
-          label: LocalizedStrings.useFaceIDButton,
+          label: LazyLocalizedStrings.useFaceIDButton,
         ),
       ]);
     });
@@ -75,7 +75,7 @@ void main() {
         BiometricTypeUninitializedState(),
         BiometricTypeLoadedState(
           assetName: SvgAssets.iconBiometrics,
-          label: LocalizedStrings.useBiometricButton,
+          label: LazyLocalizedStrings.useBiometricButton,
         ),
       ]);
     });

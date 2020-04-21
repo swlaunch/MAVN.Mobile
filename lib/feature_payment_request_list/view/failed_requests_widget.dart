@@ -11,6 +11,6 @@ class FailedRequestsWidget extends HookWidget {
   Widget build(BuildContext context) => PaginatedRequestsListWidget(
         key: const Key('failedRequestsList'),
         useBloc: () => useFailedPartnerPaymentsBloc(),
-        emptyStateText: LocalizedStrings.transferRequestEmptyUnsuccessful,
+        emptyStateText: useLocalizedStrings().transferRequestEmptyUnsuccessful,
       );
 }

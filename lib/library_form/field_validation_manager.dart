@@ -1,6 +1,7 @@
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_form/field_validation.dart';
 
-typedef BuildValidationMessageFunction<T> = String Function(
+typedef BuildValidationMessageFunction<T> = LocalizedStringBuilder Function(
     List<FieldValidation<T>> failedFieldValidationList);
 
 typedef _FieldValidationCallback<TResult> = TResult Function(
@@ -14,13 +15,13 @@ class FieldValidationManager<T> {
   });
 
   final List<FieldValidation<T>> fieldValidationList;
-  final String multipleErrorsMessage;
+  final LocalizedStringBuilder multipleErrorsMessage;
   final BuildValidationMessageFunction<T> buildMessage;
 
   bool isValid() => fieldValidationList
       .every((fieldValidation) => fieldValidation.isValid?.value);
 
-  String validator(T value) {
+  LocalizedStringBuilder validator(T value) {
     if (multipleErrorsMessage != null) {
       return _multipleErrorsValidator(value);
     }
@@ -32,7 +33,7 @@ class FieldValidationManager<T> {
     return _defaultValidator(value);
   }
 
-  String _defaultValidator(T value) {
+  LocalizedStringBuilder _defaultValidator(T value) {
     for (final fieldValidation in fieldValidationList) {
       if (fieldValidation != null) {
         final isValid = fieldValidation.validate(value);
@@ -43,10 +44,10 @@ class FieldValidationManager<T> {
         }
       }
     }
-    return null;
+    return LocalizedStringBuilder.empty();
   }
 
-  String _multipleErrorsValidator(T value) {
+  LocalizedStringBuilder _multipleErrorsValidator(T value) {
     final failedValidationList = fieldValidationList
         .map((fieldVal) {
           final isValid = fieldVal.validate(value);
@@ -62,10 +63,10 @@ class FieldValidationManager<T> {
     if (failedValidationList.length > 1) {
       return multipleErrorsMessage;
     }
-    return null;
+    return LocalizedStringBuilder.empty();
   }
 
-  String _buildMessageValidator(T value) {
+  LocalizedStringBuilder _buildMessageValidator(T value) {
     final failedFieldValidationList = fieldValidationList
         .map((fieldVal) {
           final isValid = fieldVal.validate(value);
@@ -84,18 +85,6 @@ class FieldValidationManager<T> {
     _forEachError((fieldValidation) => fieldValidation.onValidationError());
   }
 
-  List<String> getErrorMessages() =>
-      _mapEachError((fieldValidation) => fieldValidation.localizedString);
-
-  String getFirstErrorMessage() {
-    final firstError = _getFirstError();
-    if (firstError != null) {
-      return firstError.localizedString;
-    }
-
-    return null;
-  }
-
   void _forEachError(_FieldValidationCallback callback) {
     fieldValidationList.forEach((fieldValidation) {
       if (fieldValidation.isValid?.value == false &&
@@ -103,27 +92,6 @@ class FieldValidationManager<T> {
         callback(fieldValidation);
       }
     });
-  }
-
-  Iterable<TResult> _mapEachError<TResult>(
-          _FieldValidationCallback<TResult> callback) =>
-      fieldValidationList.map<TResult>(
-        (fieldValidation) {
-          if (fieldValidation.isValid?.value == false &&
-              fieldValidation.onValidationError != null) {
-            return callback(fieldValidation);
-          }
-        },
-      );
-
-  FieldValidation _getFirstError() {
-    for (final fieldValidation in fieldValidationList) {
-      if (fieldValidation.isValid?.value == false &&
-          fieldValidation.onValidationError != null) {
-        return fieldValidation;
-      }
-    }
-    return null;
   }
 
   void dispose() => fieldValidationList.forEach((fieldValidation) {

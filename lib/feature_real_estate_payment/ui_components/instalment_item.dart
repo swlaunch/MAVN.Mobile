@@ -38,13 +38,13 @@ class InstalmentItem extends StatelessWidget {
                   const StandardSizedSvg(SvgAssets.arrow),
                 ],
               ),
-              _buildDetails()
+              _buildDetails(context)
             ],
           ),
         ),
       );
 
-  Widget _buildDetails() => RichText(
+  Widget _buildDetails(BuildContext context) => RichText(
         textAlign: TextAlign.start,
         text: TextSpan(
           style: TextStyles.darkBodyBody4Regular,
@@ -57,15 +57,15 @@ class InstalmentItem extends StatelessWidget {
             TextSpan(text: extendedInstalment.instalment.amountInTokens.value),
             const TextSpan(text: ' • '),
             TextSpan(text: extendedInstalment.formattedDate),
-            if (extendedInstalment.isOverdue) ..._buildOverdueText(),
+            if (extendedInstalment.isOverdue) ..._buildOverdueText(context),
           ],
         ),
       );
 
-  List<TextSpan> _buildOverdueText() => [
+  List<TextSpan> _buildOverdueText(BuildContext context) => [
         const TextSpan(text: ' • '),
         TextSpan(
-          text: LocalizedStrings.installmentOverdue,
+          text: LocalizedStrings.of(context).installmentOverdue,
           style: TextStyles.bodyBody4RegularError,
         ),
       ];

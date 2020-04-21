@@ -36,7 +36,8 @@ class AvailableAndStakedBalanceWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-                LocalizedStrings.propertyPaymentAvailableBalanceLabel
+                LocalizedStrings.of(context)
+                    .propertyPaymentAvailableBalanceLabel
                     .toUpperCase(),
                 style: TextStyles.darkInputLabelBold),
             const SizedBox(height: 8),
@@ -61,7 +62,7 @@ class AvailableAndStakedBalanceWidget extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    LocalizedStrings.transactionFormStakedAmount(
+                    LocalizedStrings.of(context).transactionFormStakedAmount(
                         wallet.stakedBalance.displayValueWithoutTrailingZeroes),
                     style: TextStyles.darkBodyBody4Regular,
                   ),

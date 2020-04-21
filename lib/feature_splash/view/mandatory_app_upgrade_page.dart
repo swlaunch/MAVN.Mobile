@@ -29,18 +29,18 @@ class MandatoryAppUpgradePage extends HookWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                LocalizedStrings.mandatoryAppUpgradePageTitle,
+                useLocalizedStrings().mandatoryAppUpgradePageTitle,
                 style: TextStyles.h1PageHeader,
               ),
               const SizedBox(height: 12),
               Text(
-                LocalizedStrings.mandatoryAppUpgradePageContent,
+                useLocalizedStrings().mandatoryAppUpgradePageContent,
                 textAlign: TextAlign.center,
                 style: TextStyles.darkBodyBody2Regular,
               ),
               const Spacer(),
               PrimaryButton(
-                text: LocalizedStrings.mandatoryAppUpgradePageButton,
+                text: useLocalizedStrings().mandatoryAppUpgradePageButton,
                 onTap: router.redirectToAppStores,
               ),
               const SizedBox(height: 48),

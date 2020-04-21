@@ -1,4 +1,5 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/clear_secure_storage_use_case.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/route_authentication_use_case.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
@@ -87,4 +88,5 @@ SplashBaseErrorState _mapExceptionToErrorState(Exception e) {
 }
 
 SplashBloc useSplashBloc() =>
-    ModuleProvider.of<SplashModule>(useContext()).splashBloc;
+    ModuleProvider.of<SplashModule>(useContext()).splashBloc
+      .._biometricBloc.localizedStrings = useLocalizedStrings();

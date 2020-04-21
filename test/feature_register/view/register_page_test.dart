@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/countries_response_model.dart';
@@ -32,6 +33,8 @@ RegisterAnalyticsManager _mockRegisterAnalyticsManager;
 Widget _subjectWidget;
 GetMobileSettingsUseCase _mockGetMobileSettingsUseCase =
     MockGetMobileSettingsUseCase();
+
+final _localizedStrings = LocalizedStrings();
 
 void main() {
   group('RegisterPage tests', () {
@@ -87,7 +90,8 @@ void main() {
     testWidgets('RegisterErrorState', (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
-        RegisterErrorState(TestConstants.stubErrorText),
+        RegisterErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
       );
 
       // Submission error shows only on the second form
@@ -725,11 +729,11 @@ void _thenLastNameIsInvalidValidationErrorIsPresent() {
 }
 
 void _thenPasswordIsInvalidValidationErrorIsPresent() {
-  expect(find.text(LocalizedStrings.passwordInvalidError), findsOneWidget);
+  expect(find.text(_localizedStrings.passwordInvalidError), findsOneWidget);
 }
 
 void _thenTermsOfUseErrorIsPresent() {
-  expect(find.text(LocalizedStrings.registerPageAgreeTermsOfUseError),
+  expect(find.text(_localizedStrings.registerPageAgreeTermsOfUseError),
       findsOneWidget);
 }
 
@@ -758,7 +762,7 @@ void _thenNoPasswordValidationError() {
 }
 
 void _thenNoTermsOfUseError() {
-  expect(find.text(LocalizedStrings.registerPageAgreeTermsOfUseError),
+  expect(find.text(_localizedStrings.registerPageAgreeTermsOfUseError),
       findsNothing);
 }
 

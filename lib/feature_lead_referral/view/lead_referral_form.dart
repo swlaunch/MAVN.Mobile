@@ -126,8 +126,8 @@ class LeadReferralForm extends HookWidget with FormMixin {
         children: <Widget>[
           FieldPadding(
             CustomTextField(
-              label: LocalizedStrings.firstNameRequiredLabel,
-              hint: LocalizedStrings.firstNameHint,
+              label: useLocalizedStrings().firstNameRequiredLabel,
+              hint: useLocalizedStrings().firstNameHint,
               valueKey: const Key('firstNameTextField'),
               contextGlobalKey: firstNameContextGlobalKey,
               focusNode: firstNameFocusNode,
@@ -141,8 +141,8 @@ class LeadReferralForm extends HookWidget with FormMixin {
           ),
           FieldPadding(
             CustomTextField(
-              label: LocalizedStrings.lastNameRequiredLabel,
-              hint: LocalizedStrings.lastNameHint,
+              label: useLocalizedStrings().lastNameRequiredLabel,
+              hint: useLocalizedStrings().lastNameHint,
               valueKey: const Key('lastNameTextField'),
               contextGlobalKey: lastNameContextGlobalKey,
               focusNode: lastNameFocusNode,
@@ -162,8 +162,8 @@ class LeadReferralForm extends HookWidget with FormMixin {
               countryCodeInputGlobalKey: countryCodeInputGlobalKey,
               phoneAndCountryCodeContextGlobalKey:
                   phoneAndCountryCodeContextGlobalKey,
-              label: LocalizedStrings.phoneNumberRequiredLabel,
-              hint: LocalizedStrings.phoneNumberHint,
+              label: useLocalizedStrings().phoneNumberRequiredLabel,
+              hint: useLocalizedStrings().phoneNumberHint,
               countryCodeFocusNode: countryCodeFocusNode,
               phoneNumberFocusNode: phoneNumberFocusNode,
               phoneNumberTextEditingController: phoneController,
@@ -177,8 +177,8 @@ class LeadReferralForm extends HookWidget with FormMixin {
           ),
           FieldPadding(
             CustomTextField(
-              label: LocalizedStrings.emailRequiredLabel,
-              hint: LocalizedStrings.emailAddressHint,
+              label: useLocalizedStrings().emailRequiredLabel,
+              hint: useLocalizedStrings().emailAddressHint,
               contextGlobalKey: emailContextGlobalKey,
               valueKey: const Key('emailTextField'),
               focusNode: emailFocusNode,
@@ -191,9 +191,9 @@ class LeadReferralForm extends HookWidget with FormMixin {
           ),
           FieldPadding(
             MultilineTextField(
-              label:
-                  LocalizedStrings.leadReferralFormPageCommunityOfInterestLabel,
-              hint: LocalizedStrings.noteHint,
+              label: useLocalizedStrings()
+                  .leadReferralFormPageCommunityOfInterestLabel,
+              hint: useLocalizedStrings().noteHint,
               valueKey: const Key('noteTextField'),
               focusNode: noteFocusNode,
               textEditingController: noteController,
@@ -215,7 +215,7 @@ class LeadReferralForm extends HookWidget with FormMixin {
   ) =>
       PrimaryButton(
         buttonKey: const Key('submitButton'),
-        text: LocalizedStrings.submitButton,
+        text: useLocalizedStrings().submitButton,
         onTap: () {
           submitLeadReferralFunction();
         },

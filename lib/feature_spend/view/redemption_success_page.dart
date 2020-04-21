@@ -26,7 +26,7 @@ class RedemptionSuccessPage extends HookWidget {
       body: Column(
         children: <Widget>[
           PageTitle(
-            title: LocalizedStrings.redemptionSuccessTitle,
+            title: useLocalizedStrings().redemptionSuccessTitle,
             assetIconTrailing: SvgAssets.success,
             assetIconTrailingAlignedToTitle: true,
           ),
@@ -60,22 +60,22 @@ class RedemptionSuccessPage extends HookWidget {
   }
 
   Widget _buildCopyWidget() => CopyRowWidget(
-        title: LocalizedStrings.redemptionSuccessCopyTitle,
+        title: useLocalizedStrings().redemptionSuccessCopyTitle,
         copyText: voucherCode,
         copyWidgetType: CopyWidgetType.advanced,
         advancedCopyTextStyle: TextStyles.darkBodyBody2Bold,
-        toastMessage: LocalizedStrings.redemptionSuccessToastMessage,
+        toastMessage: useLocalizedStrings().redemptionSuccessToastMessage,
       );
 
   Widget _buildClickableText({@required VoidCallback onTap}) => RichText(
           text: TextSpan(
         children: [
           TextSpan(
-            text: LocalizedStrings.redemptionSuccessDetailsText,
+            text: useLocalizedStrings().redemptionSuccessDetailsText,
             style: TextStyles.darkBodyBody3Regular,
           ),
           TextSpan(
-            text: LocalizedStrings.redemptionSuccessDetailsLink,
+            text: useLocalizedStrings().redemptionSuccessDetailsLink,
             style: TextStyles.linksTextLinkSmallBold,
             recognizer: TapGestureRecognizer()..onTap = onTap,
           ),
@@ -84,7 +84,7 @@ class RedemptionSuccessPage extends HookWidget {
 
   Widget _buildOpenVoucherAppButton({@required VoidCallback onTap}) =>
       PrimaryButton(
-        text: LocalizedStrings.redemptionSuccessOpenVoucherAppButton,
+        text: useLocalizedStrings().redemptionSuccessOpenVoucherAppButton,
         onTap: onTap,
       );
 }

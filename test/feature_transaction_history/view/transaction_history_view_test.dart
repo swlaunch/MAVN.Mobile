@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/repository/mapper/transaction_history_mapper.dart';
 import 'package:lykke_mobile_mavn/feature_transaction_history/bloc/transaction_history_bloc.dart';
@@ -77,7 +78,8 @@ void main() {
     testWidgets('TransactionHistoryInitialPageError', (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(widgetTester,
           transactionHistoryState: TransactionHistoryInitialPageError(
-              error: TestConstants.stubErrorText));
+              error:
+                  LocalizedStringBuilder.custom(TestConstants.stubErrorText)));
 
       thenSpinnerNotPresent();
       thenTransactionHistoryViewErrorPresent();
@@ -124,7 +126,7 @@ void main() {
     testWidgets('TransactionHistoryPaginationError', (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(widgetTester,
           transactionHistoryState: TransactionHistoryPaginationError(
-              error: TestConstants.stubErrorText,
+              error: LocalizedStringBuilder.custom(TestConstants.stubErrorText),
               transactionHistoryResponseModel:
                   TestConstants.stubTransactionHistoryResponseModel,
               currentPage: 1));
@@ -139,7 +141,7 @@ void main() {
         (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(widgetTester,
           transactionHistoryState: TransactionHistoryPaginationError(
-              error: TestConstants.stubErrorText,
+              error: LocalizedStringBuilder.custom(TestConstants.stubErrorText),
               transactionHistoryResponseModel:
                   TestConstants.stubTransactionHistoryResponseModel,
               currentPage: 1));
@@ -153,7 +155,8 @@ void main() {
         (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(widgetTester,
           transactionHistoryState: TransactionHistoryInitialPageError(
-              error: TestConstants.stubErrorText));
+              error:
+                  LocalizedStringBuilder.custom(TestConstants.stubErrorText)));
 
       await widgetTester.ensureVisible(find.text('RETRY'));
       await widgetTester.tap(find.text('RETRY'));
@@ -204,7 +207,8 @@ void main() {
         (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(widgetTester,
           transactionHistoryState: TransactionHistoryInitialPageError(
-              error: TestConstants.stubErrorText));
+              error:
+                  LocalizedStringBuilder.custom(TestConstants.stubErrorText)));
 
       await thenWidgetShouldMatchScreenshot(
         widgetTester,
@@ -236,7 +240,8 @@ void main() {
               transactionHistoryResponseModel:
                   TestConstants.stubTransactionHistoryResponseModel,
               currentPage: 1,
-              error: TestConstants.stubErrorText));
+              error:
+                  LocalizedStringBuilder.custom(TestConstants.stubErrorText)));
 
       await thenWidgetShouldMatchScreenshot(
         widgetTester,

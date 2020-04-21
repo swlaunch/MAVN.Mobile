@@ -110,8 +110,8 @@ class HotelReferralForm extends HookWidget with FormMixin {
           children: <Widget>[
             FieldPadding(
               CustomTextField(
-                label: LocalizedStrings.hotelReferralFullNameFieldLabel,
-                hint: LocalizedStrings.hotelReferralFullNameFieldHint,
+                label: useLocalizedStrings().hotelReferralFullNameFieldLabel,
+                hint: useLocalizedStrings().hotelReferralFullNameFieldHint,
                 contextGlobalKey: fullNameContextGlobalKey,
                 focusNode: fullNameFocusNode,
                 valueKey: const Key('fullNameTextField'),
@@ -124,8 +124,8 @@ class HotelReferralForm extends HookWidget with FormMixin {
             ),
             FieldPadding(
               CustomTextField(
-                label: LocalizedStrings.emailRequiredLabel,
-                hint: LocalizedStrings.emailAddressHint,
+                label: useLocalizedStrings().emailRequiredLabel,
+                hint: useLocalizedStrings().emailAddressHint,
                 contextGlobalKey: emailContextGlobalKey,
                 valueKey: const Key('emailTextField'),
                 focusNode: emailFocusNode,
@@ -141,8 +141,8 @@ class HotelReferralForm extends HookWidget with FormMixin {
               PhoneAndCountryCodeField(
                 selectedCountryCodeNotifier: selectedCountryCodeNotifier,
                 phoneNumberTextEditingController: phoneNumberController,
-                label: LocalizedStrings.phoneNumberRequiredLabel,
-                hint: LocalizedStrings.phoneNumberHint,
+                label: useLocalizedStrings().phoneNumberRequiredLabel,
+                hint: useLocalizedStrings().phoneNumberHint,
                 phoneNumberValueKey: const Key('phoneNumberTextField'),
                 countryCodeValueKey: const Key('countryCodeField'),
                 phoneAndCountryCodeContextGlobalKey:
@@ -173,7 +173,7 @@ class HotelReferralForm extends HookWidget with FormMixin {
   ) =>
       PrimaryButton(
         buttonKey: const Key('submitButton'),
-        text: LocalizedStrings.hotelReferralPageButton,
+        text: useLocalizedStrings().hotelReferralPageButton,
         onTap: submitHotelReferralFunction,
         isLoading: blocState is HotelReferralSubmissionLoadingState,
       );

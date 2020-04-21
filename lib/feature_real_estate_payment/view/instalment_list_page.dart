@@ -54,7 +54,7 @@ class InstalmentListPage extends HookWidget {
                   Heading(property.name),
                   const SizedBox(height: 32),
                   Text(
-                    LocalizedStrings.instalmentListChooseAnInstalment,
+                    useLocalizedStrings().instalmentListChooseAnInstalment,
                     style: TextStyles.darkHeadersH3,
                   ),
                   const SizedBox(height: 16),

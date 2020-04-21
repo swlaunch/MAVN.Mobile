@@ -14,9 +14,10 @@ class TransactionSuccessPage extends HookWidget {
     final router = useRouter();
     return ResultFeedbackPage(
       widgetKey: const Key('transactionSuccessWidget'),
-      title: LocalizedStrings.transactionSuccessTitle,
-      details: LocalizedStrings.transactionSuccessDetails,
-      buttonText: LocalizedStrings.backToTokenWalletButton(tokenSymbol.value),
+      title: useLocalizedStrings().transactionSuccessTitle,
+      details: useLocalizedStrings().transactionSuccessDetails,
+      buttonText:
+          useLocalizedStrings().backToTokenWalletButton(tokenSymbol.value),
       onButtonTap: () {
         router
           ..popToRoot()

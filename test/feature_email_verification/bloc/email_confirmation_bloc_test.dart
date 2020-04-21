@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_email_verification/bloc/email_confirmation_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_email_verification/bloc/email_confirmation_bloc_output.dart';
@@ -64,7 +64,7 @@ void main() {
           .thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await _subject.confirmEmail();
 
@@ -72,7 +72,7 @@ void main() {
         EmailConfirmationUninitializedState(),
         EmailConfirmationLoadingState(),
         EmailConfirmationErrorState(
-            error: LocalizedStrings.defaultGenericError, canRetry: true),
+            error: LazyLocalizedStrings.defaultGenericError, canRetry: true),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);

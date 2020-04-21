@@ -112,7 +112,7 @@ class HomePage extends HookWidget {
             actions: <Widget>[
               IconButton(
                 key: const Key('homePageAccountButton'),
-                tooltip: LocalizedStrings.accountPageTitle,
+                tooltip: useLocalizedStrings().accountPageTitle,
                 icon: StandardSizedSvg(
                   SvgAssets.user,
                   color: theme.appBarIcon,
@@ -120,7 +120,7 @@ class HomePage extends HookWidget {
                 onPressed: router.pushAccountPage,
               ),
               IconButton(
-                tooltip: LocalizedStrings.notifications,
+                tooltip: useLocalizedStrings().notifications,
                 icon: NotificationIconWidget(
                   color: theme.appBarIcon,
                   bubbleColor: theme.appBarBubble,

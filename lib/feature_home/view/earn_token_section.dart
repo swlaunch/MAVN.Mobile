@@ -39,8 +39,8 @@ class EarnTokenSection extends HookWidget {
         useState(useGetMobileSettingsUseCase(context).execute()?.tokenSymbol);
     return SectionWidget(
       theme: theme,
-      title: LocalizedStrings.monthlyChallenges,
-      subtitle: LocalizedStrings.monthlyChallengesSubtitle,
+      title: useLocalizedStrings().monthlyChallenges,
+      subtitle: useLocalizedStrings().monthlyChallengesSubtitle,
       circularWidget: Container(
         color: theme.iconBackground,
         padding: const EdgeInsets.all(6),
@@ -61,7 +61,9 @@ class EarnTokenSection extends HookWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: GenericErrorWidget(
                   onRetryTap: onRetryTap,
-                  text: (earnRuleListState as GenericListErrorState).error,
+                  text: (earnRuleListState as GenericListErrorState)
+                      .error
+                      .localize(useContext()),
                 ),
               ),
             if (earnRuleListState is GenericListLoadedState)

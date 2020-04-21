@@ -1,6 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/linked_wallet_send_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/linked_wallet_send_output.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
@@ -47,15 +47,15 @@ void main() {
           .thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await subject.transferToken(Decimal.fromInt(1));
 
       await blocTester.assertFullBlocOutputInOrder([
         LinkedWalletSendUninitializedState(),
         LinkedWalletSendLoadingState(),
-        LinkedWalletSendErrorEvent(LocalizedStrings.defaultGenericError),
-        LinkedWalletSendErrorState(LocalizedStrings.defaultGenericError),
+        LinkedWalletSendErrorEvent(LazyLocalizedStrings.defaultGenericError),
+        LinkedWalletSendErrorState(LazyLocalizedStrings.defaultGenericError),
       ]);
     });
   });

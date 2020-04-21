@@ -33,7 +33,7 @@ class WalletBalanceShortcutWidget extends HookWidget {
       final theme = themeBlocState.theme;
       return HomeShortcutItemWidget(
         backgroundColor: theme.homeWalletBackground,
-        text: LocalizedStrings.walletPageTitle,
+        text: useLocalizedStrings().walletPageTitle,
         onTap: router.switchToWalletTab,
         child: Padding(
           padding: const EdgeInsets.all(6),
@@ -41,8 +41,8 @@ class WalletBalanceShortcutWidget extends HookWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               if (balanceBlocState is BalanceLoadedState)
-                ..._buildBalanceText(
-                    tokenSymbol.value, balanceBlocState.wallet.balance.value),
+                ..._buildBalanceText(context, tokenSymbol.value,
+                    balanceBlocState.wallet.balance.value),
               if (balanceBlocState is BaseLoadingState) const Spinner()
             ],
           ),
@@ -51,9 +51,11 @@ class WalletBalanceShortcutWidget extends HookWidget {
     }
   }
 
-  List<Widget> _buildBalanceText(String tokenSymbol, String balance) => [
+  List<Widget> _buildBalanceText(
+          BuildContext context, String tokenSymbol, String balance) =>
+      [
         AutoSizeText(
-          LocalizedStrings.balanceBoxHeader.toUpperCase(),
+          LocalizedStrings.of(context).balanceBoxHeader.toUpperCase(),
           style: TextStyles.lightBodyBody3Regular,
         ),
         AutoSizeText(

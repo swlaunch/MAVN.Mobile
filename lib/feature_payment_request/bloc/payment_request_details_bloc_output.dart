@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/response_model/payment_request_response_model.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 
@@ -26,15 +27,15 @@ class PaymentRequestDetailsErrorState extends PaymentRequestDetailsState
     @required this.iconAsset,
   });
 
-  final String errorTitle;
-  final String errorSubtitle;
+  final LocalizedStringBuilder errorTitle;
+  final LocalizedStringBuilder errorSubtitle;
   final String iconAsset;
 
   @override
-  String get title => errorTitle;
+  LocalizedStringBuilder get title => errorTitle;
 
   @override
-  String get subtitle => errorSubtitle;
+  LocalizedStringBuilder get subtitle => errorSubtitle;
 
   @override
   String get asset => iconAsset;

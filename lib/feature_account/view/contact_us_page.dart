@@ -28,26 +28,26 @@ class ContactUsPage extends HookWidget {
     void onPhoneTap() {
       externalRouter.launchPhone(contactPhoneNumberState.value,
           onLaunchError: () => errorMessageState.value =
-              LocalizedStrings.contactUsLaunchContactNumberError);
+              useLocalizedStrings().contactUsLaunchContactNumberError);
     }
 
     void onEmailTap() {
       externalRouter.launchEmail(contactEmailState.value,
           onLaunchError: () => errorMessageState.value =
-              LocalizedStrings.contactUsLaunchContactEmailError);
+              useLocalizedStrings().contactUsLaunchContactEmailError);
     }
 
     Future<void> onWhatsAppTap() async {
       await externalRouter.pushWhatsApp(
           phone: contactPhoneNumberState.value,
-          message: LocalizedStrings.contactUsWhatsAppStartingMessage);
+          message: useLocalizedStrings().contactUsWhatsAppStartingMessage);
     }
 
     return ScaffoldWithAppBar(
       body: Column(
         children: [
           PageTitle(
-            title: LocalizedStrings.contactUsButton,
+            title: useLocalizedStrings().contactUsButton,
             assetIconLeading: SvgAssets.settingsContactUs,
           ),
           Expanded(
@@ -89,14 +89,14 @@ class ContactUsPage extends HookWidget {
       Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Text(LocalizedStrings.contactUsPageDetail,
+          Text(useLocalizedStrings().contactUsPageDetail,
               style: TextStyles.darkBodyBody1RegularHigh),
           const SizedBox(height: 32),
           if (contactNumber != null)
             _ContactOptionRow(
                 contactButtonThrottleInterval: contactButtonThrottleInterval,
                 icon: SvgAssets.phone,
-                title: LocalizedStrings.contactUsPhoneNumber,
+                title: useLocalizedStrings().contactUsPhoneNumber,
                 text: contactNumber,
                 onTap: onPhoneTap),
           const SizedBox(height: 32),
@@ -104,7 +104,7 @@ class ContactUsPage extends HookWidget {
             _ContactOptionRow(
                 contactButtonThrottleInterval: contactButtonThrottleInterval,
                 icon: SvgAssets.email,
-                title: LocalizedStrings.contactUsEmail,
+                title: useLocalizedStrings().contactUsEmail,
                 text: email,
                 onTap: onEmailTap),
           const SizedBox(height: 32),
@@ -112,7 +112,7 @@ class ContactUsPage extends HookWidget {
             _ContactOptionRow(
                 contactButtonThrottleInterval: contactButtonThrottleInterval,
                 icon: SvgAssets.whatsAppIcon,
-                title: LocalizedStrings.contactUsWhatsApp,
+                title: useLocalizedStrings().contactUsWhatsApp,
                 text: contactNumber,
                 onTap: onWhatsAppTap),
         ],

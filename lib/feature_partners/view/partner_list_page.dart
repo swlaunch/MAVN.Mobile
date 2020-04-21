@@ -24,7 +24,8 @@ class PartnerListPage extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(24, 0, 24, 32),
-            child: Heading(LocalizedStrings.partnerDetailsPageTitle),
+            child:
+                Heading(LocalizedStrings.of(context).partnerDetailsPageTitle),
           ),
           Expanded(
             child: ListView.separated(

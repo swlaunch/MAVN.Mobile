@@ -28,7 +28,7 @@ class LeadReferralAcceptedPage extends HookWidget {
       title: _getTitle(referralLeadState),
       details: _getDetails(referralLeadState),
       isLoading: referralLeadState is AcceptLeadReferralLoadingState,
-      buttonText: LocalizedStrings.continueButton,
+      buttonText: useLocalizedStrings().continueButton,
       onButtonTap: () {
         router.pop();
       },
@@ -49,19 +49,19 @@ class LeadReferralAcceptedPage extends HookWidget {
 
   String _getTitle(AcceptLeadReferralState state) {
     if (state is AcceptLeadReferralSuccessState) {
-      return LocalizedStrings.referralAcceptedSuccessTitle;
+      return useLocalizedStrings().referralAcceptedSuccessTitle;
     }
 
-    return LocalizedStrings.referralAcceptedTitle;
+    return useLocalizedStrings().referralAcceptedTitle;
   }
 
   String _getDetails(AcceptLeadReferralState state) {
     if (state is AcceptLeadReferralErrorState) {
-      return state.error;
+      return state.error.localize(useContext());
     }
 
     if (state is AcceptLeadReferralSuccessState) {
-      return LocalizedStrings.leadReferralAcceptedSuccessBody;
+      return useLocalizedStrings().leadReferralAcceptedSuccessBody;
     }
 
     return '';

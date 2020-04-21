@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:lykke_mobile_mavn/app/app.dart';
+import 'package:lykke_mobile_mavn/app/app_localizations_delegate.dart';
 import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc_output.dart';
@@ -179,6 +182,13 @@ class TestAppFrame extends StatelessWidget {
             navigatorKey: navigatorGlobalStateKey,
             title: 'Test widget frame',
             theme: ThemeData(),
+            localizationsDelegates: const [
+              AppLocalizationsDelegate(),
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate
+            ],
+            supportedLocales: appSupportedLocales,
+            localeResolutionCallback: defaultLocaleResolution,
             home: child,
           ),
         ),

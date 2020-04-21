@@ -91,7 +91,7 @@ class WalletPage extends HookWidget {
       backgroundColor: theme.appBackground,
       appBar: AppBar(
         title: Text(
-          LocalizedStrings.walletPageTitle,
+          useLocalizedStrings().walletPageTitle,
           style: TextStyles.h1PageHeader,
         ),
         backgroundColor: theme.appBarBackground,

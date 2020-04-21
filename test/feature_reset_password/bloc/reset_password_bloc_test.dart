@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_reset_password/bloc/reset_password_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_reset_password/bloc/reset_password_output.dart';
@@ -51,14 +51,15 @@ void main() {
           .thenThrow(NetworkException());
 
       when(mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.networkError);
+          .thenReturn(LazyLocalizedStrings.networkError);
 
       await subject.sendLink('');
 
       expectedFullBlocOutput.addAll([
         ResetPasswordUninitializedState(),
         ResetPasswordLoadingState(),
-        ResetPasswordErrorState(errorMessage: LocalizedStrings.networkError),
+        ResetPasswordErrorState(
+            errorMessage: LazyLocalizedStrings.networkError),
       ]);
 
       await blocTester.assertFullBlocOutputInOrder(expectedFullBlocOutput);
@@ -69,7 +70,7 @@ void main() {
           .thenThrow(Exception());
 
       when(mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await subject.sendLink('');
 
@@ -77,7 +78,7 @@ void main() {
         ResetPasswordUninitializedState(),
         ResetPasswordLoadingState(),
         ResetPasswordErrorState(
-            errorMessage: LocalizedStrings.defaultGenericError),
+            errorMessage: LazyLocalizedStrings.defaultGenericError),
       ]);
 
       await blocTester.assertFullBlocOutputInOrder(expectedFullBlocOutput);
@@ -109,7 +110,7 @@ void main() {
           .thenThrow(NetworkException());
 
       when(mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.networkError);
+          .thenReturn(LazyLocalizedStrings.networkError);
 
       await subject.changePassword(
           email: '', resetIdentifier: '', password: '');
@@ -117,7 +118,8 @@ void main() {
       expectedFullBlocOutput.addAll([
         ResetPasswordUninitializedState(),
         ResetPasswordLoadingState(),
-        ResetPasswordErrorState(errorMessage: LocalizedStrings.networkError),
+        ResetPasswordErrorState(
+            errorMessage: LazyLocalizedStrings.networkError),
       ]);
 
       await blocTester.assertFullBlocOutputInOrder(expectedFullBlocOutput);
@@ -129,7 +131,7 @@ void main() {
           .thenThrow(Exception());
 
       when(mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await subject.changePassword(
           email: '', resetIdentifier: '', password: '');
@@ -138,7 +140,7 @@ void main() {
         ResetPasswordUninitializedState(),
         ResetPasswordLoadingState(),
         ResetPasswordErrorState(
-            errorMessage: LocalizedStrings.defaultGenericError),
+            errorMessage: LazyLocalizedStrings.defaultGenericError),
       ]);
 
       await blocTester.assertFullBlocOutputInOrder(expectedFullBlocOutput);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/country_codes_response_model.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_lead_referral/bloc/lead_referal_bloc.dart';
@@ -59,7 +60,8 @@ void main() {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
         LeadReferralSubmissionErrorState(
-            error: TestConstants.stubErrorText, canRetry: true),
+            error: LocalizedStringBuilder.custom(TestConstants.stubErrorText),
+            canRetry: true),
       );
 
       expect(find.byType(CircularProgressIndicator), findsNothing);
@@ -71,7 +73,8 @@ void main() {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
         LeadReferralSubmissionErrorState(
-            error: TestConstants.stubErrorText, canRetry: true),
+            error: LocalizedStringBuilder.custom(TestConstants.stubErrorText),
+            canRetry: true),
       );
       await _whenIFillAllFieldsCorrectly();
 

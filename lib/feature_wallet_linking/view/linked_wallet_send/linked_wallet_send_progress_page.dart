@@ -18,9 +18,10 @@ class LinkedWalletSendProgressPage extends HookWidget {
 
     return ResultFeedbackPage(
       widgetKey: const Key('linkedWalletSendProgressWidget'),
-      title: LocalizedStrings.transferInProgress,
-      details: LocalizedStrings.transferInProgressDetails(tokenSymbol.value),
-      buttonText: LocalizedStrings.backToWalletButton,
+      title: useLocalizedStrings().transferInProgress,
+      details:
+          useLocalizedStrings().transferInProgressDetails(tokenSymbol.value),
+      buttonText: useLocalizedStrings().backToWalletButton,
       onButtonTap: () {
         // 1: update wallet data
         walletBloc.fetchWallet();

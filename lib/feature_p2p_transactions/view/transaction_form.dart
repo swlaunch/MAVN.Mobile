@@ -98,8 +98,8 @@ class TransactionForm extends HookWidget with FormMixin {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             CustomTextField(
-              label: LocalizedStrings.transactionReceiverEmailAddressHint,
-              hint: LocalizedStrings.emailAddressHint,
+              label: useLocalizedStrings().transactionReceiverEmailAddressHint,
+              hint: useLocalizedStrings().emailAddressHint,
               valueKey: const Key('walletAddressTextField'),
               contextGlobalKey: walletAddressGlobalKey,
               fieldKey: walletAddressFieldKey,
@@ -112,9 +112,9 @@ class TransactionForm extends HookWidget with FormMixin {
             ),
             const SizedBox(height: 24),
             CustomTextField(
-              label: LocalizedStrings.transactionAmountTokensLabel(
+              label: useLocalizedStrings().transactionAmountTokensLabel(
                   tokenSymbol.value),
-              hint: LocalizedStrings.transactionAmountOfTokensHint,
+              hint: useLocalizedStrings().transactionAmountOfTokensHint,
               valueKey: const Key('amountTextField'),
               contextGlobalKey: amountGlobalKey,
               focusNode: amountFocusNode,
@@ -134,7 +134,8 @@ class TransactionForm extends HookWidget with FormMixin {
             ),
             const SizedBox(height: 56),
             if (transactionFormState is TransactionFormInlineErrorState)
-              _buildInlineError(transactionFormState.error),
+              _buildInlineError(
+                  transactionFormState.error.localize(useContext())),
             _buildTransactionButton(
                 onSendTap: onSendButtonTap,
                 isLoading: transactionFormState is TransactionFormLoadingState,
@@ -153,7 +154,7 @@ class TransactionForm extends HookWidget with FormMixin {
   }) =>
       PrimaryButton(
           buttonKey: const Key('transactionFormSendButton'),
-          text: LocalizedStrings.transactionFormPageTitle(tokenSymbol),
+          text: useLocalizedStrings().transactionFormPageTitle(tokenSymbol),
           onTap: onSendTap,
           isLoading: isLoading);
 

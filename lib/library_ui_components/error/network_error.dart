@@ -11,8 +11,8 @@ class NetworkErrorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => GenericErrorIconWidget(
         errorKey: const Key('networkError'),
-        title: LocalizedStrings.networkErrorTitle,
-        text: LocalizedStrings.networkError,
+        title: LocalizedStrings.of(context).networkErrorTitle,
+        text: LocalizedStrings.of(context).networkError,
         icon: SvgAssets.networkError,
         onRetryTap: onRetry,
       );

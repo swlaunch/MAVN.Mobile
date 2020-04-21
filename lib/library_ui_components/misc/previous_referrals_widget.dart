@@ -37,10 +37,10 @@ class PreviousReferralsWidget extends HookWidget {
     void onContactTap(String email) {
       externalRouter.launchEmail(
         email,
-        subject: LocalizedStrings.emailSubject,
-        body: LocalizedStrings.emailBody,
+        subject: useLocalizedStrings().emailSubject,
+        body: useLocalizedStrings().emailBody,
         onLaunchError: () => ToastMessage.show(
-            LocalizedStrings.contactUsLaunchContactEmailError, context),
+            useLocalizedStrings().contactUsLaunchContactEmailError, context),
       );
     }
 
@@ -98,7 +98,7 @@ class PreviousReferralsWidget extends HookWidget {
             showAsterisk: referral.isApproximate,
           ),
           const SizedBox(width: 3),
-          Text(LocalizedStrings.previousReferralsCardAward,
+          Text(useLocalizedStrings().previousReferralsCardAward,
               style: TextStyles.darkBodyBody3Regular),
           const Spacer()
         ],
@@ -110,20 +110,24 @@ class PreviousReferralsWidget extends HookWidget {
     if (referral.referralType == ReferralType.realEstate) {
       return _buildType(
         SvgAssets.property,
-        LocalizedStrings.previousReferralsCardTypeRealEstate.toUpperCase(),
+        useLocalizedStrings().previousReferralsCardTypeRealEstate.toUpperCase(),
       );
     }
 
     if (referral.referralType == ReferralType.hospitality) {
       return _buildType(
         SvgAssets.hotels,
-        LocalizedStrings.previousReferralsCardTypeHospitality.toUpperCase(),
+        useLocalizedStrings()
+            .previousReferralsCardTypeHospitality
+            .toUpperCase(),
       );
     }
     if (referral.referralType == ReferralType.friend) {
       return _buildType(
         SvgAssets.referrals,
-        LocalizedStrings.previousReferralsCardTypeAppReferral.toUpperCase(),
+        useLocalizedStrings()
+            .previousReferralsCardTypeAppReferral
+            .toUpperCase(),
       );
     }
 
@@ -140,7 +144,7 @@ class PreviousReferralsWidget extends HookWidget {
       ];
 
   Widget _buildNameSection() => NullSafeText(
-        referral.referralName,
+        referral.referralName.localize(useContext()),
         style: TextStyles.darkBodyBody2Bold,
       );
 
@@ -166,13 +170,13 @@ class PreviousReferralsWidget extends HookWidget {
     if (_shouldShowStakingInfo()) {
       return [
         NullSafeText(
-          LocalizedStrings.previousReferralsCardTimeLeftToAccept,
+          useLocalizedStrings().previousReferralsCardTimeLeftToAccept,
           style: TextStyles.darkBodyBody4Regular,
         ),
         const Spacer(),
         NullSafeText(
-          LocalizedStrings.expirationFormatDays(
-              referral.stakingInfo.stakingTimeLeft),
+          useLocalizedStrings()
+              .expirationFormatDays(referral.stakingInfo.stakingTimeLeft),
           style: TextStyles.darkBodyBody4Regular,
         )
       ];
@@ -180,7 +184,7 @@ class PreviousReferralsWidget extends HookWidget {
     if (referral.progressInfo != null) {
       return [
         NullSafeText(
-          LocalizedStrings.previousReferralsCardRemaining,
+          useLocalizedStrings().previousReferralsCardRemaining,
           style: TextStyles.darkBodyBody4Regular,
         ),
         const Spacer(),
@@ -206,7 +210,7 @@ class PreviousReferralsWidget extends HookWidget {
     if (_shouldShowStakingInfo() && referral.referralEmail != null) {
       return [
         NullSafeText(
-          LocalizedStrings.previousReferralsCardDontLose,
+          useLocalizedStrings().previousReferralsCardDontLose,
           style: TextStyles.darkBodyBody4Regular,
         ),
         const SizedBox(width: 3),
@@ -223,7 +227,7 @@ class PreviousReferralsWidget extends HookWidget {
         InkWell(
           onTap: () => onContactTap(referral.referralEmail),
           child: NullSafeText(
-            LocalizedStrings.previousReferralsCardContact(
+            useLocalizedStrings().previousReferralsCardContact(
                 referral.stakingInfo.stakingContact.toString()),
             style: TextStyles.textLinkButton.copyWith(height: 1.2),
           ),

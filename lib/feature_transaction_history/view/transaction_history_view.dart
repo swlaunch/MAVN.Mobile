@@ -53,7 +53,7 @@ class TransactionHistoryView extends HookWidget {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: PaginationErrorWidget(
-          errorText: transactionHistoryState.error,
+          errorText: transactionHistoryState.error.localize(useContext()),
           onRetry: transactionHistoryBloc.loadTransactionHistory,
         ),
       );
@@ -98,7 +98,7 @@ class TransactionHistoryView extends HookWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
             child: PaginationErrorWidget(
-              errorText: transactionHistoryState.error,
+              errorText: transactionHistoryState.error.localize(useContext()),
               onRetry: transactionHistoryBloc.loadTransactionHistory,
             ),
           )
@@ -173,7 +173,7 @@ class TransactionHistoryViewEmpty extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              LocalizedStrings.walletPageTransactionHistoryEmpty,
+              LocalizedStrings.of(context).walletPageTransactionHistoryEmpty,
               style: TextStyles.darkBodyBody1RegularHigh,
             ),
             const SizedBox(height: 16),

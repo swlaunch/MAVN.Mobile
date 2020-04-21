@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/feature_ticker/bloc/ticker_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_ticker/di/ticker_module.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
@@ -55,13 +55,13 @@ class TickerBloc extends Bloc<TickerState> {
     _timer?.cancel();
   }
 
-  String _formatDuration(Duration duration) {
+  LocalizedStringBuilder _formatDuration(Duration duration) {
     if (duration.inMinutes < _secondsInMinute) {
-      return _formatMinutes(duration);
+      return LocalizedStringBuilder.custom(_formatMinutes(duration));
     } else if (duration.inHours > 0 && duration.inHours < _hoursInADay) {
-      return LocalizedStrings.hours(duration.inHours);
+      return LazyLocalizedStrings.hours(duration.inHours);
     } else if (duration.inHours >= _hoursInADay) {
-      return LocalizedStrings.expirationFormatDays(duration.inDays);
+      return LazyLocalizedStrings.expirationFormatDays(duration.inDays);
     }
   }
 

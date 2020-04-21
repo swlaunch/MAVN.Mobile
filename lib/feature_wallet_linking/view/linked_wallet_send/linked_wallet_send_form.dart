@@ -70,7 +70,7 @@ class LinkedWalletSendForm extends HookWidget with FormMixin {
           rate: linkedWalletSendFeeState.rate,
           currencyName: linkedWalletSendFeeState.baseCurrency,
           buildSuffix: (amount) => amount == null
-              ? ' | ${LocalizedStrings.feeLabel(linkedWalletSendFeeState.fee)}'
+              ? ' | ${useLocalizedStrings().feeLabel(linkedWalletSendFeeState.fee)}' // ignore: lines_longer_than_80_chars
               : '',
         );
       }
@@ -85,10 +85,10 @@ class LinkedWalletSendForm extends HookWidget with FormMixin {
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 24),
               child: AmountTextField(
-                  label: LocalizedStrings.transferTokenAmountLabel(
+                  label: useLocalizedStrings().transferTokenAmountLabel(
                           tokenSymbol.value)
                       .toUpperCase(),
-                  hint: LocalizedStrings.enterAmountHint,
+                  hint: useLocalizedStrings().enterAmountHint,
                   globalKey: amountGlobalKey,
                   amountValueKey: const Key('amountGlobalKey'),
                   focusNode: amountFocusNode,
@@ -100,7 +100,7 @@ class LinkedWalletSendForm extends HookWidget with FormMixin {
             ),
             PrimaryButton(
               onTap: onFormSubmit,
-              text: LocalizedStrings.transferTokensButton,
+              text: useLocalizedStrings().transferTokensButton,
               isLoading: isLoading,
             ),
             const SizedBox(height: 32)

@@ -57,7 +57,7 @@ class CountDownWidget extends HookWidget {
                 const StandardSizedSvg(SvgAssets.hourglass),
                 const SizedBox(width: 4),
                 Text(
-                  LocalizedStrings.homePageCountdownTitle,
+                  useLocalizedStrings().homePageCountdownTitle,
                   style: TextStyles.darkHeadersH2,
                 ),
               ],
@@ -84,7 +84,8 @@ class CountDownWidget extends HookWidget {
                         )),
                         const WidgetSpan(child: SizedBox(width: 2)),
                         TextSpan(
-                            text: LocalizedStrings.homePageCountdownSubtitle),
+                            text: useLocalizedStrings()
+                                .homePageCountdownSubtitle),
                       ],
                     ),
                   )
@@ -107,7 +108,7 @@ class CountDownWidget extends HookWidget {
           width: double.infinity,
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
           child: Text(
-            LocalizedStrings.homePageCountdownViewAll(count),
+            useLocalizedStrings().homePageCountdownViewAll(count),
             style: TextStyles.linksTextLinkBold,
           ),
         ),

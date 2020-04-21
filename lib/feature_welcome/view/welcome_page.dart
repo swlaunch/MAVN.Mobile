@@ -50,11 +50,11 @@ class WelcomePage extends HookWidget with DynamicLinkManagerMixin {
           ),
           const SizedBox(height: 24),
           Text(
-            LocalizedStrings.welcomePageHeader(Configuration.appName),
+            useLocalizedStrings().welcomePageHeader(Configuration.appName),
             style: TextStyles.darkHeadersH2,
           ),
           Text(
-            LocalizedStrings.welcomePageSubHeader(tokenSymbol.value),
+            useLocalizedStrings().welcomePageSubHeader(tokenSymbol.value),
             style: TextStyles.darkBodyBody3RegularHigh,
           ),
           const SizedBox(height: 40),
@@ -62,7 +62,7 @@ class WelcomePage extends HookWidget with DynamicLinkManagerMixin {
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: StyledOutlineButton(
               key: const Key('welcomeSignInButton'),
-              text: LocalizedStrings.welcomeSignInButtonText,
+              text: useLocalizedStrings().welcomeSignInButtonText,
               onTap: onSignInButtonTapped,
               useDarkTheme: true,
             ),
@@ -72,7 +72,7 @@ class WelcomePage extends HookWidget with DynamicLinkManagerMixin {
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: PrimaryButton(
                 buttonKey: const Key('welcomeCreateAccountButton'),
-                text: LocalizedStrings.welcomeCreateAccountButtonText,
+                text: useLocalizedStrings().welcomeCreateAccountButtonText,
                 onTap: onCreateAccountButtonTapped,
                 isLight: false),
           ),

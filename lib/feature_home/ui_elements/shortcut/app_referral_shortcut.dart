@@ -45,7 +45,7 @@ class AppReferralShortcutWidget extends HookWidget {
       }
       return HomeShortcutItemWidget(
         backgroundColor: theme.homeAppReferralBackground,
-        text: LocalizedStrings.leadReferralPageTitle,
+        text: useLocalizedStrings().leadReferralPageTitle,
         onTap: () => router.pushEarnRuleDetailsPage(appReferralRule),
         child: Padding(
             padding: const EdgeInsets.all(6),

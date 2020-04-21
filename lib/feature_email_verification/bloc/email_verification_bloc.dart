@@ -1,5 +1,5 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/exception_to_message_mapper.dart';
 import 'package:lykke_mobile_mavn/base/repository/email/email_repository.dart';
@@ -46,8 +46,8 @@ class EmailVerificationBloc extends Bloc<EmailVerificationState> {
           break;
         case ServiceExceptionType.reachedMaximumRequestForPeriod:
           setState(EmailVerificationErrorState(
-              error:
-                  LocalizedStrings.emailVerificationExceededMaxAttemptsError));
+              error: LazyLocalizedStrings
+                  .emailVerificationExceededMaxAttemptsError));
           break;
         default:
           setState(EmailVerificationErrorState(error: errorMessage));

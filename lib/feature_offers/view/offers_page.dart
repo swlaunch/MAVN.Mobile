@@ -24,21 +24,21 @@ class OffersPage extends HookWidget {
           backgroundColor: theme.appBackground,
           appBar: AppBar(
             backgroundColor: theme.appBarBackground,
-            title:
-                Text(LocalizedStrings.offers, style: TextStyles.h1PageHeader),
+            title: Text(useLocalizedStrings().offers,
+                style: TextStyles.h1PageHeader),
             bottom: TabBar(
               indicatorColor: theme.tabBarIndicator,
               tabs: <Widget>[
                 Tab(
                   child: Text(
-                    LocalizedStrings.earn.toUpperCase(),
+                    useLocalizedStrings().earn.toUpperCase(),
                     style: TextStyles.darkBodyBody2Regular
                         .copyWith(color: theme.tabBarIndicator),
                   ),
                 ),
                 Tab(
                   child: Text(
-                    LocalizedStrings.redeem.toUpperCase(),
+                    useLocalizedStrings().redeem.toUpperCase(),
                     style: TextStyles.darkBodyBody2Regular
                         .copyWith(color: theme.tabBarIndicator),
                   ),

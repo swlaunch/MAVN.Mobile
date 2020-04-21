@@ -31,7 +31,7 @@ class ConversionRateInfo extends HookWidget {
         : NumberFormatter.tryParseDecimal(amountTextEditingController.text);
 
     if (amount != null) {
-      parts.add(LocalizedStrings.currencyConversionLabel(
+      parts.add(useLocalizedStrings().currencyConversionLabel(
             NumberFormatter.toCommaSeparatedStringFromDecimal(amount),
             tokenSymbol,
             NumberFormatter.toCommaSeparatedStringFromDecimal(amount * rate),
@@ -40,7 +40,7 @@ class ConversionRateInfo extends HookWidget {
           _buildSuffix(amount));
     }
 
-    parts.add(LocalizedStrings.currencyConversionLabel(
+    parts.add(useLocalizedStrings().currencyConversionLabel(
           '1',
           tokenSymbol,
           rate.toString(),

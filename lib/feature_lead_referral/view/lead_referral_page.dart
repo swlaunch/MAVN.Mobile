@@ -75,7 +75,7 @@ class LeadReferralPage extends HookWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Heading(
-                      LocalizedStrings.leadReferralPageTitle,
+                      useLocalizedStrings().leadReferralPageTitle,
                       icon: SvgAssets.referrals,
                     ),
                     ReferralOfferInfoWidget(extendedEarnRule: extendedEarnRule),
@@ -103,7 +103,7 @@ class LeadReferralPage extends HookWidget {
             if (blocState is LeadReferralSubmissionErrorState &&
                 !isFormSubmissionErrorDismissed.value)
               _buildError(
-                  error: blocState.error,
+                  error: blocState.error.localize(useContext()),
                   canRetry: blocState.canRetry,
                   onRetryTap: onSubmit,
                   onCloseTap: () {

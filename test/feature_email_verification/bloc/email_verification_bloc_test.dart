@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_email_verification/bloc/email_verification_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_email_verification/bloc/email_verification_bloc_output.dart';
@@ -55,7 +55,7 @@ void main() {
       when(_mockEmailRepository.sendVerificationEmail()).thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await _subject.sendVerificationEmail();
 
@@ -63,7 +63,7 @@ void main() {
         EmailVerificationUninitializedState(),
         EmailVerificationLoadingState(),
         EmailVerificationErrorState(
-            error: LocalizedStrings.defaultGenericError),
+            error: LazyLocalizedStrings.defaultGenericError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -112,7 +112,8 @@ void main() {
         EmailVerificationUninitializedState(),
         EmailVerificationLoadingState(),
         EmailVerificationErrorState(
-            error: LocalizedStrings.emailVerificationExceededMaxAttemptsError),
+            error:
+                LazyLocalizedStrings.emailVerificationExceededMaxAttemptsError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);

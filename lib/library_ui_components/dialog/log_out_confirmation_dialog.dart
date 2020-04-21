@@ -7,12 +7,12 @@ import 'package:lykke_mobile_mavn/library_ui_components/dialog/custom_dialog.dar
 import 'package:pedantic/pedantic.dart';
 
 class LogOutConfirmationDialog extends CustomDialog {
-  LogOutConfirmationDialog()
+  LogOutConfirmationDialog(LocalizedStrings localizedStrings)
       : super(
-          title: LocalizedStrings.accountPageLogOutConfirmTitle,
-          content: LocalizedStrings.accountPageLogOutConfirmContent,
-          positiveButtonText: LocalizedStrings.warningDialogYesButton,
-          negativeButtonText: LocalizedStrings.warningDialogNoButton,
+          title: localizedStrings.accountPageLogOutConfirmTitle,
+          content: localizedStrings.accountPageLogOutConfirmContent,
+          positiveButtonText: localizedStrings.warningDialogYesButton,
+          negativeButtonText: localizedStrings.warningDialogNoButton,
         );
 
   @override

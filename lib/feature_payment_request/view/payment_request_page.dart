@@ -63,10 +63,10 @@ class PaymentRequestPage extends HookWidget {
 
     Future<bool> getConfirmationResult() async =>
         await router.showCustomDialog(
-            title: LocalizedStrings.warningDialogLeavingPageTitle,
-            content: LocalizedStrings.transferRequestRejectDialogText,
-            positiveButtonText: LocalizedStrings.warningDialogYesButton,
-            negativeButtonText: LocalizedStrings.warningDialogNoButton) ??
+            title: useLocalizedStrings().warningDialogLeavingPageTitle,
+            content: useLocalizedStrings().transferRequestRejectDialogText,
+            positiveButtonText: useLocalizedStrings().warningDialogYesButton,
+            negativeButtonText: useLocalizedStrings().warningDialogNoButton) ??
         false;
 
     void fetchPaymentRequest() {
@@ -194,7 +194,7 @@ class PaymentRequestPage extends HookWidget {
                       ),
                       const SizedBox(width: 16),
                       Text(
-                        LocalizedStrings.transferRequestTitle,
+                        useLocalizedStrings().transferRequestTitle,
                         style: TextStyles.lightHeadersH2,
                       )
                     ],
@@ -209,7 +209,7 @@ class PaymentRequestPage extends HookWidget {
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(
-                          LocalizedStrings.transferRequestIdHolder(
+                          useLocalizedStrings().transferRequestIdHolder(
                               paymentRequestDetailsBlocState
                                   .payment.paymentRequestId),
                           style: TextStyles.lightBodyBody3Regular,
@@ -219,7 +219,7 @@ class PaymentRequestPage extends HookWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    LocalizedStrings.transferRequestInfoHolder(
+                    useLocalizedStrings().transferRequestInfoHolder(
                         paymentRequestDetailsBlocState.payment.partnerName),
                     style: TextStyles.lightBodyBody2RegularHigh,
                   ),
@@ -253,10 +253,10 @@ class PaymentRequestPage extends HookWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       PaymentRequestInfoLine(
-                          pairKey:
-                              LocalizedStrings.transferRequestTotalBillLabel,
-                          pairValue:
-                              LocalizedStrings.transferRequestTotalBillHolder(
+                          pairKey: useLocalizedStrings()
+                              .transferRequestTotalBillLabel,
+                          pairValue: useLocalizedStrings()
+                              .transferRequestTotalBillHolder(
                                   paymentRequest.totalInToken.value,
                                   tokenSymbol,
                                   NumberFormatter.toFormattedStringFromDouble(
@@ -264,13 +264,13 @@ class PaymentRequestPage extends HookWidget {
                                   ),
                                   paymentRequest.currencyCode)),
                       PaymentRequestInfoLine(
-                          pairKey: LocalizedStrings
+                          pairKey: useLocalizedStrings()
                               .transferRequestWalletBalanceLabel,
-                          pairValue: LocalizedStrings.amountTokensHolder(
+                          pairValue: useLocalizedStrings().amountTokensHolder(
                               paymentRequest.walletBalance.value, tokenSymbol)),
                       PaymentRequestInfoLine(
-                          pairKey:
-                              LocalizedStrings.transferRequestRecipientLabel,
+                          pairKey: useLocalizedStrings()
+                              .transferRequestRecipientLabel,
                           pairValue: paymentRequest.partnerName),
                       PaymentRequestTimerWidget(),
                     ],
@@ -301,8 +301,8 @@ class PaymentRequestPage extends HookWidget {
           color: ColorStyles.primaryDark,
           child: GenericErrorIconWidget(
             errorKey: const Key('paymentRequestDetailsError'),
-            title: baseErrorState.title,
-            text: baseErrorState.subtitle,
+            title: baseErrorState.title.localize(useContext()),
+            text: baseErrorState.subtitle.localize(useContext()),
             icon: baseErrorState.asset,
             onRetryTap: fetchPaymentRequest,
           ));

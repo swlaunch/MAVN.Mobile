@@ -57,10 +57,10 @@ class LinkedWalletPage extends HookWidget {
             padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
             child: Column(
               children: <Widget>[
-                Heading(LocalizedStrings.linkedWalletHeader),
+                Heading(useLocalizedStrings().linkedWalletHeader),
                 const SizedBox(height: 24),
                 WalletBalanceBox(
-                  title: LocalizedStrings.balanceBoxHeader,
+                  title: useLocalizedStrings().balanceBoxHeader,
                   isLoading: walletState is WalletLoadingState,
                   balance: balance,
                   balanceInBaseCurrency: balanceInBaseCurrency,
@@ -78,10 +78,9 @@ class LinkedWalletPage extends HookWidget {
               children: [
                 TransactionButton.simple(
                   valueKey: const Key('sendToExternalWalletButton'),
-                  title: LocalizedStrings.sendToExternalWalletButton,
-                  description:
-                      LocalizedStrings.sendToExternalWalletButtonSubtitle(
-                          tokenSymbol.value),
+                  title: useLocalizedStrings().sendToExternalWalletButton,
+                  description: useLocalizedStrings()
+                      .sendToExternalWalletButtonSubtitle(tokenSymbol.value),
                   iconBackgroundColor: ColorStyles.pale,
                   icon: const ScaledDownSvg(
                     asset: SvgAssets.sendTokensIcon,
@@ -92,10 +91,9 @@ class LinkedWalletPage extends HookWidget {
                 const SizedBox(height: 24),
                 TransactionButton.simple(
                   valueKey: const Key('receiveExternalWalletButton'),
-                  title: LocalizedStrings.receiveExternalWalletButton,
-                  description:
-                      LocalizedStrings.receiveExternalWalletButtonSubtitle(
-                          tokenSymbol.value),
+                  title: useLocalizedStrings().receiveExternalWalletButton,
+                  description: useLocalizedStrings()
+                      .receiveExternalWalletButtonSubtitle(tokenSymbol.value),
                   iconBackgroundColor: ColorStyles.accentSeaGreen,
                   icon: const ScaledDownSvg(
                     asset: SvgAssets.receiveTokenIcon,
@@ -106,9 +104,9 @@ class LinkedWalletPage extends HookWidget {
                 const SizedBox(height: 24),
                 TransactionButton.simple(
                   valueKey: const Key('unlinkExternalWalletButton'),
-                  title: LocalizedStrings.unlinkExternalWalletButton,
+                  title: useLocalizedStrings().unlinkExternalWalletButton,
                   description:
-                      LocalizedStrings.unlinkExternalWalletButtonSubtitle,
+                      useLocalizedStrings().unlinkExternalWalletButtonSubtitle,
                   iconBackgroundColor: ColorStyles.primaryDark,
                   icon: const ScaledDownSvg(
                     asset: SvgAssets.linkingIcon,

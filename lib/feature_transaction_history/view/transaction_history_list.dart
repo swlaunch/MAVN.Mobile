@@ -22,8 +22,8 @@ class TransactionHistoryViewList extends HookWidget {
     final transactionMapper = useTransactionMapper();
     final tokenSymbol =
         useState(useGetMobileSettingsUseCase(context).execute()?.tokenSymbol);
-    final items =
-        transactionMapper.mapTransactions(transactionList, tokenSymbol.value);
+    final items = transactionMapper.mapTransactions(
+        transactionList, tokenSymbol.value, context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: _buildList(listItems: items),

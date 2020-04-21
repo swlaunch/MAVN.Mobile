@@ -148,9 +148,9 @@ class PropertyPaymentForm extends HookWidget with FormMixin {
               child: Column(
                 children: <Widget>[
                   PropertyPaymentAmountWidget(
-                    label: LocalizedStrings.transferTokenAmountLabel(
+                    label: useLocalizedStrings().transferTokenAmountLabel(
                         mobileSettings.value?.tokenSymbol),
-                    hint: LocalizedStrings.enterAmountHint,
+                    hint: useLocalizedStrings().enterAmountHint,
                     focusNode: amountOfTokenFocusNode,
                     textEditingController: amountOfTokenTextEditingController,
                     fieldFullAmountValidationManager:
@@ -177,7 +177,8 @@ class PropertyPaymentForm extends HookWidget with FormMixin {
                   const SizedBox(height: 32),
                   if (propertyPaymentFormState
                       is PropertyPaymentInlineErrorState)
-                    _buildInlineError(propertyPaymentFormState.error),
+                    _buildInlineError(
+                        propertyPaymentFormState.error.localize(useContext())),
                   _buildSubmitButton(
                     onSubmit: onSubmit,
                     isLoading:
@@ -190,7 +191,7 @@ class PropertyPaymentForm extends HookWidget with FormMixin {
             if (propertyPaymentFormState is PropertyPaymentErrorState &&
                 !isFormSubmissionErrorDismissed.value)
               _buildError(
-                error: propertyPaymentFormState.error,
+                error: propertyPaymentFormState.error.localize(useContext()),
                 onRetryTap: onSubmit,
                 onCloseTap: () {
                   isFormSubmissionErrorDismissed.value = true;
@@ -228,7 +229,7 @@ class PropertyPaymentForm extends HookWidget with FormMixin {
   }) =>
       PrimaryButton(
           buttonKey: const Key('paymentFormSendButton'),
-          text: LocalizedStrings.transferTokensButton,
+          text: useLocalizedStrings().transferTokensButton,
           onTap: onSubmit,
           isLoading: isLoading);
 }

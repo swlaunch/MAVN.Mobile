@@ -1,3 +1,4 @@
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 
 abstract class LoginState extends BlocState {}
@@ -9,7 +10,7 @@ class LoginLoadingState extends LoginState {}
 class LoginErrorState extends LoginState {
   LoginErrorState(this.error);
 
-  final String error;
+  final LocalizedStringBuilder error;
 
   @override
   List get props => super.props..addAll([error]);

@@ -38,7 +38,7 @@ class PropertyPaymentPage extends HookWidget {
       child: ScaffoldWithAppBar(
         body: Column(
           children: <Widget>[
-            PageTitle(title: LocalizedStrings.propertyPaymentPageTitle),
+            PageTitle(title: useLocalizedStrings().propertyPaymentPageTitle),
             const SizedBox(height: 16),
             _buildContent(
               walletState: walletState,
@@ -98,12 +98,13 @@ class PropertyPaymentPage extends HookWidget {
   }
 
   Widget _buildPageDetails() => Text(
-        LocalizedStrings.propertyPaymentPageSubDetails,
+        useLocalizedStrings().propertyPaymentPageSubDetails,
         style: TextStyles.darkBodyBody1RegularHigh,
       );
 
   List<Widget> _buildPropertyDetails() => [
-        ..._buildItemDetailsLabel(LocalizedStrings.propertyPaymentProperty),
+        ..._buildItemDetailsLabel(
+            useLocalizedStrings().propertyPaymentProperty),
         Text(
           property.name,
           style: TextStyles.darkBodyBody1Bold,
@@ -144,7 +145,7 @@ class PropertyPaymentPage extends HookWidget {
   List<TextSpan> _buildOverdueText() => [
         const TextSpan(text: ' • '),
         TextSpan(
-          text: LocalizedStrings.installmentOverdue,
+          text: useLocalizedStrings().installmentOverdue,
           style: TextStyles.bodyBody4RegularError,
         ),
       ];

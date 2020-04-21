@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/date/date_time_manager.dart';
@@ -15,7 +16,8 @@ class VoucherToItemMapper {
   final GetMobileSettingsUseCase _getMobileSettingsUseCase;
 
   ///returns a list of items for the list (vouchers and date headers)
-  List<VoucherListItem> mapVouchers(List<VoucherResponseModel> vouchers) {
+  List<VoucherListItem> mapVouchers(
+      BuildContext context, List<VoucherResponseModel> vouchers) {
     final baseCurrency = _getMobileSettingsUseCase.execute()?.baseCurrency;
     DateTime groupDate;
     final mappedVouchers = <VoucherListItem>[];
@@ -26,7 +28,7 @@ class VoucherToItemMapper {
       if (!DateTimeUtils.isSameDate(groupDate, voucherLocalDate)) {
         groupDate = voucherLocalDate;
 
-        mappedVouchers.add(_getVoucherListDate(groupDate));
+        mappedVouchers.add(_getVoucherListDate(context, groupDate));
       }
 
       final formattedDate =
@@ -37,12 +39,12 @@ class VoucherToItemMapper {
     return mappedVouchers;
   }
 
-  VoucherListDate _getVoucherListDate(DateTime date) {
+  VoucherListDate _getVoucherListDate(BuildContext context, DateTime date) {
     final formattedDate = DateTimeUtils.getDescriptiveDate(
       dateTime: date,
       dateFormat: _dateTimeManager.getDateFormatBasedOnYear(date),
       currentDateTime: _dateTimeManager.now,
-    );
+    ).localize(context);
     return VoucherListDate(formattedDate);
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_home/view/earn_token_section.dart';
@@ -52,7 +53,7 @@ void main() {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
         earnRuleListState: GenericListErrorState(
-          error: _stubErrorText,
+          error: LocalizedStringBuilder.custom(_stubErrorText),
           currentPage: TestConstants.stubCurrentPage,
           list: [],
         ),

@@ -32,7 +32,7 @@ class WalletActionsWidget extends HookWidget {
               asset: SvgAssets.arrowUp,
               onTap: router.pushTransactionFormPage,
               theme: theme,
-              text: LocalizedStrings.transfer,
+              text: useLocalizedStrings().transfer,
             ),
             const SizedBox(width: 24),
             CircularButton(
@@ -40,7 +40,7 @@ class WalletActionsWidget extends HookWidget {
               asset: SvgAssets.arrowDown,
               onTap: router.pushP2PReceiveTokenPage,
               theme: theme,
-              text: LocalizedStrings.receive,
+              text: useLocalizedStrings().receive,
             ),
             const SizedBox(width: 24),
             CircularButton(
@@ -48,7 +48,7 @@ class WalletActionsWidget extends HookWidget {
               asset: SvgAssets.transferRequestIcon,
               onTap: router.pushPaymentRequestListPage,
               theme: theme,
-              text: LocalizedStrings.requests,
+              text: useLocalizedStrings().requests,
               hasBadge: partnerPaymentsPendingState is GenericListLoadedState &&
                   (partnerPaymentsPendingState as GenericListLoadedState)
                           .totalCount >

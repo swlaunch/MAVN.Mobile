@@ -102,7 +102,7 @@ class EarnRuleDetailTopSection extends HookWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 32),
       child: PrimaryButton(
-        text: LocalizedStrings.getStartedButton,
+        text: useLocalizedStrings().getStartedButton,
         onTap: _getOnConditionTap(
           router,
           extendedEarnRule,
@@ -119,7 +119,9 @@ class EarnRuleDetailTopSection extends HookWidget {
     final toDate = _dateFormatToDate
         .format(dateTimeManager.toLocal(DateTime.parse(earnRule.toDate)));
 
-    return LocalizedStrings.earnRuleValidDate(fromDate, toDate).toUpperCase();
+    return useLocalizedStrings()
+        .earnRuleValidDate(fromDate, toDate)
+        .toUpperCase();
   }
 
   VoidCallback _getOnConditionTap(

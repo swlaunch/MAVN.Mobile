@@ -91,8 +91,8 @@ class TransactionFormPage extends HookWidget with FormMixin {
             Column(
               children: <Widget>[
                 PageTitle(
-                  title: LocalizedStrings.transactionFormPageTitle(
-                      tokenSymbol.value),
+                  title: useLocalizedStrings()
+                      .transactionFormPageTitle(tokenSymbol.value),
                   assetIconLeading: SvgAssets.sendTokens,
                   assetIconTrailing: walletBlocState is WalletErrorState
                       ? SvgAssets.error
@@ -139,7 +139,7 @@ class TransactionFormPage extends HookWidget with FormMixin {
                 !isFormSubmissionErrorDismissed.value)
               _buildError(
                 key: 'transactionFormPageError',
-                error: transactionFormState.error,
+                error: transactionFormState.error.localize(useContext()),
                 onRetryTap: onSend,
                 onCloseTap: () {
                   isFormSubmissionErrorDismissed.value = true;
@@ -149,7 +149,7 @@ class TransactionFormPage extends HookWidget with FormMixin {
                 !isFormSubmissionErrorDismissed.value)
               _buildError(
                 key: 'transactionFormBarcodePermissonError',
-                error: transactionFormState.error,
+                error: transactionFormState.error.localize(useContext()),
                 onRetryTap: onScanQrCodeButtonTapped,
                 onCloseTap: () {
                   isFormSubmissionErrorDismissed.value = true;
@@ -159,7 +159,7 @@ class TransactionFormPage extends HookWidget with FormMixin {
                 !isFormSubmissionErrorDismissed.value)
               _buildError(
                 key: 'transactionFormBarcodeError',
-                error: transactionFormState.error,
+                error: transactionFormState.error.localize(useContext()),
                 onRetryTap: onScanQrCodeButtonTapped,
                 onCloseTap: () {
                   isFormSubmissionErrorDismissed.value = true;
@@ -172,7 +172,7 @@ class TransactionFormPage extends HookWidget with FormMixin {
   }
 
   Widget _buildTitle(String tokenSymbol) => Text(
-        LocalizedStrings.transactionFormPageSubDetails(tokenSymbol),
+        useLocalizedStrings().transactionFormPageSubDetails(tokenSymbol),
         style: TextStyles.darkBodyBody1RegularHigh,
       );
 
@@ -183,12 +183,12 @@ class TransactionFormPage extends HookWidget with FormMixin {
           SvgPicture.asset(SvgAssets.qrCode),
           const SizedBox(width: 8),
           Text(
-            LocalizedStrings.transactionFormScanQRCode,
+            useLocalizedStrings().transactionFormScanQRCode,
             style: TextStyles.linksTextLinkBold,
           ),
           const SizedBox(width: 8),
           Text(
-            LocalizedStrings.transactionFormOr,
+            useLocalizedStrings().transactionFormOr,
             style: TextStyles.darkBodyBody2Bold,
           )
         ],

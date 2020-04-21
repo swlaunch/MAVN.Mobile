@@ -21,7 +21,7 @@ class PasswordValidationRulesWidget extends HookWidget {
     return Column(
       children: <Widget>[
         Text(
-          LocalizedStrings.passwordGuide,
+          useLocalizedStrings().passwordGuide,
           style: TextStyles.darkBodyBody4Regular,
           textAlign: TextAlign.left,
         ),
@@ -67,7 +67,7 @@ class PasswordValidationRuleView extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          Text(validationRule.getDescription(),
+          Text(validationRule.getDescription().localize(context),
               style: TextStyles.darkBodyBody4Regular)
         ],
       );

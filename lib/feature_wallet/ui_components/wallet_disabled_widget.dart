@@ -11,9 +11,9 @@ class WalletDisabledWidget extends HookWidget {
     final router = useRouter();
     return GenericErrorIconWidget(
       errorKey: const Key('walletDisabledWidget'),
-      title: LocalizedStrings.walletPageWalletDisabledError,
-      text: LocalizedStrings.walletPageWalletDisabledErrorMessage,
-      buttonText: LocalizedStrings.contactUsButton,
+      title: useLocalizedStrings().walletPageWalletDisabledError,
+      text: useLocalizedStrings().walletPageWalletDisabledErrorMessage,
+      buttonText: useLocalizedStrings().contactUsButton,
       icon: SvgAssets.walletError,
       onRetryTap: router.pushContactUsPage,
     );

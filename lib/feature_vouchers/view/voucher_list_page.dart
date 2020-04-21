@@ -41,7 +41,8 @@ class VoucherListPage extends HookWidget {
     }, [voucherListBloc]);
 
     if (voucherListBlocState is GenericListLoadedState) {
-      data.value = voucherMapper.mapVouchers(voucherListBlocState.list);
+      data.value =
+          voucherMapper.mapVouchers(context, voucherListBlocState.list);
     }
 
     final body = voucherListBlocState is GenericListNetworkErrorState
@@ -66,7 +67,7 @@ class VoucherListPage extends HookWidget {
             child: Column(
               children: <Widget>[
                 PageTitle(
-                  title: LocalizedStrings.vouchersOption,
+                  title: useLocalizedStrings().vouchersOption,
                   assetIconLeading: SvgAssets.voucher,
                 ),
                 const SizedBox(height: 32),
@@ -79,15 +80,15 @@ class VoucherListPage extends HookWidget {
                     isLoading: voucherListBlocState
                         is GenericListPaginationLoadingState,
                     isEmpty: voucherListBlocState is GenericListEmptyState,
-                    emptyText: LocalizedStrings.voucherListEmpty,
+                    emptyText: useLocalizedStrings().voucherListEmpty,
                     emptyIcon: SvgAssets.voucher,
                     retryOnError: loadData,
                     loadData: loadData,
                     showError: voucherListBlocState is GenericListErrorState,
                     errorText: voucherListBlocState is GenericListErrorState
-                        ? voucherListBlocState.error
+                        ? voucherListBlocState.error.localize(useContext())
                         : null,
-                    itemBuilder: (item, _) {
+                    itemBuilder: (item, _, itemContext) {
                       if (item is VoucherListVoucher) {
                         return VoucherListItemView(item);
                       }

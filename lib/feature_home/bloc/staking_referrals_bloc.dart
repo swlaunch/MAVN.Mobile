@@ -1,6 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/response_model/referral_response_model.dart';
@@ -77,8 +77,9 @@ class StakingReferralsBloc extends Bloc<StakingReferralsState> {
       return StakingReferralsNetworkErrorState();
     }
     return StakingReferralsErrorState(
-      errorTitle: LocalizedStrings.somethingIsNotRightError,
-      errorSubtitle: LocalizedStrings.referralListRequestGenericErrorSubtitle,
+      errorTitle: LazyLocalizedStrings.somethingIsNotRightError,
+      errorSubtitle:
+          LazyLocalizedStrings.referralListRequestGenericErrorSubtitle,
       iconAsset: SvgAssets.genericError,
     );
   }

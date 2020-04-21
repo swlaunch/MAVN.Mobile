@@ -17,7 +17,7 @@ class VoucherListItemView extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         child: CopyWidget(
           copyText: voucherListItem.voucher.code,
-          toastMessage: LocalizedStrings.voucherCopied,
+          toastMessage: LocalizedStrings.of(context).voucherCopied,
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,

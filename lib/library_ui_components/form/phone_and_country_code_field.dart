@@ -76,7 +76,9 @@ class PhoneAndCountryCodeField extends HookWidget {
     return Builder(
         key: phoneAndCountryCodeContextGlobalKey,
         builder: (context) => FormField<String>(
-              validator: phoneNumberValidationManager?.validator,
+              validator: (value) => phoneNumberValidationManager
+                  ?.validator(value)
+                  ?.localize(context),
               initialValue: phoneNumberTextEditingController?.text,
               autovalidate: _autoValidate.value,
               builder: (phoneNumberState) => Column(
@@ -98,7 +100,8 @@ class PhoneAndCountryCodeField extends HookWidget {
                                 selectedValue.code,
                             routerFn: (router) => router.pushCountryCodePage(),
                             key: countryCodeValueKey,
-                            hint: LocalizedStrings.countryCodeEmptyPrompt,
+                            hint: LocalizedStrings.of(context)
+                                .countryCodeEmptyPrompt,
                             inputGlobalKey: countryCodeInputGlobalKey,
                             fieldValidationManager:
                                 countryCodeValidationManager,

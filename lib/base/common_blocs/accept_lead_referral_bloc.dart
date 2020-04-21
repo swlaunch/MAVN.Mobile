@@ -1,5 +1,5 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/exception_to_message_mapper.dart';
 import 'package:lykke_mobile_mavn/base/repository/local/local_settings_repository.dart';
@@ -39,7 +39,7 @@ class AcceptLeadReferralBloc extends Bloc<AcceptLeadReferralState> {
 
     if (referralCode == null) {
       setState(AcceptLeadReferralErrorState(
-          error: LocalizedStrings.referralAcceptedInvalidCode));
+          error: LazyLocalizedStrings.referralAcceptedInvalidCode));
       return;
     }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/route_authentication_use_case.dart';
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/common/offer_type.dart';
@@ -300,14 +301,15 @@ class Router extends BaseRouter {
     );
   }
 
-  Future<bool> showEnableBiometricsDialog() =>
-      showDialog(child: EnableBiometricsDialog());
+  Future<bool> showEnableBiometricsDialog(LocalizedStrings localizedStrings) =>
+      showDialog(child: EnableBiometricsDialog(localizedStrings));
 
-  Future<bool> showLogOutConfirmationDialog() =>
-      showDialog(child: LogOutConfirmationDialog());
+  Future<bool> showLogOutConfirmationDialog(
+          LocalizedStrings localizedStrings) =>
+      showDialog(child: LogOutConfirmationDialog(localizedStrings));
 
-  Future<bool> showDeleteAccountDialog() =>
-      showDialog(child: DeleteAccountDialog());
+  Future<bool> showDeleteAccountDialog(LocalizedStrings localizedStrings) =>
+      showDialog(child: DeleteAccountDialog(localizedStrings));
 
   //endregion Misc authentication
 
@@ -857,8 +859,10 @@ class Router extends BaseRouter {
 
   //region Misc
 
-  Future<bool> showScannedInfoDialog(QrBaseAction action) => showDialog(
-        child: ScannedInfoDialog(action: action),
+  Future<bool> showScannedInfoDialog(
+          LocalizedStrings localizedStrings, QrBaseAction action) =>
+      showDialog(
+        child: ScannedInfoDialog(localizedStrings, action: action),
       );
 
   //endregion Misc

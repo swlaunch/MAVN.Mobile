@@ -1,3 +1,4 @@
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 
@@ -10,7 +11,7 @@ class FriendReferralSubmissionLoadingState extends FriendReferralState {}
 class FriendReferralSubmissionErrorState extends FriendReferralState {
   FriendReferralSubmissionErrorState({this.error, this.canRetry = false});
 
-  final String error;
+  final LocalizedStringBuilder error;
   final bool canRetry;
 
   @override

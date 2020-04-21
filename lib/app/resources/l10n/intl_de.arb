@@ -1,0 +1,3408 @@
+{
+	"@@last_modified": "2020-04-14T09:44:49.223681",
+	"networkErrorTitle": "Keine Internet Verbindung",
+	"@networkErrorTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"networkError": "Du bist anscheinend nicht mit dem Internet verbunden. Bitte prüfe deine Verbindung und versuche es erneut.",
+	"@networkError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"genericError": "Hoppla! Es sieht so aus, als wäre etwas schief gelaufen. Bitte versuche es erneut. Wenn das Problem weiterhin besteht, wenden dich unter {serviceNumber}an unseren freundlichen Kundendienst.",
+	"@genericError": {
+		"type": "text",
+		"placeholders": {
+			"serviceNumber": {
+				"example": "+00 0000 000000"
+			}
+		}
+	},
+	"defaultGenericError": "Hoppla! Es sieht so aus, als wäre etwas schief gelaufen. Bitte versuche es erneut.",
+	"@defaultGenericError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"genericErrorShort": "Bitte versuche es erneut.",
+	"@genericErrorShort": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"somethingIsNotRightError": "Etwas stimmt nicht, probiere es noch einmal!",
+	"@somethingIsNotRightError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"couldNotLoadBalanceError": "Wir können derzeit keine Transaktionen durchführen, da wir dein Guthaben nicht abfragen konnten. Bitte versuche es erneut.",
+	"@couldNotLoadBalanceError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralLeadAlreadyExistError": "Sieht so aus, als wäre diese nette Person bereits in unserem System ist. Versuche, jemand anderen zu empfehlen!",
+	"@referralLeadAlreadyExistError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralLeadAlreadyConfirmedError": "Diese Person wurde bereits empfohlen. ",
+	"@referralLeadAlreadyConfirmedError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"canNotReferYourselfError": "Selbstempfehlung ist nicht möglich. Ihre Empfehlung kann nicht eingereicht werden.",
+	"@canNotReferYourselfError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"cannotGetOffersError": "Leider können wir derzeit keine Angebote anzeigen. Bitte versuchen Sie es erneut",
+	"@cannotGetOffersError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"noVouchersInStockError": "Leider sind alle Voucher ausverkauft",
+	"@noVouchersInStockError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"feeLabel": "Gebühr: {fee}",
+	"@feeLabel": {
+		"type": "text",
+		"placeholders": {
+			"fee": {}
+		}
+	},
+	"transferTokenAmountLabel": "Transfer Betrag ({token})",
+	"@transferTokenAmountLabel": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"emailRequiredLabel": "Email*",
+	"@emailRequiredLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailAddressHint": "E-Mail Adresse eingeben",
+	"@emailAddressHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"enterAmountHint": "Betrag eingeben",
+	"@enterAmountHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"firstNameRequiredLabel": "Vorname*",
+	"@firstNameRequiredLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"firstNameNotRequiredLabel": "Vorname",
+	"@firstNameNotRequiredLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"firstNameHint": "Bitte Vornamen eingeben",
+	"@firstNameHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"lastNameRequiredLabel": "Nachname*",
+	"@lastNameRequiredLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"lastNameNotRequiredLabel": "Nachname",
+	"@lastNameNotRequiredLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"lastNameHint": "Nachnamen eingeben",
+	"@lastNameHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"passwordRequiredLabel": "Passwort*",
+	"@passwordRequiredLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"passwordHint": "Passwort eingeben",
+	"@passwordHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneNumberLabel": "Telefonnummer",
+	"@phoneNumberLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneNumberRequiredLabel": "Telefonnummer*",
+	"@phoneNumberRequiredLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneNumberHint": "Telefonnummer eingeben",
+	"@phoneNumberHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"noteLabel": "Notizen",
+	"@noteLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"noteHint": "Zusätzliche Notizen hinzufügen",
+	"@noteHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"nationalityLabel": "Nationalität",
+	"@nationalityLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"nationalityOptionalLabel": "Nationalität (optional)",
+	"@nationalityOptionalLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"nationalityHint": "Nationalität eingeben",
+	"@nationalityHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emptyEmailClientSideValidationError": "E-Mail ist erforderlich",
+	"@emptyEmailClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidEmailClientSideValidationError": "Bitte gib eine gültige Email-Adresse ein",
+	"@invalidEmailClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emptyNameClientSideValidationError": "Name ist erforderlich",
+	"@emptyNameClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emptyFirstNameClientSideValidationError": "Vorname ist erforderlich",
+	"@emptyFirstNameClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidFirstNameClientSideValidationError": "Vorname ist ungültig",
+	"@invalidFirstNameClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emptyLastNameClientSideValidationError": "Nachname ist erforderlich",
+	"@emptyLastNameClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emptyFullNameClientSideValidationError": "Name ist erforderlich",
+	"@emptyFullNameClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidLastNameClientSideValidationError": "Nachname ist ungültig",
+	"@invalidLastNameClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emptyCountryCodeClientSideValidationError": "Ländercode ist erforderlich",
+	"@emptyCountryCodeClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emptyPhoneNumberClientSideValidationError": "Telefonnummer ist erforderlich",
+	"@emptyPhoneNumberClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidPhoneNumberClientSideValidationError": "Ungültige Telefonnummer",
+	"@invalidPhoneNumberClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"minLengthClientSideValidationError": "{minLength,plural, =1{Mindestlänge ist ein Zeichen}other{Mindestlänge ist ein Zeichen {minLength} characters}}",
+	"@minLengthClientSideValidationError": {
+		"type": "text",
+		"placeholders": {
+			"minLength": {}
+		}
+	},
+	"minPhoneNumberLengthClientSideValidationError": "Die Telefonnummer sollte mindestens {minLength} Stellen lang sein",
+	"@minPhoneNumberLengthClientSideValidationError": {
+		"type": "text",
+		"placeholders": {
+			"minLength": {}
+		}
+	},
+	"maxPhoneNumberLengthClientSideValidationError": "Die Telefonnummer darf maximal {maxLength} Stellen lang sein",
+	"@maxPhoneNumberLengthClientSideValidationError": {
+		"type": "text",
+		"placeholders": {
+			"maxLength": {}
+		}
+	},
+	"invalidCharactersClientSideValidationError": "Ungültige Zeichen",
+	"@invalidCharactersClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emptyPasswordClientSideValidationError": "Passwort wird benötigt",
+	"@emptyPasswordClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"passwordsDoNotMatchClientSideValidationError": "Passwörter stimmen nicht überein",
+	"@passwordsDoNotMatchClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"passwordInvalidCharactersClientSideValidationError": "Das Passwort enthält ungültige Zeichen",
+	"@passwordInvalidCharactersClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"passwordTooShortError": "Stell sicher, dass dein Passwort mindestens {count} Zeichen lang ist",
+	"@passwordTooShortError": {
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 8
+			}
+		}
+	},
+	"passwordTooLongError": "Stell sicher, dass dein Passwort höchstens {count} Zeichen lang ist",
+	"@passwordTooLongError": {
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 100
+			}
+		}
+	},
+	"passwordUpperCaseError": "{count,plural, =1{Stelle sicher, dass dein Passwort mindestens einen Grossbuchstaben enthält}other{Stelle sicher, dass dein Passwort mindestens {count} Grossbuchstaben enthält}}",
+	"@passwordUpperCaseError": {
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 1
+			}
+		}
+	},
+	"passwordLowerCaseError": "{count,plural, =1{Stelle sicher, dass dein Passwort mindestens eine Kleinbuchstaben enthält}other{Stelle sicher, dass dein Passwort mindestens {count} Kleinbuchstaben enthält}}",
+	"@passwordLowerCaseError": {
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 1
+			}
+		}
+	},
+	"passwordNumberError": "{count,plural, =1{Stelle sicher, dass dein Passwort mindestens eine Zahl enthält}other{Stelle sicher, dass dein Passwort mindestens {count} Zahlen enthält}}",
+	"@passwordNumberError": {
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 1
+			}
+		}
+	},
+	"passwordSpecialCharactersError": "{count,plural, =1{Stelle sicher, dass dein Passwort mindestens ein Spezialzeichen ({specialCharacters})}other{Stelle sicher, dass dein Passwort mindestens {count} Spezialzeichen enthält ({specialCharacters})}}",
+	"@passwordSpecialCharactersError": {
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 1
+			},
+			"specialCharacters": {
+				"example": "!@#$%&"
+			}
+		}
+	},
+	"requiredCountryOfResidenceClientSideValidationError": "Bitte ein Land wählen",
+	"@requiredCountryOfResidenceClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"requiredPhotoIdClientSideValidationError": "Lichtbildausweis erforderlich",
+	"@requiredPhotoIdClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"requiredPhotoIdFrontSideClientSideValidationError": "Foto auf der Vorderseite ist erforderlich",
+	"@requiredPhotoIdFrontSideClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"requiredPhotoIdBackSideClientSideValidationError": "Foto auf der Rückseite ist erforderlich",
+	"@requiredPhotoIdBackSideClientSideValidationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"maximumDecimalPlacesError": "Der Betrag sollte {precision} Dezimalstellen nicht überschreiten",
+	"@maximumDecimalPlacesError": {
+		"type": "text",
+		"placeholders": {
+			"precision": {
+				"example": 2
+			}
+		}
+	},
+	"passwordInvalidError": "Stell sicher, dass dein Passwort den folgenden Regeln entspricht",
+	"@passwordInvalidError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"passwordValidationMinCharacters": "{count} Zeichen",
+	"@passwordValidationMinCharacters": {
+		"description": "count of characters",
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 8
+			}
+		}
+	},
+	"passwordValidationMinUpperCaseCharacters": "{count,plural, =1{Ein Grossbuchstabe}other{{count} Grossbuchstaben}}",
+	"@passwordValidationMinUpperCaseCharacters": {
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 1
+			}
+		}
+	},
+	"passwordValidationMinLowerCaseCharacters": "{count,plural, =1{Ein Kleinbuchstabe}other{{count} Kleinbuchstaben}}",
+	"@passwordValidationMinLowerCaseCharacters": {
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 1
+			}
+		}
+	},
+	"passwordValidationMinNumericCharacters": "{count,plural, =1{Eine Zahl}other{{count} Zahlen}}",
+	"@passwordValidationMinNumericCharacters": {
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 1
+			}
+		}
+	},
+	"passwordValidationMinSpecialCharacters": "{count,plural, =1{Ein Sonderzeichen ({specialCharacters})}other{{count}  Sonderzeichen ({specialCharacters})}}",
+	"@passwordValidationMinSpecialCharacters": {
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 1
+			},
+			"specialCharacters": {
+				"example": "!@#$%&"
+			}
+		}
+	},
+	"passwordValidationAllowSpaces": "Leerzeichen sind erlaubt",
+	"@passwordValidationAllowSpaces": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"passwordValidationDoNotAllowSpaces": "Leerzeichen sind nicht erlaubt",
+	"@passwordValidationDoNotAllowSpaces": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"cameraViewGuide": "• Vollständig an den Rahmen ausrichten, nicht abschneiden\n• Vermeiden Sie Spiegelungen, damit alle Informationen sichtbar sind\n• Halten Sie die Kamera ruhig, um einen verschwommenes Bild zu vermeiden",
+	"@cameraViewGuide": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"cameraPreviewTitle": "Zufrieden mit dem Ergebnis?",
+	"@cameraPreviewTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"cameraPreviewRetakeButton": "Erneut",
+	"@cameraPreviewRetakeButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"submitButton": "Einreichen",
+	"@submitButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"nextPageButton": "Weiter",
+	"@nextPageButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"continueButton": "Fortsetzen",
+	"@continueButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"retryButton": "Wiederholen",
+	"@retryButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"backToWalletButton": "Zurück zum Wallet",
+	"@backToWalletButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"backToTokenWalletButton": "Zurück zum {token} Wallet",
+	"@backToTokenWalletButton": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"sendTokensButton": "Übertrage {token}",
+	"@sendTokensButton": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"contactUsButton": "Kontaktiere uns",
+	"@contactUsButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"getStartedButton": "Loslegen",
+	"@getStartedButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferTokensButton": "Sende Punkte",
+	"@transferTokensButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"stepOf": "{step} von {totalSteps}",
+	"@stepOf": {
+		"type": "text",
+		"placeholders": {
+			"step": {
+				"example": "1"
+			},
+			"totalSteps": {
+				"example": "3"
+			}
+		}
+	},
+	"onboardingPage1Title": "Willkommen bei {appName}",
+	"@onboardingPage1Title": {
+		"type": "text",
+		"placeholders": {
+			"appName": {}
+		}
+	},
+	"onboardingPage2Title": "Verdiene {token} Punkte",
+	"@onboardingPage2Title": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"onboardingPage2Details": "Verdienen {token} Punkte, indem Du dich mit Freunden über  {company}  austauschst und vieles mehr ",
+	"@onboardingPage2Details": {
+		"type": "text",
+		"placeholders": {
+			"token": {},
+			"company": {}
+		}
+	},
+	"onboardingPage3Title": "Benutzen {token} Punkte ganz einfach",
+	"@onboardingPage3Title": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"onboardingPage3Details": "Verwenden deine {token} Punkte auf {company} für Rechnungen, Hotelaufenthalten, Restaurants und vielem mehr",
+	"@onboardingPage3Details": {
+		"type": "text",
+		"placeholders": {
+			"token": {},
+			"company": {}
+		}
+	},
+	"onboardingSkipButton": "Überspringen",
+	"@onboardingSkipButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"welcomePageHeader": "Willkommen bei {appName}",
+	"@welcomePageHeader": {
+		"type": "text",
+		"placeholders": {
+			"appName": {}
+		}
+	},
+	"welcomePageSubHeader": "Verdiene und benutze {token}s auf der ganzen Welt",
+	"@welcomePageSubHeader": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"welcomeSignInButtonText": "Anmelden",
+	"@welcomeSignInButtonText": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"welcomeCreateAccountButtonText": "Ein Konto erstellen",
+	"@welcomeCreateAccountButtonText": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"socialOrContinueWith": "Oder weiter mit",
+	"@socialOrContinueWith": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"loginPageHeader": "Anmelden",
+	"@loginPageHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"loginPageEmailLabel": "Email",
+	"@loginPageEmailLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"loginPagePasswordLabel": "Passwort",
+	"@loginPagePasswordLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"loginPagePasswordHint": "Passwort eingeben",
+	"@loginPagePasswordHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"loginPageLoginSubmitButton": "Einloggen",
+	"@loginPageLoginSubmitButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"loginPageForgottenPasswordButton": "Passwort vergessen",
+	"@loginPageForgottenPasswordButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"loginPageInvalidCredentialsError": "Deine Anmeldedaten sind falsch. Bitte versuche es erneut.",
+	"@loginPageInvalidCredentialsError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"loginPageUnauthorizedRedirectionMessage": "Deine Sitzung ist abgelaufen. Bitte melden dich erneut an",
+	"@loginPageUnauthorizedRedirectionMessage": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"loginPageLoginAttemptWarningMessage": "{attemptNumber,plural, =1{Du hast {attemptNumber} Anmeldeversuche überig, danach wird dein Konto kurzfristig gesperrt.}other{Du hast {attemptNumber} verbleibende Versuche übrig, danach wird dein Konto für eine kurze Zeit gesperrt.}}",
+	"@loginPageLoginAttemptWarningMessage": {
+		"type": "text",
+		"placeholders": {
+			"attemptNumber": {
+				"example": "1"
+			}
+		}
+	},
+	"loginPageTooManyRequestMessage": "{numberOfMinutes,plural, =1{Dein Konto wurde gesperrt. Versuche es nochmal in {numberOfMinutes} minute.}other{Dein Konto wurde gesperrt. Versuche es nochmal in {numberOfMinutes} minutes.}}",
+	"@loginPageTooManyRequestMessage": {
+		"type": "text",
+		"placeholders": {
+			"numberOfMinutes": {
+				"example": "1"
+			}
+		}
+	},
+	"personalDetailsHeader": "Persönliche Details",
+	"@personalDetailsHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"createAPasswordHeader": "Passwort erstellen",
+	"@createAPasswordHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneNumberHeader": "Telefonnummer",
+	"@phoneNumberHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"addPhoneAndRefCodeHeader": "Telefon- und Empfehlungscode",
+	"@addPhoneAndRefCodeHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"registerPageHeader": "Registrieren",
+	"@registerPageHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"registerPageRegisterSubmitButton": "Registrieren",
+	"@registerPageRegisterSubmitButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"registerPageBackendInvalidEmailError": "Ungültige E-Mail",
+	"@registerPageBackendInvalidEmailError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"registerPageBackendInvalidPasswordError": "Ungültiges Passwort",
+	"@registerPageBackendInvalidPasswordError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"registerPageLoginAlreadyInUseError": "Zugangsdaten werden bereits verwendet",
+	"@registerPageLoginAlreadyInUseError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"registerPageAgreeTermsOfUse": "Ich stimme dem zu",
+	"@registerPageAgreeTermsOfUse": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"registerPageAgreeTermsOfUseError": "Bitte akzeptiere die unten stehenden Nutzungsbedingungen und Datenschutzbestimmungen",
+	"@registerPageAgreeTermsOfUseError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"setPhoneNumberPageTitle": "Telefonnummer hinzufügen",
+	"@setPhoneNumberPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"setPhoneNumberVerifyButton": "Überprüfen",
+	"@setPhoneNumberVerifyButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneNumberVerificationPageTitle": "Code eingeben",
+	"@phoneNumberVerificationPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneNumberVerificationDetails": "Wir haben einen Bestätigungscode an {phoneNumber} gesendet.",
+	"@phoneNumberVerificationDetails": {
+		"type": "text",
+		"placeholders": {
+			"phoneNumber": {}
+		}
+	},
+	"phoneNumberVerificationCodeResent": "Der Bestätigungscode wurde erneut gesendet",
+	"@phoneNumberVerificationCodeResent": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneNumberVerificationRequestNewCode": "Neuen Bestätigungscode anfordern",
+	"@phoneNumberVerificationRequestNewCode": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneNumberVerificationResendCodeTimer": "Neuen Bestätigungscode in {timeLeft} versenden",
+	"@phoneNumberVerificationResendCodeTimer": {
+		"type": "text",
+		"placeholders": {
+			"timeLeft": {
+				"example": "00:50"
+			}
+		}
+	},
+	"phoneNumberVerificationCodeNotSentError": "Bestätigungscode wurde nicht gesendet, bitte versuche es erneut",
+	"@phoneNumberVerificationCodeNotSentError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneNumberVerificationExpiredCodeError": "Dieser Code ist abgelaufen, bitte fordere einen neuen an",
+	"@phoneNumberVerificationExpiredCodeError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneNumberVerificationInvalidCodeError": "Falscher Code, bitte überprüfe ihn und versuche es erneut",
+	"@phoneNumberVerificationInvalidCodeError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"countryCodeListPageTitle": "Wähle deinen Ländercode",
+	"@countryCodeListPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"countryCodeEmptyPrompt": "Code",
+	"@countryCodeEmptyPrompt": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"countryListPageTitle": "Land auswählen",
+	"@countryListPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"nationalityListPageTitle": "Nationalität auswählen",
+	"@nationalityListPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"countryListFilterHint": "Nach Landesnamen suchen",
+	"@countryListFilterHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"listNoResultsTitle": "Keine Ergebnisse gefunden",
+	"@listNoResultsTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"listNoResultsDetails": "Wir können keinen Einträge finden, der deiner Suche entspricht",
+	"@listNoResultsDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"search": "Suche",
+	"@search": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"yourOffers": "Deine Angebote",
+	"@yourOffers": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"monthlyChallenges": "Monatliche Herausforderungen",
+	"@monthlyChallenges": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"monthlyChallengesSubtitle": "Teste dich und verdiene Punkte",
+	"@monthlyChallengesSubtitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"homePageCountdownTitle": "Countdown!",
+	"@homePageCountdownTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"homePageCountdownSubtitle": "warten auf dich, beeil dich",
+	"@homePageCountdownSubtitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"homePageCountdownViewAll": "Alle anzeigen ({count})",
+	"@homePageCountdownViewAll": {
+		"type": "text",
+		"placeholders": {
+			"count": {}
+		}
+	},
+	"offers": "Angebote",
+	"@offers": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earn": "Verdienen",
+	"@earn": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"redeem": "Einlösen",
+	"@redeem": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"balanceBoxErrorMessage": "Leider können wir dein Guthaben nicht verarbeiten",
+	"@balanceBoxErrorMessage": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"balanceBoxHeader": "Guthaben",
+	"@balanceBoxHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageMyTotalTokens": "Meine gesamten Punkte",
+	"@walletPageMyTotalTokens": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTitle": "Wallet",
+	"@walletPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transfer": "Transfer",
+	"@transfer": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"receive": "Erhalten",
+	"@receive": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"requests": "Anfragen",
+	"@requests": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"from": "Von {sender}",
+	"@from": {
+		"type": "text",
+		"placeholders": {
+			"sender": {}
+		}
+	},
+	"to": "An {recipient}",
+	"@to": {
+		"type": "text",
+		"placeholders": {
+			"recipient": {}
+		}
+	},
+	"walletPageSendButtonSubtitle": " {token} Punkte senden",
+	"@walletPageSendButtonSubtitle": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"walletPageReceiveButtonTitle": "Erhalte {token} Punkte",
+	"@walletPageReceiveButtonTitle": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"walletPageReceiveButtonSubtitle": "Empfange Punkte von anderen {token} Benutzern",
+	"@walletPageReceiveButtonSubtitle": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"walletPageTransferRequestsTitle": "Transfer Anfragen",
+	"@walletPageTransferRequestsTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"externalWalletTitle": "Dein externes Wallet",
+	"@externalWalletTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"externalWalletHint": "Link zu deinem Konto",
+	"@externalWalletHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"externalLinkWalletDescription": "Bevor Du {token}s senden und empfangen, musst Du ein Ethereum-Wallet verknüpfen. So verknüpfst Du Ihn",
+	"@externalLinkWalletDescription": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"linkSimpleWalletDescription": "Kopiere zum Verknüpfen mit einem einfachen Wallet die Verknüpfungs-URL und füge sie in deinem externen Wallet ein",
+	"@linkSimpleWalletDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPagePaymentRequestsSubtitle": "{count,plural, =0{Du hast keine ausstehenden Transfers}=1{Du hast {count} ausstehende Transfers}other{Du hast {count} ausstehende Transfers}}",
+	"@walletPagePaymentRequestsSubtitle": {
+		"type": "text",
+		"placeholders": {
+			"count": {
+				"example": 1
+			}
+		}
+	},
+	"walletPageTransactionHistoryEmpty": "Sobald Du einige Transaktionen abgeschlossen hast, werden sie hier angezeigt",
+	"@walletPageTransactionHistoryEmpty": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTransactionHistorySentType": " {token} Punkte gesendet",
+	"@walletPageTransactionHistorySentType": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"walletPageTransactionHistoryReceivedType": " {token} Punkte erhalten",
+	"@walletPageTransactionHistoryReceivedType": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"walletPageTransactionHistoryRewardType": "Bonus",
+	"@walletPageTransactionHistoryRewardType": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTransactionHistoryRefundType": "Rückerstattung",
+	"@walletPageTransactionHistoryRefundType": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTransactionHistoryPaymentType": "Immobilienkauf",
+	"@walletPageTransactionHistoryPaymentType": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTransactionHistoryWalletLinkingType": "Wallet Verknüpfung Gebühr",
+	"@walletPageTransactionHistoryWalletLinkingType": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTransactionHistoryTransferToExternalType": "Auf externes Wallet transferieren",
+	"@walletPageTransactionHistoryTransferToExternalType": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTransactionHistoryTransferFromExternalType": "Transfer vom externen Wallet",
+	"@walletPageTransactionHistoryTransferFromExternalType": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTransactionHistoryTransferFeeType": "Transfergebühr",
+	"@walletPageTransactionHistoryTransferFeeType": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTransactionHistoryVoucherPurchaseType": "Voucher Kauf",
+	"@walletPageTransactionHistoryVoucherPurchaseType": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTransactionHistoryTitle": "Verlauf",
+	"@walletPageTransactionHistoryTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTransactionHistoryInitialPageError": "Leider können wir diesen Abschnitt derzeit nicht laden",
+	"@walletPageTransactionHistoryInitialPageError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageTransactionHistoryPaginationError": "Leider können wir derzeit keine weiteren Transaktionen anzeigen",
+	"@walletPageTransactionHistoryPaginationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageWalletDisabledError": "Wallet deaktiviert",
+	"@walletPageWalletDisabledError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletPageWalletDisabledErrorMessage": "Entschuldigung, dein Wallet wurde deaktiviert. Bitte kontaktiere uns, um das Problem zu beheben.",
+	"@walletPageWalletDisabledErrorMessage": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"leadReferralPageTitle": "Freunde empfehlen",
+	"@leadReferralPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"leadReferralFormPageCommunityOfInterestLabel": "Objekt von Interesse",
+	"@leadReferralFormPageCommunityOfInterestLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"leadReferralSuccessPageDetails": "Toll! Du hast {refereeFirstName} {refereeLastName}erfolgreich empfohlen",
+	"@leadReferralSuccessPageDetails": {
+		"type": "text",
+		"placeholders": {
+			"refereeFirstName": {},
+			"refereeLastName": {}
+		}
+	},
+	"leadReferralSuccessPageDetailsPartnerName": " zu {partnerName} Eigenschaften",
+	"@leadReferralSuccessPageDetailsPartnerName": {
+		"type": "text",
+		"placeholders": {
+			"partnerName": {}
+		}
+	},
+	"referralSuccessPageTitle": "Empfehlung abgegeben",
+	"@referralSuccessPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralSuccessPageSubDetails": "Du kannst den Fortschritt in der Übersicht verfolgen",
+	"@referralSuccessPageSubDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralSuccessGoToRefsButton": "Gehen zu Empfehlungen",
+	"@referralSuccessGoToRefsButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"leadReferralAcceptedSuccessBody": "Vielen Dank für die Bestätigung der Empfehlung.",
+	"@leadReferralAcceptedSuccessBody": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hotelReferralPageTitle": "Hotel empfehlen",
+	"@hotelReferralPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hotelReferralPageDescription": "Bitte die E-Mail-Adresse der Person eingeben",
+	"@hotelReferralPageDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hotelReferralPageButton": "Einladung Senden",
+	"@hotelReferralPageButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hotelReferralPartnerInfo": "Bitte gib die Details der zu empfehlenden Person ein, für {partnerName}.",
+	"@hotelReferralPartnerInfo": {
+		"type": "text",
+		"placeholders": {
+			"partnerName": {}
+		}
+	},
+	"hotelReferralStakingInfo": "Du musst sperren",
+	"@hotelReferralStakingInfo": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hotelReferralFullNameFieldLabel": "Vollständiger Name*",
+	"@hotelReferralFullNameFieldLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hotelReferralFullNameFieldHint": "Bitte den vollständigen Namen eingeben",
+	"@hotelReferralFullNameFieldHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hotelReferralSuccessPageDetails": "Toll! Du hast erfolgreich {refereeFullName}empfohlen",
+	"@hotelReferralSuccessPageDetails": {
+		"type": "text",
+		"placeholders": {
+			"refereeFullName": {}
+		}
+	},
+	"hotelReferralSuccessPageDetailsPartnerName": " bis {partnerName}",
+	"@hotelReferralSuccessPageDetailsPartnerName": {
+		"type": "text",
+		"placeholders": {
+			"partnerName": {}
+		}
+	},
+	"hotelReferralAcceptedSuccessBody": "Vielen Dank, dass Du die Empfehlung angenommen hast. Wenn Du das nächste Mal im {company} Hotel übernachten, erhältst Du {token} Punkte",
+	"@hotelReferralAcceptedSuccessBody": {
+		"type": "text",
+		"placeholders": {
+			"token": {},
+			"company": {}
+		}
+	},
+	"hotelReferralErrorTitle": "Einladung erfolglos",
+	"@hotelReferralErrorTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hotelReferralErrorDetails": "Wir konnten deine Empfehlung nicht aufnehmen. Bitte versuche es erneut",
+	"@hotelReferralErrorDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hotelReferralErrorLeadAlreadyExists": "Diese Empfehlung existiert bereits.",
+	"@hotelReferralErrorLeadAlreadyExists": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralListPageTitle": "Empfehlungen",
+	"@referralListPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralListPageDescription": "Verfolgen hier all deine Empfehlungen",
+	"@referralListPageDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralListRequestGenericErrorSubtitle": "Leider können wir deine Empfehlungen nicht anzeigen. Bitte versuche es erneut.",
+	"@referralListRequestGenericErrorSubtitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralListRequestGenericErrorTitle": "Hmm ... etwas scheint nicht zu stimmen",
+	"@referralListRequestGenericErrorTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pendingReferralListEmptyState": "Du hast derzeit keine ausstehenden Empfehlungen",
+	"@pendingReferralListEmptyState": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"approvedReferralListEmptyState": "Du hast aktuell keine bestätigten Empfehlungen",
+	"@approvedReferralListEmptyState": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"expiredReferralListEmptyState": "Du hast keine abgelaufenen Empfehlungen",
+	"@expiredReferralListEmptyState": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralListOngoingTab": "Offen",
+	"@referralListOngoingTab": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralListCompletedTab": "Abgeschlossen",
+	"@referralListCompletedTab": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralListExpiredTab": "Abgelaufen",
+	"@referralListExpiredTab": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralAcceptedSuccessTitle": "Empfehlung akzeptiert",
+	"@referralAcceptedSuccessTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralAcceptedTitle": "Empfehlung",
+	"@referralAcceptedTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralAcceptedNotFoundError": "Empfehlung nicht gefunden",
+	"@referralAcceptedNotFoundError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralAcceptedInvalidCode": "Ungültiger Empfehlungscode.",
+	"@referralAcceptedInvalidCode": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionFormPageTitle": "{token} Punkte übertragen",
+	"@transactionFormPageTitle": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"transactionFormPageSubDetails": "Übertragen {token} Punkte ganz einfach, scanne den QR-Code des Empfängers oder gib dessen E-Mail-Adresse ein",
+	"@transactionFormPageSubDetails": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"transactionFormStakedAmount": "{lockedAmount} sind gesperrt",
+	"@transactionFormStakedAmount": {
+		"type": "text",
+		"placeholders": {
+			"lockedAmount": {}
+		}
+	},
+	"transactionFormScanQRCode": "QR-Code scannen",
+	"@transactionFormScanQRCode": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionFormOr": "oder",
+	"@transactionFormOr": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionReceiverEmailAddressLabel": "Empfänger E-Mail-Adresse ",
+	"@transactionReceiverEmailAddressLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionReceiverEmailAddressHint": "Gib die E-Mail-Adresse des Empfängers ein",
+	"@transactionReceiverEmailAddressHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionAmountTokensLabel": "Betrag ({token} Punkte)",
+	"@transactionAmountTokensLabel": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"transactionAmountOfTokensHint": "Wie viele Punkte werden benötigt?",
+	"@transactionAmountOfTokensHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionEmptyAddressError": "Wallet Adresse ist erforderlich",
+	"@transactionEmptyAddressError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionInvalidAddressError": "Bist Du sicher, dass dies deine Wallet Adresse ist?",
+	"@transactionInvalidAddressError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionAmountRequiredError": "Betrag ist erforderlich",
+	"@transactionAmountRequiredError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionAmountInvalidError": "Betrag ist ungültig",
+	"@transactionAmountInvalidError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionAmountGreaterThanBalanceError": "Dein Guthaben ist für diese Transaktion zu niedrig ist. ",
+	"@transactionAmountGreaterThanBalanceError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"barcodeScanPermissionError": "Für das Scannen von QR-Codes ist der Zugriff auf die Kamera erforderlich.",
+	"@barcodeScanPermissionError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"barcodeScanError": "Beim Scannen des QR-Codes ist ein Problem aufgetreten. Bitte versuche es erneut.",
+	"@barcodeScanError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"copyEmail": "E-Mail kopieren",
+	"@copyEmail": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionSuccessTitle": "Transfer eingereicht",
+	"@transactionSuccessTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transactionSuccessDetails": "Vielen Dank für die Übermittlung deiner Zahlung. Wir werden dich informieren, sobald es verarbeitet ist.",
+	"@transactionSuccessDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"insufficientFunds": "Du hast nicht genügend Guthaben, um eine Verbindung zum externen Wallet herzustellen",
+	"@insufficientFunds": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkYourWallet": "Link zu deinem Konto",
+	"@linkYourWallet": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"walletLinkingInProgress": "Wallet Verknüpfung läuft",
+	"@walletLinkingInProgress": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkSimpleWalletInstructionCopyUrl": "Kopiere diese URL",
+	"@linkSimpleWalletInstructionCopyUrl": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkSimpleWalletInstructionSwitchToWallet": "Wechsel zu der Wallet-App, die Du verknüpfen möchtest",
+	"@linkSimpleWalletInstructionSwitchToWallet": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkSimpleWalletInstructionPasteAddress": "Füge es in das Adressfeld ein",
+	"@linkSimpleWalletInstructionPasteAddress": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkSimpleWalletInstructionPasteLink": "Drücke \"Wallet verbinden\"",
+	"@linkSimpleWalletInstructionPasteLink": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletInstructionSelectWallet": "Wähle aus den folgenden Optionen ein Wallet aus",
+	"@linkWalletInstructionSelectWallet": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletInstructionConfirmLinking": "Befolge die Anweisungen, um die Verknüpfung zu bestätigen",
+	"@linkWalletInstructionConfirmLinking": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletInstructionFees": "Für das Verknüpfen von externen Wallets fallen Gebühren an",
+	"@linkWalletInstructionFees": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletChooseSupportedWallets": "Wähle ein unterstütztes Wallet",
+	"@linkWalletChooseSupportedWallets": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletHeader": "Verknüpfe ein externes Wallet",
+	"@linkWalletHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkSimpleWalletHeader": "Einfaches Wallet verknüpfen",
+	"@linkSimpleWalletHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"simpleWalletsTitle": "Einfache Wallets",
+	"@simpleWalletsTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"simpleWalletsDescription": "Metamask, Coinbase, Trust Wallet, ...",
+	"@simpleWalletsDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"advancedWalletsTitle": "Erweiterte Wallets",
+	"@advancedWalletsTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"advancedWalletsDescription": "Mein Krypto, mein Ethereum Wallet,…",
+	"@advancedWalletsDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"dapBrowserHint": "Sie können die Verknüpfungs-URL auch kopieren, um sie in einem dApp-Browser zu öffnen",
+	"@dapBrowserHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletInProgressHeader": "Verknüpfung läuft",
+	"@linkWalletInProgressHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletInProgressTitle": "Dein Wallet wird gerade verknüpft",
+	"@linkWalletInProgressTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletInProgressDescription": "Dies kann eine Weile dauern. Du kannst die App weiterhin verwenden. Wir werden dich informieren, sobald es fertig ist",
+	"@linkWalletInProgressDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkedWalletHeader": "Dein externes Wallet",
+	"@linkedWalletHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"sendToExternalWalletButton": "Auf externes Wallet übertragen",
+	"@sendToExternalWalletButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"sendToExternalWalletButtonSubtitle": "Vom {token} Wallet zum externen Wallet",
+	"@sendToExternalWalletButtonSubtitle": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"receiveExternalWalletButton": "Vom externen Wallet empfangen",
+	"@receiveExternalWalletButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"receiveExternalWalletButtonSubtitle": "Vom externen Wallet zu {token} Wallet",
+	"@receiveExternalWalletButtonSubtitle": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"unlinkExternalWalletButton": "Externes Wallet trennen",
+	"@unlinkExternalWalletButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"unlinkExternalWalletButtonSubtitle": "Externes Wallet vom Konto entfernen",
+	"@unlinkExternalWalletButtonSubtitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletHeader": "Verknüpfen ein erweitertes Wallet",
+	"@linkAdvancedWalletHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletDescription": "Um eine Verbindung zu einer erweiterten Wallet herzustellen, musst Du eine App verwenden, die Signaturen unterstützt",
+	"@linkAdvancedWalletDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletInstructionCopyCode": "Diesen Code kopieren",
+	"@linkAdvancedWalletInstructionCopyCode": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletInstructionSwitchApp": "Wechseln zu der Wallet-App, die Du verknüpfen möchtest",
+	"@linkAdvancedWalletInstructionSwitchApp": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletInstructionSignMessage": "Signiere eine Nachricht mit diesem Code",
+	"@linkAdvancedWalletInstructionSignMessage": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletInstructionCopySignature": "Die Signatur kopieren",
+	"@linkAdvancedWalletInstructionCopySignature": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletInstructionPasteSignature": "Füge es in das Feld unten ein",
+	"@linkAdvancedWalletInstructionPasteSignature": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletInstructionPublicAddress": "Gebe deine öffentliche Adresse ein und tippe Sie auf \"Wallet verbinden\".",
+	"@linkAdvancedWalletInstructionPublicAddress": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletButton": "Wallet verbinden",
+	"@linkAdvancedWalletButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletTextFieldCodeSignatureTitle": "Verknüpfung der Signatur",
+	"@linkAdvancedWalletTextFieldCodeSignatureTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletTextFieldCodeSignatureHint": "Füge  hier die Signatur ein",
+	"@linkAdvancedWalletTextFieldCodeSignatureHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emptyLinkAdvancedWalletTextFieldCodeSignatureError": "Die Verknüpfung der Codesignatur ist erforderlich",
+	"@emptyLinkAdvancedWalletTextFieldCodeSignatureError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletTextFieldPublicAddressTitle": "Adresse des öffentlichen Kontos",
+	"@linkAdvancedWalletTextFieldPublicAddressTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkAdvancedWalletTextFieldPublicAddressHint": "Geben Sie die Adresse des öffentlichen Kontos ein",
+	"@linkAdvancedWalletTextFieldPublicAddressHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emptyLinkAdvancedWalletTextFieldPublicAddressError": "Die Adresse des öffentlichen Kontos ist erforderlich",
+	"@emptyLinkAdvancedWalletTextFieldPublicAddressError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletReceiveTitle": "Erhalte {token} Punkte von dem externen Wallet",
+	"@linkWalletReceiveTitle": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"linkWalletReceiveHint": "Übertragen Guthaben von deinem verknüpften externen Wallet auf dein {token} Wallet",
+	"@linkWalletReceiveHint": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"linkWalletReceiveCopyAddress": "Adresse kopieren",
+	"@linkWalletReceiveCopyAddress": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletReceiveNote": "Hinweis: Guthaben geht verloren, wenn Sie ein anderes Wallet als das verknüpfte externe Wallet verwenden",
+	"@linkWalletReceiveNote": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletTransferFailedTitle": "Transfer fehlgeschlagen",
+	"@linkWalletTransferFailedTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletTransferFailedDetails": "Wir konnten deinen Transfer nicht abschließen. Bitte versuche es erneut.",
+	"@linkWalletTransferFailedDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkWalletTransferFailedSubDetails": "Deine Transaktion ist aufgrund eines öffentlichen Blockchain-Fehlers fehlgeschlagen.",
+	"@linkWalletTransferFailedSubDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkedWalletSendTitle": "Übertrage {token} Punkte in dein externes Wallet",
+	"@linkedWalletSendTitle": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"linkedWalletSendHint": "Übertrage von deinem {token} Wallet auf dein externes Wallet",
+	"@linkedWalletSendHint": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"linkingWalletDisabled": "Derzeit deaktiviert",
+	"@linkingWalletDisabled": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"unlinkWalletInProgressHeader": "Verknüpfung wird aufgehoben",
+	"@unlinkWalletInProgressHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"unlinkWalletInProgressTitle": "Dein Wallet Link wird derzeit aufgehoben",
+	"@unlinkWalletInProgressTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"socialPageTitle": "Community",
+	"@socialPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"socialPageComingSoon": "Demnächst",
+	"@socialPageComingSoon": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"spendPageTitle": "Einlösen",
+	"@spendPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"spendRulePageEmpty": "Leider gibt es derzeit keine Angebote",
+	"@spendRulePageEmpty": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"doneButton": "Erledigt",
+	"@doneButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"offerDetailGenericError": "Wir können derzeit keine Angebotsdetails laden. Bitte versuche es erneut.",
+	"@offerDetailGenericError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"voucherStockCount": "{stockCount,plural, =0{Ausverkauft}other{{stockCount} übrig}}",
+	"@voucherStockCount": {
+		"type": "text",
+		"placeholders": {
+			"stockCount": {
+				"example": 11
+			}
+		}
+	},
+	"voucherSoldCountInfo": "{soldCount} hat dieses Angebot genutzt",
+	"@voucherSoldCountInfo": {
+		"type": "text",
+		"placeholders": {
+			"soldCount": {
+				"example": "2"
+			}
+		}
+	},
+	"voucherDetailsAmount": "Menge",
+	"@voucherDetailsAmount": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"voucherDetailsAvailableBalance": "Verfügbares Guthaben",
+	"@voucherDetailsAvailableBalance": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"tokensLocked": "sind gesperrt",
+	"@tokensLocked": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"redeemVoucherButton": "Voucher einlösen",
+	"@redeemVoucherButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"redeemVoucherInsufficientFunds": "Du kannst diese Aktion nicht ausführen, da Du nicht über ausreichend Guthaben verfügst",
+	"@redeemVoucherInsufficientFunds": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"outOfStockDescription": "Die Voucher in diesem Angebot sind ausverkauft.",
+	"@outOfStockDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"realEstateListChooseAProperty": "Immobilie auswählen",
+	"@realEstateListChooseAProperty": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"realEstateListNoPurchases": "Du hast derzeit keine laufenden Käufe",
+	"@realEstateListNoPurchases": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"instalmentListChooseAnInstalment": "Wähle eine Rate",
+	"@instalmentListChooseAnInstalment": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"installmentOverdue": "Überfällig",
+	"@installmentOverdue": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"propertyPaymentPageTitle": "Rate bezahlen",
+	"@propertyPaymentPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"propertyPaymentPageSubDetails": "Du kannst eine Rate ganz oder teilweise bezahlen",
+	"@propertyPaymentPageSubDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"propertyPaymentFull": "Vollständig",
+	"@propertyPaymentFull": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"propertyPaymentPartial": "Teilweise",
+	"@propertyPaymentPartial": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"propertyPaymentProperty": "Immobilie",
+	"@propertyPaymentProperty": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"propertyPaymentAvailableBalanceLabel": "Verfügbares Guthaben",
+	"@propertyPaymentAvailableBalanceLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"propertyPaymentConversionHolder": "Entspricht: {amount} {currencyName}",
+	"@propertyPaymentConversionHolder": {
+		"type": "text",
+		"placeholders": {
+			"amount": {},
+			"currencyName": {}
+		}
+	},
+	"propertyPaymentAmountExceedsInstalment": "Der Betrag darf die Gesamtsumme der Rate nicht überschreiten",
+	"@propertyPaymentAmountExceedsInstalment": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"currencyConversionLabel": "{amountInToken} {token} = {amountInCurrency} {currency}",
+	"@currencyConversionLabel": {
+		"type": "text",
+		"placeholders": {
+			"amountInToken": {},
+			"token": {},
+			"amountInCurrency": {},
+			"currency": {}
+		}
+	},
+	"paymentAmountRequiredError": "Betrag ist erforderlich",
+	"@paymentAmountRequiredError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"paymentAmountInvalidError": "Betrag ist ungültig",
+	"@paymentAmountInvalidError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emptyPaymentInvoiceError": "Rechnungsnummer ist erforderlich",
+	"@emptyPaymentInvoiceError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"insufficientBalanceError": "Wir können derzeit keine Transaktionen durchführen, da wir dein Guthaben nicht ermitteln konnten",
+	"@insufficientBalanceError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"paymentSuccessDetails": "Toll! Deine Überweisung wurde übermittelt. Wir werden dich benachrichtigen, sobald sie genehmigt ist",
+	"@paymentSuccessDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"redemptionSuccessTitle": "Erfolgreich eingelöst",
+	"@redemptionSuccessTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"redemptionSuccessCopyTitle": "Dein Voucher Code lautet",
+	"@redemptionSuccessCopyTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"redemptionSuccessDetailsText": "Wenn Du diesen Code später sehen willst, finden Du ihn unter",
+	"@redemptionSuccessDetailsText": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"redemptionSuccessDetailsLink": "Mein Konto",
+	"@redemptionSuccessDetailsLink": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"redemptionSuccessOpenVoucherAppButton": "Voucher App öffnen",
+	"@redemptionSuccessOpenVoucherAppButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"redemptionSuccessToastMessage": "Voucher in Zwischenablage kopiert",
+	"@redemptionSuccessToastMessage": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountDeactivatedPageTitle": "Es ist traurig, dich gehen zu sehen, aber wir hoffen, dich bald wieder zu sehen",
+	"@accountDeactivatedPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountDeactivatedPageMessagePart1": "Wir werden dich vermissen",
+	"@accountDeactivatedPageMessagePart1": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountDeactivatedPageMessagePart2": "Wir möchten nicht, dass Du gehst. Wenn Du dein Konto deaktivierst, wirst Du dauerhaft von allen {token} Vorteilen ausgeschlossen.",
+	"@accountDeactivatedPageMessagePart2": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"accountDeactivatedPageMessagePart3": "Für weitere Informationen wenden Sie sich bitte an unser Support-Team unter {contactNumber}.",
+	"@accountDeactivatedPageMessagePart3": {
+		"type": "text",
+		"placeholders": {
+			"contactNumber": {
+				"example": "+00 0000 000000"
+			}
+		}
+	},
+	"accountDeactivatedPageMessageClosePart1": "Mit freundlichen Grüßen,",
+	"@accountDeactivatedPageMessageClosePart1": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountDeactivatedPageMessageClosePart2": "Das {token} Team",
+	"@accountDeactivatedPageMessageClosePart2": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"accountDeactivatedPageContactButton": "Kontaktieren Sie unser Support-Team",
+	"@accountDeactivatedPageContactButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountDeactivatedLaunchContactNumberError": "Ihre App konnte nicht gestartet werden",
+	"@accountDeactivatedLaunchContactNumberError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"warningDialogLeavingPageTitle": "Bestätigen",
+	"@warningDialogLeavingPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"warningDialogLeavingPageDetails": "Bist du sicher, dass du zurück willst? Wir möchten nicht, dass Du deinen Fortschritt verlierst",
+	"@warningDialogLeavingPageDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"warningDialogYesButton": "Ja",
+	"@warningDialogYesButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"warningDialogNoButton": "Kein",
+	"@warningDialogNoButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"warningDialogNoThanksButton": "Nein Danke",
+	"@warningDialogNoThanksButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"warningDialogGoToSettings": "Gehe zu den Einstellungen",
+	"@warningDialogGoToSettings": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountPageLogOutConfirmTitle": "Bitte bestätigen",
+	"@accountPageLogOutConfirmTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountPageLogOutConfirmContent": "Möchten Sie sich wirklich abmelden?",
+	"@accountPageLogOutConfirmContent": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountPageTitle": "Mein Konto",
+	"@accountPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountPagePersonalDetailsOption": "Persönliche Details",
+	"@accountPagePersonalDetailsOption": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralTrackingPersonalDetailsOption": "Empfehlungsverfolgung",
+	"@referralTrackingPersonalDetailsOption": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"vouchersOption": "Vouchers",
+	"@vouchersOption": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountPageChangePasswordOption": "Passwort ändern",
+	"@accountPageChangePasswordOption": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountPageLogoutOption": "Abmelden",
+	"@accountPageLogoutOption": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountAppVersion": "App-Version: {appVersion}",
+	"@accountAppVersion": {
+		"type": "text",
+		"placeholders": {
+			"appVersion": {
+				"example": "0.0.7"
+			}
+		}
+	},
+	"accountPageBiometricsSignInOptionAndroid": "Melde dich mit deinem Fingerabdruck an",
+	"@accountPageBiometricsSignInOptionAndroid": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"accountPageBiometricsSignInOptionIOS": "Melde dich mit Touch ID / Face ID an",
+	"@accountPageBiometricsSignInOptionIOS": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"contactUsPageDetail": "Nehme Kontakt mit uns auf, um Hilfe und Unterstützung zu erhalten",
+	"@contactUsPageDetail": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"contactUsPhoneNumber": "Telefonnummer",
+	"@contactUsPhoneNumber": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"contactUsEmail": "Email",
+	"@contactUsEmail": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"contactUsWhatsApp": "Whatsapp",
+	"@contactUsWhatsApp": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"contactUsWhatsAppStartingMessage": "Hallo",
+	"@contactUsWhatsAppStartingMessage": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"contactUsLaunchContactNumberError": "Beim starten deiner Telefon-App ist ein Problem aufgetreten.",
+	"@contactUsLaunchContactNumberError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"contactUsLaunchContactEmailError": "Beim starten deiner E-Mail-App ist ein Problem aufgetreten.",
+	"@contactUsLaunchContactEmailError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"contactUsGenericErrorSubtitle": "Entschuldige, Kontaktinformationen können leider nicht angezeigt werden. Bitte versuche es erneut.",
+	"@contactUsGenericErrorSubtitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"deleteAccountDialogTitle": "Konto löschen",
+	"@deleteAccountDialogTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"deleteAccountDialogDetails": "Möchtest Du dein Konto wirklich löschen?",
+	"@deleteAccountDialogDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"deleteAccountDialogDeleteButton": "Löschen",
+	"@deleteAccountDialogDeleteButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"deleteAccountDialogCancelButton": "Abbrechen",
+	"@deleteAccountDialogCancelButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"changePasswordPagePrompt": "Bitte erstelle ein neues Passwort",
+	"@changePasswordPagePrompt": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"changePasswordPagePasswordLabel": "Neues Passwort*",
+	"@changePasswordPagePasswordLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"changePasswordPageConfirmPasswordHint": "Bitte bestätige neues Passwort",
+	"@changePasswordPageConfirmPasswordHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"changePasswordPagePasswordHint": "Bitte neues Passwort eingeben",
+	"@changePasswordPagePasswordHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"changePasswordSuccessTitle": "Passwort aktualisiert",
+	"@changePasswordSuccessTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"changePasswordSuccessDetails": "Toll! Dein Passwort wurde geändert.",
+	"@changePasswordSuccessDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"changePasswordSuccessBackToAccountButton": "Zurück zum Konto",
+	"@changePasswordSuccessBackToAccountButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"confirmPasswordLabel": "Passwort bestätigen*",
+	"@confirmPasswordLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"passwordGuide": "Deine Sicherheit ist uns wihchtig. Bitte stelle  sicher, dass dein Passwort mindestens Folgendes enthält:",
+	"@passwordGuide": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"changePassword": "Passwort ändern",
+	"@changePassword": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"resetPasswordTitle": "E-Mail Adresse eingeben",
+	"@resetPasswordTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"resetPasswordSendLinkHint": "Wir senden dir einen Link zum Zurücksetzen deines Passworts",
+	"@resetPasswordSendLinkHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"resetPasswordSentEmailHint": "Der Link wurde gesendet. Bitte überprüfe deine E-Mails. Wenn Du ihn nicht erhalten hast, versuche es den Link erneut anzufordern oder prüfe deinen Spamordner",
+	"@resetPasswordSentEmailHint": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"resetPassword": "Passwort zurücksetzen",
+	"@resetPassword": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"resetPasswordPrompt": "Bitte ein neues Passwort erstellen und erneut anmelden",
+	"@resetPasswordPrompt": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"setPasswordSuccessTitle": "Passwort erfolgreich zurückgesetzt",
+	"@setPasswordSuccessTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"setPasswordSuccessDetails": "Dein Passwort wurde zurückgesetzt, bitte melde dich mit den neuen Daten ein",
+	"@setPasswordSuccessDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"setPasswordSuccessBackToAccountButton": "Zurück zur Anmeldung",
+	"@setPasswordSuccessBackToAccountButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinCreatedSuccessTitle": "PIN erstellt",
+	"@pinCreatedSuccessTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinCreatedSuccessDetails": "Toll! Deine PIN wurde erfolgreich erstellt",
+	"@pinCreatedSuccessDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinErrorDoesNotMatch": "PIN stimmt nicht überein",
+	"@pinErrorDoesNotMatch": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinErrorRemainingAttempts": "Du hast noch {count} Versuche, bis Du dich mit E-Mail-Adresse und Ihrem Passwort anmelden müsstest",
+	"@pinErrorRemainingAttempts": {
+		"type": "text",
+		"placeholders": {
+			"count": {}
+		}
+	},
+	"pinErrorIncorrectPassCode": "Falscher Passcode, bitte erneut versuchen",
+	"@pinErrorIncorrectPassCode": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinShow": "PIN anzeigen",
+	"@pinShow": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinHide": "PIN ausblenden",
+	"@pinHide": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinConfirmHeading": "PIN bestätigen",
+	"@pinConfirmHeading": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinConfirmDescription": "Bitte bestätige deine PIN",
+	"@pinConfirmDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinCreateHeading": "PIN erstellen",
+	"@pinCreateHeading": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinCreateDescription": "Erstelle eine PIN, um sich beim nächsten Mal schnell in dein {appName} -Konto anmelden zu können",
+	"@pinCreateDescription": {
+		"type": "text",
+		"placeholders": {
+			"appName": {}
+		}
+	},
+	"pinSignInHeading": "Pin eingeben",
+	"@pinSignInHeading": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinSignInDescription": "Bitte gib deine PIN ein, um sich anzumelden",
+	"@pinSignInDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinVerificationDescription": "Bitte PIN erneut eingeben",
+	"@pinVerificationDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinForgotButton": "Vergessen?",
+	"@pinForgotButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"useFaceIDButton": "oder verwende Sie Face ID",
+	"@useFaceIDButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"useBiometricButton": "oder biometrische daten verwenden",
+	"@useBiometricButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"useFingerprintButton": "oder Fingerabdruck verwenden",
+	"@useFingerprintButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinForgotPageTitle": "Pin vergessen?",
+	"@pinForgotPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinForgotPageDescription": "Bitte melde dich mit deiner E-Mail-Adresse und Passwort an. Danach kannst Du eine neue PIN festlegen.",
+	"@pinForgotPageDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"pinForgotPageButton": "Weiter",
+	"@pinForgotPageButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"receiveTokenPageTitle": "Erhalte {token} Punkte",
+	"@receiveTokenPageTitle": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"receiveTokenPageSubDetails": "Teile diesen Code mit dem Absender. Punkte sammeln ist einfacher als Du denkst",
+	"@receiveTokenPageSubDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"receiveTokenPageGenericErrorTitle": "Etwas scheint nicht in Ordnung zu sein",
+	"@receiveTokenPageGenericErrorTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"receiveTokenPageGenericErrorSubtitle": "Oh nein! Wir konnten den QR-Code generieren. Bitte versuche es erneut.",
+	"@receiveTokenPageGenericErrorSubtitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referAHotelSectionTitle": "Hotel empfehlen",
+	"@referAHotelSectionTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"inviteFriendSectionTitle": "Einen Freund einladen",
+	"@inviteFriendSectionTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"inviteFriendEarnUpToPart1": "Verdienen bis zu",
+	"@inviteFriendEarnUpToPart1": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"inviteFriendEarnUpToPart2": " für jeden Freund, den Du zur App einlädst",
+	"@inviteFriendEarnUpToPart2": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRulePageInitialPageError": "Leider können wir derzeit keine Angebote laden",
+	"@earnRulePageInitialPageError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRulePagePaginationError": "Leider können wir derzeit keine weiteren Angebote anzeigen",
+	"@earnRulePagePaginationError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRulePageEmpty": "Leider gibt es derzeit keine Aufgaben zum Verdienen",
+	"@earnRulePageEmpty": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnDetailPageGenericErrorSubTitle": "Leider können wir die Aufgabendetails nicht anzeigen. Bitte versuchen Sie es erneut.",
+	"@earnDetailPageGenericErrorSubTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleValidDate": "Gültig: von {fromDate} bis {toDate}",
+	"@earnRuleValidDate": {
+		"type": "text",
+		"placeholders": {
+			"fromDate": {},
+			"toDate": {}
+		}
+	},
+	"earnRuleUnlimitedParticipationInfo": "Du kannst unbegrenzt an dieser Aufgabe teilnehmen",
+	"@earnRuleUnlimitedParticipationInfo": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleOnlyOnceParticipationInfo": "Du kannst nur einmal daran teilnehmen",
+	"@earnRuleOnlyOnceParticipationInfo": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleLimitedParticipationInfo": "Du kannst {number} mal an diesem Angebot teilnehmen",
+	"@earnRuleLimitedParticipationInfo": {
+		"type": "text",
+		"placeholders": {
+			"number": {}
+		}
+	},
+	"earnRuleLimitedCompletionInfo": "{number} / {total} abgeschlossen",
+	"@earnRuleLimitedCompletionInfo": {
+		"type": "text",
+		"placeholders": {
+			"number": {},
+			"total": {}
+		}
+	},
+	"earnRuleUnlimitedCompletionInfo": "{number} abgeschlossen",
+	"@earnRuleUnlimitedCompletionInfo": {
+		"type": "text",
+		"placeholders": {
+			"number": {}
+		}
+	},
+	"earnRuleRewardBoxTitle": "Bonus",
+	"@earnRuleRewardBoxTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleRewardBoxSubTitle": "Verdiene jedes Mal {token} Punkte, wenn du die Aufgabe abschließt",
+	"@earnRuleRewardBoxSubTitle": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"earnRuleCampaignMissionTitle": "Aufgabe Mission",
+	"@earnRuleCampaignMissionTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleCampaignMissionSubtitle": "Beende die folgenden Aufgaben und hole dir die Belohnung!",
+	"@earnRuleCampaignMissionSubtitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleConditionCompleted": "Abgeschlossen",
+	"@earnRuleConditionCompleted": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleConditionGetStarted": "Loslegen",
+	"@earnRuleConditionGetStarted": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleCompletionMessage": "Herzliche Glückwünsche! Du hast dieses Aufgabe abgeschlossen! Schaue dir andere Angebote an, um weitere {token}zu verdienen",
+	"@earnRuleCompletionMessage": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"earnRuleViewOtherOffers": "Andere Angebote anzeigen",
+	"@earnRuleViewOtherOffers": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsHowItWorks": "Wie es funktioniert",
+	"@earnRuleDetailsHowItWorks": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsEarnUponCompletion": "Jedes Mal, wenn Du diese Aufgabe abschließen, verdienst Du dazu",
+	"@earnRuleDetailsEarnUponCompletion": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsEarnUponCompletionConversionRate": " (* Richtbetrag basierend auf der durchschnittlichen Übernachtung).",
+	"@earnRuleDetailsEarnUponCompletionConversionRate": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsStakingAmountPart1": "Für dieses Angebot musst Du sperren",
+	"@earnRuleDetailsStakingAmountPart1": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsStakingAmountPart2": " um teilzunehmen",
+	"@earnRuleDetailsStakingAmountPart2": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsParticipationLimit": "Du kannst teilnehmen",
+	"@earnRuleDetailsParticipationLimit": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsParticipationCount": "{participationCount,plural, =1{Einmal}other{{participationCount} Mal}}",
+	"@earnRuleDetailsParticipationCount": {
+		"type": "text",
+		"placeholders": {
+			"participationCount": {}
+		}
+	},
+	"earnRuleDetailsUnlimitedParticipation": "Du kannst unbegrenzt teilnehmen.",
+	"@earnRuleDetailsUnlimitedParticipation": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsPreviousParticipationPart1": "Du hast erfolgreich teilgenommen",
+	"@earnRuleDetailsPreviousParticipationPart1": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsPreviousParticipationPart2": " und verdient",
+	"@earnRuleDetailsPreviousParticipationPart2": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsPreviousParticipationPart3": " bisher",
+	"@earnRuleDetailsPreviousParticipationPart3": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsReadMoreButton": "Weiterlesen",
+	"@earnRuleDetailsReadMoreButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsOfferUnavailableTitle": "Aufgabe nicht verfügbar",
+	"@earnRuleDetailsOfferUnavailableTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsViewOffersButton": "Andere Angebote anzeigen",
+	"@earnRuleDetailsViewOffersButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsLowBalanceErrorPart1": "Du brauchst",
+	"@earnRuleDetailsLowBalanceErrorPart1": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsLowBalanceErrorPart2": " um zur Teilnahme an diesem Aufgabe berechtigt zu sein.",
+	"@earnRuleDetailsLowBalanceErrorPart2": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleDetailsParticipationLimitError": "Du hast die maximal Zahl an Teilnahmen an diesem Angebot erreicht.",
+	"@earnRuleDetailsParticipationLimitError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleIndicativeAmountInfoHospitality": "* Dies ist ein Richtbetrag, der auf dem durchschnittlichen Aufenthalt basiert.",
+	"@earnRuleIndicativeAmountInfoHospitality": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleIndicativeAmountInfoRealEstate": "* Es hängt vom Immobilienpreis ab.",
+	"@earnRuleIndicativeAmountInfoRealEstate": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earnRuleIndicativeAmountInfoGeneric": "* Dies ist ein Richtbetrag.",
+	"@earnRuleIndicativeAmountInfoGeneric": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"stakingDetailsPart1": "Um an diesem Angebot teilnehmen zu können, müssen Sie sperren",
+	"@stakingDetailsPart1": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"stakingDetailsRealEstatePart5": "Du wirst nach Abschluss der verschiedenen Meilensteine während des Kaufvorgangs einen Bonus erhalten.",
+	"@stakingDetailsRealEstatePart5": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"stakingDetailsRealEstateStakingRulePart1": "Wenn dein Freund einen Kauf tätigt, werden wir zurückkehren",
+	"@stakingDetailsRealEstateStakingRulePart1": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"stakingDetailsRealEstateStakingRulePart2_100percent": " der Einsatzmenge.",
+	"@stakingDetailsRealEstateStakingRulePart2_100percent": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"stakingDetailsRealEstateBurningRulePart1": "Wenn Ihr Freund die Einladung innerhalb von {time} nicht annimmt, verlieren Sie",
+	"@stakingDetailsRealEstateBurningRulePart1": {
+		"type": "text",
+		"placeholders": {
+			"time": {}
+		}
+	},
+	"stakingDetailsRealEstateBurningRulePart2": " der Einsatzmenge.",
+	"@stakingDetailsRealEstateBurningRulePart2": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"stakingDetailsLockedAmount": "Gesperrter Betrag",
+	"@stakingDetailsLockedAmount": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"stakingDetailsReward": "Bonus",
+	"@stakingDetailsReward": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"copiedToClipboard": "In die Zwischenablage kopiert",
+	"@copiedToClipboard": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"amountTokens": " {amount} {token} Punkte",
+	"@amountTokens": {
+		"description": "Amount of tokens",
+		"type": "text",
+		"placeholders": {
+			"amount": {
+				"example": 100
+			},
+			"token": {
+				"example": "ABC"
+			}
+		}
+	},
+	"bottomBarExplore": "Erkunden",
+	"@bottomBarExplore": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"bottomBarOffers": "Angebote",
+	"@bottomBarOffers": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"bottomBarWallet": "Wallet",
+	"@bottomBarWallet": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"bottomBarSocial": "Community",
+	"@bottomBarSocial": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"maintenanceTitle": "Laufende Wartung",
+	"@maintenanceTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"maintenanceDescription": "Wir führen routinemäßige Wartung durch und werden in der nächsten {period}wieder online sein.",
+	"@maintenanceDescription": {
+		"type": "text",
+		"placeholders": {
+			"period": {}
+		}
+	},
+	"maintenanceErrorMessage": "Das System wird gewartet. Bitte versuche es später noch einmal.",
+	"@maintenanceErrorMessage": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"maintenanceErrorCoupleOfHours": "ein paar Stunden",
+	"@maintenanceErrorCoupleOfHours": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hours": "{hours,plural, =1{{hours} Stunde}other{{hours} Stunden}}",
+	"@hours": {
+		"type": "text",
+		"placeholders": {
+			"hours": {}
+		}
+	},
+	"transferRequestTitle": "Transfer Anforderung",
+	"@transferRequestTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestIdHolder": "ID: {id}",
+	"@transferRequestIdHolder": {
+		"description": "ID of the transfer request",
+		"type": "text",
+		"placeholders": {
+			"id": {
+				"example": "123456ABC"
+			}
+		}
+	},
+	"transferRequestInfoHolder": "Du hast eine Transfer Anfrage von {transferRequestOrganization}erhalten. Bitte prüfe und bestätige es.",
+	"@transferRequestInfoHolder": {
+		"description": "The entity that sends the transfer request",
+		"type": "text",
+		"placeholders": {
+			"transferRequestOrganization": {
+				"example": "Rove Hotel"
+			}
+		}
+	},
+	"transferRequestTotalBillLabel": "Gesamte Rechnung",
+	"@transferRequestTotalBillLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestTotalBillHolder": "{amountTokens} {token} ({amountCurrency} {currencyCode})",
+	"@transferRequestTotalBillHolder": {
+		"description": "Placeholder for amount plus converted total amount",
+		"type": "text",
+		"placeholders": {
+			"amountTokens": {
+				"example": "741.66"
+			},
+			"token": {
+				"example": "ABC"
+			},
+			"amountCurrency": {
+				"example": "1345.56"
+			},
+			"currencyCode": {
+				"example": "AED"
+			}
+		}
+	},
+	"transferRequestWalletBalanceLabel": "Dein Wallet Guthaben",
+	"@transferRequestWalletBalanceLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"amountTokensHolder": "{amount} {token} Punkte",
+	"@amountTokensHolder": {
+		"description": "Amount of tokens",
+		"type": "text",
+		"placeholders": {
+			"amount": {
+				"example": "100.45"
+			},
+			"token": {
+				"example": "ABC"
+			}
+		}
+	},
+	"transferRequestRecipientLabel": "Empfänger",
+	"@transferRequestRecipientLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestRemainingTimeLabel": "Verbleibende Zeit",
+	"@transferRequestRemainingTimeLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"expirationFormatDays": "{days,plural, =1{{days} Tag}other{{days} Tage}}",
+	"@expirationFormatDays": {
+		"type": "text",
+		"placeholders": {
+			"days": {}
+		}
+	},
+	"transferRequestSendingAmountLabel": "Sendebetrag ({token})",
+	"@transferRequestSendingAmountLabel": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"transferRequestAmountExceedsRequestedError": "Du kannst nicht mehr als {requestedAmount} bezahlen",
+	"@transferRequestAmountExceedsRequestedError": {
+		"type": "text",
+		"placeholders": {
+			"requestedAmount": {}
+		}
+	},
+	"transferRequestGenericError": "Wir konnten den Transfer nicht abschließen. Bitte versuche es erneut",
+	"@transferRequestGenericError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestAmountIsZeroError": "Der Betrag muss größer als Null sein",
+	"@transferRequestAmountIsZeroError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestNotEnoughTokensError": "Leider hast Du nicht genügend Punkte, um diese Transaktion abzuschließen.",
+	"@transferRequestNotEnoughTokensError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestInvalidStateError": "Irgendwas stimmt nicht ... Die Anfrage scheint bereits abgeschlossen oder storniert zu sein.",
+	"@transferRequestInvalidStateError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestRejectButton": "Ablehnen",
+	"@transferRequestRejectButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestRejectDialogText": "Möchtest Du diesen Transfer wirklich ablehnen?",
+	"@transferRequestRejectDialogText": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestSuccessTitle": "Transfer eingereicht",
+	"@transferRequestSuccessTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestSuccessDetails": "Toll! Dein Transfer wurde übermittelt",
+	"@transferRequestSuccessDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestExpiredTitle": "Anfrage abgelaufen",
+	"@transferRequestExpiredTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestExpiredDetails": "Dieser Transfer Auftrag ist abgelaufen. Bitte die Rezeption anweisen, eine neue Tansfer Anfrage zu senden",
+	"@transferRequestExpiredDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestListPageTitle": "Transfer Anfrage",
+	"@transferRequestListPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestListGenericError": "Leider können wir derzeit keine weiteren Transfer Anfragen anzeigen",
+	"@transferRequestListGenericError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestStatusCardRecipientLabel": "Empfänger",
+	"@transferRequestStatusCardRecipientLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestStatusCardSendingAmountLabel": "Betrag",
+	"@transferRequestStatusCardSendingAmountLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestStatusCardTotalBillLabel": "Gesamte Rechnung",
+	"@transferRequestStatusCardTotalBillLabel": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestStatusCardRecipientIdLabel": "ID: {recipientId}",
+	"@transferRequestStatusCardRecipientIdLabel": {
+		"type": "text",
+		"placeholders": {
+			"recipientId": {
+				"example": "12345678"
+			}
+		}
+	},
+	"transferRequestStatusCardStatusCancelled": "Abgebrochen",
+	"@transferRequestStatusCardStatusCancelled": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestStatusCardStatusCompleted": "Abgeschlossen",
+	"@transferRequestStatusCardStatusCompleted": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestStatusCardStatusExpired": "Abgelaufen",
+	"@transferRequestStatusCardStatusExpired": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestStatusCardStatusFailed": "Gescheitert",
+	"@transferRequestStatusCardStatusFailed": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestStatusCardStatusPending": "Steht aus",
+	"@transferRequestStatusCardStatusPending": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestStatusCardStatusConfirmed": "Bestätigt",
+	"@transferRequestStatusCardStatusConfirmed": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestOngoingTab": "Laufend",
+	"@transferRequestOngoingTab": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestCompletedTab": "Abgeschlossen",
+	"@transferRequestCompletedTab": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestUnsuccessfulTab": "Erfolglos",
+	"@transferRequestUnsuccessfulTab": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestEmptyOngoing": "Du hastderzeit keine laufenden Anfragen",
+	"@transferRequestEmptyOngoing": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestEmptyCompleted": "Du hast derzeit keine abgeschlossenen Anfragen",
+	"@transferRequestEmptyCompleted": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferRequestEmptyUnsuccessful": "Du hast derzeit keine erfolglosen Anfragen",
+	"@transferRequestEmptyUnsuccessful": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hotelPreCheckoutDialogHeading": "Vielen Dank für deinen Aufenthalt",
+	"@hotelPreCheckoutDialogHeading": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"hotelPreCheckoutDialogViewInvoiceButton": "Rechnung anzeigen",
+	"@hotelPreCheckoutDialogViewInvoiceButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"biometricAuthenticationDialogTitleAndroid": "Möchtest Du den Fingerabdruck aktivieren?",
+	"@biometricAuthenticationDialogTitleAndroid": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"biometricAuthenticationDialogMessageAndroid": "Melde dich beim nächsten Mal mit deinem Fingerabdruck an. Es ist schnell, einfach und sicher.",
+	"@biometricAuthenticationDialogMessageAndroid": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"biometricAuthenticationDialogTitleIOS": "Möchtest Du Touch ID / Face ID aktivieren?",
+	"@biometricAuthenticationDialogTitleIOS": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"biometricAuthenticationDialogMessageIOS": "Melde dich sich beim nächsten Mal mit der Touch ID / Face ID an. Es ist schnell, einfach und sicher.",
+	"@biometricAuthenticationDialogMessageIOS": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"biometricAuthenticationPromptTitle": "Hallo",
+	"@biometricAuthenticationPromptTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"biometricAuthenticationPromptMessage": "Melde dich mit deinem Fingerabdruck an",
+	"@biometricAuthenticationPromptMessage": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"biometricsGoToSettingsDescription": "Die biometrische Authentifizierung ist auf deinem Gerät nicht eingerichtet. Bitte aktiviere entweder Touch ID oder Face ID auf deinem Telefon.",
+	"@biometricsGoToSettingsDescription": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"scannedInfoDialogTitle": "Gescannte Informationen",
+	"@scannedInfoDialogTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"scannedInfoDialogErrorMessage": "Dieser QR-Code Typ wird derzeit nicht unterstützt",
+	"@scannedInfoDialogErrorMessage": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"scannedInfoDialogPositiveButton": "Im Browser öffnen",
+	"@scannedInfoDialogPositiveButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"scannedInfoDialogNegativeButton": "Abbrechen",
+	"@scannedInfoDialogNegativeButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"scannedInfoDialogEmailPositiveButton": "Übertrage {token}",
+	"@scannedInfoDialogEmailPositiveButton": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"conversionRate": "{amount} {currencyCode}",
+	"@conversionRate": {
+		"type": "text",
+		"placeholders": {
+			"currencyCode": {
+				"example": "USD"
+			},
+			"amount": {
+				"example": "1345.56"
+			}
+		}
+	},
+	"noTokensConversionRateText": "Verdiene jetzt {token} !",
+	"@noTokensConversionRateText": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"personalDetailsFirstNameTitle": "Vorname",
+	"@personalDetailsFirstNameTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"personalDetailsLastNameTitle": "Nachname",
+	"@personalDetailsLastNameTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"personalDetailsEmailTitle": "E-Mail Adresse",
+	"@personalDetailsEmailTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"personalDetailsPhoneNumberTitle": "Telefonnummer",
+	"@personalDetailsPhoneNumberTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"personalDetailsCountryOfNationality": "Herkunftsland",
+	"@personalDetailsCountryOfNationality": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"personalDetailsDeleteAccountButton": "Account löschen",
+	"@personalDetailsDeleteAccountButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"personalDetailsGenericError": "Wir können deine persönlichen Daten derzeit nicht abrufen. Bitte versuche es erneut.",
+	"@personalDetailsGenericError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailVerificationTitle": "E-Mail-Adresse bestätigen",
+	"@emailVerificationTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailVerificationMessage1": "Wir haben eine Bestätigung gesendet an:",
+	"@emailVerificationMessage1": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailVerificationMessage1Resent": "Wir senden eine Bestätigung erneut an:",
+	"@emailVerificationMessage1Resent": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailVerificationMessage2": "Um fortzufahren, überprüfe deine E-Mails und klicke  auf den Bestätigungslink",
+	"@emailVerificationMessage2": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailVerificationResetText": "Du hast keine E-Mail erhalten? Sende den Link erneut",
+	"@emailVerificationResetText": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"registerWithAnotherAccountButton": "Mit einem anderen Konto registrieren",
+	"@registerWithAnotherAccountButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailVerificationButton": "Link erneut senden",
+	"@emailVerificationButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailVerificationExceededMaxAttemptsError": "Zu viele Versuche. Bitte später erneut versuchen",
+	"@emailVerificationExceededMaxAttemptsError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailVerificationLinkExpired": "Dieser Link ist abgelaufen. Wir haben einen neuen Link an {email}gesendet. Überprüfe deine E-Mails und verwende den neuen Link",
+	"@emailVerificationLinkExpired": {
+		"type": "text",
+		"placeholders": {
+			"email": {
+				"example": "samplemail@gmail.com"
+			}
+		}
+	},
+	"emailVerificationSuccessTitle": "E-Mail bestätigt",
+	"@emailVerificationSuccessTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailVerificationSuccessDetails": "Vielen Dank! Deine Email-Adresse wurde bestätigt",
+	"@emailVerificationSuccessDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"previousReferralsCardTypeRealEstate": "Immobilien",
+	"@previousReferralsCardTypeRealEstate": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"previousReferralsCardTypeHospitality": "Hotels",
+	"@previousReferralsCardTypeHospitality": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"previousReferralsCardTypeAppReferral": "App Empfehlung",
+	"@previousReferralsCardTypeAppReferral": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"previousReferralsCardAward": "Bonus",
+	"@previousReferralsCardAward": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"previousReferralsCardTimeLeftToAccept": "Verbleibende Zeit für Bestätigung",
+	"@previousReferralsCardTimeLeftToAccept": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"previousReferralsCardRemaining": "Verbleibender Bonus",
+	"@previousReferralsCardRemaining": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"previousReferralsCardDontLose": "Verliere nicht deine",
+	"@previousReferralsCardDontLose": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"previousReferralsCardContact": "Kontakt {person}",
+	"@previousReferralsCardContact": {
+		"type": "text",
+		"placeholders": {
+			"person": {}
+		}
+	},
+	"previousReferralsNameHolder": "{firstName} {lastName}",
+	"@previousReferralsNameHolder": {
+		"type": "text",
+		"placeholders": {
+			"firstName": {},
+			"lastName": {}
+		}
+	},
+	"dateTimeToday": "Heute",
+	"@dateTimeToday": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"dateTimeYesterday": "Gestern",
+	"@dateTimeYesterday": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"multiplePartnersTitle": "{numberOfPartner,plural, =1{{firstPartnerName} & {numberOfPartner} other}other{{firstPartnerName} & {numberOfPartner} others}}",
+	"@multiplePartnersTitle": {
+		"type": "text",
+		"placeholders": {
+			"firstPartnerName": {},
+			"numberOfPartner": {}
+		}
+	},
+	"viewPartnerDetailsButtonTitle": "Partnerdetails anzeigen",
+	"@viewPartnerDetailsButtonTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"partnerDetailsPageTitle": "Partnerdetails",
+	"@partnerDetailsPageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"nonMandatoryAppUpgradeDialogTitle": "Neue Version verfügbar",
+	"@nonMandatoryAppUpgradeDialogTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"nonMandatoryAppUpgradeDialogContent": "Es steht eine neue Version der App zum Download zur Verfügung. Bitte aktualisierieung vornehmen, damit du neuesten Änderungen sehen kannst.",
+	"@nonMandatoryAppUpgradeDialogContent": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"nonMandatoryAppUpgradeDialogPositiveButton": "Aktualisieren",
+	"@nonMandatoryAppUpgradeDialogPositiveButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"nonMandatoryAppUpgradeDialogNegativeButton": "Nein Danke",
+	"@nonMandatoryAppUpgradeDialogNegativeButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"mandatoryAppUpgradePageTitle": "Aktualisierung erforderlich",
+	"@mandatoryAppUpgradePageTitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"mandatoryAppUpgradePageContent": "Es steht eine neue Version der App zum Download zur Verfügung. Bitte aktualisieren, um fortzufahren.",
+	"@mandatoryAppUpgradePageContent": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"mandatoryAppUpgradePageButton": "Aktualisieren",
+	"@mandatoryAppUpgradePageButton": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"termsOfUse": "Nutzungsbedingungen",
+	"@termsOfUse": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"privacyPolicy": "Datenschutz-Bestimmungen",
+	"@privacyPolicy": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"and": " und ",
+	"@and": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferInProgress": "Transfer läuft",
+	"@transferInProgress": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"goToWallet": "Gehe zum Wallet",
+	"@goToWallet": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferInProgressDetails": "Deine {token}wurden übertragen. Wir werden dich benachrichtigen, sobald der Vorgang abgeschlossen ist.",
+	"@transferInProgressDetails": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"customerBlockedError": "Dieses Konto ist derzeit gesperrt",
+	"@customerBlockedError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"customerDoesNotExistError": "Der Kunde konnte leider nicht gefunden werden",
+	"@customerDoesNotExistError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"customerPhoneIsMissingError": "Fehler. Die Telefonnummer des Benutzers konnte nicht gefunden werden",
+	"@customerPhoneIsMissingError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"customerProfileDoesNotExistError": "Fehler. Der Benutzer konnte nicht gefunden werden",
+	"@customerProfileDoesNotExistError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"customerWalletBlockedError": "Entschuldige, leider ist dein Wallet derzeit blockiert und kann keine Transaktionen verarbeiten",
+	"@customerWalletBlockedError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailIsAlreadyVerifiedError": "Ein Konto mit dieser E-Mail ist bereits vorhanden",
+	"@emailIsAlreadyVerifiedError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidAmountError": "Ups ... Das ist ein ungültiger Betrag. Bitte gib einen gültigen Betrag ein und versuche es erneut.",
+	"@invalidAmountError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidCredentialsError": "Fehler. Ungültige Anmeldeinformationen",
+	"@invalidCredentialsError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidEmailFormatError": "Ungültiges Email-Format",
+	"@invalidEmailFormatError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidPasswordFormatError": "Bitte stelle sicher, dass dein Passwort den Vorgaben entspricht",
+	"@invalidPasswordFormatError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidPrivateAddressError": "Dies ist keine gültige Wallet Adresse. Bitte ändern und erneut versuchen",
+	"@invalidPrivateAddressError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidPublicAddressError": "Dies ist keine gültige Wallet Adresse. Bitte ändern und erneut versuchen",
+	"@invalidPublicAddressError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidSignatureError": "Dies ist keine gültige Signatur. Bitte ändern und erneut versuchen",
+	"@invalidSignatureError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"invalidWalletLinkSignatureError": "Dies ist keine gültige Signatur. Bitte ändern und erneut versuchen",
+	"@invalidWalletLinkSignatureError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkingRequestAlreadyApprovedError": "Fehler. Diese Verknüpfung wurde bereits genehmigt",
+	"@linkingRequestAlreadyApprovedError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkingRequestAlreadyExistsError": "Fehler. Diese Verknüpfung wurde bereits eingereicht",
+	"@linkingRequestAlreadyExistsError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"linkingRequestDoesNotExistError": "Fehler. Diese Verknüpfung kann nicht gefunden werden. Bitte erneut versuchen.",
+	"@linkingRequestDoesNotExistError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"loginAlreadyInUseError": "Ein Konto mit dieser E-Mail ist bereits vorhanden",
+	"@loginAlreadyInUseError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"noCustomerWithSuchEmailError": "Dieser Kunde existiert nicht",
+	"@noCustomerWithSuchEmailError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"notEnoughTokensError": "Leider hast Du nicht genügend {token} Punkte für diesen Aktivität",
+	"@notEnoughTokensError": {
+		"type": "text",
+		"placeholders": {
+			"token": {}
+		}
+	},
+	"paymentDoesNotExistError": "Leider konnten wir diese Überweisung nicht finden",
+	"@paymentDoesNotExistError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"paymentIsNotInACorrectStatusToBeUpdatedError": "Die Anfrage scheint bereits abgeschlossen oder storniert zu sein.",
+	"@paymentIsNotInACorrectStatusToBeUpdatedError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"paymentRequestsIsForAnotherCustomerError": "Diese Überweisungsanfrage konnte leider nicht gefunden werden",
+	"@paymentRequestsIsForAnotherCustomerError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneAlreadyExistsError": "Diese Telefonnummer ist bereits verifiziert",
+	"@phoneAlreadyExistsError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"phoneIsAlreadyVerifiedError": "Ein Benutzerkonto mit dieser Telefonnummer wurde bereits verifiziert",
+	"@phoneIsAlreadyVerifiedError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralAlreadyConfirmedError": "Es scheint, dass diese Person bereits von einem anderen Benutzer empfohlen wurde. Warum versuchst Du es nicht mit jemand anders?",
+	"@referralAlreadyConfirmedError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralAlreadyExistError": "Fehler. Dieser Benutzer wurde bereits empfohlen",
+	"@referralAlreadyExistError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralNotFoundError": "Entschuldigung, wir konnten die Empfehlung nicht finden. Bitte versuche es erneut",
+	"@referralNotFoundError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"referralsLimitExceededError": "Wow! Du bist ein Superstar, du hast das Empfehlungslimit erreicht",
+	"@referralsLimitExceededError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"senderCustomerNotFoundError": "Leider konnten wir diesen Account nicht finden. Transfer abgebrochen",
+	"@senderCustomerNotFoundError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"targetCustomerNotFoundError": "Leider konnten wir diesen Account nicht finden. Transfer abgebrochen",
+	"@targetCustomerNotFoundError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"tooManyLoginRequestError": "Du hast deine Anmeldeversuche überschritten. Bitte wende dich an unseren Support.",
+	"@tooManyLoginRequestError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferSourceAndTargetMustBeDifferentError": "Die Quell- und Ziel Wallets können nicht identisch sein",
+	"@transferSourceAndTargetMustBeDifferentError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferSourceCustomerWalletBlockedError": "Leider ist dein Wallet derzeit blockiert und kann diese Transaktion nicht empfangen",
+	"@transferSourceCustomerWalletBlockedError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"transferTargetCustomerWalletBlockedError": "Das Wallet des Empfängers ist derzeit blockiert und kann diese Transaktion nicht empfangen",
+	"@transferTargetCustomerWalletBlockedError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"verificationCodeDoesNotExistError": "Fehler. Der Bestätigungscode ist ungültig",
+	"@verificationCodeDoesNotExistError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"verificationCodeExpiredError": "Fehler. Der Bestätigungscode ist abgelaufen",
+	"@verificationCodeExpiredError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"verificationCodeMismatchError": "Fehler. Der Bestätigungscode ist ungültig",
+	"@verificationCodeMismatchError": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"inviteAFriend": "Freund einladen",
+	"@inviteAFriend": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"inviteAFriendPageDetails": "Geb die Details eines Freundes ein, den Du zur App einladen möchten",
+	"@inviteAFriendPageDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"friendReferralSuccessDetails": "Toll! Deine Überweisung wurde übermittelt. Wir werden dich benachrichtigen, wenn die Punkte zu deinem Wallet hinzugefügt werden.",
+	"@friendReferralSuccessDetails": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"voucherListEmpty": "Derzeit sind keine Voucher verfügbar",
+	"@voucherListEmpty": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"voucherCopied": "Voucher in Zwischenablage kopiert",
+	"@voucherCopied": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"notifications": "Benachrichtigungen",
+	"@notifications": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"notificationListEmpty": "Du hast noch keine Benachrichtigungen",
+	"@notificationListEmpty": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"minutesAgo": "{minutes,plural, =1{{minutes} her }other{{minutes} her}}",
+	"@minutesAgo": {
+		"type": "text",
+		"placeholders": {
+			"minutes": {}
+		}
+	},
+	"hoursAgo": "{hours,plural, =1{{hours} Stunde her}other{{hours} Stunden her}}",
+	"@hoursAgo": {
+		"type": "text",
+		"placeholders": {
+			"hours": {}
+		}
+	},
+	"daysAgo": "{days,plural, =1{{days} day ago}other{{days} days ago}}",
+	"@daysAgo": {
+		"type": "text",
+		"placeholders": {
+			"days": {}
+		}
+	},
+	"notificationListMarkAllAsRead": "Alles als gelesen markieren",
+	"@notificationListMarkAllAsRead": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"newHeader": "Neu",
+	"@newHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"earlierHeader": "Früher",
+	"@earlierHeader": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"notificationListRequestGenericErrorSubtitle": "Leider können wir deine Benachrichtigungen nicht anzeigen. Bitte versuche es erneut.",
+	"@notificationListRequestGenericErrorSubtitle": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailSubject": "Betreff",
+	"@emailSubject": {
+		"type": "text",
+		"placeholders": {}
+	},
+	"emailBody": "Inhalt",
+	"@emailBody": {
+		"type": "text",
+		"placeholders": {}
+	}
+}

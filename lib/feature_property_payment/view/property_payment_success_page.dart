@@ -14,9 +14,10 @@ class PropertyPaymentSuccessPage extends HookWidget {
     final router = useRouter();
     return ResultFeedbackPage(
       widgetKey: const Key('propertyPaymentSuccessWidget'),
-      title: LocalizedStrings.transferInProgress,
-      details: LocalizedStrings.transferInProgressDetails(tokenSymbol.value),
-      buttonText: LocalizedStrings.goToWallet,
+      title: useLocalizedStrings().transferInProgress,
+      details:
+          useLocalizedStrings().transferInProgressDetails(tokenSymbol.value),
+      buttonText: useLocalizedStrings().goToWallet,
       onButtonTap: router.popToRoot,
       endIcon: SvgAssets.success,
     );

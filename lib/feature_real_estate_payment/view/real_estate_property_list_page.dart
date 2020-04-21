@@ -108,7 +108,7 @@ class RealEstatePropertyListPage extends HookWidget {
       );
 
   Widget _buildEmptyListWidget() => EmptyListWidget(
-        text: LocalizedStrings.realEstateListNoPurchases,
+        text: useLocalizedStrings().realEstateListNoPurchases,
         asset: SvgAssets.homeProperty,
       );
 
@@ -118,7 +118,7 @@ class RealEstatePropertyListPage extends HookWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            LocalizedStrings.realEstateListChooseAProperty,
+            useLocalizedStrings().realEstateListChooseAProperty,
             style: TextStyles.darkHeadersH3,
           ),
           const SizedBox(height: 16),
@@ -139,8 +139,8 @@ class RealEstatePropertyListPage extends HookWidget {
   Widget _buildGenericErrorWidget({VoidCallback onTap}) =>
       GenericErrorIconWidget(
         errorKey: const Key('genericError'),
-        title: LocalizedStrings.somethingIsNotRightError,
-        text: LocalizedStrings.offerDetailGenericError,
+        title: useLocalizedStrings().somethingIsNotRightError,
+        text: useLocalizedStrings().offerDetailGenericError,
         icon: SvgAssets.genericError,
         onRetryTap: onTap,
       );

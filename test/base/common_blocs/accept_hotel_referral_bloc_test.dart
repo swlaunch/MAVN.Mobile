@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/local_data_source/shared_preferences_manager/shared_preferences_keys.dart';
@@ -78,7 +79,8 @@ void main() {
       _expectedFullBlocOutput.addAll([
         AcceptHotelReferralUninitializedState(),
         AcceptHotelReferralLoadingState(),
-        AcceptHotelReferralErrorState(error: TestConstants.stubErrorTitle)
+        AcceptHotelReferralErrorState(
+            error: LocalizedStringBuilder.custom(TestConstants.stubErrorTitle))
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -123,7 +125,8 @@ void main() {
       _expectedFullBlocOutput.addAll([
         AcceptHotelReferralUninitializedState(),
         AcceptHotelReferralLoadingState(),
-        AcceptHotelReferralErrorState(error: TestConstants.stubErrorTitle)
+        AcceptHotelReferralErrorState(
+            error: LocalizedStringBuilder.custom(TestConstants.stubErrorTitle))
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);

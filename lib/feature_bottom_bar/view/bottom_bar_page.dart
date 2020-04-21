@@ -158,7 +158,8 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
                     elevation: 0,
                     backgroundColor:
                         themeBlocState.theme.bottomBarNotchBackground,
-                    onPressed: () => _openScanPage(router, qrContentManager),
+                    onPressed: () => _openScanPage(
+                        LocalizedStrings.of(context), router, qrContentManager),
                     child: StandardSizedSvg(SvgAssets.qrCode,
                         color: themeBlocState.theme.bottomBarNotchIcon),
                   ),
@@ -199,13 +200,13 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
           key: ModuleProvider.of<AppModule>(context).bottomBarGlobalKey,
           items: [
             _buildBottomNavigationBarItem(
-              title: LocalizedStrings.bottomBarExplore,
+              title: LocalizedStrings.of(context).bottomBarExplore,
               assetString: SvgAssets.search,
               valueKey: 'exploreTab',
               theme: theme,
             ),
             _buildBottomNavigationBarItem(
-              title: LocalizedStrings.bottomBarOffers,
+              title: LocalizedStrings.of(context).bottomBarOffers,
               assetString: SvgAssets.announce,
               valueKey: 'offersTab',
               theme: theme,
@@ -217,13 +218,13 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
               theme: theme,
             ),
             _buildBottomNavigationBarItem(
-              title: LocalizedStrings.bottomBarWallet,
+              title: LocalizedStrings.of(context).bottomBarWallet,
               assetString: SvgAssets.wallet,
               valueKey: 'walletTab',
               theme: theme,
             ),
             _buildBottomNavigationBarItem(
-              title: LocalizedStrings.bottomBarSocial,
+              title: LocalizedStrings.of(context).bottomBarSocial,
               assetString: SvgAssets.socialIcon,
               valueKey: 'socialTab',
               theme: theme,
@@ -311,12 +312,13 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
   }
 
   Future<void> _openScanPage(
+    LocalizedStrings localizedStrings,
     Router router,
     QrContentManager qrContentManager,
   ) async {
     final scannedInfo = await BarcodeScanManager().startScan();
     final action = await qrContentManager.getQrAction(scannedInfo);
 
-    await router.showScannedInfoDialog(action);
+    await router.showScannedInfoDialog(localizedStrings, action);
   }
 }

@@ -73,7 +73,8 @@ class FullPageSelectField<T> extends HookWidget with FormMixin {
         key: contextGlobalKey,
         builder: (context) => FormField<T>(
               key: inputGlobalKey,
-              validator: fieldValidationManager?.validator,
+              validator: (value) =>
+                  fieldValidationManager?.validator(value)?.localize(context),
               initialValue: selectedValueNotifier.value,
               builder: (state) => Column(
                 children: [

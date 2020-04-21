@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/exception_to_message_mapper.dart';
 import 'package:lykke_mobile_mavn/base/repository/pin/pin_repository.dart';
@@ -40,7 +40,7 @@ class PinConfirmBloc extends PinBlocBase {
 
     if (digits.length == digitsLimit && !_digitsDoMatch) {
       setState(PinErrorState(
-        error: LocalizedStrings.pinErrorDoesNotMatch,
+        error: LazyLocalizedStrings.pinErrorDoesNotMatch,
         isSubmitVisible: isSubmitVisible,
         isHidden: isHidden,
         digits: digits,

@@ -33,10 +33,11 @@ class PinNumPad extends StatelessWidget {
     @required this.removeLastNumber,
     @required this.onSubmitTap,
     @required this.isFooterVisible,
+    @required String submitButtonText,
     this.forgotButton,
   }) : footer = PrimaryButton(
           buttonKey: const Key('pinSubmitButton'),
-          text: LocalizedStrings.submitButton,
+          text: submitButtonText,
           onTap: onSubmitTap,
           isLoading: pinState is PinLoadingState,
         );
@@ -77,7 +78,7 @@ class PinNumPad extends StatelessWidget {
               ),
             ),
           ),
-          _buildErrorMessage(pinState),
+          _buildErrorMessage(context, pinState),
           _buildShowHideButton(pinState, isPinHidden, context),
           Expanded(
             flex: 8,
@@ -113,7 +114,9 @@ class PinNumPad extends StatelessWidget {
       return FlatButton(
         onPressed: toggleHidden,
         child: Text(
-          isPinHidden ? LocalizedStrings.pinShow : LocalizedStrings.pinHide,
+          isPinHidden
+              ? LocalizedStrings.of(context).pinShow
+              : LocalizedStrings.of(context).pinHide,
           style: TextStyles.linksTextLinkBold,
         ),
       );
@@ -125,8 +128,10 @@ class PinNumPad extends StatelessWidget {
     return const SizedBox();
   }
 
-  Widget _buildErrorMessage(PinState pinState) => Text(
-        pinState is PinErrorState ? pinState.error : '',
+  Widget _buildErrorMessage(BuildContext context, PinState pinState) => Text(
+        pinState is PinErrorState
+            ? pinState.error.localize(context)
+            : '',
         style: TextStyles.errorTextBold,
         textAlign: TextAlign.center,
       );

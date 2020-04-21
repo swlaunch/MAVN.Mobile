@@ -76,15 +76,15 @@ class EarnRuleListPage extends HookWidget {
                   isLoading: earnRuleListBlocState
                       is GenericListPaginationLoadingState,
                   isEmpty: earnRuleListBlocState is GenericListEmptyState,
-                  emptyText: LocalizedStrings.earnRulePageEmpty,
+                  emptyText: useLocalizedStrings().earnRulePageEmpty,
                   emptyIcon: SvgAssets.earn,
                   retryOnError: loadData,
                   loadData: loadData,
                   showError: earnRuleListBlocState is GenericListErrorState,
                   errorText: earnRuleListBlocState is GenericListErrorState
-                      ? earnRuleListBlocState.error
+                      ? earnRuleListBlocState.error.localize(useContext())
                       : null,
-                  itemBuilder: (earnRule, _) => OfferListItem(
+                  itemBuilder: (earnRule, _, itemContext) => OfferListItem(
                     imageUrl: earnRule.imageUrl,
                     title: earnRule.title,
                     chip: AmountChip(

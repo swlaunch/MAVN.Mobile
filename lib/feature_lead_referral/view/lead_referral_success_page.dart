@@ -32,22 +32,22 @@ class LeadReferralSuccessPage extends HookWidget {
 
     return ResultFeedbackPage(
       widgetKey: const Key('leadReferralSuccessWidget'),
-      title: LocalizedStrings.referralSuccessPageTitle,
-      details: LocalizedStrings.leadReferralSuccessPageDetails(
+      title: useLocalizedStrings().referralSuccessPageTitle,
+      details: useLocalizedStrings().leadReferralSuccessPageDetails(
             refereeFirstName,
             refereeLastName,
           ) +
           (partnerNameState is PartnerNameLoadedState
-              ? LocalizedStrings.leadReferralSuccessPageDetailsPartnerName(
+              ? useLocalizedStrings().leadReferralSuccessPageDetailsPartnerName(
                   partnerNameState.partnerName)
               : ''),
-      buttonText: LocalizedStrings.referralSuccessGoToRefsButton,
+      buttonText: useLocalizedStrings().referralSuccessGoToRefsButton,
       onButtonTap: () {
         router
           ..popToRoot()
           ..pushReferralListPage();
       },
-      subDetails: LocalizedStrings.referralSuccessPageSubDetails,
+      subDetails: useLocalizedStrings().referralSuccessPageSubDetails,
       endIcon: SvgAssets.success,
     );
   }

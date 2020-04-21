@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_change_password/bloc/change_password_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_change_password/bloc/change_password_bloc_output.dart';
@@ -60,8 +60,8 @@ void main() {
       givenChangePasswordUseCaseExecuteWillThrow(
           const ServiceException(ServiceExceptionType.invalidPasswordFormat));
 
-      when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.registerPageBackendInvalidPasswordError);
+      when(_mockExceptionToMessageMapper.map(any)).thenReturn(
+          LazyLocalizedStrings.registerPageBackendInvalidPasswordError);
 
       await subject.changePassword(password: TestConstants.stubPassword);
 
@@ -69,7 +69,7 @@ void main() {
         ChangePasswordUninitializedState(),
         ChangePasswordLoadingState(),
         ChangePasswordInlineErrorState(
-            LocalizedStrings.registerPageBackendInvalidPasswordError),
+            LazyLocalizedStrings.registerPageBackendInvalidPasswordError),
       ]);
 
       await blocTester.assertFullBlocOutputInOrder(expectedFullBlocOutput);
@@ -79,14 +79,14 @@ void main() {
       givenChangePasswordUseCaseExecuteWillThrow(NetworkException());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.networkError);
+          .thenReturn(LazyLocalizedStrings.networkError);
 
       await subject.changePassword(password: TestConstants.stubPassword);
 
       expectedFullBlocOutput.addAll([
         ChangePasswordUninitializedState(),
         ChangePasswordLoadingState(),
-        ChangePasswordErrorState(LocalizedStrings.networkError),
+        ChangePasswordErrorState(LazyLocalizedStrings.networkError),
       ]);
 
       await blocTester.assertFullBlocOutputInOrder(expectedFullBlocOutput);
@@ -96,14 +96,14 @@ void main() {
       givenChangePasswordUseCaseExecuteWillThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await subject.changePassword(password: TestConstants.stubPassword);
 
       expectedFullBlocOutput.addAll([
         ChangePasswordUninitializedState(),
         ChangePasswordLoadingState(),
-        ChangePasswordErrorState(LocalizedStrings.defaultGenericError),
+        ChangePasswordErrorState(LazyLocalizedStrings.defaultGenericError),
       ]);
 
       await blocTester.assertFullBlocOutputInOrder(expectedFullBlocOutput);

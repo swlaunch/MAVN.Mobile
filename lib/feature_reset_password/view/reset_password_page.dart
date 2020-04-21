@@ -31,7 +31,7 @@ class ResetPasswordPage extends HookWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Heading(
-              LocalizedStrings.resetPasswordTitle,
+              useLocalizedStrings().resetPasswordTitle,
               endContent: resetPasswordState is ResetPasswordSentEmailState
                   ? SvgPicture.asset(SvgAssets.success)
                   : null,
@@ -41,8 +41,8 @@ class ResetPasswordPage extends HookWidget {
             const SizedBox(height: 16),
             Text(
               resetPasswordState is ResetPasswordSentEmailState
-                  ? LocalizedStrings.resetPasswordSentEmailHint
-                  : LocalizedStrings.resetPasswordSendLinkHint,
+                  ? useLocalizedStrings().resetPasswordSentEmailHint
+                  : useLocalizedStrings().resetPasswordSendLinkHint,
               textAlign: TextAlign.left,
               style: TextStyles.darkBodyBody1RegularHigh,
             ),

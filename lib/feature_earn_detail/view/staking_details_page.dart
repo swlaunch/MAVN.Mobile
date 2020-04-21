@@ -24,7 +24,8 @@ class StakingDetailsPage extends StatelessWidget {
     return ScaffoldWithAppBar(
       body: Column(
         children: [
-          PageTitle(title: LocalizedStrings.earnRuleDetailsHowItWorks),
+          PageTitle(
+              title: LocalizedStrings.of(context).earnRuleDetailsHowItWorks),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
@@ -33,12 +34,13 @@ class StakingDetailsPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     BulletPointLineWidget(
-                      body: _buildInfoLineOne(formattedStakingAmount),
+                      body: _buildInfoLineOne(context, formattedStakingAmount),
                     ),
                     if (extendedEarnRule.isRealEstateOffer())
                       BulletPointLineWidget(
                         body: Text(
-                          LocalizedStrings.stakingDetailsRealEstatePart5,
+                          LocalizedStrings.of(context)
+                              .stakingDetailsRealEstatePart5,
                           style: TextStyles.darkBodyBody2RegularExtraHigh,
                         ),
                       ),
@@ -46,6 +48,7 @@ class StakingDetailsPage extends StatelessWidget {
                         earnRuleCondition.stakingRule > 0)
                       BulletPointLineWidget(
                         body: _buildInfoLineStakingRule(
+                          context,
                           earnRuleCondition.stakingRule,
                         ),
                       ),
@@ -53,17 +56,19 @@ class StakingDetailsPage extends StatelessWidget {
                         earnRuleCondition.burningRule > 0)
                       BulletPointLineWidget(
                         body: _buildInfoLineBurningRule(
+                          context,
                           earnRuleCondition.burningRule,
                           earnRuleCondition.stakingPeriod,
                         ),
                       ),
                     _buildAmountTable(
+                      context,
                       stakedAmount: earnRuleCondition.stakeAmount,
                       award: award,
                       isApproximate: extendedEarnRule.isApproximate,
                     ),
                     if (extendedEarnRule.isApproximate)
-                      _buildIndicativeAmountText(),
+                      _buildIndicativeAmountText(context),
                   ],
                 ),
               ),
@@ -74,29 +79,30 @@ class StakingDetailsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoLineOne(String stakedAmount) => RichText(
+  Widget _buildInfoLineOne(BuildContext context, String stakedAmount) =>
+      RichText(
         textAlign: TextAlign.start,
         text: TextSpan(
           style: TextStyles.darkBodyBody2RegularExtraHigh,
           children: [
-            TextSpan(text: LocalizedStrings.stakingDetailsPart1),
+            TextSpan(text: LocalizedStrings.of(context).stakingDetailsPart1),
             WidgetSpan(child: TokenAmountWithIcon(stakedAmount)),
           ],
         ),
       );
 
-  Widget _buildIndicativeAmountText() {
+  Widget _buildIndicativeAmountText(BuildContext context) {
     String indicativeAmountText =
-        LocalizedStrings.earnRuleIndicativeAmountInfoGeneric;
+        LocalizedStrings.of(context).earnRuleIndicativeAmountInfoGeneric;
 
     if (extendedEarnRule.isHospitalityOffer()) {
       indicativeAmountText =
-          LocalizedStrings.earnRuleIndicativeAmountInfoHospitality;
+          LocalizedStrings.of(context).earnRuleIndicativeAmountInfoHospitality;
     }
 
     if (extendedEarnRule.isRealEstateOffer()) {
       indicativeAmountText =
-          LocalizedStrings.earnRuleIndicativeAmountInfoRealEstate;
+          LocalizedStrings.of(context).earnRuleIndicativeAmountInfoRealEstate;
     }
     return Text(
       indicativeAmountText,
@@ -104,44 +110,49 @@ class StakingDetailsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoLineStakingRule(double stakingRule) => RichText(
-        textAlign: TextAlign.start,
-        text: TextSpan(
-          style: TextStyles.darkBodyBody2RegularExtraHigh,
-          children: [
-            TextSpan(
-                text:
-                    LocalizedStrings.stakingDetailsRealEstateStakingRulePart1),
-            TextSpan(
-                text: NumberFormatter.toPercentStringFromDouble(stakingRule),
-                style: TextStyles.darkBodyBody2BoldHigh),
-            TextSpan(
-                text: LocalizedStrings
-                    .stakingDetailsRealEstateStakingRulePart2_100percent),
-          ],
-        ),
-      );
-
-  Widget _buildInfoLineBurningRule(double burningRule, int stakingPeriod) =>
+  Widget _buildInfoLineStakingRule(BuildContext context, double stakingRule) =>
       RichText(
         textAlign: TextAlign.start,
         text: TextSpan(
           style: TextStyles.darkBodyBody2RegularExtraHigh,
           children: [
             TextSpan(
-                text: LocalizedStrings.stakingDetailsRealEstateBurningRulePart1(
-                    LocalizedStrings.expirationFormatDays(stakingPeriod))),
+                text: LocalizedStrings.of(context)
+                    .stakingDetailsRealEstateStakingRulePart1),
             TextSpan(
-                text: NumberFormatter.toPercentStringFromDouble(burningRule),
+                text: NumberFormatter.toPercentStringFromDouble(stakingRule),
                 style: TextStyles.darkBodyBody2BoldHigh),
             TextSpan(
-                text:
-                    LocalizedStrings.stakingDetailsRealEstateBurningRulePart2),
+                text: LocalizedStrings.of(context)
+                    .stakingDetailsRealEstateStakingRulePart2_100percent),
           ],
         ),
       );
 
-  Widget _buildAmountTable({
+  Widget _buildInfoLineBurningRule(
+          BuildContext context, double burningRule, int stakingPeriod) =>
+      RichText(
+        textAlign: TextAlign.start,
+        text: TextSpan(
+          style: TextStyles.darkBodyBody2RegularExtraHigh,
+          children: [
+            TextSpan(
+                text: LocalizedStrings.of(context)
+                    .stakingDetailsRealEstateBurningRulePart1(
+                        LocalizedStrings.of(context)
+                            .expirationFormatDays(stakingPeriod))),
+            TextSpan(
+                text: NumberFormatter.toPercentStringFromDouble(burningRule),
+                style: TextStyles.darkBodyBody2BoldHigh),
+            TextSpan(
+                text: LocalizedStrings.of(context)
+                    .stakingDetailsRealEstateBurningRulePart2),
+          ],
+        ),
+      );
+
+  Widget _buildAmountTable(
+    BuildContext context, {
     TokenCurrency stakedAmount,
     TokenCurrency award,
     bool isApproximate,
@@ -152,9 +163,10 @@ class StakingDetailsPage extends StatelessWidget {
     return Column(
       children: <Widget>[
         const SizedBox(height: 48),
-        _buildTableRow(LocalizedStrings.stakingDetailsLockedAmount,
+        _buildTableRow(LocalizedStrings.of(context).stakingDetailsLockedAmount,
             stakedAmount.displayValueWithoutTrailingZeroes),
-        _buildTableRow(LocalizedStrings.stakingDetailsReward, formattedAward),
+        _buildTableRow(
+            LocalizedStrings.of(context).stakingDetailsReward, formattedAward),
       ],
     );
   }

@@ -16,17 +16,16 @@ import 'biometric_bloc_output.dart';
 const countMaxBiometricsRejections = 3;
 
 class BiometricBloc extends Bloc<BiometricState> {
-  BiometricBloc(
-    this._localSettingsRepository,
-    this._localAuthentication,
-    this._userRepository,
-    this._loginBloc,
-  );
+  BiometricBloc(this._localSettingsRepository, this._localAuthentication,
+      this._userRepository, this._loginBloc);
 
   final LocalSettingsRepository _localSettingsRepository;
   final LocalAuthentication _localAuthentication;
   final UserRepository _userRepository;
   final LoginBloc _loginBloc;
+
+  // Need provide manually
+  LocalizedStrings localizedStrings;
 
   @override
   BiometricState initialState() => BiometricUninitializedState();
@@ -94,10 +93,13 @@ class BiometricBloc extends Bloc<BiometricState> {
 
       final didAuthenticate =
           await _localAuthentication.authenticateWithBiometrics(
-        localizedReason: LocalizedStrings.biometricAuthenticationPromptMessage,
+        localizedReason:
+            localizedStrings?.biometricAuthenticationPromptMessage ??
+                'PromptMessage',
         androidAuthStrings: AndroidAuthMessages(
           fingerprintHint: '',
-          signInTitle: LocalizedStrings.biometricAuthenticationPromptTitle,
+          signInTitle: localizedStrings?.biometricAuthenticationPromptTitle ??
+              'PromptTitle',
         ),
         stickyAuth: true,
       );
@@ -152,10 +154,13 @@ class BiometricBloc extends Bloc<BiometricState> {
       if (!enabledBiometric) {
         await _localAuthentication.authenticateWithBiometrics(
           localizedReason:
-              LocalizedStrings.biometricAuthenticationPromptMessage,
+              localizedStrings?.biometricAuthenticationPromptMessage ??
+                  'PromptMessage',
           androidAuthStrings: AndroidAuthMessages(
             fingerprintHint: '',
-            signInTitle: LocalizedStrings.biometricAuthenticationPromptTitle,
+            signInTitle:
+                localizedStrings?.biometricAuthenticationPromptTitle ??
+                    'PromptTitle',
           ),
           stickyAuth: true,
         );
@@ -253,4 +258,5 @@ class BiometricBloc extends Bloc<BiometricState> {
 }
 
 BiometricBloc useBiometricBloc() =>
-    ModuleProvider.of<AppModule>(useContext()).biometricBloc;
+    ModuleProvider.of<AppModule>(useContext()).biometricBloc
+      ..localizedStrings = useLocalizedStrings();

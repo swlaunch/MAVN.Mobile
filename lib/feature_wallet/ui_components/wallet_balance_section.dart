@@ -39,7 +39,7 @@ class WalletBalanceSection extends HookWidget {
         : Padding(
             padding: const EdgeInsets.all(24),
             child: WalletBalanceBox(
-              title: LocalizedStrings.walletPageMyTotalTokens,
+              title: useLocalizedStrings().walletPageMyTotalTokens,
               balance: balance,
               isLoading: balanceState is BalanceLoadingState,
               balanceInBaseCurrency: balanceInBaseCurrency,
@@ -52,8 +52,8 @@ class WalletBalanceSection extends HookWidget {
 
   Widget _buildError(BalanceErrorState errorState) => GenericErrorIconWidget(
         errorKey: const Key('walletBalanceSectionKey'),
-        title: errorState.errorTitle,
-        text: errorState.errorSubtitle,
+        title: errorState.errorTitle.localize(useContext()),
+        text: errorState.errorSubtitle.localize(useContext()),
         onRetryTap: loadData,
         icon: errorState.iconAsset,
         margin: const EdgeInsets.all(24),

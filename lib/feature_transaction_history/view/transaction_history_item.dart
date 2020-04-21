@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/transaction_history_response_model.dart';
 import 'package:lykke_mobile_mavn/feature_transaction_history/view/initials_widget.dart';
@@ -18,12 +19,12 @@ class TransactionListItem extends TransactionItem {
     this.subtitle,
   });
 
-  final String title;
+  final LocalizedStringBuilder title;
   final String amount;
   final TransactionType transactionType;
   final Transaction transaction;
   final String formattedDate;
-  final String subtitle;
+  final LocalizedStringBuilder subtitle;
 }
 
 class TransactionHistoryViewListItem extends StatelessWidget {
@@ -34,6 +35,7 @@ class TransactionHistoryViewListItem extends StatelessWidget {
   }) : super(key: key);
   final TransactionListItem transactionListItem;
   final BaseAppTheme theme;
+
   @override
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -52,17 +54,17 @@ class TransactionHistoryViewListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     if (!StringUtils.isNullOrWhitespace(
-                        transactionListItem.title))
+                        transactionListItem?.title?.localize(context)))
                       Text(
-                        transactionListItem.title,
+                        transactionListItem.title?.localize(context),
                         style: TextStyles.darkBodyBody2Regular,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                     if (!StringUtils.isNullOrWhitespace(
-                        transactionListItem.subtitle))
+                        transactionListItem?.subtitle?.localize(context)))
                       Text(
-                        transactionListItem.subtitle,
+                        transactionListItem.subtitle?.localize(context),
                         style: TextStyles.darkBodyBody3Regular,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,

@@ -90,9 +90,14 @@ class PropertyPaymentAmountWidget extends HookWidget {
       return Builder(
         key: globalKey,
         builder: (context) => FormField<String>(
-          validator: propertyAmountState.amountSize == AmountSize.partial
-              ? fieldPartialAmountValidationManager?.validator
-              : fieldFullAmountValidationManager?.validator,
+          validator: (value) =>
+              propertyAmountState.amountSize == AmountSize.partial
+                  ? fieldPartialAmountValidationManager
+                      ?.validator(value)
+                      ?.localize(context)
+                  : fieldFullAmountValidationManager
+                      ?.validator(value)
+                      ?.localize(context),
           initialValue: textEditingController?.text,
           autovalidate: autoValidate.value,
           builder: (amountState) => Column(
@@ -104,7 +109,7 @@ class PropertyPaymentAmountWidget extends HookWidget {
                 padding: const EdgeInsets.only(bottom: 4),
               ),
               _buildRadioGroup(
-                  propertyAmountState.amountSize, onOptionSelected),
+                  context, propertyAmountState.amountSize, onOptionSelected),
               if (details != null) ...[const SizedBox(height: 8), details],
               const SizedBox(height: 8),
               Row(
@@ -167,20 +172,22 @@ class PropertyPaymentAmountWidget extends HookWidget {
     return Container();
   }
 
-  Widget _buildRadioGroup(AmountSize selected, Function onChanged) => Row(
+  Widget _buildRadioGroup(
+          BuildContext context, AmountSize selected, Function onChanged) =>
+      Row(
         children: <Widget>[
           _buildRadioButton(
             value: AmountSize.full,
             groupValue: selected,
             onChanged: onChanged,
-            text: LocalizedStrings.propertyPaymentFull,
+            text: LocalizedStrings.of(context).propertyPaymentFull,
           ),
           const SizedBox(width: 16),
           _buildRadioButton(
             value: AmountSize.partial,
             groupValue: selected,
             onChanged: onChanged,
-            text: LocalizedStrings.propertyPaymentPartial,
+            text: LocalizedStrings.of(context).propertyPaymentPartial,
           ),
         ],
       );

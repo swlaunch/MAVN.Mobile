@@ -21,7 +21,7 @@ class YourOffersShortcutWidget extends HookWidget {
 
       return HomeShortcutItemWidget(
         backgroundColor: theme.homeYourOffersBackground,
-        text: LocalizedStrings.yourOffers,
+        text: useLocalizedStrings().yourOffers,
         onTap: router.switchToOffersTab,
         child: Padding(
             padding: const EdgeInsets.all(6),

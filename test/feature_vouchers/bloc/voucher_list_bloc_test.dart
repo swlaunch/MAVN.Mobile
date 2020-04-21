@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
@@ -77,7 +77,7 @@ void main() {
         GenericListUninitializedState(),
         GenericListLoadingState(),
         GenericListErrorState<VoucherResponseModel>(
-            error: LocalizedStrings.defaultGenericError,
+            error: LazyLocalizedStrings.defaultGenericError,
             currentPage: 1,
             list: []),
       ]);

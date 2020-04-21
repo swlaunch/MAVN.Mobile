@@ -51,7 +51,7 @@ class PaymentRequestListWidget extends StatelessWidget {
               retryOnError: retryOnError,
               showError: showError,
               errorText: errorText,
-              itemBuilder: (item, onTap) =>
+              itemBuilder: (item, onTap, _) =>
                   PaymentRequestStatusCard(item, onItemTap),
               separatorBuilder: (position) => const SizedBox(height: 16),
             ),

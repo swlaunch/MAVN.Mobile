@@ -36,7 +36,7 @@ class PendingRequestsWidget extends HookWidget {
     return PaginatedRequestsListWidget(
       key: const Key('pendingRequestsList'),
       useBloc: () => usePendingPartnerPaymentsBloc(),
-      emptyStateText: LocalizedStrings.transferRequestEmptyOngoing,
+      emptyStateText: useLocalizedStrings().transferRequestEmptyOngoing,
       onItemTap: openPendingPaymentRequest,
     );
   }

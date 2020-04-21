@@ -75,18 +75,19 @@ class SpendRuleListPage extends HookWidget {
                   isLoading: spendRuleListBlocState
                       is GenericListPaginationLoadingState,
                   isEmpty: spendRuleListBlocState is GenericListEmptyState,
-                  emptyText: LocalizedStrings.spendRulePageEmpty,
+                  emptyText: useLocalizedStrings().spendRulePageEmpty,
                   emptyIcon: SvgAssets.spend,
                   retryOnError: loadData,
                   loadData: loadData,
                   showError: spendRuleListBlocState is GenericListErrorState,
                   errorText: spendRuleListBlocState is GenericListErrorState
-                      ? spendRuleListBlocState.error
+                      ? spendRuleListBlocState.error.localize(useContext())
                       : null,
-                  itemBuilder: (spendRule, _) => OfferListItem(
+                  itemBuilder: (spendRule, _, itemContext) => OfferListItem(
                     imageUrl: spendRule.imageUrl,
                     title: spendRule.title,
-                    subtitle: _buildSubtitleText(spendRule.soldCount),
+                    subtitle:
+                        _buildSubtitleText(itemContext, spendRule.soldCount),
                     onTap: () {
                       analyticsManager.redeemRuleTapped(
                         businessVertical: spendRule.type,
@@ -96,7 +97,7 @@ class SpendRuleListPage extends HookWidget {
                     },
                     chip: GenericChip(
                       chipContentWidget:
-                          _buildChipContent(spendRule.stockCount),
+                          _buildChipContent(itemContext, spendRule.stockCount),
                     ),
                   ),
                   separatorBuilder: (position) => Container(),
@@ -111,21 +112,21 @@ class SpendRuleListPage extends HookWidget {
     );
   }
 
-  Widget _buildChipContent(int stockCount) {
+  Widget _buildChipContent(BuildContext context, int stockCount) {
     if (stockCount == null) {
       return null;
     }
     return Text(
-      LocalizedStrings.voucherStockCount(stockCount).toLowerCase(),
+      LocalizedStrings.of(context).voucherStockCount(stockCount).toLowerCase(),
       style: TextStyles.darkBodyBody3Regular,
     );
   }
 
-  String _buildSubtitleText(int soldCount) {
+  String _buildSubtitleText(BuildContext context, int soldCount) {
     if (soldCount == null || soldCount <= 0) {
       return null;
     }
 
-    return LocalizedStrings.voucherSoldCountInfo(soldCount);
+    return LocalizedStrings.of(context).voucherSoldCountInfo(soldCount);
   }
 }

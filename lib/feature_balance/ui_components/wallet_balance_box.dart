@@ -65,6 +65,7 @@ class WalletBalanceBox extends StatelessWidget {
                   const SizedBox(height: 8),
                   if (balanceInBaseCurrency != null)
                     _buildConversionRate(
+                      context,
                       balanceInBaseCurrency,
                       baseCurrencyCode,
                       tokenSymbol,
@@ -73,13 +74,13 @@ class WalletBalanceBox extends StatelessWidget {
               ),
       );
 
-  Widget _buildConversionRate(
-      String currencyCode, String amount, String tokenSymbol) {
+  Widget _buildConversionRate(BuildContext context, String currencyCode,
+      String amount, String tokenSymbol) {
     final decimalBalance = Decimal.tryParse(amount);
-    final conversionText =
-        decimalBalance != null && decimalBalance.ceilToDouble() == 0
-            ? LocalizedStrings.noTokensConversionRateText(tokenSymbol)
-            : LocalizedStrings.conversionRate(currencyCode, amount);
+    final conversionText = decimalBalance != null &&
+            decimalBalance.ceilToDouble() == 0
+        ? LocalizedStrings.of(context).noTokensConversionRateText(tokenSymbol)
+        : LocalizedStrings.of(context).conversionRate(currencyCode, amount);
     return NullSafeText(
       conversionText,
       style: TextStyles.balanceConversionText,

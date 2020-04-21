@@ -1,5 +1,5 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/repository/partner/partner_repository.dart';
@@ -35,14 +35,14 @@ class PaymentRequestDetailsBloc extends Bloc<PaymentRequestDetailsState> {
   PaymentRequestDetailsState _mapExceptionToErrorState(Exception e) {
     if (e is NetworkException) {
       return PaymentRequestDetailsErrorState(
-        errorTitle: LocalizedStrings.networkErrorTitle,
-        errorSubtitle: LocalizedStrings.networkError,
+        errorTitle: LazyLocalizedStrings.networkErrorTitle,
+        errorSubtitle: LazyLocalizedStrings.networkError,
         iconAsset: SvgAssets.networkError,
       );
     }
     return PaymentRequestDetailsErrorState(
-      errorTitle: LocalizedStrings.somethingIsNotRightError,
-      errorSubtitle: LocalizedStrings.transferRequestGenericError,
+      errorTitle: LazyLocalizedStrings.somethingIsNotRightError,
+      errorSubtitle: LazyLocalizedStrings.transferRequestGenericError,
       iconAsset: SvgAssets.genericError,
     );
   }

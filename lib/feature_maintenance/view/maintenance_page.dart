@@ -49,7 +49,7 @@ class MaintenancePage extends HookWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                LocalizedStrings.maintenanceTitle,
+                useLocalizedStrings().maintenanceTitle,
                 style: TextStyles.h1PageHeader,
               ),
               const SizedBox(height: 12),
@@ -67,9 +67,9 @@ class MaintenancePage extends HookWidget {
 
   String _errorStateToDuration(MaintenanceState state) {
     final period = state is MaintenanceErrorState
-        ? state.remainingMaintenanceDuration
-        : LocalizedStrings.maintenanceErrorCoupleOfHours;
+        ? state.remainingMaintenanceDuration.localize(useContext())
+        : useLocalizedStrings().maintenanceErrorCoupleOfHours;
 
-    return LocalizedStrings.maintenanceDescription(period);
+    return useLocalizedStrings().maintenanceDescription(period);
   }
 }

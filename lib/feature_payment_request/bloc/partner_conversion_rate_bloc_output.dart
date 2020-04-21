@@ -1,4 +1,5 @@
 import 'package:decimal/decimal.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:meta/meta.dart';
 
@@ -25,7 +26,7 @@ class PartnerConversionRateLoadedState extends PartnerConversionRateState {
 class PartnerConversionRateErrorState extends PartnerConversionRateState {
   PartnerConversionRateErrorState(this.error);
 
-  final String error;
+  final LocalizedStringBuilder error;
 
   @override
   List get props => super.props..addAll([error]);

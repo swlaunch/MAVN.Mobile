@@ -13,7 +13,7 @@ class PrivacyPolicyPage extends HookWidget {
         useState<String>(getMobileSettingsUseCase.execute()?.privacyUrl);
     return TitledWebPage(
       url: privacyUrl.value,
-      title: LocalizedStrings.privacyPolicy,
+      title: useLocalizedStrings().privacyPolicy,
       asset: SvgAssets.settingsPrivacy,
     );
   }

@@ -1,4 +1,4 @@
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/response_model/referral_list_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/response_model/referral_response_model.dart';
@@ -11,7 +11,7 @@ abstract class ReferralListBloc extends GenericListBloc<
   ReferralListBloc()
       : super(
             genericErrorSubtitle:
-                LocalizedStrings.referralListRequestGenericErrorSubtitle);
+                LazyLocalizedStrings.referralListRequestGenericErrorSubtitle);
 
   @override
   int getCurrentPage(ReferralsListResponseModel response) =>

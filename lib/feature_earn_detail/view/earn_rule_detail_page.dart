@@ -205,8 +205,8 @@ class EarnRuleDetailPage extends HookWidget {
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: GenericErrorIconWidget(
-          title: earnRuleDetailBlocState.errorTitle,
-          text: earnRuleDetailBlocState.errorSubtitle,
+          title: earnRuleDetailBlocState.errorTitle.localize(useContext()),
+          text: earnRuleDetailBlocState.errorSubtitle.localize(useContext()),
           icon: earnRuleDetailBlocState.iconAsset,
           errorKey: const Key('earnRuleDetailError'),
           onRetryTap: () => earnRuleDetailBloc.loadEarnRule(earnRule.id),

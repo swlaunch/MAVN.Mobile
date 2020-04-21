@@ -93,7 +93,7 @@ class SpendOfferDetailsPage extends HookWidget {
             child: Column(
               children: <Widget>[
                 if (_isVoucherOfferAndOutOfStock(spendRuleDetailBlocState))
-                  VoucherOutOfStockWidget(router).build(),
+                  VoucherOutOfStockWidget(router).build(context),
                 Stack(
                   children: <Widget>[
                     Column(
@@ -189,7 +189,7 @@ class SpendOfferDetailsPage extends HookWidget {
         Padding(
           padding: const EdgeInsets.only(top: 36),
           child: Text(
-            LocalizedStrings.voucherDetailsAmount.toUpperCase(),
+            useLocalizedStrings().voucherDetailsAmount.toUpperCase(),
             style: TextStyles.darkInputLabelBold,
           ),
         ),
@@ -210,7 +210,7 @@ class SpendOfferDetailsPage extends HookWidget {
         StandardDivider(),
         const SizedBox(height: 24),
         Text(
-          LocalizedStrings.voucherDetailsAvailableBalance.toUpperCase(),
+          useLocalizedStrings().voucherDetailsAvailableBalance.toUpperCase(),
           style: TextStyles.darkInputLabelBold,
         ),
         const SizedBox(height: 4),
@@ -224,7 +224,7 @@ class SpendOfferDetailsPage extends HookWidget {
             ),
             const SizedBox(width: 2),
             Text(
-              LocalizedStrings.tokensLocked,
+              useLocalizedStrings().tokensLocked,
               style: TextStyles.darkBodyBody3Regular,
             ),
           ]),
@@ -235,7 +235,7 @@ class SpendOfferDetailsPage extends HookWidget {
             alignment: Alignment.center,
             padding: const EdgeInsets.only(bottom: 8),
             child: Text(
-              voucherPurchaseState.error,
+              voucherPurchaseState.error.localize(useContext()),
               style: TextStyles.errorTextBold,
             ),
           ),
@@ -258,7 +258,7 @@ class SpendOfferDetailsPage extends HookWidget {
                 Decimal.zero) <=
             (balanceState?.wallet?.balance?.decimalValue ?? Decimal.zero)) {
       return PrimaryButton(
-        text: LocalizedStrings.redeemVoucherButton,
+        text: useLocalizedStrings().redeemVoucherButton,
         onTap: buyVoucher,
         isLoading: voucherPurchaseState is VoucherPurchaseInProgressState,
       );
@@ -270,7 +270,7 @@ class SpendOfferDetailsPage extends HookWidget {
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Text(
-          LocalizedStrings.redeemVoucherInsufficientFunds,
+          useLocalizedStrings().redeemVoucherInsufficientFunds,
           style: TextStyles.lightInputTextRegular,
         ),
       ),
@@ -310,8 +310,8 @@ class SpendOfferDetailsPage extends HookWidget {
         padding: const EdgeInsets.all(16),
         child: GenericErrorIconWidget(
           errorKey: const Key('genericError'),
-          title: LocalizedStrings.somethingIsNotRightError,
-          text: LocalizedStrings.offerDetailGenericError,
+          title: useLocalizedStrings().somethingIsNotRightError,
+          text: useLocalizedStrings().offerDetailGenericError,
           icon: SvgAssets.genericError,
           onRetryTap: onRetry,
         ),

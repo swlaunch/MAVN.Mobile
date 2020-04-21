@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_lead_referral/bloc/lead_referal_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_lead_referral/bloc/lead_referral_bloc_output.dart';
@@ -77,7 +77,7 @@ void main() {
       )).thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await _subject.submitLeadReferral(
         firstName: TestConstants.stubFirstName,
@@ -93,7 +93,7 @@ void main() {
         LeadReferralUninitializedState(),
         LeadReferralSubmissionLoadingState(),
         LeadReferralSubmissionErrorState(
-            error: LocalizedStrings.defaultGenericError, canRetry: true),
+            error: LazyLocalizedStrings.defaultGenericError, canRetry: true),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -111,7 +111,7 @@ void main() {
       )).thenThrow(NetworkException());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.networkError);
+          .thenReturn(LazyLocalizedStrings.networkError);
 
       await _subject.submitLeadReferral(
         firstName: TestConstants.stubFirstName,
@@ -127,7 +127,7 @@ void main() {
         LeadReferralUninitializedState(),
         LeadReferralSubmissionLoadingState(),
         LeadReferralSubmissionErrorState(
-            error: LocalizedStrings.networkError, canRetry: true),
+            error: LazyLocalizedStrings.networkError, canRetry: true),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -147,7 +147,7 @@ void main() {
       ));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.referralLeadAlreadyExistError);
+          .thenReturn(LazyLocalizedStrings.referralLeadAlreadyExistError);
 
       await _subject.submitLeadReferral(
         firstName: TestConstants.stubFirstName,
@@ -163,7 +163,7 @@ void main() {
         LeadReferralUninitializedState(),
         LeadReferralSubmissionLoadingState(),
         LeadReferralSubmissionErrorState(
-            error: LocalizedStrings.referralLeadAlreadyExistError,
+            error: LazyLocalizedStrings.referralLeadAlreadyExistError,
             canRetry: false),
       ]);
 
@@ -185,7 +185,7 @@ void main() {
       ));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.canNotReferYourselfError);
+          .thenReturn(LazyLocalizedStrings.canNotReferYourselfError);
 
       await _subject.submitLeadReferral(
         firstName: TestConstants.stubFirstName,
@@ -201,7 +201,8 @@ void main() {
         LeadReferralUninitializedState(),
         LeadReferralSubmissionLoadingState(),
         LeadReferralSubmissionErrorState(
-            error: LocalizedStrings.canNotReferYourselfError, canRetry: false),
+            error: LazyLocalizedStrings.canNotReferYourselfError,
+            canRetry: false),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -221,7 +222,7 @@ void main() {
       ));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.referralLeadAlreadyConfirmedError);
+          .thenReturn(LazyLocalizedStrings.referralLeadAlreadyConfirmedError);
 
       await _subject.submitLeadReferral(
         firstName: TestConstants.stubFirstName,
@@ -237,7 +238,7 @@ void main() {
         LeadReferralUninitializedState(),
         LeadReferralSubmissionLoadingState(),
         LeadReferralSubmissionErrorState(
-            error: LocalizedStrings.referralLeadAlreadyConfirmedError,
+            error: LazyLocalizedStrings.referralLeadAlreadyConfirmedError,
             canRetry: false),
       ]);
 

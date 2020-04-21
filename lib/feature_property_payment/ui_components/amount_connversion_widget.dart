@@ -37,7 +37,7 @@ class AmountConversionWidget extends HookWidget {
         ? Decimal.zero
         : NumberFormatter.tryParseDecimal(amountTextEditingController?.text);
 
-    return LocalizedStrings.propertyPaymentConversionHolder(
+    return useLocalizedStrings().propertyPaymentConversionHolder(
       NumberFormatter.toCommaSeparatedStringFromDecimal(
           (amount ?? Decimal.zero) * rate),
       currencyName,

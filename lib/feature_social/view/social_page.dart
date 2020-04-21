@@ -24,7 +24,7 @@ class SocialPage extends HookWidget {
       backgroundColor: theme.appBackground,
       appBar: AppBar(
         title: Text(
-          LocalizedStrings.socialPageTitle,
+          useLocalizedStrings().socialPageTitle,
           style: TextStyles.h1PageHeader,
         ),
         backgroundColor: theme.appBarBackground,
@@ -47,7 +47,7 @@ class SocialPage extends HookWidget {
                       image: AssetImage(ImageAssets.comingSoon),
                       fit: BoxFit.contain),
                   AutoSizeText(
-                    LocalizedStrings.socialPageComingSoon,
+                    useLocalizedStrings().socialPageComingSoon,
                     style: TextStyles.darkHeadersH2,
                     maxLines: 1,
                   ),

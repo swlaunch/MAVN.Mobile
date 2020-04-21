@@ -43,7 +43,7 @@ class HotelWelcomeDialog extends HookWidget {
               Container(
                 alignment: Alignment.topCenter,
                 child: GenericErrorWidget(
-                  text: hotelWelcomeBlocState.error,
+                  text: hotelWelcomeBlocState.error.localize(useContext()),
                   onRetryTap: _getPartnerMessage,
                 ),
               )

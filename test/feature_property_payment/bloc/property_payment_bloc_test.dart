@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_property_payment/bloc/property_amount_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_property_payment/bloc/property_payment_bloc.dart';
@@ -110,7 +110,7 @@ void main() {
       ).thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await _subject.sendPayment(
         id: TestConstants.stubId,
@@ -124,7 +124,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         PropertyPaymentUninitializedState(),
         PropertyPaymentLoadingState(),
-        PropertyPaymentErrorState(LocalizedStrings.defaultGenericError),
+        PropertyPaymentErrorState(LazyLocalizedStrings.defaultGenericError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -142,7 +142,7 @@ void main() {
       ).thenThrow(NetworkException());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.networkError);
+          .thenReturn(LazyLocalizedStrings.networkError);
 
       await _subject.sendPayment(
         id: TestConstants.stubId,
@@ -156,7 +156,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         PropertyPaymentUninitializedState(),
         PropertyPaymentLoadingState(),
-        PropertyPaymentErrorState(LocalizedStrings.networkError),
+        PropertyPaymentErrorState(LazyLocalizedStrings.networkError),
       ]);
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
     });
@@ -175,8 +175,8 @@ void main() {
         message: TestConstants.stubErrorText,
       ));
 
-      when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(TestConstants.stubErrorText);
+      when(_mockExceptionToMessageMapper.map(any)).thenReturn(
+          LocalizedStringBuilder.custom(TestConstants.stubErrorText));
 
       await _subject.sendPayment(
         id: TestConstants.stubId,
@@ -191,7 +191,8 @@ void main() {
         PropertyPaymentUninitializedState(),
         PropertyPaymentLoadingState(),
         PropertyPaymentWalletDisabledEvent(),
-        PropertyPaymentInlineErrorState(TestConstants.stubErrorText),
+        PropertyPaymentInlineErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
       ]);
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
     });
