@@ -126,8 +126,6 @@ List<_PersonalDetailItem> _getListItems(CustomerResponseModel customer) => [
           LazyLocalizedStrings.personalDetailsLastNameTitle, customer.lastName),
       _PersonalDetailItem(
           LazyLocalizedStrings.personalDetailsEmailTitle, customer.email),
-      _PersonalDetailItem(LazyLocalizedStrings.personalDetailsPhoneNumberTitle,
-          customer.phoneNumber),
       if (!StringUtils.isNullOrEmpty(customer.countryOfNationalityName))
         _PersonalDetailItem(
           LazyLocalizedStrings.personalDetailsCountryOfNationality,

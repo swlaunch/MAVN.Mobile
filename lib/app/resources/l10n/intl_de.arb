@@ -1596,7 +1596,7 @@
 		"type": "text",
 		"placeholders": {}
 	},
-	"socialPageTitle": "Community",
+	"socialPageTitle": "Gemeinschaft",
 	"@socialPageTitle": {
 		"type": "text",
 		"placeholders": {}
@@ -1905,7 +1905,7 @@
 		"type": "text",
 		"placeholders": {}
 	},
-	"vouchersOption": "Vouchers",
+	"vouchersOption": "Gutscheine",
 	"@vouchersOption": {
 		"type": "text",
 		"placeholders": {}
@@ -2516,7 +2516,7 @@
 		"type": "text",
 		"placeholders": {}
 	},
-	"bottomBarWallet": "Wallet",
+	"bottomBarWallet": "Brieftasche",
 	"@bottomBarWallet": {
 		"type": "text",
 		"placeholders": {}
@@ -3368,7 +3368,7 @@
 			"hours": {}
 		}
 	},
-	"daysAgo": "{days,plural, =1{{days} day ago}other{{days} days ago}}",
+	"daysAgo": "{days,plural, =1{Vor {days} Tagen}other{Vor {days} Tagen}}",
 	"@daysAgo": {
 		"type": "text",
 		"placeholders": {
