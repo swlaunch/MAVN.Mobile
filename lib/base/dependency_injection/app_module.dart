@@ -248,7 +248,7 @@ class AppModule extends Module {
 
     provideSingleton(
       () => HttpClient(
-        "https://customer-api.mavn.ch/api",
+        remoteConfig.getString(RemoteConfigKeys.customerApiBaseRestUrl),
         interceptors: [
           get<LogInterceptor>(),
           get<TokenInterceptor>(),
