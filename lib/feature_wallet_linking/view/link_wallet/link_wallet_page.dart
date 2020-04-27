@@ -15,7 +15,6 @@ import 'package:lykke_mobile_mavn/library_ui_components/misc/heading.dart';
 import 'package:lykke_mobile_mavn/library_utils/toast_message.dart';
 
 class LinkWalletPage extends HookWidget {
-
   @override
   Widget build(BuildContext context) {
     final _instructions = [
@@ -51,8 +50,8 @@ class LinkWalletPage extends HookWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 16, bottom: 24),
                 child: Text(
-                  useLocalizedStrings().externalLinkWalletDescription(
-                      tokenSymbol.value),
+                  useLocalizedStrings()
+                      .externalLinkWalletDescription(tokenSymbol.value),
                   style: TextStyles.darkBodyBody1RegularHigh,
                 ),
               ),

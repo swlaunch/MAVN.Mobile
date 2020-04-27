@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/feature_balance/bloc/balance/balance_bloc.dart';
@@ -10,10 +9,9 @@ import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/error/generic_error_icon_widget.dart';
 
 class WalletBalanceSection extends HookWidget {
-  const WalletBalanceSection({@required this.loadData, @required this.theme});
+  const WalletBalanceSection({@required this.loadData});
 
   final VoidCallback loadData;
-  final BaseAppTheme theme;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +43,6 @@ class WalletBalanceSection extends HookWidget {
               balanceInBaseCurrency: balanceInBaseCurrency,
               baseCurrencyCode: baseCurrencyCode,
               tokenSymbol: tokenSymbol.value,
-              theme: theme,
             ),
           );
   }

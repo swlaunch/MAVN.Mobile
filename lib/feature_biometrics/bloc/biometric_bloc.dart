@@ -158,9 +158,8 @@ class BiometricBloc extends Bloc<BiometricState> {
                   'PromptMessage',
           androidAuthStrings: AndroidAuthMessages(
             fingerprintHint: '',
-            signInTitle:
-                localizedStrings?.biometricAuthenticationPromptTitle ??
-                    'PromptTitle',
+            signInTitle: localizedStrings?.biometricAuthenticationPromptTitle ??
+                'PromptTitle',
           ),
           stickyAuth: true,
         );

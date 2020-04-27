@@ -60,10 +60,10 @@ class P2pReceiveTokenPage extends HookWidget {
                                 key: Key('receiveTokenLoadingSpinner')),
                           if (receiveTokenState is ReceiveTokenPageErrorState)
                             GenericErrorIconWidget(
-                              title: receiveTokenState
-                                  .errorTitle.localize(useContext()),
-                              text: receiveTokenState
-                                  .errorSubtitle.localize(useContext()),
+                              title: receiveTokenState.errorTitle
+                                  .localize(useContext()),
+                              text: receiveTokenState.errorSubtitle
+                                  .localize(useContext()),
                               icon: receiveTokenState.iconAsset,
                               errorKey: const Key('receiveTokenError'),
                               onRetryTap: receiveTokenBloc.getCustomer,

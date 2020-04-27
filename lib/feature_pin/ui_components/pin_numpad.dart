@@ -129,9 +129,7 @@ class PinNumPad extends StatelessWidget {
   }
 
   Widget _buildErrorMessage(BuildContext context, PinState pinState) => Text(
-        pinState is PinErrorState
-            ? pinState.error.localize(context)
-            : '',
+        pinState is PinErrorState ? pinState.error.localize(context) : '',
         style: TextStyles.errorTextBold,
         textAlign: TextAlign.center,
       );

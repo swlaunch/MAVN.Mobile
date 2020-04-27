@@ -168,8 +168,6 @@ import 'package:lykke_mobile_mavn/feature_spend/di/transfer_module.dart';
 import 'package:lykke_mobile_mavn/feature_splash/bloc/splash_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_splash/bloc/splash_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_splash/use_case/save_mobile_settings_use_case.dart';
-import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_ticker/bloc/ticker_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_ticker/bloc/ticker_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_ticker/di/ticker_module.dart';
@@ -635,10 +633,6 @@ class MockFirebaseMessagingBloc extends MockBloc<FirebaseMessagingState>
     implements FirebaseMessagingBloc {
   MockFirebaseMessagingBloc(FirebaseMessagingState initialState)
       : super(initialState);
-}
-
-class MockThemeBloc extends MockBloc<ThemeState> implements ThemeBloc {
-  MockThemeBloc(ThemeState initialState) : super(initialState);
 }
 
 //endregion Blocs

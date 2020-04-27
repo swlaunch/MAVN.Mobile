@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
 import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/transaction_history_response_model.dart';
@@ -30,11 +29,9 @@ class TransactionListItem extends TransactionItem {
 class TransactionHistoryViewListItem extends StatelessWidget {
   const TransactionHistoryViewListItem({
     @required this.transactionListItem,
-    @required this.theme,
     Key key,
   }) : super(key: key);
   final TransactionListItem transactionListItem;
-  final BaseAppTheme theme;
 
   @override
   Widget build(BuildContext context) => Padding(

@@ -20,8 +20,8 @@ class PartnerInfoWidget extends StatelessWidget {
     if (partners.length == 1) {
       partnerTitle = partners[0].name;
     } else {
-      partnerTitle = LocalizedStrings.of(context).multiplePartnersTitle(
-          partners[0].name, partners.length - 1);
+      partnerTitle = LocalizedStrings.of(context)
+          .multiplePartnersTitle(partners[0].name, partners.length - 1);
     }
     return GestureDetector(
       key: const Key('partnerInfoView'),

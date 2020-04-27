@@ -112,8 +112,8 @@ class TransactionForm extends HookWidget with FormMixin {
             ),
             const SizedBox(height: 24),
             CustomTextField(
-              label: useLocalizedStrings().transactionAmountTokensLabel(
-                  tokenSymbol.value),
+              label: useLocalizedStrings()
+                  .transactionAmountTokensLabel(tokenSymbol.value),
               hint: useLocalizedStrings().transactionAmountOfTokensHint,
               valueKey: const Key('amountTextField'),
               contextGlobalKey: amountGlobalKey,

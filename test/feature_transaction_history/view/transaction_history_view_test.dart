@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
 import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/repository/mapper/transaction_history_mapper.dart';
@@ -322,9 +321,7 @@ Widget _getSubjectWidget(TransactionHistoryBloc transactionHistoryBloc) {
         key: _transactionHistoryViewContainerKey,
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
-          child: TransactionHistoryView(
-            theme: LightTheme(),
-          ),
+          child: TransactionHistoryView(),
         ),
       ),
     ),

@@ -77,7 +77,6 @@ import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_count_b
 import 'package:lykke_mobile_mavn/feature_notification/router/notification_router.dart';
 import 'package:lykke_mobile_mavn/feature_payment_request_list/bloc/pending_payment_requests_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_personal_details/bloc/delete_account_use_case.dart';
-import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_user_verification/bloc/user_verification_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/dynamic_link_manager.dart';
@@ -207,8 +206,6 @@ class AppModule extends Module {
 
   FirebaseMessagingBloc get firebaseMessagingBloc => get();
 
-  ThemeBloc get themeBloc => get();
-
   @override
   void provideInstances() {
     // Global navigator state key
@@ -326,7 +323,6 @@ class AppModule extends Module {
     provideSingleton(() => ConversionRepository(get()));
     provideSingleton(() => FirebaseMessaging());
     provideSingleton(() => FirebaseMessagingBloc(get(), get(), get()));
-    provideSingleton(() => ThemeBloc(get()));
     provideSingleton(() => MobileSettingsRepository(get()));
     provideSingleton(() => WalletRealTimeRepository(get()));
     provideSingleton(() => EmailRepository(get()));

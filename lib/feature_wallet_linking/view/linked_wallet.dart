@@ -6,8 +6,6 @@ import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_balance/ui_components/wallet_balance_box.dart';
-import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_user_verification/bloc/user_verification_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc_output.dart';
@@ -21,8 +19,6 @@ import 'package:pedantic/pedantic.dart';
 class LinkedWalletPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final themeBloc = useThemeBloc();
-    final themeBlocState = useBlocState(themeBloc);
     final tokenSymbol =
         useState(useGetMobileSettingsUseCase(context).execute()?.tokenSymbol);
 
@@ -45,10 +41,6 @@ class LinkedWalletPage extends HookWidget {
 
     final userVerificationBloc = useUserVerificationBloc();
 
-    if (themeBlocState is! ThemeSelectedState) {
-      return Container();
-    }
-    final theme = (themeBlocState as ThemeSelectedState).theme;
     return ScaffoldWithAppBar(
       useDarkTheme: false,
       body: Column(
@@ -66,7 +58,6 @@ class LinkedWalletPage extends HookWidget {
                   balanceInBaseCurrency: balanceInBaseCurrency,
                   baseCurrencyCode: baseCurrencyCode,
                   tokenSymbol: tokenSymbol.value,
-                  theme: theme,
                 )
               ],
             ),

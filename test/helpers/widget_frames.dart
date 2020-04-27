@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:lykke_mobile_mavn/app/app.dart';
 import 'package:lykke_mobile_mavn/app/app_localizations_delegate.dart';
-import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc.dart';
@@ -54,8 +53,6 @@ import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_count_b
 import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_count_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_p2p_transactions/bloc/barcode_scanner_manager.dart';
 import 'package:lykke_mobile_mavn/feature_payment_request_list/bloc/pending_payment_requests_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_user_verification/bloc/user_verification_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc_output.dart';
@@ -105,7 +102,6 @@ class TestAppFrame extends StatelessWidget {
     this.mockQrContentManager,
     this.mockBarcodeScanManager,
     this.mockFirebaseMessagingBloc,
-    this.mockThemeBloc,
   });
 
   final Widget child;
@@ -140,7 +136,6 @@ class TestAppFrame extends StatelessWidget {
   final MockQrContentManager mockQrContentManager;
   final MockBarcodeScannerManager mockBarcodeScanManager;
   final MockFirebaseMessagingBloc mockFirebaseMessagingBloc;
-  final MockThemeBloc mockThemeBloc;
 
   @override
   Widget build(BuildContext context) => ModuleProvider<AppModule>(
@@ -175,7 +170,6 @@ class TestAppFrame extends StatelessWidget {
           mockQrContentManager: mockQrContentManager,
           mockBarcodeScanManager: mockBarcodeScanManager,
           mockFirebaseMessagingBloc: mockFirebaseMessagingBloc,
-          mockThemeBloc: mockThemeBloc,
         ),
         child: MaterialApp(
           home: MaterialApp(
@@ -228,7 +222,6 @@ class TestAppModule extends AppModule {
     this.mockQrContentManager,
     this.mockBarcodeScanManager,
     this.mockFirebaseMessagingBloc,
-    this.mockThemeBloc,
   });
 
   final RemoteConfigManager mockRemoteConfigManager;
@@ -262,7 +255,6 @@ class TestAppModule extends AppModule {
   final MockQrContentManager mockQrContentManager;
   final MockBarcodeScannerManager mockBarcodeScanManager;
   final MockFirebaseMessagingBloc mockFirebaseMessagingBloc;
-  final MockThemeBloc mockThemeBloc;
 
   @override
   void provideInstances() {
@@ -332,10 +324,6 @@ class TestAppModule extends AppModule {
     provideSingleton<FirebaseMessagingBloc>(() =>
         mockFirebaseMessagingBloc ??
         MockFirebaseMessagingBloc(FirebaseMessagingUninitializedState()));
-
-    provideSingleton<ThemeBloc>(() =>
-        mockThemeBloc ??
-        MockThemeBloc(ThemeSelectedState(theme: LightTheme())));
 
     //////////////////////////
 

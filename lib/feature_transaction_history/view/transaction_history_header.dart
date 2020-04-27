@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
+import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/feature_transaction_history/view/transaction_history_item.dart';
 
@@ -13,15 +13,14 @@ class TransactionHeaderItem extends TransactionItem {
 class TransactionHistoryHeader extends StatelessWidget {
   const TransactionHistoryHeader({
     @required this.item,
-    @required this.theme,
     Key key,
   }) : super(key: key);
 
   final TransactionHeaderItem item;
-  final BaseAppTheme theme;
+
   @override
   Widget build(BuildContext context) => Container(
-        color: theme.appBackground,
+        color: ColorStyles.alabaster,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

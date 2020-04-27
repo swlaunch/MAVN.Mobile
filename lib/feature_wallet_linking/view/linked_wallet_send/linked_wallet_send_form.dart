@@ -85,8 +85,8 @@ class LinkedWalletSendForm extends HookWidget with FormMixin {
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 24),
               child: AmountTextField(
-                  label: useLocalizedStrings().transferTokenAmountLabel(
-                          tokenSymbol.value)
+                  label: useLocalizedStrings()
+                      .transferTokenAmountLabel(tokenSymbol.value)
                       .toUpperCase(),
                   hint: useLocalizedStrings().enterAmountHint,
                   globalKey: amountGlobalKey,
