@@ -4,7 +4,7 @@ import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/feature_earn/view/earn_rule_list_page.dart';
-import 'package:lykke_mobile_mavn/feature_spend/view/spend_rule_list_page.dart';
+import 'package:lykke_mobile_mavn/feature_vouchers/view/voucher_list_page.dart';
 
 class OffersPage extends HookWidget {
   @override
@@ -46,7 +46,7 @@ class OffersPage extends HookWidget {
                   child: TabBarView(
                     children: <Widget>[
                       EarnRuleListPage(),
-                      SpendRuleListPage(),
+                      VoucherListPage(),
                     ],
                   ),
                 )

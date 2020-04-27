@@ -107,15 +107,19 @@ flutter:
     - assets/
 
   fonts:
-    - family: Quicksand
+    - family: NunitoSans
       fonts:
-        - asset: assets/fonts/quicksand/Quicksand-Light.ttf
+        - asset: assets/fonts/nunito-sans/NunitoSans-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/nunito-sans/NunitoSans-Light.ttf
           weight: 300
-        - asset: assets/fonts/quicksand/Quicksand-Regular.ttf
+        - asset: assets/fonts/nunito-sans/NunitoSans-Regular.ttf
           weight: 400
-        - asset: assets/fonts/quicksand/Quicksand-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/quicksand/Quicksand-SemiBold.ttf
+        - asset: assets/fonts/nunito-sans/NunitoSans-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/quicksand/Quicksand-Bold.ttf
+        - asset: assets/fonts/nunito-sans/NunitoSans-Bold.ttf
           weight: 700
+        - asset: assets/fonts/nunito-sans/NunitoSans-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/nunito-sans/NunitoSans-Black.ttf
+          weight: 900

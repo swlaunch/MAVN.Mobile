@@ -21,10 +21,6 @@ class EarnRuleListBloc
       _earnRepository.getEarnRules(currentPage: page);
 
   @override
-  int getCurrentPage(EarnRuleListResponseModel response) =>
-      response.currentPage;
-
-  @override
   List<EarnRule> getDataFromResponse(EarnRuleListResponseModel response) =>
       response.earnRuleList;
 

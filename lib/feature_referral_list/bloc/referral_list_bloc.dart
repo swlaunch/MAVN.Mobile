@@ -14,10 +14,6 @@ abstract class ReferralListBloc extends GenericListBloc<
                 LazyLocalizedStrings.referralListRequestGenericErrorSubtitle);
 
   @override
-  int getCurrentPage(ReferralsListResponseModel response) =>
-      response.currentPage;
-
-  @override
   List<CustomerCommonReferralResponseModel> getDataFromResponse(
           ReferralsListResponseModel response) =>
       response.referrals;

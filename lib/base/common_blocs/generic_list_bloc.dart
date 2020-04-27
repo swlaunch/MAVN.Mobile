@@ -61,7 +61,7 @@ abstract class GenericListBloc<R, T> extends Bloc<GenericListState> {
         setState(GenericListLoadedState(
           list: newGenericList,
           totalCount: getTotalCount(response),
-          currentPage: getCurrentPage(response),
+          currentPage: page,
         ));
       }
     } on Exception catch (e) {
@@ -87,8 +87,6 @@ abstract class GenericListBloc<R, T> extends Bloc<GenericListState> {
   List<T> getDataFromResponse(R response);
 
   int getTotalCount(R response);
-
-  int getCurrentPage(R response);
 
   List<T> sort(List<T> list) => list;
 }

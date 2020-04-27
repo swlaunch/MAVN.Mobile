@@ -36,11 +36,6 @@ class AccountPage extends HookWidget {
         onSelected: router.pushReferralListPage,
       ),
       _AccountSettingWithTrailingIcon(
-        title: useLocalizedStrings().vouchersOption,
-        asset: SvgAssets.voucher,
-        onSelected: router.pushVoucherListPage,
-      ),
-      _AccountSettingWithTrailingIcon(
           title: useLocalizedStrings().accountPagePersonalDetailsOption,
           asset: SvgAssets.settingsPersonalDetails,
           onSelected: router.pushPersonalDetailsPage),

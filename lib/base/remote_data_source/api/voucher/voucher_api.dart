@@ -5,7 +5,7 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/base_api.dart';
 class VoucherApi extends BaseApi {
   VoucherApi(HttpClient httpClient) : super(httpClient);
 
-  static const String vouchersPath = '/vouchers';
+  static const String vouchersPath = '/smartVouchers/campaigns';
 
   //query params
   static const String queryParamCurrentPage = 'CurrentPage';

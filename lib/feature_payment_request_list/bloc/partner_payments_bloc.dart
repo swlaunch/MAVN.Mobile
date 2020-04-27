@@ -11,10 +11,6 @@ abstract class PartnerPaymentsBloc extends GenericListBloc<
                 LazyLocalizedStrings.transferRequestListGenericError);
 
   @override
-  int getCurrentPage(PaginatedPartnerPaymentsResponseModel response) =>
-      response.currentPage;
-
-  @override
   List<PaymentRequestResponseModel> getDataFromResponse(
           PaginatedPartnerPaymentsResponseModel response) =>
       response.paymentRequests;

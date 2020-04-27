@@ -4,7 +4,7 @@ import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 class TextStyles {
   TextStyles._();
 
-  static const String commonFontFamily = 'Quicksand';
+  static const String commonFontFamily = 'NunitoSans';
 
   static const TextStyle h1PageHeader = TextStyle(
     color: ColorStyles.primaryDark,

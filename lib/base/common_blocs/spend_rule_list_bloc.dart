@@ -20,10 +20,6 @@ class SpendRuleListBloc
       _spendRepository.getSpendRules(currentPage: page);
 
   @override
-  int getCurrentPage(SpendRuleListResponseModel response) =>
-      response.currentPage;
-
-  @override
   List<SpendRule> getDataFromResponse(SpendRuleListResponseModel response) =>
       response.spendRuleList;
 

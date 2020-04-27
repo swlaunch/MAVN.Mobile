@@ -17,10 +17,6 @@ class NotificationListBloc extends GenericListBloc<
   final NotificationRepository _notificationRepository;
 
   @override
-  int getCurrentPage(NotificationListResponseModel response) =>
-      response.currentPage;
-
-  @override
   List<NotificationMessage> getDataFromResponse(
           NotificationListResponseModel response) =>
       response.notifications;
