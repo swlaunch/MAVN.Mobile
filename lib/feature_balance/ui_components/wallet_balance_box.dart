@@ -53,7 +53,7 @@ class WalletBalanceBox extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      StandardSizedSvg(SvgAssets.tokenLight,
+                      StandardSizedSvg(SvgAssets.token,
                           color: ColorStyles.white),
                       const SizedBox(width: 4),
                       BalanceText(amount: balance),

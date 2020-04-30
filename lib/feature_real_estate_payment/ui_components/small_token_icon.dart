@@ -5,7 +5,7 @@ import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 class SmallTokenIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SvgPicture.asset(
-        SvgAssets.tokenLight,
+        SvgAssets.token,
         height: 12,
         width: 12,
       );

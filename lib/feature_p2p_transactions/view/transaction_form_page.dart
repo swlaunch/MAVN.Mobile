@@ -96,7 +96,7 @@ class TransactionFormPage extends HookWidget with FormMixin {
                   assetIconLeading: SvgAssets.sendTokens,
                   assetIconTrailing: walletBlocState is WalletErrorState
                       ? SvgAssets.error
-                      : SvgAssets.tokenLight,
+                      : SvgAssets.token,
                   assetIconTrailingAlignedToTitle: true,
                 ),
                 if (walletBlocState is WalletLoadedState)

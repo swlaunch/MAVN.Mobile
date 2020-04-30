@@ -33,7 +33,7 @@ class EarnRuleHowItWorksSection extends HookWidget {
         children: <Widget>[
           SectionTitle(
             title: useLocalizedStrings().earnRuleDetailsHowItWorks,
-            leadingWidget: const StandardSizedSvg(SvgAssets.tokenLight),
+            leadingWidget: const StandardSizedSvg(SvgAssets.token),
           ),
           BulletPointLineWidget(
             body: _buildEarnAmountInfo(

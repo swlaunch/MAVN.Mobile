@@ -31,7 +31,7 @@ class SplashPage extends HookWidget {
       initialize();
     }, [splashBloc]);
 
-    _precacheWelcomeImage(context);
+    _precachePlaceHolderImage(context);
 
     return Material(
       type: MaterialType.transparency,
@@ -67,9 +67,8 @@ class SplashPage extends HookWidget {
     }
   }
 
-  Future<void> _precacheWelcomeImage(BuildContext context) async {
-    await precacheImage(
-        const AssetImage(ImageAssets.welcomePageImage), context);
+  Future<void> _precachePlaceHolderImage(BuildContext context) async {
+    await precacheImage(const AssetImage(ImageAssets.placeholder), context);
   }
 
   Future<void> _precacheOnboardingBackgroundImages(BuildContext context) async {

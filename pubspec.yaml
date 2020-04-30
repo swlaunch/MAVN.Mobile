@@ -84,8 +84,8 @@ flutter_icons:
   android: true
   ios: true
   image_path: "assets/app_icon.png"
-  adaptive_icon_background: "#ffffff"
-  adaptive_icon_foreground: "assets/app_icon_adaptive.png"
+  adaptive_icon_background: "#FC7E78"
+  adaptive_icon_foreground: "assets/app_icon.png"
 # If you want to re-update the icons run these commands:
 # 1. flutter pub get
 # 2. flutter pub run flutter_launcher_icons:main
