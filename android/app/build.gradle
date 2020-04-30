@@ -33,6 +33,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     compileSdkVersion 29
+
     packagingOptions {
         exclude 'META-INF/proguard/androidx-annotations.pro'
     }

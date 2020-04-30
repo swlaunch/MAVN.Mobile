@@ -41,7 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "${amountInToken} ${token} = ${amountInCurrency} ${currency}";
 
   static m9(days) =>
-      "${Intl.plural(days, one: '${days} day ago', other: '${days} days ago')}";
+      "${Intl.plural(days, one: 'Vor ${days} Tagen', other: 'Vor ${days} Tagen')}";
 
   static m10(token) =>
       "Herzliche Glückwünsche! Du hast dieses Aufgabe abgeschlossen! Schaue dir andere Angebote an, um weitere ${token}zu verdienen";
@@ -349,7 +349,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomBarExplore": MessageLookupByLibrary.simpleMessage("Erkunden"),
         "bottomBarOffers": MessageLookupByLibrary.simpleMessage("Angebote"),
         "bottomBarSocial": MessageLookupByLibrary.simpleMessage("Community"),
-        "bottomBarWallet": MessageLookupByLibrary.simpleMessage("Wallet"),
+        "bottomBarWallet": MessageLookupByLibrary.simpleMessage("Brieftasche"),
         "cameraPreviewRetakeButton":
             MessageLookupByLibrary.simpleMessage("Erneut"),
         "cameraPreviewTitle":
@@ -1198,7 +1198,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Oder weiter mit"),
         "socialPageComingSoon":
             MessageLookupByLibrary.simpleMessage("Demnächst"),
-        "socialPageTitle": MessageLookupByLibrary.simpleMessage("Community"),
+        "socialPageTitle": MessageLookupByLibrary.simpleMessage("Gemeinschaft"),
         "somethingIsNotRightError": MessageLookupByLibrary.simpleMessage(
             "Etwas stimmt nicht, probiere es noch einmal!"),
         "spendPageTitle": MessageLookupByLibrary.simpleMessage("Einlösen"),
@@ -1379,7 +1379,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Derzeit sind keine Voucher verfügbar"),
         "voucherSoldCountInfo": m90,
         "voucherStockCount": m91,
-        "vouchersOption": MessageLookupByLibrary.simpleMessage("Vouchers"),
+        "vouchersOption": MessageLookupByLibrary.simpleMessage("Gutscheine"),
         "walletLinkingInProgress":
             MessageLookupByLibrary.simpleMessage("Wallet Verknüpfung läuft"),
         "walletPageMyTotalTokens":

@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m5(amount, token) => "${amount} ${token} points ";
 
+  static m100(vendorName) => "Available at ${vendorName}";
+
   static m6(token) => "Back to ${token} Wallet";
 
   static m7(currencyCode, amount) => "${amount} ${currencyCode}";
@@ -140,6 +142,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m46(token) =>
       "Sorry, you do not have sufficient ${token} points for this activity";
+
+  static m101(expirationDate) => "This offer expires on ${expirationDate}";
 
   static m47(appName) => "Welcome to ${appName}";
 
@@ -270,8 +274,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static m99(token) => "Earn and use ${token}s across the world";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-
   static _notInlinedMessages(_) => <String, Function>{
+        "about": MessageLookupByLibrary.simpleMessage("About"),
         "accountAppVersion": m0,
         "accountDeactivatedLaunchContactNumberError":
             MessageLookupByLibrary.simpleMessage(
@@ -315,6 +319,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "and": MessageLookupByLibrary.simpleMessage(" and "),
         "approvedReferralListEmptyState": MessageLookupByLibrary.simpleMessage(
             "You have no approved referrals at the moment"),
+        "availableAt": m100,
         "backToTokenWalletButton": m6,
         "backToWalletButton":
             MessageLookupByLibrary.simpleMessage("Back to Wallet"),
@@ -865,6 +870,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "offerDetailGenericError": MessageLookupByLibrary.simpleMessage(
             "We are unable to load offer details at the moment. Please try again."),
+        "offerExpiresOn": m101,
+        "offerNoExpirationDate": MessageLookupByLibrary.simpleMessage(
+            "This offer has no expiration date"),
         "offers": MessageLookupByLibrary.simpleMessage("Offers"),
         "onboardingPage1Title": m47,
         "onboardingPage2Details": m48,
@@ -1045,6 +1053,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Share this code with the sender, you\'ll receive points quicker than you thought"),
         "receiveTokenPageTitle": m71,
         "redeem": MessageLookupByLibrary.simpleMessage("Redeem"),
+        "redeemOffer": MessageLookupByLibrary.simpleMessage("Redeem Offer"),
         "redeemVoucherButton":
             MessageLookupByLibrary.simpleMessage("Redeem voucher"),
         "redeemVoucherInsufficientFunds": MessageLookupByLibrary.simpleMessage(

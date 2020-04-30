@@ -3234,6 +3234,37 @@ class LocalizedStrings {
 
 //endregion Vouchers
 
+//region Voucher Details
+
+  String get about => Intl.message(
+        'About',
+        name: 'about',
+      );
+
+  String availableAt(String vendorName) => Intl.message(
+        'Available at $vendorName',
+        name: 'availableAt',
+        args: [vendorName],
+      );
+
+  String offerExpiresOn(String expirationDate) => Intl.message(
+        'This offer expires on $expirationDate',
+        name: 'offerExpiresOn',
+        args: [expirationDate],
+      );
+
+  String get offerNoExpirationDate => Intl.message(
+        'This offer has no expiration date',
+        name: 'offerNoExpirationDate',
+      );
+
+  String get redeemOffer => Intl.message(
+        'Redeem Offer',
+        name: 'redeemOffer',
+      );
+
+//endregion Voucher Details
+
 //region Notifications
   String get notifications => Intl.message(
         'Notifications',

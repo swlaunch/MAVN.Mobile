@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-04-15T17:54:36.540640",
+  "@@last_modified": "2020-04-30T15:13:39.033880",
   "networkErrorTitle": "Internet connection problem",
   "@networkErrorTitle": {
     "type": "text",
@@ -3341,6 +3341,35 @@
   },
   "voucherCopied": "Voucher copied to clipboard",
   "@voucherCopied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "about": "About",
+  "@about": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "availableAt": "Available at {vendorName}",
+  "@availableAt": {
+    "type": "text",
+    "placeholders": {
+      "vendorName": {}
+    }
+  },
+  "offerExpiresOn": "This offer expires on {expirationDate}",
+  "@offerExpiresOn": {
+    "type": "text",
+    "placeholders": {
+      "expirationDate": {}
+    }
+  },
+  "offerNoExpirationDate": "This offer has no expiration date",
+  "@offerNoExpirationDate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "redeemOffer": "Redeem Offer",
+  "@redeemOffer": {
     "type": "text",
     "placeholders": {}
   },

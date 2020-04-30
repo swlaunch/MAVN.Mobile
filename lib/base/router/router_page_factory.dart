@@ -5,6 +5,7 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/extended_earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/maintenance/response_model/maintenance_response_model.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
 import 'package:lykke_mobile_mavn/feature_account/view/account_page.dart';
 import 'package:lykke_mobile_mavn/feature_account/view/contact_us_page.dart';
 import 'package:lykke_mobile_mavn/feature_account_deactivated/view/account_deactivated_page.dart';
@@ -17,6 +18,7 @@ import 'package:lykke_mobile_mavn/feature_bottom_bar/view/bottom_bar_page.dart';
 import 'package:lykke_mobile_mavn/feature_change_password/di/change_password_module.dart';
 import 'package:lykke_mobile_mavn/feature_change_password/view/change_password_page.dart';
 import 'package:lykke_mobile_mavn/feature_change_password/view/change_password_success_page.dart';
+import 'package:lykke_mobile_mavn/feature_coming_soon/view/coming_soon_page.dart';
 import 'package:lykke_mobile_mavn/feature_country/view/country_list_page.dart';
 import 'package:lykke_mobile_mavn/feature_country_code/view/country_code_list_page.dart';
 import 'package:lykke_mobile_mavn/feature_earn/di/earn_module.dart';
@@ -102,6 +104,7 @@ import 'package:lykke_mobile_mavn/feature_splash/view/splash_page.dart';
 import 'package:lykke_mobile_mavn/feature_terms_and_policies/view/privacy_policy_page.dart';
 import 'package:lykke_mobile_mavn/feature_terms_and_policies/view/terms_of_use_page.dart';
 import 'package:lykke_mobile_mavn/feature_ticker/di/ticker_module.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_details/view/voucher_details_page.dart';
 import 'package:lykke_mobile_mavn/feature_vouchers/di/voucher_list_module.dart';
 import 'package:lykke_mobile_mavn/feature_vouchers/view/voucher_list_page.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/di/wallet_page_module.dart';
@@ -570,6 +573,9 @@ class RouterPageFactory {
         child: VoucherListPage(),
       );
 
+  static Widget getVoucherDetailsPage({VoucherResponseModel voucher}) =>
+      VoucherDetailsPage(voucher: voucher);
+
   //endregion Vouchers
 
   //region Social
@@ -577,4 +583,11 @@ class RouterPageFactory {
 
   //endregion Social
   static Widget getMandatoryAppUpgradePage() => const MandatoryAppUpgradePage();
+
+  //region Misc
+  static Widget getComingSoonPage({String title}) => ComingSoonPage(
+        title: title,
+      );
+
+//endregion Misc
 }

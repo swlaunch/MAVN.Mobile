@@ -181,6 +181,14 @@ class TextStyles {
     fontWeight: FontWeight.w700,
   );
 
+  static const darkBodyBody2Black = TextStyle(
+    color: ColorStyles.charcoalGrey,
+    fontFamily: commonFontFamily,
+    fontSize: 16,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w900,
+  );
+
   static const darkBodyBody2BoldHigh = TextStyle(
     color: ColorStyles.charcoalGrey,
     fontFamily: commonFontFamily,

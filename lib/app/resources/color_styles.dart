@@ -65,5 +65,8 @@ class ColorStyles {
   static const Color fuzzyWuzzyBrown = Color(0xffc65862);
   static const Color sunglo = Color(0xffE56365);
   static const Color concrete = Color(0xffF2F2F2);
-//  static const Color silverChalice = Color(0xffce5a62);
+  static const Color resolutionBlue = Color(0xff032C83);
+  static const Color easternBlue = Color(0xff17999E);
+  static const Color geraldine = Color(0xffFC7E78);
+  static const Color shamrock = Color(0xff37CB77);
 }

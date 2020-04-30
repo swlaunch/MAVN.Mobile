@@ -136,6 +136,7 @@ class RouterPageName {
 
   //region Vouchers
   static const String voucherListPage = 'voucher_list_page';
+  static const String voucherDetailsPage = 'voucher_details_page';
 
   //endregion Vouchers
 
@@ -153,4 +154,10 @@ class RouterPageName {
   static const String socialPage = 'social_page';
 
 //endregion Social
+
+//region Misc
+
+  static const String comingSoonPage = 'coming_soon_page';
+
+//endregion Misc
 }
