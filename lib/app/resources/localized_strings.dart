@@ -964,11 +964,6 @@ class LocalizedStrings {
   String get leadReferralPageTitle =>
       Intl.message('Refer a friend', name: 'leadReferralPageTitle');
 
-  String get leadReferralFormPageCommunityOfInterestLabel => Intl.message(
-        'Community/Property of interest',
-        name: 'leadReferralFormPageCommunityOfInterestLabel',
-      );
-
 // endregion Lead Referral Page
 
 // region Lead Referral Success Page
@@ -1608,60 +1603,11 @@ class LocalizedStrings {
 
 //endregion Spend Page
 
-//region Real Estate Payment
-
-  String get realEstateListChooseAProperty =>
-      Intl.message('Choose a property', name: 'realEstateListChooseAProperty');
-
-  String get realEstateListNoPurchases =>
-      Intl.message('You have no ongoing purchases at the moment',
-          name: 'realEstateListNoPurchases');
-
-  String get instalmentListChooseAnInstalment =>
-      Intl.message('Choose an installment',
-          name: 'instalmentListChooseAnInstalment');
-
-  String get installmentOverdue =>
-      Intl.message('Overdue', name: 'installmentOverdue');
-
-//endregion Real Estate Payment
-
 // region Property Payment Page
-  String get propertyPaymentPageTitle => Intl.message(
-        'Pay your installment',
-        name: 'propertyPaymentPageTitle',
-      );
-
-  String get propertyPaymentPageSubDetails => Intl.message(
-        'Your can pay your installment in full or partially',
-        name: 'propertyPaymentPageSubDetails',
-      );
-
-  String get propertyPaymentFull => Intl.message(
-        'Full',
-        name: 'propertyPaymentFull',
-      );
-
-  String get propertyPaymentPartial => Intl.message(
-        'Partial',
-        name: 'propertyPaymentPartial',
-      );
-
-  String get propertyPaymentProperty => Intl.message(
-        'Property',
-        name: 'propertyPaymentProperty',
-      );
 
   String get propertyPaymentAvailableBalanceLabel => Intl.message(
         'Available balance',
         name: 'propertyPaymentAvailableBalanceLabel',
-      );
-
-  String propertyPaymentConversionHolder(String amount, String currencyName) =>
-      Intl.message(
-        'Equals to: $amount $currencyName',
-        args: [amount, currencyName],
-        name: 'propertyPaymentConversionHolder',
       );
 
   String get propertyPaymentAmountExceedsInstalment => Intl.message(

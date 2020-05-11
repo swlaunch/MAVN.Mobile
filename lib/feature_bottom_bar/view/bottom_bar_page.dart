@@ -8,7 +8,6 @@ import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/constants/bottom_bar_navigation_constants.dart';
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
@@ -39,7 +38,6 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
     final balanceBloc = useBalanceBloc();
     final walletBloc = useWalletBloc();
     final hotelReferralBloc = useAcceptHotelReferralBloc();
-    final leadReferralBloc = useAcceptLeadReferralBloc();
     final firebaseMessagingBloc = useFirebaseMessagingBloc();
     final dynamicLinkManager = useDynamicLinkManager();
     final router = useRouter();
@@ -111,10 +109,6 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
     });
 
     useBlocEventListener(hotelReferralBloc, (event) {
-      dynamicLinkManager.routePendingRequests(fromEvent: event);
-    });
-
-    useBlocEventListener(leadReferralBloc, (event) {
       dynamicLinkManager.routePendingRequests(fromEvent: event);
     });
 

@@ -7,9 +7,6 @@ import 'package:lykke_mobile_mavn/feature_account_deactivated/view/account_deact
 import 'package:lykke_mobile_mavn/feature_country_code/view/country_code_list_page.dart';
 import 'package:lykke_mobile_mavn/feature_hotel_referral/view/hotel_referral_page.dart';
 import 'package:lykke_mobile_mavn/feature_hotel_referral/view/hotel_referral_success_page.dart';
-import 'package:lykke_mobile_mavn/feature_lead_referral/di/lead_referral_di.dart';
-import 'package:lykke_mobile_mavn/feature_lead_referral/view/lead_referral_page.dart';
-import 'package:lykke_mobile_mavn/feature_lead_referral/view/lead_referral_success_page.dart';
 import 'package:lykke_mobile_mavn/feature_login/di/login_module.dart';
 import 'package:lykke_mobile_mavn/feature_login/view/login_page.dart';
 import 'package:lykke_mobile_mavn/feature_onboarding/di/onboarding_module.dart';
@@ -82,29 +79,6 @@ void main() {
 
       _thenWidgetTypesInDescendingOrderInTheWidgetTree(
           [typeOf<ModuleProvider<RegisterModule>>(), RegisterPage]);
-    });
-
-    testWidgets('lead referral page', (widgetTester) async {
-      await _testPageIsPresent<LeadReferralPage>(
-          widgetTester: widgetTester,
-          navigationFn: () => _subject.pushLeadReferralPage(
-              TestConstants.stubExtendedEarnRuleWithStayHotelCondition),
-          pageName: 'lead_referral_page');
-
-      _thenWidgetTypesInDescendingOrderInTheWidgetTree(
-          [typeOf<ModuleProvider<LeadReferralModule>>(), LeadReferralPage]);
-    });
-
-    testWidgets('lead referral success page', (widgetTester) async {
-      await _testPageIsPresent<LeadReferralSuccessPage>(
-          widgetTester: widgetTester,
-          navigationFn: () => _subject.replaceWithLeadReferralSuccessPage(
-                refereeFirstName: TestConstants.stubFirstName,
-                refereeLastName: TestConstants.stubLastName,
-                extendedEarnRule:
-                    TestConstants.stubExtendedEarnRuleWithStayHotelCondition,
-              ),
-          pageName: 'lead_referral_success_page');
     });
 
     testWidgets('hotel referral page', (widgetTester) async {

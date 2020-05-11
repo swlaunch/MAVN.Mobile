@@ -769,11 +769,6 @@ class LazyLocalizedStrings {
   static LocalizedStringBuilder get leadReferralPageTitle =>
       _builder((_) => _.leadReferralPageTitle, 'leadReferralPageTitle');
 
-  static LocalizedStringBuilder
-      get leadReferralFormPageCommunityOfInterestLabel => _builder(
-          (_) => _.leadReferralFormPageCommunityOfInterestLabel,
-          'leadReferralFormPageCommunityOfInterestLabel');
-
 // endregion Lead Referral Page
 
 // region Lead Referral Success Page
@@ -1260,47 +1255,11 @@ class LazyLocalizedStrings {
 
 //endregion Spend Page
 
-//region Real Estate Payment
-
-  static LocalizedStringBuilder get realEstateListChooseAProperty => _builder(
-      (_) => _.realEstateListChooseAProperty, 'realEstateListChooseAProperty');
-
-  static LocalizedStringBuilder get realEstateListNoPurchases =>
-      _builder((_) => _.realEstateListNoPurchases, 'realEstateListNoPurchases');
-
-  static LocalizedStringBuilder get instalmentListChooseAnInstalment =>
-      _builder((_) => _.instalmentListChooseAnInstalment,
-          'instalmentListChooseAnInstalment');
-
-  static LocalizedStringBuilder get installmentOverdue =>
-      _builder((_) => _.installmentOverdue, 'installmentOverdue');
-
-//endregion Real Estate Payment
-
 // region Property Payment Page
-  static LocalizedStringBuilder get propertyPaymentPageTitle =>
-      _builder((_) => _.propertyPaymentPageTitle, 'propertyPaymentPageTitle');
-
-  static LocalizedStringBuilder get propertyPaymentPageSubDetails => _builder(
-      (_) => _.propertyPaymentPageSubDetails, 'propertyPaymentPageSubDetails');
-
-  static LocalizedStringBuilder get propertyPaymentFull =>
-      _builder((_) => _.propertyPaymentFull, 'propertyPaymentFull');
-
-  static LocalizedStringBuilder get propertyPaymentPartial =>
-      _builder((_) => _.propertyPaymentPartial, 'propertyPaymentPartial');
-
-  static LocalizedStringBuilder get propertyPaymentProperty =>
-      _builder((_) => _.propertyPaymentProperty, 'propertyPaymentProperty');
 
   static LocalizedStringBuilder get propertyPaymentAvailableBalanceLabel =>
       _builder((_) => _.propertyPaymentAvailableBalanceLabel,
           'propertyPaymentAvailableBalanceLabel');
-
-  static LocalizedStringBuilder propertyPaymentConversionHolder(
-          String amount, String currencyName) =>
-      _builder((_) => _.propertyPaymentConversionHolder(amount, currencyName),
-          'propertyPaymentConversionHolder($amount, $currencyName)');
 
   static LocalizedStringBuilder get propertyPaymentAmountExceedsInstalment =>
       _builder((_) => _.propertyPaymentAmountExceedsInstalment,

@@ -8,8 +8,6 @@ import 'package:local_auth/local_auth.dart';
 import 'package:lykke_mobile_mavn/app/bloc/app_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc_output.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_list_bloc.dart';
@@ -106,9 +104,6 @@ import 'package:lykke_mobile_mavn/feature_hotel_referral/bloc/hotel_referral_blo
 import 'package:lykke_mobile_mavn/feature_hotel_referral/di/hotel_referral_module.dart';
 import 'package:lykke_mobile_mavn/feature_hotel_welcome/bloc/hotel_welcome_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_hotel_welcome/di/hotel_welcome_di.dart';
-import 'package:lykke_mobile_mavn/feature_lead_referral/bloc/lead_referal_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_lead_referral/bloc/lead_referral_bloc_output.dart';
-import 'package:lykke_mobile_mavn/feature_lead_referral/di/lead_referral_di.dart';
 import 'package:lykke_mobile_mavn/feature_login/anaytics/login_analytics_manager.dart';
 import 'package:lykke_mobile_mavn/feature_login/bloc/login_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_login/bloc/login_form_bloc.dart';
@@ -144,10 +139,6 @@ import 'package:lykke_mobile_mavn/feature_personal_details/di/personal_details_m
 import 'package:lykke_mobile_mavn/feature_pin/bloc/pin_forgot_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_pin/di/pin_module.dart';
 import 'package:lykke_mobile_mavn/feature_pin/use_case/get_biometric_type_use_case.dart';
-import 'package:lykke_mobile_mavn/feature_property_payment/bloc/property_payment_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_property_payment/bloc/property_payment_bloc_output.dart';
-import 'package:lykke_mobile_mavn/feature_property_payment/bloc/spend_rule_conversion_rate_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_property_payment/di/property_payment_module.dart';
 import 'package:lykke_mobile_mavn/feature_receive_token/bloc/p2p_receive_token_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_receive_token/bloc/p2p_receive_token_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_receive_token/di/p2p_receive_token_module.dart';
@@ -323,8 +314,6 @@ class MockRegisterModule extends Mock implements RegisterModule {}
 
 class MockBottomBarModule extends Mock implements BottomBarModule {}
 
-class MockLeadReferralModule extends Mock implements LeadReferralModule {}
-
 class MockP2PReceiveTokenModule extends Mock implements P2PReceiveTokenModule {}
 
 class MockPersonalDetailsModule extends Mock implements PersonalDetailsModule {}
@@ -332,8 +321,6 @@ class MockPersonalDetailsModule extends Mock implements PersonalDetailsModule {}
 class MockSpendRuleDetailModule extends Mock implements SpendRuleDetailModule {}
 
 class MockTransactionFormModule extends Mock implements TransactionFormModule {}
-
-class MockPropertyPaymentModule extends Mock implements PropertyPaymentModule {}
 
 class MockChangePasswordModule extends Mock implements ChangePasswordModule {}
 
@@ -408,11 +395,6 @@ class MockBottomBarPageBloc extends MockBloc<RefreshState>
   MockBottomBarPageBloc(RefreshState initialState) : super(initialState);
 }
 
-class MockLeadReferralBloc extends MockBloc<LeadReferralState>
-    implements LeadReferralBloc {
-  MockLeadReferralBloc(LeadReferralState initialState) : super(initialState);
-}
-
 class MockTransactionHistoryBloc extends MockBloc<TransactionHistoryState>
     implements TransactionHistoryBloc {
   MockTransactionHistoryBloc(TransactionHistoryState initialState)
@@ -428,17 +410,6 @@ class MockAcceptHotelReferralBloc extends MockBloc<AcceptHotelReferralState>
 class MockHotelReferralBloc extends MockBloc<HotelReferralState>
     implements HotelReferralBloc {
   MockHotelReferralBloc(HotelReferralState initialState) : super(initialState);
-}
-
-class MockLeadReferralListBloc extends MockBloc<GenericListState>
-    implements ReferralListBloc {
-  MockLeadReferralListBloc(GenericListState initialState) : super(initialState);
-}
-
-class MockAcceptLeadReferralBloc extends MockBloc<AcceptLeadReferralState>
-    implements AcceptLeadReferralBloc {
-  MockAcceptLeadReferralBloc(AcceptLeadReferralState initialState)
-      : super(initialState);
 }
 
 class MockHotelReferralListBloc extends MockBloc<GenericListState>
@@ -467,12 +438,6 @@ class MockCountryListBloc extends MockBloc<CountryListState>
 class MockTransactionFormBloc extends MockBloc<TransactionFormState>
     implements TransactionFormBloc {
   MockTransactionFormBloc(TransactionFormState initialState)
-      : super(initialState);
-}
-
-class MockPropertyPaymentBloc extends MockBloc<PropertyPaymentState>
-    implements PropertyPaymentBloc {
-  MockPropertyPaymentBloc(PropertyPaymentState initialState)
       : super(initialState);
 }
 
@@ -558,13 +523,6 @@ class MockSplashBloc extends MockBloc<SplashState> implements SplashBloc {
 class MockBiometricBloc extends MockBloc<BiometricState>
     implements BiometricBloc {
   MockBiometricBloc(BiometricState initialState) : super(initialState);
-}
-
-class MockSpendRuleConversionRateBloc
-    extends MockBloc<SpendRuleConversionRateState>
-    implements SpendRuleConversionRateBloc {
-  MockSpendRuleConversionRateBloc(SpendRuleConversionRateState initialState)
-      : super(initialState);
 }
 
 class MockPartnerConversionRateBloc extends MockBloc<PartnerConversionRateState>

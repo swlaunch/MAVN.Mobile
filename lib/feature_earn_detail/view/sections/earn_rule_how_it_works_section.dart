@@ -159,11 +159,6 @@ class EarnRuleHowItWorksSection extends HookWidget {
           useLocalizedStrings().earnRuleIndicativeAmountInfoHospitality;
     }
 
-    if (extendedEarnRule.isRealEstateOffer()) {
-      indicativeAmountText =
-          useLocalizedStrings().earnRuleIndicativeAmountInfoRealEstate;
-    }
-
     return Text(
       indicativeAmountText,
       style: TextStyles.darkBodyBody1RegularHigh,

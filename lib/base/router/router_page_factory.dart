@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/partner_response_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/real_estate_properties_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/spend_rules_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/extended_earn_rule_response_model.dart';
@@ -42,10 +41,6 @@ import 'package:lykke_mobile_mavn/feature_hotel_welcome/di/hotel_welcome_di.dart
 import 'package:lykke_mobile_mavn/feature_hotel_welcome/view/hotel_welcome_dialog.dart';
 import 'package:lykke_mobile_mavn/feature_landing/di/landing_di.dart';
 import 'package:lykke_mobile_mavn/feature_landing/view/landing_page.dart';
-import 'package:lykke_mobile_mavn/feature_lead_referral/di/lead_referral_di.dart';
-import 'package:lykke_mobile_mavn/feature_lead_referral/view/lead_referral_accepted_page.dart';
-import 'package:lykke_mobile_mavn/feature_lead_referral/view/lead_referral_page.dart';
-import 'package:lykke_mobile_mavn/feature_lead_referral/view/lead_referral_success_page.dart';
 import 'package:lykke_mobile_mavn/feature_login/di/login_module.dart';
 import 'package:lykke_mobile_mavn/feature_login/view/login_page.dart';
 import 'package:lykke_mobile_mavn/feature_maintenance/di/maintenance_module.dart';
@@ -76,13 +71,7 @@ import 'package:lykke_mobile_mavn/feature_pin/view/pin_created_success_page.dart
 import 'package:lykke_mobile_mavn/feature_pin/view/pin_forgot_page.dart';
 import 'package:lykke_mobile_mavn/feature_pin/view/pin_sign_in_page.dart';
 import 'package:lykke_mobile_mavn/feature_pin/view/pin_verification_page.dart';
-import 'package:lykke_mobile_mavn/feature_property_payment/di/property_payment_module.dart';
-import 'package:lykke_mobile_mavn/feature_property_payment/view/property_payment_page.dart';
-import 'package:lykke_mobile_mavn/feature_property_payment/view/property_payment_success_page.dart';
-import 'package:lykke_mobile_mavn/feature_real_estate_payment/di/real_estate_property_module.dart';
-import 'package:lykke_mobile_mavn/feature_real_estate_payment/utility_model/extended_instalment_model.dart';
-import 'package:lykke_mobile_mavn/feature_real_estate_payment/view/instalment_list_page.dart';
-import 'package:lykke_mobile_mavn/feature_real_estate_payment/view/real_estate_property_list_page.dart';
+
 import 'package:lykke_mobile_mavn/feature_receive_token/di/p2p_receive_token_module.dart';
 import 'package:lykke_mobile_mavn/feature_receive_token/view/p2p_receive_token_page.dart';
 import 'package:lykke_mobile_mavn/feature_referral_list/di/referral_list_module.dart';
@@ -284,35 +273,6 @@ class RouterPageFactory {
 
   //region Referrals
 
-  //region Lead Referral
-
-  static Widget getLeadReferralPage(ExtendedEarnRule extendedEarnRule) =>
-      MultiProvider(
-        providers: [
-          ModuleProvider(module: PartnerNameModule()),
-          ModuleProvider(module: LeadReferralModule())
-        ],
-        child: LeadReferralPage(extendedEarnRule: extendedEarnRule),
-      );
-
-  static Widget getLeadReferralSuccessPage(
-    String refereeFirstName,
-    String refereeLastName,
-    ExtendedEarnRule extendedEarnRule,
-  ) =>
-      ModuleProvider(
-        module: PartnerNameModule(),
-        child: LeadReferralSuccessPage(
-          refereeFirstName: refereeFirstName,
-          refereeLastName: refereeLastName,
-          extendedEarnRule: extendedEarnRule,
-        ),
-      );
-
-  static Widget getLeadReferralAcceptedPage() => LeadReferralAcceptedPage();
-
-  //endregion Lead Referral
-
   //region Hotel Referral
 
   static Widget getHotelReferralPage(ExtendedEarnRule extendedEarnRule) =>
@@ -379,8 +339,6 @@ class RouterPageFactory {
       );
 
   static Widget getP2pTransactionSuccessPage() => TransactionSuccessPage();
-
-  static Widget getPropertyPaymentSuccessPage() => PropertyPaymentSuccessPage();
 
   static Widget getP2PReceiveTokenPage() => ModuleProvider(
         module: P2PReceiveTokenModule(),
@@ -449,40 +407,6 @@ class RouterPageFactory {
   static Widget getPaymentRequestListPage() => ModuleProvider(
         module: PartnerPaymentsModule(),
         child: const PaymentRequestListPage(),
-      );
-
-  static Widget getPropertyPaymentPage(
-    String spendRuleId,
-    Property property,
-    ExtendedInstalmentModel extendedInstalment,
-  ) =>
-      MultiProvider(
-        providers: [
-          ModuleProvider(module: RedeemTransferModule()),
-          ModuleProvider(module: PropertyPaymentModule())
-        ],
-        child: PropertyPaymentPage(
-          spendRuleId,
-          property,
-          extendedInstalment,
-        ),
-      );
-
-  static Widget getPropertyListPage(SpendRule spendRule) => ModuleProvider(
-        module: RealEstatePropertyModule(),
-        child: RealEstatePropertyListPage(spendRule),
-      );
-
-  static Widget getInstalmentListPage(
-    String spendRuleId,
-    Property property,
-  ) =>
-      ModuleProvider(
-        module: RealEstatePropertyModule(),
-        child: InstalmentListPage(
-          spendRuleId,
-          property,
-        ),
       );
 
   //endregion Transactions & Payments

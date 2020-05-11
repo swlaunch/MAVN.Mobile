@@ -4,8 +4,6 @@ import 'package:lykke_mobile_mavn/app/app.dart';
 import 'package:lykke_mobile_mavn/app/app_localizations_delegate.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc_output.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_list_bloc.dart';
@@ -88,7 +86,6 @@ class TestAppFrame extends StatelessWidget {
     this.mockLoginBloc,
     this.mockLocalSettingsRepository,
     this.mockHotelReferralBloc,
-    this.mockLeadReferralBloc,
     this.mockLogOutUseCase,
     this.mockGetMobileSettingsUseCase,
     this.mockCustomerBloc,
@@ -122,7 +119,6 @@ class TestAppFrame extends StatelessWidget {
   final MockLoginBloc mockLoginBloc;
   final MockLocalSettingsRepository mockLocalSettingsRepository;
   final MockAcceptHotelReferralBloc mockHotelReferralBloc;
-  final MockAcceptLeadReferralBloc mockLeadReferralBloc;
   final MockLogOutUseCase mockLogOutUseCase;
   final MockGetMobileSettingsUseCase mockGetMobileSettingsUseCase;
   final CustomerBloc mockCustomerBloc;
@@ -156,7 +152,6 @@ class TestAppFrame extends StatelessWidget {
           mockLoginBloc: mockLoginBloc,
           mockLocalSettingsRepository: mockLocalSettingsRepository,
           mockHotelReferralBloc: mockHotelReferralBloc,
-          mockLeadReferralBloc: mockLeadReferralBloc,
           mockLogOutUseCase: mockLogOutUseCase,
           mockGetMobileSettingsUseCase: mockGetMobileSettingsUseCase,
           mockCustomerBloc: mockCustomerBloc,
@@ -208,7 +203,6 @@ class TestAppModule extends AppModule {
     this.mockLoginBloc,
     this.mockLocalSettingsRepository,
     this.mockHotelReferralBloc,
-    this.mockLeadReferralBloc,
     this.mockLogOutUseCase,
     this.mockGetMobileSettingsUseCase,
     this.mockCustomerBloc,
@@ -241,7 +235,6 @@ class TestAppModule extends AppModule {
   final MockLoginBloc mockLoginBloc;
   final MockLocalSettingsRepository mockLocalSettingsRepository;
   final MockAcceptHotelReferralBloc mockHotelReferralBloc;
-  final MockAcceptLeadReferralBloc mockLeadReferralBloc;
   final MockLogOutUseCase mockLogOutUseCase;
   final MockGetMobileSettingsUseCase mockGetMobileSettingsUseCase;
   final MockCustomerBloc mockCustomerBloc;
@@ -297,10 +290,6 @@ class TestAppModule extends AppModule {
     provideSingleton<AcceptHotelReferralBloc>(() =>
         mockHotelReferralBloc ??
         MockAcceptHotelReferralBloc(AcceptHotelReferralUninitializedState()));
-
-    provideSingleton<AcceptLeadReferralBloc>(() =>
-        mockLeadReferralBloc ??
-        MockAcceptLeadReferralBloc(AcceptLeadReferralUninitializedState()));
 
     provideSingleton<CustomerBloc>(() =>
         mockCustomerBloc ?? MockCustomerBloc(CustomerUninitializedState()));

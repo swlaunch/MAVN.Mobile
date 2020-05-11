@@ -8,7 +8,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:lykke_mobile_mavn/app/app.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/customer_bloc.dart';
@@ -180,8 +179,6 @@ class AppModule extends Module {
   LocalAuthentication get localAuthentication => get();
 
   AcceptHotelReferralBloc get acceptHotelReferralBloc => get();
-
-  AcceptLeadReferralBloc get acceptLeadReferralBloc => get();
 
   LogOutUseCase get logoutUseCase => get();
 
@@ -360,8 +357,6 @@ class AppModule extends Module {
 
     provideSingleton(() => AcceptHotelReferralBloc(get(), get(), get()));
 
-    provideSingleton(() => AcceptLeadReferralBloc(get(), get(), get()));
-
     provideSingleton(() => EmailConfirmationBloc(get(), get(), get()));
 
     provideSingleton(() => CustomerBloc(get(), get()));
@@ -375,7 +370,6 @@ class AppModule extends Module {
         firebaseDynamicLinks: FirebaseDynamicLinks.instance,
         router: get(),
         hotelReferralBloc: get(),
-        leadReferralBloc: get(),
         emailConfirmationBloc: get(),
         sharedPreferencesManager: get(),
       ),

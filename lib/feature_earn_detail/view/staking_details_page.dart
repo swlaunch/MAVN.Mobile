@@ -36,14 +36,6 @@ class StakingDetailsPage extends StatelessWidget {
                     BulletPointLineWidget(
                       body: _buildInfoLineOne(context, formattedStakingAmount),
                     ),
-                    if (extendedEarnRule.isRealEstateOffer())
-                      BulletPointLineWidget(
-                        body: Text(
-                          LocalizedStrings.of(context)
-                              .stakingDetailsRealEstatePart5,
-                          style: TextStyles.darkBodyBody2RegularExtraHigh,
-                        ),
-                      ),
                     if (earnRuleCondition.stakingRule != null &&
                         earnRuleCondition.stakingRule > 0)
                       BulletPointLineWidget(
@@ -100,10 +92,6 @@ class StakingDetailsPage extends StatelessWidget {
           LocalizedStrings.of(context).earnRuleIndicativeAmountInfoHospitality;
     }
 
-    if (extendedEarnRule.isRealEstateOffer()) {
-      indicativeAmountText =
-          LocalizedStrings.of(context).earnRuleIndicativeAmountInfoRealEstate;
-    }
     return Text(
       indicativeAmountText,
       style: TextStyles.darkBodyBody2RegularExtraHigh,

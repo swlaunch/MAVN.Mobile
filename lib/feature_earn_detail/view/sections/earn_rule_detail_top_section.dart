@@ -136,8 +136,6 @@ class EarnRuleDetailTopSection extends HookWidget {
       conditionType: earnRule.conditions.first.type,
     );
     switch (earnRule.conditions.first.type) {
-      case EarnRuleConditionType.estateLeadReferral:
-        return () => router.pushLeadReferralPage(extendedEarnRule);
       case EarnRuleConditionType.hotelStayReferral:
         return () => router.pushHotelReferralPage(extendedEarnRule);
       case EarnRuleConditionType.friendReferral:

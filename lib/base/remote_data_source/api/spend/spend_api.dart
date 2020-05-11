@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/request_model/real_estate_payment_request_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/real_estate_properties_response_model.dart';
+
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/spend_rules_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/http_client.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_purchase_response_model.dart';
@@ -14,9 +13,6 @@ class SpendApi extends BaseApi {
   static const String spendRuleListPath = '/spendRules';
   static const String spendRuleByIdPath = '/spendRules/search';
   static const String purchaseVoucherPath = '/vouchers/buy';
-
-  static const String realEstatePropertiesPath = '/realEstate/properties';
-  static const String realEstatePaymentPath = '/realEstate';
 
   //endregion paths
 
@@ -67,25 +63,5 @@ class SpendApi extends BaseApi {
         );
 
         return VoucherPurchaseResponseModel.fromJson(response.data);
-      });
-
-  Future<RealEstatePropertyListResponseModel> getProperties({
-    @required String spendRuleId,
-  }) =>
-      exceptionHandledHttpClientRequest(() async {
-        final response = await httpClient.get(realEstatePropertiesPath,
-            queryParameters: {spendRuleIdQueryParameterKey: spendRuleId});
-
-        return RealEstatePropertyListResponseModel.fromJson(response.data);
-      });
-
-  Future<void> postRealEstatePayment(
-    RealEstatePaymentRequestModel realEstatePaymentRequestModel,
-  ) =>
-      exceptionHandledHttpClientRequest(() async {
-        await httpClient.post<dynamic>(
-          realEstatePaymentPath,
-          data: realEstatePaymentRequestModel.toJson(),
-        );
       });
 }

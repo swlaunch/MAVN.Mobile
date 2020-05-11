@@ -5,7 +5,6 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_m
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/country_codes_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/customer_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/partner_response_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/real_estate_properties_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/spend_rules_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/transaction_history_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/wallet_response_model.dart';
@@ -17,7 +16,6 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/mobile/response_mo
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/response_model/partner_message_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/response_model/payment_request_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/wallet/response_model/link_request_response_model.dart';
-import 'package:lykke_mobile_mavn/feature_real_estate_payment/utility_model/extended_instalment_model.dart';
 import 'package:lykke_mobile_mavn/library_models/fiat_currency.dart';
 import 'package:lykke_mobile_mavn/library_models/token_currency.dart';
 
@@ -871,28 +869,6 @@ class TestConstants {
   static final stubAmountInFiat = FiatCurrency(
     value: stubDoubleAmountInCurrency,
     assetSymbol: stubTokenSymbol,
-  );
-
-  static final stubInstalment = Instalment(
-    id: stubInstalmentId,
-    name: stubInstalmentName,
-    amountInTokens: stubAmountInTokens,
-    amountInFiat: stubAmountInFiat,
-    dueDate: stubDateTime,
-  );
-
-  static const stubPropertyName = 'stubPropertyName';
-
-  static final stubProperty = Property(
-    name: stubPropertyName,
-    instalments: [stubInstalment],
-  );
-
-  static final stubExtendedInstalment = ExtendedInstalmentModel(
-    instalment: stubInstalment,
-    isOverdue: false,
-    localDueDate: stubDateTime,
-    formattedDate: stubDateString,
   );
 
   static const stubId = 'stubId';
