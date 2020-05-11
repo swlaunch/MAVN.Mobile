@@ -148,12 +148,6 @@ class ExceptionToMessageMapper {
       case ServiceExceptionType.paymentRequestsIsForAnotherCustomer:
         return LazyLocalizedStrings.paymentRequestsIsForAnotherCustomerError;
         break;
-      case ServiceExceptionType.phoneAlreadyExists:
-        return LazyLocalizedStrings.phoneAlreadyExistsError;
-        break;
-      case ServiceExceptionType.phoneIsAlreadyVerified:
-        return LazyLocalizedStrings.phoneIsAlreadyVerifiedError;
-        break;
       case ServiceExceptionType.providedIdentifierHasExpired:
         return LocalizedStringBuilder.custom(exceptionMessage);
         break;

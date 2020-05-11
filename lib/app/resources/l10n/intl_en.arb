@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-04-30T15:13:39.033880",
+  "@@last_modified": "2020-05-11T16:45:44.996810",
   "networkErrorTitle": "Internet connection problem",
   "@networkErrorTitle": {
     "type": "text",
@@ -145,21 +145,6 @@
   },
   "phoneNumberHint": "Enter phone number",
   "@phoneNumberHint": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "noteLabel": "Notes",
-  "@noteLabel": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "noteHint": "Add additional notes",
-  "@noteHint": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "nationalityLabel": "Nationality",
-  "@nationalityLabel": {
     "type": "text",
     "placeholders": {}
   },
@@ -325,26 +310,6 @@
         "example": "!@#$%&"
       }
     }
-  },
-  "requiredCountryOfResidenceClientSideValidationError": "Please select a country",
-  "@requiredCountryOfResidenceClientSideValidationError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "requiredPhotoIdClientSideValidationError": "Photo ID is required",
-  "@requiredPhotoIdClientSideValidationError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "requiredPhotoIdFrontSideClientSideValidationError": "Photo on the front side is required",
-  "@requiredPhotoIdFrontSideClientSideValidationError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "requiredPhotoIdBackSideClientSideValidationError": "Photo on the back side is required",
-  "@requiredPhotoIdBackSideClientSideValidationError": {
-    "type": "text",
-    "placeholders": {}
   },
   "maximumDecimalPlacesError": "Amount should not exceed {precision} decimal places",
   "@maximumDecimalPlacesError": {
@@ -566,11 +531,6 @@
     "type": "text",
     "placeholders": {}
   },
-  "socialOrContinueWith": "Or continue with",
-  "@socialOrContinueWith": {
-    "type": "text",
-    "placeholders": {}
-  },
   "loginPageHeader": "Sign-in",
   "@loginPageHeader": {
     "type": "text",
@@ -681,62 +641,6 @@
   },
   "registerPageAgreeTermsOfUseError": "Please accept the Terms of Use and Privacy Policy below",
   "@registerPageAgreeTermsOfUseError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "setPhoneNumberPageTitle": "Add phone number",
-  "@setPhoneNumberPageTitle": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "setPhoneNumberVerifyButton": "Verify",
-  "@setPhoneNumberVerifyButton": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationPageTitle": "Enter code",
-  "@phoneNumberVerificationPageTitle": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationDetails": "We’ve sent a verification code  to {phoneNumber}",
-  "@phoneNumberVerificationDetails": {
-    "type": "text",
-    "placeholders": {
-      "phoneNumber": {}
-    }
-  },
-  "phoneNumberVerificationCodeResent": "Verification code was re-sent",
-  "@phoneNumberVerificationCodeResent": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationRequestNewCode": "Request a new verification code",
-  "@phoneNumberVerificationRequestNewCode": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationResendCodeTimer": "Resend code in {timeLeft}",
-  "@phoneNumberVerificationResendCodeTimer": {
-    "type": "text",
-    "placeholders": {
-      "timeLeft": {
-        "example": "00:50"
-      }
-    }
-  },
-  "phoneNumberVerificationCodeNotSentError": "Verification code was not sent, please retry",
-  "@phoneNumberVerificationCodeNotSentError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationExpiredCodeError": "This code has expired, please request a new one",
-  "@phoneNumberVerificationExpiredCodeError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationInvalidCodeError": "Incorrect code, please check it and try again",
-  "@phoneNumberVerificationInvalidCodeError": {
     "type": "text",
     "placeholders": {}
   },
@@ -1022,26 +926,6 @@
     "type": "text",
     "placeholders": {}
   },
-  "leadReferralFormPageCommunityOfInterestLabel": "Community/Property of interest",
-  "@leadReferralFormPageCommunityOfInterestLabel": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "leadReferralSuccessPageDetails": "Great! You've successfully referred {refereeFirstName} {refereeLastName}",
-  "@leadReferralSuccessPageDetails": {
-    "type": "text",
-    "placeholders": {
-      "refereeFirstName": {},
-      "refereeLastName": {}
-    }
-  },
-  "leadReferralSuccessPageDetailsPartnerName": " to {partnerName} properties",
-  "@leadReferralSuccessPageDetailsPartnerName": {
-    "type": "text",
-    "placeholders": {
-      "partnerName": {}
-    }
-  },
   "referralSuccessPageTitle": "Referral submitted",
   "@referralSuccessPageTitle": {
     "type": "text",
@@ -1054,11 +938,6 @@
   },
   "referralSuccessGoToRefsButton": "Go to referrals",
   "@referralSuccessGoToRefsButton": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "leadReferralAcceptedSuccessBody": "Thanks for accepting the referral.",
-  "@leadReferralAcceptedSuccessBody": {
     "type": "text",
     "placeholders": {}
   },
@@ -1674,66 +1553,8 @@
     "type": "text",
     "placeholders": {}
   },
-  "realEstateListChooseAProperty": "Choose a property",
-  "@realEstateListChooseAProperty": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "realEstateListNoPurchases": "You have no ongoing purchases at the moment",
-  "@realEstateListNoPurchases": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "instalmentListChooseAnInstalment": "Choose an installment",
-  "@instalmentListChooseAnInstalment": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "installmentOverdue": "Overdue",
-  "@installmentOverdue": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentPageTitle": "Pay your installment",
-  "@propertyPaymentPageTitle": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentPageSubDetails": "Your can pay your installment in full or partially",
-  "@propertyPaymentPageSubDetails": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentFull": "Full",
-  "@propertyPaymentFull": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentPartial": "Partial",
-  "@propertyPaymentPartial": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentProperty": "Property",
-  "@propertyPaymentProperty": {
-    "type": "text",
-    "placeholders": {}
-  },
   "propertyPaymentAvailableBalanceLabel": "Available balance",
   "@propertyPaymentAvailableBalanceLabel": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentConversionHolder": "Equals to: {amount} {currencyName}",
-  "@propertyPaymentConversionHolder": {
-    "type": "text",
-    "placeholders": {
-      "amount": {},
-      "currencyName": {}
-    }
-  },
-  "propertyPaymentAmountExceedsInstalment": "Amount can't exceed the total of the installment",
-  "@propertyPaymentAmountExceedsInstalment": {
     "type": "text",
     "placeholders": {}
   },
@@ -1754,11 +1575,6 @@
   },
   "paymentAmountInvalidError": "Amount is not valid",
   "@paymentAmountInvalidError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "emptyPaymentInvoiceError": "Invoice number is required",
-  "@emptyPaymentInvoiceError": {
     "type": "text",
     "placeholders": {}
   },
@@ -2436,11 +2252,6 @@
     "type": "text",
     "placeholders": {}
   },
-  "earnRuleIndicativeAmountInfoRealEstate": "* It will depend on the property price.",
-  "@earnRuleIndicativeAmountInfoRealEstate": {
-    "type": "text",
-    "placeholders": {}
-  },
   "earnRuleIndicativeAmountInfoGeneric": "* This is an indicative amount.",
   "@earnRuleIndicativeAmountInfoGeneric": {
     "type": "text",
@@ -2903,11 +2714,6 @@
     "type": "text",
     "placeholders": {}
   },
-  "personalDetailsPhoneNumberTitle": "Phone Number",
-  "@personalDetailsPhoneNumberTitle": {
-    "type": "text",
-    "placeholders": {}
-  },
   "personalDetailsCountryOfNationality": "Country of nationality",
   "@personalDetailsCountryOfNationality": {
     "type": "text",
@@ -2979,11 +2785,6 @@
   },
   "emailVerificationSuccessDetails": "Thanks! your email address has been confirmed",
   "@emailVerificationSuccessDetails": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "previousReferralsCardTypeRealEstate": "Real estate",
-  "@previousReferralsCardTypeRealEstate": {
     "type": "text",
     "placeholders": {}
   },
@@ -3241,16 +3042,6 @@
   },
   "paymentRequestsIsForAnotherCustomerError": "Sorry, we couldn't find this transfer request",
   "@paymentRequestsIsForAnotherCustomerError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneAlreadyExistsError": "This phone number is already verified",
-  "@phoneAlreadyExistsError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneIsAlreadyVerifiedError": "An account with this phone number is already verified",
-  "@phoneIsAlreadyVerifiedError": {
     "type": "text",
     "placeholders": {}
   },

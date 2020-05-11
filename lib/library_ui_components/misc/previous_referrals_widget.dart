@@ -107,13 +107,6 @@ class PreviousReferralsWidget extends HookWidget {
   }
 
   List<Widget> _buildCardType() {
-    if (referral.referralType == ReferralType.realEstate) {
-      return _buildType(
-        SvgAssets.property,
-        useLocalizedStrings().previousReferralsCardTypeRealEstate.toUpperCase(),
-      );
-    }
-
     if (referral.referralType == ReferralType.hospitality) {
       return _buildType(
         SvgAssets.hotels,

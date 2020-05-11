@@ -307,16 +307,6 @@ class CountryFieldValidation extends FieldValidation<Country> {
         );
 }
 
-class CountryRequiredFieldValidation extends FieldValidation<Country> {
-  CountryRequiredFieldValidation({VoidCallback onValidationError})
-      : super(
-          validate: FieldValidators.countryNotNullNotEmpty,
-          localizedString: LazyLocalizedStrings
-              .requiredCountryOfResidenceClientSideValidationError,
-          onValidationError: onValidationError,
-        );
-}
-
 class MaximumDecimalPlacesFieldValidation extends FieldValidation<String> {
   MaximumDecimalPlacesFieldValidation({
     @required int precision,
@@ -401,20 +391,6 @@ class PaymentAmountInvalidFieldValidation extends FieldValidation<String> {
           localizedString: LazyLocalizedStrings.paymentAmountInvalidError,
           onValidationError: onValidationError,
         );
-}
-
-class AmountSmallerOrEqualToInstalment extends FieldValidation<String> {
-  AmountSmallerOrEqualToInstalment({
-    @required this.instalmentAmount,
-    VoidCallback onValidationError,
-  }) : super(
-          validate: FieldValidators.lessThanOrEqualTo(instalmentAmount),
-          localizedString:
-              LazyLocalizedStrings.propertyPaymentAmountExceedsInstalment,
-          onValidationError: onValidationError,
-        );
-
-  final Decimal instalmentAmount;
 }
 
 class AmountSmallerOrEqualToBill extends FieldValidation<String> {

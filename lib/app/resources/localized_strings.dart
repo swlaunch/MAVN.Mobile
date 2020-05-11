@@ -209,13 +209,6 @@ class LocalizedStrings {
   String get phoneNumberHint =>
       Intl.message('Enter phone number', name: 'phoneNumberHint');
 
-  String get noteLabel => Intl.message('Notes', name: 'noteLabel');
-
-  String get noteHint => Intl.message('Add additional notes', name: 'noteHint');
-
-  String get nationalityLabel =>
-      Intl.message('Nationality', name: 'nationalityLabel');
-
   String get nationalityOptionalLabel =>
       Intl.message('Nationality (optional)', name: 'nationalityOptionalLabel');
 
@@ -354,22 +347,6 @@ class LocalizedStrings {
           name: 'passwordSpecialCharactersError',
           args: [count, specialCharacters],
           examples: const {'count': 1, 'specialCharacters': '!@#\$%&'});
-
-  String get requiredCountryOfResidenceClientSideValidationError =>
-      Intl.message('Please select a country',
-          name: 'requiredCountryOfResidenceClientSideValidationError');
-
-  String get requiredPhotoIdClientSideValidationError =>
-      Intl.message('Photo ID is required',
-          name: 'requiredPhotoIdClientSideValidationError');
-
-  String get requiredPhotoIdFrontSideClientSideValidationError =>
-      Intl.message('Photo on the front side is required',
-          name: 'requiredPhotoIdFrontSideClientSideValidationError');
-
-  String get requiredPhotoIdBackSideClientSideValidationError =>
-      Intl.message('Photo on the back side is required',
-          name: 'requiredPhotoIdBackSideClientSideValidationError');
 
   String maximumDecimalPlacesError(int precision) =>
       Intl.message('Amount should not exceed $precision decimal places',
@@ -551,9 +528,6 @@ class LocalizedStrings {
   String get welcomeCreateAccountButtonText =>
       Intl.message('Create an account', name: 'welcomeCreateAccountButtonText');
 
-  String get socialOrContinueWith =>
-      Intl.message('Or continue with', name: 'socialOrContinueWith');
-
 //endregion
 
 // region Login Page
@@ -653,55 +627,6 @@ class LocalizedStrings {
           name: 'registerPageAgreeTermsOfUseError');
 
 // endregion Register Page
-
-// region Set phone number page
-  String get setPhoneNumberPageTitle =>
-      Intl.message('Add phone number', name: 'setPhoneNumberPageTitle');
-
-  String get setPhoneNumberVerifyButton =>
-      Intl.message('Verify', name: 'setPhoneNumberVerifyButton');
-
-// endregion Set phone number page
-
-//region Phone Number Verification Page
-
-  String get phoneNumberVerificationPageTitle =>
-      Intl.message('Enter code', name: 'phoneNumberVerificationPageTitle');
-
-  String phoneNumberVerificationDetails(String phoneNumber) =>
-      Intl.message('We’ve sent a verification code  to $phoneNumber',
-          args: [phoneNumber], name: 'phoneNumberVerificationDetails');
-
-  String get phoneNumberVerificationCodeResent =>
-      Intl.message('Verification code was re-sent',
-          name: 'phoneNumberVerificationCodeResent');
-
-  String get phoneNumberVerificationRequestNewCode =>
-      Intl.message('Request a new verification code',
-          name: 'phoneNumberVerificationRequestNewCode');
-
-  String phoneNumberVerificationResendCodeTimer(String timeLeft) =>
-      Intl.message(
-        'Resend code in $timeLeft',
-        name: 'phoneNumberVerificationResendCodeTimer',
-        args: [timeLeft],
-        examples: const {'timeLeft': '00:50'},
-      );
-
-  String get phoneNumberVerificationCodeNotSentError =>
-      Intl.message('Verification code was not sent, please retry',
-          name: 'phoneNumberVerificationCodeNotSentError');
-
-  String get phoneNumberVerificationExpiredCodeError =>
-      Intl.message('This code has expired, please request a new one',
-          name: 'phoneNumberVerificationExpiredCodeError');
-
-//
-  String get phoneNumberVerificationInvalidCodeError =>
-      Intl.message('Incorrect code, please check it and try again',
-          name: 'phoneNumberVerificationInvalidCodeError');
-
-//endregion Phone Number Verification Page
 
 // region Country Code list Page
 
@@ -966,27 +891,6 @@ class LocalizedStrings {
 
 // endregion Lead Referral Page
 
-// region Lead Referral Success Page
-  String leadReferralSuccessPageDetails(
-    String refereeFirstName,
-    String refereeLastName,
-  ) =>
-      Intl.message(
-        // ignore: lines_longer_than_80_chars
-        'Great! You\'ve successfully referred $refereeFirstName $refereeLastName',
-        args: [refereeFirstName, refereeLastName],
-        name: 'leadReferralSuccessPageDetails',
-      );
-
-  String leadReferralSuccessPageDetailsPartnerName(String partnerName) =>
-      Intl.message(
-        ' to $partnerName properties',
-        args: [partnerName],
-        name: 'leadReferralSuccessPageDetailsPartnerName',
-      );
-
-// endregion Lead Referral Success Page
-
 //region Referral Success shared elements
 
   String get referralSuccessPageTitle =>
@@ -1003,15 +907,6 @@ class LocalizedStrings {
       );
 
 //endregion Referral Success shared elements
-
-//region LeadReferralAcceptedPage
-
-  String get leadReferralAcceptedSuccessBody => Intl.message(
-      // ignore: lines_longer_than_80_chars
-      'Thanks for accepting the referral.',
-      name: 'leadReferralAcceptedSuccessBody');
-
-//endregion LeadReferralAcceptedPage
 
 // region Hotel Referral Page
   String get hotelReferralPageTitle =>
@@ -1610,11 +1505,6 @@ class LocalizedStrings {
         name: 'propertyPaymentAvailableBalanceLabel',
       );
 
-  String get propertyPaymentAmountExceedsInstalment => Intl.message(
-        'Amount can\'t exceed the total of the installment',
-        name: 'propertyPaymentAmountExceedsInstalment',
-      );
-
   String currencyConversionLabel(String amountInToken, String token,
           String amountInCurrency, String currency) =>
       Intl.message(
@@ -1632,10 +1522,6 @@ class LocalizedStrings {
         'Amount is not valid',
         name: 'paymentAmountInvalidError',
       );
-
-  String get emptyPaymentInvoiceError =>
-      Intl.message('Invoice number is required',
-          name: 'emptyPaymentInvoiceError');
 
   String get insufficientBalanceError => Intl.message(
       'We are unable to make transactions at this point as we '
@@ -2259,11 +2145,6 @@ class LocalizedStrings {
         name: 'earnRuleIndicativeAmountInfoHospitality',
       );
 
-  String get earnRuleIndicativeAmountInfoRealEstate => Intl.message(
-        '* It will depend on the property price.',
-        name: 'earnRuleIndicativeAmountInfoRealEstate',
-      );
-
   String get earnRuleIndicativeAmountInfoGeneric => Intl.message(
         '* This is an indicative amount.',
         name: 'earnRuleIndicativeAmountInfoGeneric',
@@ -2747,11 +2628,6 @@ class LocalizedStrings {
         name: 'personalDetailsEmailTitle',
       );
 
-  String get personalDetailsPhoneNumberTitle => Intl.message(
-        'Phone Number',
-        name: 'personalDetailsPhoneNumberTitle',
-      );
-
   String get personalDetailsCountryOfNationality =>
       Intl.message('Country of nationality',
           name: 'personalDetailsCountryOfNationality');
@@ -2818,9 +2694,6 @@ class LocalizedStrings {
 //endregion Email Verification Success Page
 
 //region Previous Referrals
-
-  String get previousReferralsCardTypeRealEstate =>
-      Intl.message('Real estate', name: 'previousReferralsCardTypeRealEstate');
 
   String get previousReferralsCardTypeHospitality =>
       Intl.message('Hospitality', name: 'previousReferralsCardTypeHospitality');
@@ -3065,16 +2938,6 @@ class LocalizedStrings {
   String get paymentRequestsIsForAnotherCustomerError => Intl.message(
         'Sorry, we couldn\'t find this transfer request',
         name: 'paymentRequestsIsForAnotherCustomerError',
-      );
-
-  String get phoneAlreadyExistsError => Intl.message(
-        'This phone number is already verified',
-        name: 'phoneAlreadyExistsError',
-      );
-
-  String get phoneIsAlreadyVerifiedError => Intl.message(
-        'An account with this phone number is already verified',
-        name: 'phoneIsAlreadyVerifiedError',
       );
 
   String get referralAlreadyConfirmedError => Intl.message(

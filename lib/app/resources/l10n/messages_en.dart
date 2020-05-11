@@ -33,117 +33,112 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m5(amount, token) => "${amount} ${token} points ";
 
-  static m100(vendorName) => "Available at ${vendorName}";
+  static m6(vendorName) => "Available at ${vendorName}";
 
-  static m6(token) => "Back to ${token} Wallet";
+  static m7(token) => "Back to ${token} Wallet";
 
-  static m7(currencyCode, amount) => "${amount} ${currencyCode}";
+  static m8(currencyCode, amount) => "${amount} ${currencyCode}";
 
-  static m8(amountInToken, token, amountInCurrency, currency) =>
+  static m9(amountInToken, token, amountInCurrency, currency) =>
       "${amountInToken} ${token} = ${amountInCurrency} ${currency}";
 
-  static m9(days) =>
+  static m10(days) =>
       "${Intl.plural(days, one: '${days} day ago', other: '${days} days ago')}";
 
-  static m10(token) =>
+  static m11(token) =>
       "Congratulations! You have completed this task! Have a look at other offers to continue earning ${token}s";
 
-  static m11(participationCount) =>
+  static m12(participationCount) =>
       "${Intl.plural(participationCount, one: 'one time', other: '${participationCount} times')}";
 
-  static m12(number, total) => "${number} / ${total} completed";
+  static m13(number, total) => "${number} / ${total} completed";
 
-  static m13(number) => "You can participate in this offer ${number} times";
+  static m14(number) => "You can participate in this offer ${number} times";
 
-  static m14(token) => "Earn ${token} points every time you complete the offer";
+  static m15(token) => "Earn ${token} points every time you complete the offer";
 
-  static m15(number) => "${number} completed";
+  static m16(number) => "${number} completed";
 
-  static m16(fromDate, toDate) => "Valid : from ${fromDate} to ${toDate}";
+  static m17(fromDate, toDate) => "Valid : from ${fromDate} to ${toDate}";
 
-  static m17(email) =>
+  static m18(email) =>
       "This link has expired, we’ve sent a new one to ${email}, please check your email and use the new link";
 
-  static m18(days) =>
+  static m19(days) =>
       "${Intl.plural(days, one: '${days} day', other: '${days} days')}";
 
-  static m19(token) =>
+  static m20(token) =>
       "Before sending and receiving ${token}s, you need to link an Ethereum wallet, here is how to link it";
 
-  static m20(fee) => "Fee: ${fee}";
+  static m21(fee) => "Fee: ${fee}";
 
-  static m21(sender) => "From ${sender}";
+  static m22(sender) => "From ${sender}";
 
-  static m22(serviceNumber) =>
+  static m23(serviceNumber) =>
       "Oops! It looks like something went wrong. Please try again. If the issue continues, contact our friendly customer service on ${serviceNumber}";
 
-  static m23(count) => "View all (${count})";
+  static m24(count) => "View all (${count})";
 
-  static m24(token, company) =>
+  static m25(token, company) =>
       "Thanks for accepting the referral, the next time you stay at ${company} hotel you will be awarded with ${token} points";
 
-  static m25(partnerName) =>
+  static m26(partnerName) =>
       "Please enter the details for the person you would like to refer to ${partnerName} properties. ";
 
-  static m26(refereeFullName) =>
+  static m27(refereeFullName) =>
       "Great! You\'ve successfully referred ${refereeFullName}";
 
-  static m27(partnerName) => " to ${partnerName}";
-
-  static m28(hours) =>
-      "${Intl.plural(hours, one: '${hours} hour', other: '${hours} hours')}";
+  static m28(partnerName) => " to ${partnerName}";
 
   static m29(hours) =>
+      "${Intl.plural(hours, one: '${hours} hour', other: '${hours} hours')}";
+
+  static m30(hours) =>
       "${Intl.plural(hours, one: '${hours} hour ago', other: '${hours} hours ago')}";
 
-  static m30(refereeFirstName, refereeLastName) =>
-      "Great! You\'ve successfully referred ${refereeFirstName} ${refereeLastName}";
-
-  static m31(partnerName) => " to ${partnerName} properties";
-
-  static m32(token) =>
+  static m31(token) =>
       "Transfer balance from your linked external wallet to your ${token} wallet";
 
-  static m33(token) => "Receive ${token} points from external wallet";
+  static m32(token) => "Receive ${token} points from external wallet";
 
-  static m34(token) =>
+  static m33(token) =>
       "Transfer from your ${token} wallet to your linked external wallet";
 
-  static m35(token) => "Transfer ${token} points to external wallet";
+  static m34(token) => "Transfer ${token} points to external wallet";
 
-  static m36(attemptNumber) =>
+  static m35(attemptNumber) =>
       "${Intl.plural(attemptNumber, one: 'You have ${attemptNumber} more attempt to sign in, after that your account will be temporarily locked.', other: 'You have ${attemptNumber} more attempts to sign in, after that your account will be temporarily locked.')}";
 
-  static m37(numberOfMinutes) =>
+  static m36(numberOfMinutes) =>
       "${Intl.plural(numberOfMinutes, one: 'Your account has been locked. Please try again in ${numberOfMinutes} minute.', other: 'Your account has been locked. Please try again in ${numberOfMinutes} minutes.')}";
 
-  static m38(period) =>
+  static m37(period) =>
       "We are undergoing some routine maintenance and will be up and running in the next ${period}";
 
-  static m39(maxLength) =>
+  static m38(maxLength) =>
       "Phone number can only be a maximum of ${maxLength} digits long";
 
-  static m40(precision) =>
+  static m39(precision) =>
       "Amount should not exceed ${precision} decimal places";
 
-  static m41(minLength) =>
+  static m40(minLength) =>
       "${Intl.plural(minLength, one: 'Minimum length should be at least one character', other: 'Minimum length should be at least ${minLength} characters')}";
 
-  static m42(minLength) =>
+  static m41(minLength) =>
       "Phone number should be at least ${minLength} digits long";
 
-  static m43(minutes) =>
+  static m42(minutes) =>
       "${Intl.plural(minutes, one: '${minutes} minute ago', other: '${minutes} minutes ago')}";
 
-  static m44(firstPartnerName, numberOfPartner) =>
+  static m43(firstPartnerName, numberOfPartner) =>
       "${Intl.plural(numberOfPartner, one: '${firstPartnerName} & ${numberOfPartner} other', other: '${firstPartnerName} & ${numberOfPartner} others')}";
 
-  static m45(token) => "Start earning ${token} now!";
+  static m44(token) => "Start earning ${token} now!";
 
-  static m46(token) =>
+  static m45(token) =>
       "Sorry, you do not have sufficient ${token} points for this activity";
 
-  static m101(expirationDate) => "This offer expires on ${expirationDate}";
+  static m46(expirationDate) => "This offer expires on ${expirationDate}";
 
   static m47(appName) => "Welcome to ${appName}";
 
@@ -189,89 +184,82 @@ class MessageLookup extends MessageLookupByLibrary {
   static m62(count) =>
       "${Intl.plural(count, one: 'One uppercase character', other: '${count} uppercase characters')}";
 
-  static m63(phoneNumber) =>
-      "We’ve sent a verification code  to ${phoneNumber}";
-
-  static m64(timeLeft) => "Resend code in ${timeLeft}";
-
-  static m65(appName) =>
+  static m63(appName) =>
       "Create a PIN to quickly sign in to your ${appName} account next time";
 
-  static m66(count) =>
+  static m64(count) =>
       "You have ${count} attempts remaining after which you will need to sign-in with your email and password";
 
-  static m67(person) => "Contact ${person}";
+  static m65(person) => "Contact ${person}";
 
-  static m68(firstName, lastName) => "${firstName} ${lastName}";
+  static m66(firstName, lastName) => "${firstName} ${lastName}";
 
-  static m69(amount, currencyName) => "Equals to: ${amount} ${currencyName}";
+  static m67(token) => "From external wallet to ${token} wallet";
 
-  static m70(token) => "From external wallet to ${token} wallet";
+  static m68(token) => "Receive ${token} points";
 
-  static m71(token) => "Receive ${token} points";
+  static m69(token) => "Transfer ${token}";
 
-  static m72(token) => "Transfer ${token}";
+  static m70(token) => "From ${token} wallet to external wallet";
 
-  static m73(token) => "From ${token} wallet to external wallet";
+  static m71(token) => "Transfer ${token}";
 
-  static m74(token) => "Transfer ${token}";
-
-  static m75(time) =>
+  static m72(time) =>
       "If your friend doesn\'t accept the invite within ${time} you will lose ";
 
-  static m76(step, totalSteps) => "${step} of ${totalSteps}";
+  static m73(step, totalSteps) => "${step} of ${totalSteps}";
 
-  static m77(recipient) => "To ${recipient}";
+  static m74(recipient) => "To ${recipient}";
 
-  static m78(token) => "Amount (${token} points)";
+  static m75(token) => "Amount (${token} points)";
 
-  static m79(token) =>
+  static m76(token) =>
       "Transfer ${token} points easily, scan the receivers QR code or enter their email address";
 
-  static m80(token) => "Transfer ${token} points";
+  static m77(token) => "Transfer ${token} points";
 
-  static m81(lockedAmount) => "${lockedAmount} are locked";
+  static m78(lockedAmount) => "${lockedAmount} are locked";
 
-  static m82(token) =>
+  static m79(token) =>
       "Your ${token}s have been transferred. We’ll notify you when the operation is completed.";
 
-  static m83(requestedAmount) => "You cannot pay more than ${requestedAmount}";
+  static m80(requestedAmount) => "You cannot pay more than ${requestedAmount}";
 
-  static m84(id) => "ID : ${id}";
+  static m81(id) => "ID : ${id}";
 
-  static m85(transferRequestOrganization) =>
+  static m82(transferRequestOrganization) =>
       "You received a transfer request from ${transferRequestOrganization}. Please review and confirm it.";
 
-  static m86(token) => "Sending Amount (${token})";
+  static m83(token) => "Sending Amount (${token})";
 
-  static m87(recipientId) => "ID: ${recipientId}";
+  static m84(recipientId) => "ID: ${recipientId}";
 
-  static m88(amountTokens, token, amountCurrency, currencyCode) =>
+  static m85(amountTokens, token, amountCurrency, currencyCode) =>
       "${amountTokens} ${token} (${amountCurrency} ${currencyCode})";
 
-  static m89(token) => "Transfer amount (${token})";
+  static m86(token) => "Transfer amount (${token})";
 
-  static m90(soldCount) => "${soldCount} used this offer";
+  static m87(soldCount) => "${soldCount} used this offer";
 
-  static m91(stockCount) =>
+  static m88(stockCount) =>
       "${Intl.plural(stockCount, zero: 'Out of stock', other: '${stockCount} left')}";
 
-  static m92(count) =>
+  static m89(count) =>
       "${Intl.plural(count, zero: 'You have no pending transfers', one: 'You have ${count} pending transfer', other: 'You have ${count} pending transfers')}";
 
-  static m93(token) => "Receive points from other ${token} users";
+  static m90(token) => "Receive points from other ${token} users";
 
-  static m94(token) => "Receive ${token} points";
+  static m91(token) => "Receive ${token} points";
 
-  static m95(token) => "Send ${token} points to anyone";
+  static m92(token) => "Send ${token} points to anyone";
 
-  static m96(token) => "Received ${token} points";
+  static m93(token) => "Received ${token} points";
 
-  static m97(token) => "Sent ${token} points";
+  static m94(token) => "Sent ${token} points";
 
-  static m98(appName) => "Welcome to ${appName}";
+  static m95(appName) => "Welcome to ${appName}";
 
-  static m99(token) => "Earn and use ${token}s across the world";
+  static m96(token) => "Earn and use ${token}s across the world";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -319,8 +307,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "and": MessageLookupByLibrary.simpleMessage(" and "),
         "approvedReferralListEmptyState": MessageLookupByLibrary.simpleMessage(
             "You have no approved referrals at the moment"),
-        "availableAt": m100,
-        "backToTokenWalletButton": m6,
+        "availableAt": m6,
+        "backToTokenWalletButton": m7,
         "backToWalletButton":
             MessageLookupByLibrary.simpleMessage("Back to Wallet"),
         "balanceBoxErrorMessage": MessageLookupByLibrary.simpleMessage(
@@ -399,7 +387,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactUsWhatsAppStartingMessage":
             MessageLookupByLibrary.simpleMessage("Hello"),
         "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
-        "conversionRate": m7,
+        "conversionRate": m8,
         "copiedToClipboard":
             MessageLookupByLibrary.simpleMessage("Copied to Clipboard"),
         "copyEmail": MessageLookupByLibrary.simpleMessage("Copy email"),
@@ -414,7 +402,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Select country"),
         "createAPasswordHeader":
             MessageLookupByLibrary.simpleMessage("Create a password"),
-        "currencyConversionLabel": m8,
+        "currencyConversionLabel": m9,
         "customerBlockedError": MessageLookupByLibrary.simpleMessage(
             "This account is currently blocked"),
         "customerDoesNotExistError": MessageLookupByLibrary.simpleMessage(
@@ -430,7 +418,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You can also copy the linking url to open in a dApp Browser"),
         "dateTimeToday": MessageLookupByLibrary.simpleMessage("Today"),
         "dateTimeYesterday": MessageLookupByLibrary.simpleMessage("Yesterday"),
-        "daysAgo": m9,
+        "daysAgo": m10,
         "defaultGenericError": MessageLookupByLibrary.simpleMessage(
             "Oops! It looks like something went wrong. Please try again."),
         "deleteAccountDialogCancelButton":
@@ -451,7 +439,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Finish the tasks below and earn the offer award!"),
         "earnRuleCampaignMissionTitle":
             MessageLookupByLibrary.simpleMessage("Task mission"),
-        "earnRuleCompletionMessage": m10,
+        "earnRuleCompletionMessage": m11,
         "earnRuleConditionCompleted":
             MessageLookupByLibrary.simpleMessage("Completed"),
         "earnRuleConditionGetStarted":
@@ -471,7 +459,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 " in order to be eligible to participate in this offer."),
         "earnRuleDetailsOfferUnavailableTitle":
             MessageLookupByLibrary.simpleMessage("Task unavailable"),
-        "earnRuleDetailsParticipationCount": m11,
+        "earnRuleDetailsParticipationCount": m12,
         "earnRuleDetailsParticipationLimit":
             MessageLookupByLibrary.simpleMessage("You can participate "),
         "earnRuleDetailsParticipationLimitError":
@@ -502,11 +490,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "earnRuleIndicativeAmountInfoHospitality":
             MessageLookupByLibrary.simpleMessage(
                 "* This is an indicative amount based on average night stay."),
-        "earnRuleIndicativeAmountInfoRealEstate":
-            MessageLookupByLibrary.simpleMessage(
-                "* It will depend on the property price."),
-        "earnRuleLimitedCompletionInfo": m12,
-        "earnRuleLimitedParticipationInfo": m13,
+        "earnRuleLimitedCompletionInfo": m13,
+        "earnRuleLimitedParticipationInfo": m14,
         "earnRuleOnlyOnceParticipationInfo":
             MessageLookupByLibrary.simpleMessage(
                 "You can participate in this only once"),
@@ -516,14 +501,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sorry, we are unable to load earn offers right now"),
         "earnRulePagePaginationError": MessageLookupByLibrary.simpleMessage(
             "Sorry, we are unable to show more earn offers right now"),
-        "earnRuleRewardBoxSubTitle": m14,
+        "earnRuleRewardBoxSubTitle": m15,
         "earnRuleRewardBoxTitle":
             MessageLookupByLibrary.simpleMessage("Offer Award"),
-        "earnRuleUnlimitedCompletionInfo": m15,
+        "earnRuleUnlimitedCompletionInfo": m16,
         "earnRuleUnlimitedParticipationInfo":
             MessageLookupByLibrary.simpleMessage(
                 "You can participate in this offer unlimited times"),
-        "earnRuleValidDate": m16,
+        "earnRuleValidDate": m17,
         "earnRuleViewOtherOffers":
             MessageLookupByLibrary.simpleMessage("View other offers"),
         "emailAddressHint":
@@ -538,7 +523,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailVerificationExceededMaxAttemptsError":
             MessageLookupByLibrary.simpleMessage(
                 "Too many attempts, please try again later"),
-        "emailVerificationLinkExpired": m17,
+        "emailVerificationLinkExpired": m18,
         "emailVerificationMessage1": MessageLookupByLibrary.simpleMessage(
             "We’ve sent a confirmation to: "),
         "emailVerificationMessage1Resent": MessageLookupByLibrary.simpleMessage(
@@ -573,20 +558,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Name is required"),
         "emptyPasswordClientSideValidationError":
             MessageLookupByLibrary.simpleMessage("Password is required"),
-        "emptyPaymentInvoiceError":
-            MessageLookupByLibrary.simpleMessage("Invoice number is required"),
         "emptyPhoneNumberClientSideValidationError":
             MessageLookupByLibrary.simpleMessage("Phone number is required"),
         "enterAmountHint": MessageLookupByLibrary.simpleMessage("Enter amount"),
-        "expirationFormatDays": m18,
+        "expirationFormatDays": m19,
         "expiredReferralListEmptyState": MessageLookupByLibrary.simpleMessage(
             "You have no expired referrals at the moment"),
-        "externalLinkWalletDescription": m19,
+        "externalLinkWalletDescription": m20,
         "externalWalletHint":
             MessageLookupByLibrary.simpleMessage("Link to your account"),
         "externalWalletTitle":
             MessageLookupByLibrary.simpleMessage("Your external wallet"),
-        "feeLabel": m20,
+        "feeLabel": m21,
         "firstNameHint":
             MessageLookupByLibrary.simpleMessage("Enter first name"),
         "firstNameNotRequiredLabel":
@@ -595,8 +578,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("First name*"),
         "friendReferralSuccessDetails": MessageLookupByLibrary.simpleMessage(
             "Great! Your referral has been submitted, we will notify you when the points are added to your wallet."),
-        "from": m21,
-        "genericError": m22,
+        "from": m22,
+        "genericError": m23,
         "genericErrorShort":
             MessageLookupByLibrary.simpleMessage("Please try again."),
         "getStartedButton": MessageLookupByLibrary.simpleMessage("Get started"),
@@ -605,12 +588,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "are waiting for you, hurry up"),
         "homePageCountdownTitle":
             MessageLookupByLibrary.simpleMessage("Countdown!"),
-        "homePageCountdownViewAll": m23,
+        "homePageCountdownViewAll": m24,
         "hotelPreCheckoutDialogHeading":
             MessageLookupByLibrary.simpleMessage("Thanks for staying with us"),
         "hotelPreCheckoutDialogViewInvoiceButton":
             MessageLookupByLibrary.simpleMessage("View Invoice"),
-        "hotelReferralAcceptedSuccessBody": m24,
+        "hotelReferralAcceptedSuccessBody": m25,
         "hotelReferralErrorDetails": MessageLookupByLibrary.simpleMessage(
             "We were unable submit your referral, please retry"),
         "hotelReferralErrorLeadAlreadyExists":
@@ -628,16 +611,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please enter your referral\'s email address"),
         "hotelReferralPageTitle":
             MessageLookupByLibrary.simpleMessage("Refer a hotel"),
-        "hotelReferralPartnerInfo": m25,
+        "hotelReferralPartnerInfo": m26,
         "hotelReferralStakingInfo":
             MessageLookupByLibrary.simpleMessage("You are required to lock "),
-        "hotelReferralSuccessPageDetails": m26,
-        "hotelReferralSuccessPageDetailsPartnerName": m27,
-        "hours": m28,
-        "hoursAgo": m29,
-        "installmentOverdue": MessageLookupByLibrary.simpleMessage("Overdue"),
-        "instalmentListChooseAnInstalment":
-            MessageLookupByLibrary.simpleMessage("Choose an installment"),
+        "hotelReferralSuccessPageDetails": m27,
+        "hotelReferralSuccessPageDetailsPartnerName": m28,
+        "hours": m29,
+        "hoursAgo": m30,
         "insufficientBalanceError": MessageLookupByLibrary.simpleMessage(
             "We are unable to make transactions at this point as we could not load your balance"),
         "insufficientFunds": MessageLookupByLibrary.simpleMessage(
@@ -683,15 +663,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Last name"),
         "lastNameRequiredLabel":
             MessageLookupByLibrary.simpleMessage("Last name*"),
-        "leadReferralAcceptedSuccessBody": MessageLookupByLibrary.simpleMessage(
-            "Thanks for accepting the referral."),
-        "leadReferralFormPageCommunityOfInterestLabel":
-            MessageLookupByLibrary.simpleMessage(
-                "Community/Property of interest"),
         "leadReferralPageTitle":
             MessageLookupByLibrary.simpleMessage("Refer a friend"),
-        "leadReferralSuccessPageDetails": m30,
-        "leadReferralSuccessPageDetailsPartnerName": m31,
         "linkAdvancedWalletButton":
             MessageLookupByLibrary.simpleMessage("Link wallet"),
         "linkAdvancedWalletDescription": MessageLookupByLibrary.simpleMessage(
@@ -756,10 +729,10 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Select a wallet from the options below"),
         "linkWalletReceiveCopyAddress":
             MessageLookupByLibrary.simpleMessage("Copy address"),
-        "linkWalletReceiveHint": m32,
+        "linkWalletReceiveHint": m31,
         "linkWalletReceiveNote": MessageLookupByLibrary.simpleMessage(
             "Note: Funds will be lost if you use a wallet other than your linked external wallet"),
-        "linkWalletReceiveTitle": m33,
+        "linkWalletReceiveTitle": m32,
         "linkWalletTransferFailedDetails": MessageLookupByLibrary.simpleMessage(
             "We were unable to complete your transfer, please try again."),
         "linkWalletTransferFailedSubDetails":
@@ -771,8 +744,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Link to your account"),
         "linkedWalletHeader":
             MessageLookupByLibrary.simpleMessage("Your external wallet"),
-        "linkedWalletSendHint": m34,
-        "linkedWalletSendTitle": m35,
+        "linkedWalletSendHint": m33,
+        "linkedWalletSendTitle": m34,
         "linkingRequestAlreadyApprovedError":
             MessageLookupByLibrary.simpleMessage(
                 "Error. This linking request has already been approved"),
@@ -796,18 +769,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginPageInvalidCredentialsError":
             MessageLookupByLibrary.simpleMessage(
                 "Your login details are incorrect. Please try again."),
-        "loginPageLoginAttemptWarningMessage": m36,
+        "loginPageLoginAttemptWarningMessage": m35,
         "loginPageLoginSubmitButton":
             MessageLookupByLibrary.simpleMessage("Sign in"),
         "loginPagePasswordHint":
             MessageLookupByLibrary.simpleMessage("Enter password"),
         "loginPagePasswordLabel":
             MessageLookupByLibrary.simpleMessage("Password"),
-        "loginPageTooManyRequestMessage": m37,
+        "loginPageTooManyRequestMessage": m36,
         "loginPageUnauthorizedRedirectionMessage":
             MessageLookupByLibrary.simpleMessage(
                 "Your session has expired, please log in again"),
-        "maintenanceDescription": m38,
+        "maintenanceDescription": m37,
         "maintenanceErrorCoupleOfHours":
             MessageLookupByLibrary.simpleMessage("couple of hours"),
         "maintenanceErrorMessage": MessageLookupByLibrary.simpleMessage(
@@ -820,19 +793,18 @@ class MessageLookup extends MessageLookupByLibrary {
             "A new version of the app available to download. Please update in order to continue."),
         "mandatoryAppUpgradePageTitle":
             MessageLookupByLibrary.simpleMessage("Update required"),
-        "maxPhoneNumberLengthClientSideValidationError": m39,
-        "maximumDecimalPlacesError": m40,
-        "minLengthClientSideValidationError": m41,
-        "minPhoneNumberLengthClientSideValidationError": m42,
-        "minutesAgo": m43,
+        "maxPhoneNumberLengthClientSideValidationError": m38,
+        "maximumDecimalPlacesError": m39,
+        "minLengthClientSideValidationError": m40,
+        "minPhoneNumberLengthClientSideValidationError": m41,
+        "minutesAgo": m42,
         "monthlyChallenges":
             MessageLookupByLibrary.simpleMessage("Monthly challenges"),
         "monthlyChallengesSubtitle": MessageLookupByLibrary.simpleMessage(
             "Test yourself and earn points"),
-        "multiplePartnersTitle": m44,
+        "multiplePartnersTitle": m43,
         "nationalityHint":
             MessageLookupByLibrary.simpleMessage("Enter nationality"),
-        "nationalityLabel": MessageLookupByLibrary.simpleMessage("Nationality"),
         "nationalityListPageTitle":
             MessageLookupByLibrary.simpleMessage("Select nationality"),
         "nationalityOptionalLabel":
@@ -845,7 +817,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nextPageButton": MessageLookupByLibrary.simpleMessage("Next"),
         "noCustomerWithSuchEmailError": MessageLookupByLibrary.simpleMessage(
             "This customer does not exist"),
-        "noTokensConversionRateText": m45,
+        "noTokensConversionRateText": m44,
         "noVouchersInStockError": MessageLookupByLibrary.simpleMessage(
             "Sorry, all vouchers are sold out"),
         "nonMandatoryAppUpgradeDialogContent": MessageLookupByLibrary.simpleMessage(
@@ -856,10 +828,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Update"),
         "nonMandatoryAppUpgradeDialogTitle":
             MessageLookupByLibrary.simpleMessage("New version available"),
-        "notEnoughTokensError": m46,
-        "noteHint":
-            MessageLookupByLibrary.simpleMessage("Add additional notes"),
-        "noteLabel": MessageLookupByLibrary.simpleMessage("Notes"),
+        "notEnoughTokensError": m45,
         "notificationListEmpty": MessageLookupByLibrary.simpleMessage(
             "You have no notifications yet"),
         "notificationListMarkAllAsRead":
@@ -870,7 +839,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "offerDetailGenericError": MessageLookupByLibrary.simpleMessage(
             "We are unable to load offer details at the moment. Please try again."),
-        "offerExpiresOn": m101,
+        "offerExpiresOn": m46,
         "offerNoExpirationDate": MessageLookupByLibrary.simpleMessage(
             "This offer has no expiration date"),
         "offers": MessageLookupByLibrary.simpleMessage("Offers"),
@@ -941,12 +910,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Personal Details"),
         "personalDetailsLastNameTitle":
             MessageLookupByLibrary.simpleMessage("Last Name"),
-        "personalDetailsPhoneNumberTitle":
-            MessageLookupByLibrary.simpleMessage("Phone Number"),
-        "phoneAlreadyExistsError": MessageLookupByLibrary.simpleMessage(
-            "This phone number is already verified"),
-        "phoneIsAlreadyVerifiedError": MessageLookupByLibrary.simpleMessage(
-            "An account with this phone number is already verified"),
         "phoneNumberHeader":
             MessageLookupByLibrary.simpleMessage("Phone number"),
         "phoneNumberHint":
@@ -955,30 +918,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Phone Number"),
         "phoneNumberRequiredLabel":
             MessageLookupByLibrary.simpleMessage("Phone Number*"),
-        "phoneNumberVerificationCodeNotSentError":
-            MessageLookupByLibrary.simpleMessage(
-                "Verification code was not sent, please retry"),
-        "phoneNumberVerificationCodeResent":
-            MessageLookupByLibrary.simpleMessage(
-                "Verification code was re-sent"),
-        "phoneNumberVerificationDetails": m63,
-        "phoneNumberVerificationExpiredCodeError":
-            MessageLookupByLibrary.simpleMessage(
-                "This code has expired, please request a new one"),
-        "phoneNumberVerificationInvalidCodeError":
-            MessageLookupByLibrary.simpleMessage(
-                "Incorrect code, please check it and try again"),
-        "phoneNumberVerificationPageTitle":
-            MessageLookupByLibrary.simpleMessage("Enter code"),
-        "phoneNumberVerificationRequestNewCode":
-            MessageLookupByLibrary.simpleMessage(
-                "Request a new verification code"),
-        "phoneNumberVerificationResendCodeTimer": m64,
         "pinConfirmDescription":
             MessageLookupByLibrary.simpleMessage("Please confirm your PIN"),
         "pinConfirmHeading":
             MessageLookupByLibrary.simpleMessage("Confirm PIN"),
-        "pinCreateDescription": m65,
+        "pinCreateDescription": m63,
         "pinCreateHeading":
             MessageLookupByLibrary.simpleMessage("Create a PIN"),
         "pinCreatedSuccessDetails": MessageLookupByLibrary.simpleMessage(
@@ -989,7 +933,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("PIN does not match"),
         "pinErrorIncorrectPassCode": MessageLookupByLibrary.simpleMessage(
             "Incorrect passcode, please retry"),
-        "pinErrorRemainingAttempts": m66,
+        "pinErrorRemainingAttempts": m64,
         "pinForgotButton": MessageLookupByLibrary.simpleMessage("Forgot?"),
         "pinForgotPageButton": MessageLookupByLibrary.simpleMessage("Proceed"),
         "pinForgotPageDescription": MessageLookupByLibrary.simpleMessage(
@@ -1006,7 +950,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please re-enter your PIN"),
         "previousReferralsCardAward":
             MessageLookupByLibrary.simpleMessage("award"),
-        "previousReferralsCardContact": m67,
+        "previousReferralsCardContact": m65,
         "previousReferralsCardDontLose":
             MessageLookupByLibrary.simpleMessage("Don\'t lose your"),
         "previousReferralsCardRemaining":
@@ -1017,33 +961,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("App referral"),
         "previousReferralsCardTypeHospitality":
             MessageLookupByLibrary.simpleMessage("Hospitality"),
-        "previousReferralsCardTypeRealEstate":
-            MessageLookupByLibrary.simpleMessage("Real estate"),
-        "previousReferralsNameHolder": m68,
+        "previousReferralsNameHolder": m66,
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy policy"),
-        "propertyPaymentAmountExceedsInstalment":
-            MessageLookupByLibrary.simpleMessage(
-                "Amount can\'t exceed the total of the installment"),
         "propertyPaymentAvailableBalanceLabel":
             MessageLookupByLibrary.simpleMessage("Available balance"),
-        "propertyPaymentConversionHolder": m69,
-        "propertyPaymentFull": MessageLookupByLibrary.simpleMessage("Full"),
-        "propertyPaymentPageSubDetails": MessageLookupByLibrary.simpleMessage(
-            "Your can pay your installment in full or partially"),
-        "propertyPaymentPageTitle":
-            MessageLookupByLibrary.simpleMessage("Pay your installment"),
-        "propertyPaymentPartial":
-            MessageLookupByLibrary.simpleMessage("Partial"),
-        "propertyPaymentProperty":
-            MessageLookupByLibrary.simpleMessage("Property"),
-        "realEstateListChooseAProperty":
-            MessageLookupByLibrary.simpleMessage("Choose a property"),
-        "realEstateListNoPurchases": MessageLookupByLibrary.simpleMessage(
-            "You have no ongoing purchases at the moment"),
         "receive": MessageLookupByLibrary.simpleMessage("Receive"),
         "receiveExternalWalletButton": MessageLookupByLibrary.simpleMessage(
             "Receive from external wallet"),
-        "receiveExternalWalletButtonSubtitle": m70,
+        "receiveExternalWalletButtonSubtitle": m67,
         "receiveTokenPageGenericErrorSubtitle":
             MessageLookupByLibrary.simpleMessage(
                 "Oh no! We\'re unable to display the QR code. Please try again."),
@@ -1051,7 +976,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("This doesn’t seem right"),
         "receiveTokenPageSubDetails": MessageLookupByLibrary.simpleMessage(
             "Share this code with the sender, you\'ll receive points quicker than you thought"),
-        "receiveTokenPageTitle": m71,
+        "receiveTokenPageTitle": m68,
         "redeem": MessageLookupByLibrary.simpleMessage("Redeem"),
         "redeemOffer": MessageLookupByLibrary.simpleMessage("Redeem Offer"),
         "redeemVoucherButton":
@@ -1134,16 +1059,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Register with another account"),
         "requests": MessageLookupByLibrary.simpleMessage("Requests"),
-        "requiredCountryOfResidenceClientSideValidationError":
-            MessageLookupByLibrary.simpleMessage("Please select a country"),
-        "requiredPhotoIdBackSideClientSideValidationError":
-            MessageLookupByLibrary.simpleMessage(
-                "Photo on the back side is required"),
-        "requiredPhotoIdClientSideValidationError":
-            MessageLookupByLibrary.simpleMessage("Photo ID is required"),
-        "requiredPhotoIdFrontSideClientSideValidationError":
-            MessageLookupByLibrary.simpleMessage(
-                "Photo on the front side is required"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
         "resetPasswordPrompt": MessageLookupByLibrary.simpleMessage(
             "Please create a new password and sign in again"),
@@ -1154,7 +1069,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resetPasswordTitle":
             MessageLookupByLibrary.simpleMessage("Enter email address"),
         "retryButton": MessageLookupByLibrary.simpleMessage("Retry"),
-        "scannedInfoDialogEmailPositiveButton": m72,
+        "scannedInfoDialogEmailPositiveButton": m69,
         "scannedInfoDialogErrorMessage": MessageLookupByLibrary.simpleMessage(
             "This QR code type is currently unsupported"),
         "scannedInfoDialogNegativeButton":
@@ -1166,8 +1081,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "sendToExternalWalletButton":
             MessageLookupByLibrary.simpleMessage("Transfer to external wallet"),
-        "sendToExternalWalletButtonSubtitle": m73,
-        "sendTokensButton": m74,
+        "sendToExternalWalletButtonSubtitle": m70,
+        "sendTokensButton": m71,
         "senderCustomerNotFoundError": MessageLookupByLibrary.simpleMessage(
             "Sorry, we couldn\'t find this account. Transfer canceled"),
         "setPasswordSuccessBackToAccountButton":
@@ -1176,16 +1091,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your password has been reset please login with your new details"),
         "setPasswordSuccessTitle":
             MessageLookupByLibrary.simpleMessage("Password reset successfully"),
-        "setPhoneNumberPageTitle":
-            MessageLookupByLibrary.simpleMessage("Add phone number"),
-        "setPhoneNumberVerifyButton":
-            MessageLookupByLibrary.simpleMessage("Verify"),
         "simpleWalletsDescription": MessageLookupByLibrary.simpleMessage(
             "Metamask, Coinbase, Trust wallet, ..."),
         "simpleWalletsTitle":
             MessageLookupByLibrary.simpleMessage("Simple wallets"),
-        "socialOrContinueWith":
-            MessageLookupByLibrary.simpleMessage("Or continue with"),
         "socialPageComingSoon":
             MessageLookupByLibrary.simpleMessage("Coming Soon"),
         "socialPageTitle": MessageLookupByLibrary.simpleMessage("Community"),
@@ -1198,7 +1107,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Locked amount"),
         "stakingDetailsPart1": MessageLookupByLibrary.simpleMessage(
             "In order to be eligible to participate in this offer you need to lock "),
-        "stakingDetailsRealEstateBurningRulePart1": m75,
+        "stakingDetailsRealEstateBurningRulePart1": m72,
         "stakingDetailsRealEstateBurningRulePart2":
             MessageLookupByLibrary.simpleMessage(" of the staking amount."),
         "stakingDetailsRealEstatePart5": MessageLookupByLibrary.simpleMessage(
@@ -1209,12 +1118,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "stakingDetailsRealEstateStakingRulePart2_100percent":
             MessageLookupByLibrary.simpleMessage(" of the staking amount."),
         "stakingDetailsReward": MessageLookupByLibrary.simpleMessage("Award"),
-        "stepOf": m76,
+        "stepOf": m73,
         "submitButton": MessageLookupByLibrary.simpleMessage("Submit"),
         "targetCustomerNotFoundError": MessageLookupByLibrary.simpleMessage(
             "Sorry, we couldn\'t find this account. Transfer canceled"),
         "termsOfUse": MessageLookupByLibrary.simpleMessage("Terms of Use"),
-        "to": m77,
+        "to": m74,
         "tokensLocked": MessageLookupByLibrary.simpleMessage("are locked"),
         "tooManyLoginRequestError": MessageLookupByLibrary.simpleMessage(
             "You\'ve exceeded your login attempts. Please contact support."),
@@ -1227,15 +1136,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "How many points are required?"),
         "transactionAmountRequiredError": MessageLookupByLibrary.simpleMessage(
             "Transaction amount is required"),
-        "transactionAmountTokensLabel": m78,
+        "transactionAmountTokensLabel": m75,
         "transactionEmptyAddressError":
             MessageLookupByLibrary.simpleMessage("Wallet address is required"),
         "transactionFormOr": MessageLookupByLibrary.simpleMessage("or"),
-        "transactionFormPageSubDetails": m79,
-        "transactionFormPageTitle": m80,
+        "transactionFormPageSubDetails": m76,
+        "transactionFormPageTitle": m77,
         "transactionFormScanQRCode":
             MessageLookupByLibrary.simpleMessage("Scan QR Code"),
-        "transactionFormStakedAmount": m81,
+        "transactionFormStakedAmount": m78,
         "transactionInvalidAddressError": MessageLookupByLibrary.simpleMessage(
             "Are you sure that\'s your wallet address?"),
         "transactionReceiverEmailAddressHint":
@@ -1250,8 +1159,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfer": MessageLookupByLibrary.simpleMessage("Transfer"),
         "transferInProgress":
             MessageLookupByLibrary.simpleMessage("Transfer in progress"),
-        "transferInProgressDetails": m82,
-        "transferRequestAmountExceedsRequestedError": m83,
+        "transferInProgressDetails": m79,
+        "transferRequestAmountExceedsRequestedError": m80,
         "transferRequestAmountIsZeroError":
             MessageLookupByLibrary.simpleMessage(
                 "Amount must be bigger than zero"),
@@ -1270,8 +1179,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Request expired"),
         "transferRequestGenericError": MessageLookupByLibrary.simpleMessage(
             "We were unable to complete the transfer, please try again"),
-        "transferRequestIdHolder": m84,
-        "transferRequestInfoHolder": m85,
+        "transferRequestIdHolder": m81,
+        "transferRequestInfoHolder": m82,
         "transferRequestInvalidStateError": MessageLookupByLibrary.simpleMessage(
             "Something\'s wrong… The request seems to be already completed or canceled."),
         "transferRequestListGenericError": MessageLookupByLibrary.simpleMessage(
@@ -1290,8 +1199,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are you sure you want to reject this transfer?"),
         "transferRequestRemainingTimeLabel":
             MessageLookupByLibrary.simpleMessage("Time remaining"),
-        "transferRequestSendingAmountLabel": m86,
-        "transferRequestStatusCardRecipientIdLabel": m87,
+        "transferRequestSendingAmountLabel": m83,
+        "transferRequestStatusCardRecipientIdLabel": m84,
         "transferRequestStatusCardRecipientLabel":
             MessageLookupByLibrary.simpleMessage("Recipient"),
         "transferRequestStatusCardSendingAmountLabel":
@@ -1316,7 +1225,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Transfer submitted"),
         "transferRequestTitle":
             MessageLookupByLibrary.simpleMessage("Transfer request"),
-        "transferRequestTotalBillHolder": m88,
+        "transferRequestTotalBillHolder": m85,
         "transferRequestTotalBillLabel":
             MessageLookupByLibrary.simpleMessage("Total Bill"),
         "transferRequestUnsuccessfulTab":
@@ -1332,7 +1241,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "transferTargetCustomerWalletBlockedError":
             MessageLookupByLibrary.simpleMessage(
                 "Sorry, the target wallet is currently blocked and cannot accept this transaction"),
-        "transferTokenAmountLabel": m89,
+        "transferTokenAmountLabel": m86,
         "transferTokensButton":
             MessageLookupByLibrary.simpleMessage("Send points"),
         "unlinkExternalWalletButton":
@@ -1366,17 +1275,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Available balance"),
         "voucherListEmpty": MessageLookupByLibrary.simpleMessage(
             "There are no vouchers available at the moment"),
-        "voucherSoldCountInfo": m90,
-        "voucherStockCount": m91,
+        "voucherSoldCountInfo": m87,
+        "voucherStockCount": m88,
         "vouchersOption": MessageLookupByLibrary.simpleMessage("Vouchers"),
         "walletLinkingInProgress":
             MessageLookupByLibrary.simpleMessage("Wallet linking in progress"),
         "walletPageMyTotalTokens":
             MessageLookupByLibrary.simpleMessage("My total points"),
-        "walletPagePaymentRequestsSubtitle": m92,
-        "walletPageReceiveButtonSubtitle": m93,
-        "walletPageReceiveButtonTitle": m94,
-        "walletPageSendButtonSubtitle": m95,
+        "walletPagePaymentRequestsSubtitle": m89,
+        "walletPageReceiveButtonSubtitle": m90,
+        "walletPageReceiveButtonTitle": m91,
+        "walletPageSendButtonSubtitle": m92,
         "walletPageTitle": MessageLookupByLibrary.simpleMessage("Wallet"),
         "walletPageTransactionHistoryEmpty":
             MessageLookupByLibrary.simpleMessage(
@@ -1389,12 +1298,12 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Sorry, we are unable to show more transactions right now"),
         "walletPageTransactionHistoryPaymentType":
             MessageLookupByLibrary.simpleMessage("Property Purchase"),
-        "walletPageTransactionHistoryReceivedType": m96,
+        "walletPageTransactionHistoryReceivedType": m93,
         "walletPageTransactionHistoryRefundType":
             MessageLookupByLibrary.simpleMessage("Refund"),
         "walletPageTransactionHistoryRewardType":
             MessageLookupByLibrary.simpleMessage("Award"),
-        "walletPageTransactionHistorySentType": m97,
+        "walletPageTransactionHistorySentType": m94,
         "walletPageTransactionHistoryTitle":
             MessageLookupByLibrary.simpleMessage("History"),
         "walletPageTransactionHistoryTransferFeeType":
@@ -1427,8 +1336,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "warningDialogYesButton": MessageLookupByLibrary.simpleMessage("Yes"),
         "welcomeCreateAccountButtonText":
             MessageLookupByLibrary.simpleMessage("Create an account"),
-        "welcomePageHeader": m98,
-        "welcomePageSubHeader": m99,
+        "welcomePageHeader": m95,
+        "welcomePageSubHeader": m96,
         "welcomeSignInButtonText":
             MessageLookupByLibrary.simpleMessage("Sign in"),
         "yourOffers": MessageLookupByLibrary.simpleMessage("Your offers")

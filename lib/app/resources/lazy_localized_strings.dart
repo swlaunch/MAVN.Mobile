@@ -131,15 +131,6 @@ class LazyLocalizedStrings {
   static LocalizedStringBuilder get phoneNumberHint =>
       _builder((_) => _.phoneNumberHint, 'phoneNumberHint');
 
-  static LocalizedStringBuilder get noteLabel =>
-      _builder((_) => _.noteLabel, 'noteLabel');
-
-  static LocalizedStringBuilder get noteHint =>
-      _builder((_) => _.noteHint, 'noteHint');
-
-  static LocalizedStringBuilder get nationalityLabel =>
-      _builder((_) => _.nationalityLabel, 'nationalityLabel');
-
   static LocalizedStringBuilder get nationalityOptionalLabel =>
       _builder((_) => _.nationalityOptionalLabel, 'nationalityOptionalLabel');
 
@@ -251,25 +242,6 @@ class LazyLocalizedStrings {
       _builder(
           (_) => _.passwordSpecialCharactersError(count, specialCharacters),
           'passwordSpecialCharactersError($count, $specialCharacters)');
-
-  static LocalizedStringBuilder
-      get requiredCountryOfResidenceClientSideValidationError => _builder(
-          (_) => _.requiredCountryOfResidenceClientSideValidationError,
-          'requiredCountryOfResidenceClientSideValidationError');
-
-  static LocalizedStringBuilder get requiredPhotoIdClientSideValidationError =>
-      _builder((_) => _.requiredPhotoIdClientSideValidationError,
-          'requiredPhotoIdClientSideValidationError');
-
-  static LocalizedStringBuilder
-      get requiredPhotoIdFrontSideClientSideValidationError => _builder(
-          (_) => _.requiredPhotoIdFrontSideClientSideValidationError,
-          'requiredPhotoIdFrontSideClientSideValidationError');
-
-  static LocalizedStringBuilder
-      get requiredPhotoIdBackSideClientSideValidationError => _builder(
-          (_) => _.requiredPhotoIdBackSideClientSideValidationError,
-          'requiredPhotoIdBackSideClientSideValidationError');
 
   static LocalizedStringBuilder maximumDecimalPlacesError(int precision) =>
       _builder((_) => _.maximumDecimalPlacesError(precision),
@@ -410,9 +382,6 @@ class LazyLocalizedStrings {
       (_) => _.welcomeCreateAccountButtonText,
       'welcomeCreateAccountButtonText');
 
-  static LocalizedStringBuilder get socialOrContinueWith =>
-      _builder((_) => _.socialOrContinueWith, 'socialOrContinueWith');
-
 //endregion
 
 // region Login Page
@@ -496,53 +465,6 @@ class LazyLocalizedStrings {
           'registerPageAgreeTermsOfUseError');
 
 // endregion Register Page
-
-// region Set phone number page
-  static LocalizedStringBuilder get setPhoneNumberPageTitle =>
-      _builder((_) => _.setPhoneNumberPageTitle, 'setPhoneNumberPageTitle');
-
-  static LocalizedStringBuilder get setPhoneNumberVerifyButton => _builder(
-      (_) => _.setPhoneNumberVerifyButton, 'setPhoneNumberVerifyButton');
-
-// endregion Set phone number page
-
-//region Phone Number Verification Page
-
-  static LocalizedStringBuilder get phoneNumberVerificationPageTitle =>
-      _builder((_) => _.phoneNumberVerificationPageTitle,
-          'phoneNumberVerificationPageTitle');
-
-  static LocalizedStringBuilder phoneNumberVerificationDetails(
-          String phoneNumber) =>
-      _builder((_) => _.phoneNumberVerificationDetails(phoneNumber),
-          'phoneNumberVerificationDetails($phoneNumber)');
-
-  static LocalizedStringBuilder get phoneNumberVerificationCodeResent =>
-      _builder((_) => _.phoneNumberVerificationCodeResent,
-          'phoneNumberVerificationCodeResent');
-
-  static LocalizedStringBuilder get phoneNumberVerificationRequestNewCode =>
-      _builder((_) => _.phoneNumberVerificationRequestNewCode,
-          'phoneNumberVerificationRequestNewCode');
-
-  static LocalizedStringBuilder phoneNumberVerificationResendCodeTimer(
-          String timeLeft) =>
-      _builder((_) => _.phoneNumberVerificationResendCodeTimer(timeLeft),
-          'phoneNumberVerificationResendCodeTimer($timeLeft)');
-
-  static LocalizedStringBuilder get phoneNumberVerificationCodeNotSentError =>
-      _builder((_) => _.phoneNumberVerificationCodeNotSentError,
-          'phoneNumberVerificationCodeNotSentError');
-
-  static LocalizedStringBuilder get phoneNumberVerificationExpiredCodeError =>
-      _builder((_) => _.phoneNumberVerificationExpiredCodeError,
-          'phoneNumberVerificationExpiredCodeError');
-
-  static LocalizedStringBuilder get phoneNumberVerificationInvalidCodeError =>
-      _builder((_) => _.phoneNumberVerificationInvalidCodeError,
-          'phoneNumberVerificationInvalidCodeError');
-
-//endregion Phone Number Verification Page
 
 // region Country Code list Page
 
@@ -771,21 +693,6 @@ class LazyLocalizedStrings {
 
 // endregion Lead Referral Page
 
-// region Lead Referral Success Page
-  static LocalizedStringBuilder leadReferralSuccessPageDetails(
-          String refereeFirstName, String refereeLastName) =>
-      _builder(
-          (_) => _.leadReferralSuccessPageDetails(
-              refereeFirstName, refereeLastName),
-          'leadReferralSuccessPageDetails($refereeFirstName, $refereeLastName)'); // ignore: lines_longer_than_80_chars
-
-  static LocalizedStringBuilder leadReferralSuccessPageDetailsPartnerName(
-          String partnerName) =>
-      _builder((_) => _.leadReferralSuccessPageDetailsPartnerName(partnerName),
-          'leadReferralSuccessPageDetailsPartnerName($partnerName)');
-
-// endregion Lead Referral Success Page
-
 //region Referral Success shared elements
 
   static LocalizedStringBuilder get referralSuccessPageTitle =>
@@ -798,14 +705,6 @@ class LazyLocalizedStrings {
       (_) => _.referralSuccessGoToRefsButton, 'referralSuccessGoToRefsButton');
 
 //endregion Referral Success shared elements
-
-//region LeadReferralAcceptedPage
-
-  static LocalizedStringBuilder get leadReferralAcceptedSuccessBody => _builder(
-      (_) => _.leadReferralAcceptedSuccessBody,
-      'leadReferralAcceptedSuccessBody');
-
-//endregion LeadReferralAcceptedPage
 
 // region Hotel Referral Page
   static LocalizedStringBuilder get hotelReferralPageTitle =>
@@ -1261,10 +1160,6 @@ class LazyLocalizedStrings {
       _builder((_) => _.propertyPaymentAvailableBalanceLabel,
           'propertyPaymentAvailableBalanceLabel');
 
-  static LocalizedStringBuilder get propertyPaymentAmountExceedsInstalment =>
-      _builder((_) => _.propertyPaymentAmountExceedsInstalment,
-          'propertyPaymentAmountExceedsInstalment');
-
   static LocalizedStringBuilder currencyConversionLabel(String amountInToken,
           String token, String amountInCurrency, String currency) =>
       _builder(
@@ -1277,9 +1172,6 @@ class LazyLocalizedStrings {
 
   static LocalizedStringBuilder get paymentAmountInvalidError =>
       _builder((_) => _.paymentAmountInvalidError, 'paymentAmountInvalidError');
-
-  static LocalizedStringBuilder get emptyPaymentInvoiceError =>
-      _builder((_) => _.emptyPaymentInvoiceError, 'emptyPaymentInvoiceError');
 
   static LocalizedStringBuilder get insufficientBalanceError =>
       _builder((_) => _.insufficientBalanceError, 'insufficientBalanceError');
@@ -1779,23 +1671,12 @@ class LazyLocalizedStrings {
       _builder((_) => _.earnRuleIndicativeAmountInfoHospitality,
           'earnRuleIndicativeAmountInfoHospitality');
 
-  static LocalizedStringBuilder get earnRuleIndicativeAmountInfoRealEstate =>
-      _builder((_) => _.earnRuleIndicativeAmountInfoRealEstate,
-          'earnRuleIndicativeAmountInfoRealEstate');
-
   static LocalizedStringBuilder get earnRuleIndicativeAmountInfoGeneric =>
       _builder((_) => _.earnRuleIndicativeAmountInfoGeneric,
           'earnRuleIndicativeAmountInfoGeneric');
 
   static LocalizedStringBuilder get stakingDetailsPart1 =>
       _builder((_) => _.stakingDetailsPart1, 'stakingDetailsPart1');
-
-  static LocalizedStringBuilder get stakingDetailsRealEstatePart5 => _builder(
-      (_) => _.stakingDetailsRealEstatePart5, 'stakingDetailsRealEstatePart5');
-
-  static LocalizedStringBuilder get stakingDetailsRealEstateStakingRulePart1 =>
-      _builder((_) => _.stakingDetailsRealEstateStakingRulePart1,
-          'stakingDetailsRealEstateStakingRulePart1');
 
   static LocalizedStringBuilder
       get stakingDetailsRealEstateStakingRulePart2_100percent => _builder(
@@ -2132,10 +2013,6 @@ class LazyLocalizedStrings {
   static LocalizedStringBuilder get personalDetailsEmailTitle =>
       _builder((_) => _.personalDetailsEmailTitle, 'personalDetailsEmailTitle');
 
-  static LocalizedStringBuilder get personalDetailsPhoneNumberTitle => _builder(
-      (_) => _.personalDetailsPhoneNumberTitle,
-      'personalDetailsPhoneNumberTitle');
-
   static LocalizedStringBuilder get personalDetailsCountryOfNationality =>
       _builder((_) => _.personalDetailsCountryOfNationality,
           'personalDetailsCountryOfNationality');
@@ -2194,10 +2071,6 @@ class LazyLocalizedStrings {
 //endregion Email Verification Success Page
 
 //region Previous Referrals
-
-  static LocalizedStringBuilder get previousReferralsCardTypeRealEstate =>
-      _builder((_) => _.previousReferralsCardTypeRealEstate,
-          'previousReferralsCardTypeRealEstate');
 
   static LocalizedStringBuilder get previousReferralsCardTypeHospitality =>
       _builder((_) => _.previousReferralsCardTypeHospitality,
@@ -2394,12 +2267,6 @@ class LazyLocalizedStrings {
   static LocalizedStringBuilder get paymentRequestsIsForAnotherCustomerError =>
       _builder((_) => _.paymentRequestsIsForAnotherCustomerError,
           'paymentRequestsIsForAnotherCustomerError');
-
-  static LocalizedStringBuilder get phoneAlreadyExistsError =>
-      _builder((_) => _.phoneAlreadyExistsError, 'phoneAlreadyExistsError');
-
-  static LocalizedStringBuilder get phoneIsAlreadyVerifiedError => _builder(
-      (_) => _.phoneIsAlreadyVerifiedError, 'phoneIsAlreadyVerifiedError');
 
   static LocalizedStringBuilder get referralAlreadyConfirmedError => _builder(
       (_) => _.referralAlreadyConfirmedError, 'referralAlreadyConfirmedError');

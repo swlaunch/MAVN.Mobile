@@ -40,8 +40,6 @@ enum ServiceExceptionType {
   paymentDoesNotExist,
   paymentIsNotInACorrectStatusToBeUpdated,
   paymentRequestsIsForAnotherCustomer,
-  phoneAlreadyExists,
-  phoneIsAlreadyVerified,
   providedIdentifierHasExpired,
   pinIsNotSet,
   pinCodeMismatch,
