@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
+import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/constants/bottom_bar_navigation_constants.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
@@ -53,52 +54,65 @@ class VoucherListPage extends HookWidget {
       data.value = voucherListBlocState.list;
     }
 
-    return Stack(
-      children: [
-        RefreshIndicator(
-          color: ColorStyles.gold1,
-          onRefresh: () async =>
-              voucherListBloc.updateGenericList(refresh: true),
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: InfiniteListWidget(
-                  data: data.value,
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  errorPadding: const EdgeInsets.all(16),
-                  backgroundColor: ColorStyles.offWhite,
-                  isLoading:
-                      voucherListBlocState is GenericListPaginationLoadingState,
-                  isEmpty: voucherListBlocState is GenericListEmptyState,
-                  emptyText: useLocalizedStrings().voucherListEmpty,
-                  emptyIcon: SvgAssets.voucher,
-                  retryOnError: loadData,
-                  loadData: loadData,
-                  showError: voucherListBlocState is GenericListErrorState,
-                  errorText: voucherListBlocState is GenericListErrorState
-                      ? voucherListBlocState.error.localize(useContext())
-                      : null,
-                  itemBuilder: (voucher, _, itemContext) => InkWell(
-                    onTap: () =>
-                        router.pushVoucherDetailsPage(voucher: voucher),
-                    child: Hero(
-                      tag: 'voucher_${voucher.id}',
-                      child: VoucherWidget(
-                        title: voucher.name,
-                        imageUrl: voucher.getImageUrl(),
-                        price: voucher.price,
+    return Scaffold(
+      backgroundColor: ColorStyles.alabaster,
+      appBar: AppBar(
+        title: Text(
+          useLocalizedStrings().offers,
+          style: TextStyles.h1PageHeader,
+        ),
+        backgroundColor: ColorStyles.alabaster,
+        elevation: 0,
+      ),
+      body: SafeArea(
+        child: Stack(
+          children: [
+            RefreshIndicator(
+              color: ColorStyles.gold1,
+              onRefresh: () async =>
+                  voucherListBloc.updateGenericList(refresh: true),
+              child: Column(
+                children: <Widget>[
+                  Expanded(
+                    child: InfiniteListWidget(
+                      data: data.value,
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      errorPadding: const EdgeInsets.all(16),
+                      backgroundColor: ColorStyles.offWhite,
+                      isLoading: voucherListBlocState
+                          is GenericListPaginationLoadingState,
+                      isEmpty: voucherListBlocState is GenericListEmptyState,
+                      emptyText: useLocalizedStrings().voucherListEmpty,
+                      emptyIcon: SvgAssets.voucher,
+                      retryOnError: loadData,
+                      loadData: loadData,
+                      showError: voucherListBlocState is GenericListErrorState,
+                      errorText: voucherListBlocState is GenericListErrorState
+                          ? voucherListBlocState.error.localize(useContext())
+                          : null,
+                      itemBuilder: (voucher, _, itemContext) => InkWell(
+                        onTap: () =>
+                            router.pushVoucherDetailsPage(voucher: voucher),
+                        child: Hero(
+                          tag: 'voucher_${voucher.id}',
+                          child: VoucherWidget(
+                            title: voucher.name,
+                            imageUrl: voucher.getImageUrl(),
+                            price: voucher.price,
+                          ),
+                        ),
                       ),
+                      separatorBuilder: (position) => Container(),
                     ),
                   ),
-                  separatorBuilder: (position) => Container(),
-                ),
+                ],
               ),
-            ],
-          ),
+            ),
+            if (voucherListBlocState is GenericListLoadingState)
+              const Center(child: Spinner())
+          ],
         ),
-        if (voucherListBlocState is GenericListLoadingState)
-          const Center(child: Spinner())
-      ],
+      ),
     );
   }
 }

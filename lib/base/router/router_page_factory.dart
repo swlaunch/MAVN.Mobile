@@ -21,7 +21,6 @@ import 'package:lykke_mobile_mavn/feature_coming_soon/view/coming_soon_page.dart
 import 'package:lykke_mobile_mavn/feature_country/view/country_list_page.dart';
 import 'package:lykke_mobile_mavn/feature_country_code/view/country_code_list_page.dart';
 import 'package:lykke_mobile_mavn/feature_earn/di/earn_module.dart';
-import 'package:lykke_mobile_mavn/feature_earn/view/earn_rule_list_page.dart';
 import 'package:lykke_mobile_mavn/feature_earn_detail/di/earn_rule_detail_module.dart';
 import 'package:lykke_mobile_mavn/feature_earn_detail/view/earn_rule_detail_page.dart';
 import 'package:lykke_mobile_mavn/feature_earn_detail/view/staking_details_page.dart';
@@ -47,7 +46,6 @@ import 'package:lykke_mobile_mavn/feature_maintenance/di/maintenance_module.dart
 import 'package:lykke_mobile_mavn/feature_maintenance/view/maintenance_page.dart';
 import 'package:lykke_mobile_mavn/feature_notification/di/notification_module.dart';
 import 'package:lykke_mobile_mavn/feature_notification/view/notification_list_page.dart';
-import 'package:lykke_mobile_mavn/feature_offers/view/offers_page.dart';
 import 'package:lykke_mobile_mavn/feature_onboarding/di/onboarding_module.dart';
 import 'package:lykke_mobile_mavn/feature_onboarding/view/onboarding_page.dart';
 import 'package:lykke_mobile_mavn/feature_p2p_transactions/di/transaction_form_module.dart';
@@ -412,14 +410,9 @@ class RouterPageFactory {
   //endregion Transactions & Payments
 
   //region Spend & Earn rules
-  static Widget getOffersPage() => MultiProvider(providers: [
-        ModuleProvider(module: EarnModule()),
-        ModuleProvider(module: VoucherListModule())
-      ], child: OffersPage());
-
-  static Widget getEarnRuleListPage() => ModuleProvider(
-        module: EarnModule(),
-        child: EarnRuleListPage(),
+  static Widget getOffersPage() => ModuleProvider(
+        module: VoucherListModule(),
+        child: VoucherListPage(),
       );
 
   static Widget getSpendOfferDetailsPage(SpendRule spendRule) => MultiProvider(
