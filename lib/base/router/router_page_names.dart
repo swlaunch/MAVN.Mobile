@@ -134,11 +134,11 @@ class RouterPageName {
 
 //endregion Account Static Pages
 
-  //region Vouchers
-  static const String voucherListPage = 'voucher_list_page';
-  static const String voucherDetailsPage = 'voucher_details_page';
+  //region Campaigns
+  static const String campaignListPage = 'campaign_list_page';
+  static const String campaignDetailsPage = 'campaign_details_page';
 
-  //endregion Vouchers
+  //endregion Campaigns
 
   //region misc
   static const String mandatoryAppUpgradePage = 'mandatory_app_upgrade_page';

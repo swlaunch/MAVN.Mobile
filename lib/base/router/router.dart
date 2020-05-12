@@ -3,15 +3,14 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/route_authentication_use_case.dart';
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/response_model/campaign_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/countries_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/country_codes_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/partner_response_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/spend_rules_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/wallet_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/extended_earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/maintenance/response_model/maintenance_response_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
 import 'package:lykke_mobile_mavn/base/router/base_router.dart';
 import 'package:lykke_mobile_mavn/base/router/router_page_factory.dart';
 import 'package:lykke_mobile_mavn/base/router/router_page_names.dart';
@@ -546,26 +545,10 @@ class Router extends BaseRouter {
     );
   }
 
-  Future<void> pushOfferDetailsPage(SpendRule spendRule) async {
-    await pushPage(
-      RouterPageFactory.getSpendOfferDetailsPage(spendRule),
-      pageName: RouterPageName.offerDetailsPage,
-    );
-  }
-
   Future<void> pushEarnRuleDetailsPage(EarnRule earnRule) async {
     await pushPage(
       RouterPageFactory.getEarnRuleDetailPage(earnRule),
       pageName: RouterPageName.earnRuleDetailsPage,
-    );
-  }
-
-  Future<void> pushVoucherRedemptionSuccessPage({
-    @required String voucherCode,
-  }) async {
-    await replacePage(
-      RouterPageFactory.getRedemptionSuccessfulPage(voucherCode: voucherCode),
-      pageName: RouterPageName.redemptionSuccessfulPage,
     );
   }
 
@@ -750,16 +733,16 @@ class Router extends BaseRouter {
   //region Vouchers
   Future<void> pushVoucherListPage() async {
     await pushPage(
-      RouterPageFactory.getVoucherListPage(),
-      pageName: RouterPageName.voucherListPage,
+      RouterPageFactory.getCampaignListPage(),
+      pageName: RouterPageName.campaignListPage,
     );
   }
 
-  Future<void> pushVoucherDetailsPage(
-      {@required VoucherResponseModel voucher}) async {
+  Future<void> pushCampaignDetailsPage(
+      {@required CampaignResponseModel campaign}) async {
     await pushPage(
-      RouterPageFactory.getVoucherDetailsPage(voucher: voucher),
-      pageName: RouterPageName.voucherDetailsPage,
+      RouterPageFactory.getCampaignDetailsPage(campaign: campaign),
+      pageName: RouterPageName.campaignDetailsPage,
     );
   }
 

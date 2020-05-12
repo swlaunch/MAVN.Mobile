@@ -15,7 +15,6 @@ import 'package:lykke_mobile_mavn/base/common_blocs/customer_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/customer_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/earn_rule_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/spend_rule_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/clear_secure_storage_use_case.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/has_pin_use_case.dart';
@@ -32,7 +31,6 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_m
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/customer_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/change_password_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/login_response_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/spend_rules_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/earn_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_condition_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_list_response_model.dart';
@@ -45,7 +43,6 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/response_m
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/response_model/payments_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/phone/phone_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/referral_api.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/spend/spend_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/wallet/response_model/transaction_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/wallet/wallet_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/remote_config_manager/remote_config_manager.dart';
@@ -63,10 +60,9 @@ import 'package:lykke_mobile_mavn/base/repository/partner/partner_repository.dar
 import 'package:lykke_mobile_mavn/base/repository/phone/phone_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/pin/pin_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/referral/referral_repository.dart';
-import 'package:lykke_mobile_mavn/base/repository/spend/spend_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/token/token_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/user/user_repository.dart';
-import 'package:lykke_mobile_mavn/base/repository/voucher/voucher_repository.dart';
+import 'package:lykke_mobile_mavn/base/repository/campaign/campaign_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
 import 'package:lykke_mobile_mavn/base/router/external_router.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
@@ -148,13 +144,6 @@ import 'package:lykke_mobile_mavn/feature_register/bloc/register_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_register/di/register_module.dart';
 import 'package:lykke_mobile_mavn/feature_register/use_case/register_use_case.dart';
 import 'package:lykke_mobile_mavn/feature_spend/analytics/redeem_transfer_analytics_manager.dart';
-import 'package:lykke_mobile_mavn/feature_spend/analytics/spend_analytics_manager.dart';
-import 'package:lykke_mobile_mavn/feature_spend/bloc/spend_rule_detail_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_spend/bloc/spend_rule_detail_bloc_output.dart';
-import 'package:lykke_mobile_mavn/feature_spend/bloc/voucher_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_spend/bloc/voucher_bloc_output.dart';
-import 'package:lykke_mobile_mavn/feature_spend/di/spend_module.dart';
-import 'package:lykke_mobile_mavn/feature_spend/di/spend_rule_detail_module.dart';
 import 'package:lykke_mobile_mavn/feature_spend/di/transfer_module.dart';
 import 'package:lykke_mobile_mavn/feature_splash/bloc/splash_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_splash/bloc/splash_bloc_output.dart';
@@ -229,8 +218,6 @@ class MockReferralApi extends Mock implements ReferralApi {}
 
 class MockEarnApi extends Mock implements EarnApi {}
 
-class MockSpendApi extends Mock implements SpendApi {}
-
 //endregion APIs
 //region Repositories
 class MockCustomerRepository extends Mock implements CustomerRepository {}
@@ -265,12 +252,10 @@ class MockReferralRepository extends Mock implements ReferralRepository {}
 
 class MockEarnRepository extends Mock implements EarnRepository {}
 
-class MockVoucherRepository extends Mock implements VoucherRepository {}
+class MockVoucherRepository extends Mock implements CampaignRepository {}
 
 class MockNotificationRepository extends Mock
     implements NotificationRepository {}
-
-class MockSpendRepository extends Mock implements SpendRepository {}
 
 //endregion
 //region Analytics Managers
@@ -297,8 +282,6 @@ class MockEmailVerificationAnalyticsManager extends Mock
 class MockWelcomeAnalyticsManager extends Mock
     implements WelcomeAnalyticsManager {}
 
-class MockSpendAnalyticsManager extends Mock implements SpendAnalyticsManager {}
-
 class MockRedeemTransferAnalyticsManager extends Mock
     implements RedeemTransferAnalyticsManager {}
 
@@ -317,8 +300,6 @@ class MockBottomBarModule extends Mock implements BottomBarModule {}
 class MockP2PReceiveTokenModule extends Mock implements P2PReceiveTokenModule {}
 
 class MockPersonalDetailsModule extends Mock implements PersonalDetailsModule {}
-
-class MockSpendRuleDetailModule extends Mock implements SpendRuleDetailModule {}
 
 class MockTransactionFormModule extends Mock implements TransactionFormModule {}
 
@@ -355,8 +336,6 @@ class MockStakingReferralsModule extends Mock
 class MockNotificationModule extends Mock implements NotificationModule {}
 
 class MockWelcomeModule extends Mock implements WelcomeModule {}
-
-class MockSpendModule extends Mock implements SpendModule {}
 
 class MockRedeemTransferModule extends Mock implements RedeemTransferModule {}
 
@@ -447,11 +426,6 @@ class MockChangePasswordBloc extends MockBloc<ChangePasswordState>
       : super(initialState);
 }
 
-class MockSpendRuleListBloc extends MockBloc<GenericListState>
-    implements SpendRuleListBloc {
-  MockSpendRuleListBloc(GenericListState initialState) : super(initialState);
-}
-
 class MockEarnRuleListBloc extends MockBloc<GenericListState>
     implements EarnRuleListBloc {
   MockEarnRuleListBloc(GenericListState initialState) : super(initialState);
@@ -460,18 +434,6 @@ class MockEarnRuleListBloc extends MockBloc<GenericListState>
 class MockPersonalDetailsBloc extends MockBloc<PersonalDetailsState>
     implements PersonalDetailsBloc {
   MockPersonalDetailsBloc(PersonalDetailsState initialState)
-      : super(initialState);
-}
-
-class MockSpendRuleDetailBloc extends MockBloc<SpendRuleDetailState>
-    implements SpendRuleDetailBloc {
-  MockSpendRuleDetailBloc(SpendRuleDetailState initialState)
-      : super(initialState);
-}
-
-class MockVoucherPurchaseBloc extends MockBloc<VoucherPurchaseState>
-    implements VoucherPurchaseBloc {
-  MockVoucherPurchaseBloc(VoucherPurchaseState initialState)
       : super(initialState);
 }
 
@@ -633,10 +595,6 @@ class MockCountryListResponseModel extends Mock
 
 class MockTransactionResponseModel extends Mock
     implements TransactionResponseModel {}
-
-// ignore: must_be_immutable
-class MockSpendRuleListResponseModel extends Mock
-    implements SpendRuleListResponseModel {}
 
 // ignore: must_be_immutable
 class MockEarnRuleListResponseModel extends Mock

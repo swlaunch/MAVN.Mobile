@@ -1,10 +1,9 @@
 import 'package:flutter/widgets.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/response_model/campaign_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/partner_response_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/spend_rules_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/extended_earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/maintenance/response_model/maintenance_response_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
 import 'package:lykke_mobile_mavn/feature_account/view/account_page.dart';
 import 'package:lykke_mobile_mavn/feature_account/view/contact_us_page.dart';
 import 'package:lykke_mobile_mavn/feature_account_deactivated/view/account_deactivated_page.dart';
@@ -14,6 +13,9 @@ import 'package:lykke_mobile_mavn/feature_app_referral/view/friend_referral_succ
 import 'package:lykke_mobile_mavn/feature_biometrics/view/biometric_agreement_page.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/di/bottom_bar_module.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/view/bottom_bar_page.dart';
+import 'package:lykke_mobile_mavn/feature_campaign_details/view/campaign_details_page.dart';
+import 'package:lykke_mobile_mavn/feature_campaign_list/di/campaign_list_module.dart';
+import 'package:lykke_mobile_mavn/feature_campaign_list/view/campaign_list_page.dart';
 import 'package:lykke_mobile_mavn/feature_change_password/di/change_password_module.dart';
 import 'package:lykke_mobile_mavn/feature_change_password/view/change_password_page.dart';
 import 'package:lykke_mobile_mavn/feature_change_password/view/change_password_success_page.dart';
@@ -81,19 +83,15 @@ import 'package:lykke_mobile_mavn/feature_reset_password/view/reset_password_pag
 import 'package:lykke_mobile_mavn/feature_reset_password/view/set_password_page.dart';
 import 'package:lykke_mobile_mavn/feature_reset_password/view/set_password_success_page.dart';
 import 'package:lykke_mobile_mavn/feature_social/view/social_page.dart';
-import 'package:lykke_mobile_mavn/feature_spend/di/spend_rule_detail_module.dart';
 import 'package:lykke_mobile_mavn/feature_spend/di/transfer_module.dart';
-import 'package:lykke_mobile_mavn/feature_spend/view/redemption_success_page.dart';
-import 'package:lykke_mobile_mavn/feature_spend/view/spend_offer_details_page.dart';
 import 'package:lykke_mobile_mavn/feature_splash/di/splash_module.dart';
 import 'package:lykke_mobile_mavn/feature_splash/view/mandatory_app_upgrade_page.dart';
 import 'package:lykke_mobile_mavn/feature_splash/view/splash_page.dart';
 import 'package:lykke_mobile_mavn/feature_terms_and_policies/view/privacy_policy_page.dart';
 import 'package:lykke_mobile_mavn/feature_terms_and_policies/view/terms_of_use_page.dart';
 import 'package:lykke_mobile_mavn/feature_ticker/di/ticker_module.dart';
-import 'package:lykke_mobile_mavn/feature_voucher_details/view/voucher_details_page.dart';
-import 'package:lykke_mobile_mavn/feature_vouchers/di/voucher_list_module.dart';
-import 'package:lykke_mobile_mavn/feature_vouchers/view/voucher_list_page.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_purchase/di/voucher_purchase_module.dart';
+
 import 'package:lykke_mobile_mavn/feature_wallet/di/wallet_page_module.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/view/wallet_page.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/di/wallet_linking_module.dart';
@@ -411,16 +409,8 @@ class RouterPageFactory {
 
   //region Spend & Earn rules
   static Widget getOffersPage() => ModuleProvider(
-        module: VoucherListModule(),
-        child: VoucherListPage(),
-      );
-
-  static Widget getSpendOfferDetailsPage(SpendRule spendRule) => MultiProvider(
-        providers: [
-          ModuleProvider(module: RedeemTransferModule()),
-          ModuleProvider(module: SpendRuleDetailModule())
-        ],
-        child: SpendOfferDetailsPage(spendRule: spendRule),
+        module: CampaignListModule(),
+        child: CampaignListPage(),
       );
 
   static Widget getPartnerListPage(List<Partner> partners) =>
@@ -449,9 +439,6 @@ class RouterPageFactory {
             paymentRequestId: paymentRequestId,
             fromPushNotification: fromPushNotification),
       );
-
-  static Widget getRedemptionSuccessfulPage({String voucherCode}) =>
-      RedemptionSuccessPage(voucherCode: voucherCode);
 
   //endregion Spend & Earn rules
 
@@ -484,16 +471,19 @@ class RouterPageFactory {
 
 //endregion Static pages from Account
 
-  //region Vouchers
-  static Widget getVoucherListPage() => ModuleProvider(
-        module: VoucherListModule(),
-        child: VoucherListPage(),
+  //region Campaigns
+  static Widget getCampaignListPage() => ModuleProvider(
+        module: CampaignListModule(),
+        child: CampaignListPage(),
       );
 
-  static Widget getVoucherDetailsPage({VoucherResponseModel voucher}) =>
-      VoucherDetailsPage(voucher: voucher);
+  static Widget getCampaignDetailsPage({CampaignResponseModel campaign}) =>
+      ModuleProvider(
+        module: VoucherPurchaseModule(),
+        child: CampaignDetailsPage(campaign: campaign),
+      );
 
-  //endregion Vouchers
+  //endregion Campaigns
 
   //region Social
   static Widget getSocialPage() => SocialPage();

@@ -11,7 +11,6 @@ import 'package:lykke_mobile_mavn/base/common_blocs/customer_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/customer_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/earn_rule_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/spend_rule_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/logout_use_case.dart';
 import 'package:lykke_mobile_mavn/base/date/date_time_manager.dart';
@@ -31,7 +30,6 @@ import 'package:lykke_mobile_mavn/base/repository/mapper/referral_to_ui_model_ma
 import 'package:lykke_mobile_mavn/base/repository/notification/notification_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/partner/partner_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/referral/referral_repository.dart';
-import 'package:lykke_mobile_mavn/base/repository/spend/spend_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/token/token_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/user/user_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
@@ -77,7 +75,6 @@ class TestAppFrame extends StatelessWidget {
     this.mockCountryListBloc,
     this.mockCountryCodeListBloc,
     this.mockBalanceBloc,
-    this.mockSpendRuleListBloc,
     this.mockEarnRuleListBloc,
     this.mockSharedPreferencesManager,
     this.mockPartnerPaymentsPendingBloc,
@@ -112,7 +109,6 @@ class TestAppFrame extends StatelessWidget {
   final MockCountryListBloc mockCountryListBloc;
   final MockCountryCodeListBloc mockCountryCodeListBloc;
   final MockBalanceBloc mockBalanceBloc;
-  final MockSpendRuleListBloc mockSpendRuleListBloc;
   final MockEarnRuleListBloc mockEarnRuleListBloc;
   final MockPartnerPaymentsPendingBloc mockPartnerPaymentsPendingBloc;
   final MockBiometricBloc mockBiometricBloc;
@@ -145,7 +141,6 @@ class TestAppFrame extends StatelessWidget {
           mockCountryListBloc: mockCountryListBloc,
           mockCountryCodeListBloc: mockCountryCodeListBloc,
           mockBalanceBloc: mockBalanceBloc,
-          mockSpendRuleListBloc: mockSpendRuleListBloc,
           mockEarnRuleListBloc: mockEarnRuleListBloc,
           mockPartnerPaymentsPendingBloc: mockPartnerPaymentsPendingBloc,
           mockBiometricBloc: mockBiometricBloc,
@@ -194,7 +189,6 @@ class TestAppModule extends AppModule {
     this.mockCountryListBloc,
     this.mockCountryCodeListBloc,
     this.mockBalanceBloc,
-    this.mockSpendRuleListBloc,
     this.mockEarnRuleListBloc,
     this.mockSharedPreferencesManager,
     this.mockPartnerPaymentsPendingBloc,
@@ -227,7 +221,6 @@ class TestAppModule extends AppModule {
   final MockCountryListBloc mockCountryListBloc;
   final MockCountryCodeListBloc mockCountryCodeListBloc;
   final MockBalanceBloc mockBalanceBloc;
-  final MockSpendRuleListBloc mockSpendRuleListBloc;
   final MockEarnRuleListBloc mockEarnRuleListBloc;
   final MockPartnerPaymentsPendingBloc mockPartnerPaymentsPendingBloc;
   final MockSplashBloc mockSplashBloc;
@@ -270,9 +263,6 @@ class TestAppModule extends AppModule {
         () => mockBalanceBloc ?? MockBalanceBloc(BalanceUninitializedState()));
     provideSingleton<WalletBloc>(
         () => mockWalletBloc ?? MockWalletBloc(WalletUninitializedState()));
-    provideSingleton<SpendRuleListBloc>(() =>
-        mockSpendRuleListBloc ??
-        MockSpendRuleListBloc(GenericListUninitializedState()));
     provideSingleton<EarnRuleListBloc>(() =>
         mockEarnRuleListBloc ??
         MockEarnRuleListBloc(GenericListUninitializedState()));
@@ -317,15 +307,6 @@ class TestAppModule extends AppModule {
     //////////////////////////
 
     final defaultMockCustomerRepository = MockCustomerRepository();
-    final defaultMockSpendRepository = MockSpendRepository();
-
-    when(defaultMockSpendRepository.getSpendRules()).thenAnswer((_) async {
-      final mockSpendRuleListResponseModel = MockSpendRuleListResponseModel();
-      when(mockSpendRuleListResponseModel.spendRuleList).thenReturn([]);
-      return mockSpendRuleListResponseModel;
-    });
-
-    provideSingleton<SpendRepository>(() => defaultMockSpendRepository);
 
     provideSingleton<CustomerRepository>(() => defaultMockCustomerRepository);
 

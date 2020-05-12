@@ -12,7 +12,6 @@ import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc.dart'
 import 'package:lykke_mobile_mavn/base/common_blocs/country_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/customer_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/earn_rule_list_bloc.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/spend_rule_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/has_pin_use_case.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/logout_use_case.dart';
@@ -37,8 +36,7 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/mobile/mobile_sett
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/partner_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/phone/phone_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/referral_api.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/spend/spend_api.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/voucher_api.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/campaign_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/wallet/wallet_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/notification/notification_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/remote_config_manager/remote_config_keys.dart';
@@ -57,10 +55,9 @@ import 'package:lykke_mobile_mavn/base/repository/partner/partner_repository.dar
 import 'package:lykke_mobile_mavn/base/repository/phone/phone_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/pin/pin_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/referral/referral_repository.dart';
-import 'package:lykke_mobile_mavn/base/repository/spend/spend_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/token/token_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/user/user_repository.dart';
-import 'package:lykke_mobile_mavn/base/repository/voucher/voucher_repository.dart';
+import 'package:lykke_mobile_mavn/base/repository/campaign/campaign_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
 import 'package:lykke_mobile_mavn/base/router/external_router.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
@@ -138,9 +135,7 @@ class AppModule extends Module {
 
   EarnRepository get earnRepository => get();
 
-  SpendRepository get spendRepository => get();
-
-  VoucherRepository get voucherRepository => get();
+  CampaignRepository get voucherRepository => get();
 
   NotificationRepository get notificationRepository => get();
 
@@ -161,8 +156,6 @@ class AppModule extends Module {
   CountryListBloc get countryListBloc => get();
 
   CountryCodeListBloc get countryCodeListBloc => get();
-
-  SpendRuleListBloc get spendRuleListBloc => get();
 
   EarnRuleListBloc get earnRuleListBloc => get();
 
@@ -291,9 +284,7 @@ class AppModule extends Module {
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
     provideSingleton(() => EarnApi(
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
-    provideSingleton(() => SpendApi(
-        get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
-    provideSingleton(() => VoucherApi(
+    provideSingleton(() => CampaignApi(
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
     provideSingleton(() => NotificationApi(
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
@@ -328,8 +319,7 @@ class AppModule extends Module {
     provideSingleton(() => PinRepository(get(), get()));
     provideSingleton(() => ReferralRepository(get()));
     provideSingleton(() => EarnRepository(get()));
-    provideSingleton(() => SpendRepository(get()));
-    provideSingleton(() => VoucherRepository(get()));
+    provideSingleton(() => CampaignRepository(get()));
     provideSingleton(() => NotificationRepository(get()));
     provideSingleton(() => NotificationCountBloc(get()));
 
@@ -343,8 +333,6 @@ class AppModule extends Module {
     provideSingleton(() => CountryListBloc(get(), get(), get()));
 
     provideSingleton(() => CountryCodeListBloc(get(), get(), get()));
-
-    provideSingleton(() => SpendRuleListBloc(get()));
 
     provideSingleton(() => EarnRuleListBloc(get()));
 

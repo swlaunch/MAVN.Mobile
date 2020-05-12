@@ -16,7 +16,6 @@ import 'package:lykke_mobile_mavn/feature_payment_request_list/di/partner_paymen
 import 'package:lykke_mobile_mavn/feature_payment_request_list/view/payment_request_list_page.dart';
 import 'package:lykke_mobile_mavn/feature_register/di/register_module.dart';
 import 'package:lykke_mobile_mavn/feature_register/view/register_page.dart';
-import 'package:lykke_mobile_mavn/feature_spend/view/spend_offer_details_page.dart';
 import 'package:lykke_mobile_mavn/feature_splash/view/mandatory_app_upgrade_page.dart';
 import 'package:lykke_mobile_mavn/feature_terms_and_policies/view/terms_of_use_page.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_unlinking/di/wallet_unlinking_module.dart';
@@ -111,14 +110,6 @@ void main() {
           widgetTester: widgetTester,
           navigationFn: _subject.replaceWithTransactionSuccessPage,
           pageName: 'p2p_transaction_success_page');
-    });
-
-    testWidgets('offer details page', (widgetTester) async {
-      await _testPageIsPresent<SpendOfferDetailsPage>(
-          widgetTester: widgetTester,
-          navigationFn: () =>
-              _subject.pushOfferDetailsPage(TestConstants.stubSpendRule),
-          pageName: 'offer_details_page');
     });
 
     testWidgets('account deactivated page', (widgetTester) async {
