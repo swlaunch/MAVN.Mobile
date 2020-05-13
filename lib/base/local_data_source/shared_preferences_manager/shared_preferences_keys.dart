@@ -17,4 +17,5 @@ class SharedPreferencesKeys {
   static const String forgottenPin = 'forgottenPin';
   static const String appReferralCode = 'friendReferralCode';
   static const String isDarkMode = 'isDarkMode';
+  static const String boughtVouchersFlag = 'boughtVouchersFlag';
 }

@@ -116,6 +116,19 @@ class LocalSettingsRepository {
         value: json.encode(mobileSettings));
   }
 
+  Future<void> setBoughtVouchersFlag() async {
+    await _sharedPreferencesManager.writeBool(
+      key: SharedPreferencesKeys.boughtVouchersFlag,
+      value: true,
+    );
+  }
+
+  bool getBoughtVouchersFlag() => _sharedPreferencesManager.readBool(
+      key: SharedPreferencesKeys.boughtVouchersFlag);
+
+  Future<void> removeBoughtVouchersFlag() => _sharedPreferencesManager.remove(
+      key: SharedPreferencesKeys.boughtVouchersFlag);
+
   MobileSettings getMobileSettings() {
     try {
       final fetchedJson = _sharedPreferencesManager.read(

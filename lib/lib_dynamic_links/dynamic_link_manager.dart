@@ -6,11 +6,13 @@ import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
 import 'package:lykke_mobile_mavn/base/local_data_source/shared_preferences_manager/shared_preferences_manager.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_email_verification/bloc/email_confirmation_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_purchase/bloc/voucher_purchase_success_bloc.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/routes/app_referral_dynamic_route.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/routes/dynamic_link_route_base.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/routes/email_confirmation_dynamic_route.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/routes/hotel_referral_accept_dynamic_route.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/routes/reset_password_dynamic_route.dart';
+import 'package:lykke_mobile_mavn/lib_dynamic_links/routes/voucher_purchase_dynamic_route.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_dependency_injection/core.dart';
 import 'package:meta/meta.dart';
@@ -21,12 +23,14 @@ class DynamicLinkManager {
     @required this.router,
     @required AcceptHotelReferralBloc hotelReferralBloc,
     @required EmailConfirmationBloc emailConfirmationBloc,
+    @required VoucherPurchaseSuccessBloc voucherPurchaseSuccessBloc,
     @required SharedPreferencesManager sharedPreferencesManager,
   }) : routes = [
           EmailConfirmationDynamicRoute(router, emailConfirmationBloc),
           HotelReferralAcceptDynamicRoute(router, hotelReferralBloc),
           ResetPasswordDynamicRoute(router),
-          AppReferralDynamicLinkRoute(router, sharedPreferencesManager)
+          AppReferralDynamicLinkRoute(router, sharedPreferencesManager),
+          VoucherPurchaseDynamicRoute(router, voucherPurchaseSuccessBloc),
         ];
 
   FirebaseDynamicLinks firebaseDynamicLinks;

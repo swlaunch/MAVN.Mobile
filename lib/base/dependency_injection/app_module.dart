@@ -74,6 +74,7 @@ import 'package:lykke_mobile_mavn/feature_notification/router/notification_route
 import 'package:lykke_mobile_mavn/feature_payment_request_list/bloc/pending_payment_requests_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_personal_details/bloc/delete_account_use_case.dart';
 import 'package:lykke_mobile_mavn/feature_user_verification/bloc/user_verification_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_purchase/bloc/voucher_purchase_success_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/dynamic_link_manager.dart';
 import 'package:lykke_mobile_mavn/library_analytics/analytics_service.dart';
@@ -195,6 +196,8 @@ class AppModule extends Module {
   FirebaseMessaging get firebaseMessaging => get();
 
   FirebaseMessagingBloc get firebaseMessagingBloc => get();
+
+  VoucherPurchaseSuccessBloc get voucherPurchaseSuccessBloc => get();
 
   @override
   void provideInstances() {
@@ -352,6 +355,8 @@ class AppModule extends Module {
     provideSingleton(
         () => UserVerificationBloc(get(), get(), get(), get(), get()));
 
+    provideSingleton(() => VoucherPurchaseSuccessBloc(get()));
+
     // Dynamic Link Manager
     provideSingleton(
       () => DynamicLinkManager(
@@ -359,6 +364,7 @@ class AppModule extends Module {
         router: get(),
         hotelReferralBloc: get(),
         emailConfirmationBloc: get(),
+        voucherPurchaseSuccessBloc: get(),
         sharedPreferencesManager: get(),
       ),
     );

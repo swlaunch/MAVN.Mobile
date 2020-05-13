@@ -21,6 +21,7 @@ import 'package:lykke_mobile_mavn/feature_wallet/ui_components/wallet_actions_wi
 import 'package:lykke_mobile_mavn/feature_wallet/ui_components/wallet_balance_section.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/ui_components/wallet_disabled_widget.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
+import 'package:lykke_mobile_mavn/library_custom_hooks/on_dispose_hook.dart';
 import 'package:lykke_mobile_mavn/library_custom_hooks/throttling_hook.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/error/network_error.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/disabled_overlay.dart';
@@ -76,6 +77,8 @@ class WalletPage extends HookWidget {
       transactionHistoryState,
       partnerPaymentsPendingState,
     ].any((state) => state is BaseNetworkErrorState);
+
+    useOnDispose(router.markAsClosedBoughtVouchersPage);
 
     return Scaffold(
       backgroundColor: ColorStyles.alabaster,
