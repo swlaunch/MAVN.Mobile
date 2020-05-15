@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-05-11T16:45:44.996810",
+  "@@last_modified": "2020-05-15T15:31:36.382639",
   "networkErrorTitle": "Internet connection problem",
   "@networkErrorTitle": {
     "type": "text",
@@ -3161,6 +3161,26 @@
   },
   "redeemOffer": "Redeem Offer",
   "@redeemOffer": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "dashboard": "Dashboard",
+  "@dashboard": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "vouchers": "Vouchers",
+  "@vouchers": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "transactions": "Transactions",
+  "@transactions": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "viewVoucher": "View Voucher",
+  "@viewVoucher": {
     "type": "text",
     "placeholders": {}
   },

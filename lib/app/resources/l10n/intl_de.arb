@@ -3222,5 +3222,25 @@
   "@redeemOffer": {
     "type": "text",
     "placeholders": {}
+  },
+  "dashboard": "Instrumententafel",
+  "@dashboard": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "vouchers": "Gutscheine",
+  "@vouchers": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "transactions": "Transaktionen",
+  "@transactions": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "viewVoucher": "Gutschein anzeigen",
+  "@viewVoucher": {
+    "type": "text",
+    "placeholders": {}
   }
 }

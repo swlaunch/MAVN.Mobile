@@ -3043,7 +3043,7 @@ class LocalizedStrings {
 
 //endregion Vouchers
 
-//region Voucher Details
+//region Campaign Details
 
   String get about => Intl.message(
         'About',
@@ -3072,7 +3072,35 @@ class LocalizedStrings {
         name: 'redeemOffer',
       );
 
-//endregion Voucher Details
+//endregion Campaign Details
+
+//region Voucher Waller
+
+//endregion Voucher Waller
+
+  String get dashboard => Intl.message(
+        'Dashboard',
+        name: 'dashboard',
+      );
+
+  String get vouchers => Intl.message(
+        'Vouchers',
+        name: 'vouchers',
+      );
+
+  String get transactions => Intl.message(
+        'Transactions',
+        name: 'transactions',
+      );
+
+// region Voucher Details
+
+  String get viewVoucher => Intl.message(
+        'View Voucher',
+        name: 'viewVoucher',
+      );
+
+// endregion Voucher Details
 
 //region Notifications
   String get notifications => Intl.message(

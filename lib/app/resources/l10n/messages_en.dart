@@ -416,6 +416,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sorry, your wallet is currently blocked and cannot process transactions"),
         "dapBrowserHint": MessageLookupByLibrary.simpleMessage(
             "You can also copy the linking url to open in a dApp Browser"),
+        "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "dateTimeToday": MessageLookupByLibrary.simpleMessage("Today"),
         "dateTimeYesterday": MessageLookupByLibrary.simpleMessage("Yesterday"),
         "daysAgo": m10,
@@ -1156,6 +1157,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Thanks for submitting your payment. We\'ll let you know once it\'s processed."),
         "transactionSuccessTitle":
             MessageLookupByLibrary.simpleMessage("Transfer submitted"),
+        "transactions": MessageLookupByLibrary.simpleMessage("Transactions"),
         "transfer": MessageLookupByLibrary.simpleMessage("Transfer"),
         "transferInProgress":
             MessageLookupByLibrary.simpleMessage("Transfer in progress"),
@@ -1268,6 +1270,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Error. The verification code is invalid"),
         "viewPartnerDetailsButtonTitle":
             MessageLookupByLibrary.simpleMessage("View partner details"),
+        "viewVoucher": MessageLookupByLibrary.simpleMessage("View Voucher"),
         "voucherCopied":
             MessageLookupByLibrary.simpleMessage("Voucher copied to clipboard"),
         "voucherDetailsAmount": MessageLookupByLibrary.simpleMessage("Amount"),
@@ -1277,6 +1280,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "There are no vouchers available at the moment"),
         "voucherSoldCountInfo": m87,
         "voucherStockCount": m88,
+        "vouchers": MessageLookupByLibrary.simpleMessage("Vouchers"),
         "vouchersOption": MessageLookupByLibrary.simpleMessage("Vouchers"),
         "walletLinkingInProgress":
             MessageLookupByLibrary.simpleMessage("Wallet linking in progress"),

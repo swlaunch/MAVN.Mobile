@@ -11,6 +11,7 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/extended_earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/maintenance/response_model/maintenance_response_model.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
 import 'package:lykke_mobile_mavn/base/router/base_router.dart';
 import 'package:lykke_mobile_mavn/base/router/router_page_factory.dart';
 import 'package:lykke_mobile_mavn/base/router/router_page_names.dart';
@@ -762,6 +763,15 @@ class Router extends BaseRouter {
 
   void markAsClosedBoughtVouchersPage() {
     _isBoughtVouchersCurrentRoute = false;
+  }
+
+  Future<void> pushVoucherDetailsPage({
+    @required VoucherResponseModel voucher,
+  }) async {
+    await pushPage(
+      RouterPageFactory.getVoucherDetailsPage(voucher: voucher),
+      pageName: RouterPageName.voucherDetailsPage,
+    );
   }
 
   //endregion Vouchers

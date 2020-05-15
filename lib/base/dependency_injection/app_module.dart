@@ -37,6 +37,7 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/partner_ap
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/phone/phone_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/referral_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/campaign_api.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/voucher_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/wallet/wallet_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/notification/notification_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/remote_config_manager/remote_config_keys.dart';
@@ -58,6 +59,7 @@ import 'package:lykke_mobile_mavn/base/repository/referral/referral_repository.d
 import 'package:lykke_mobile_mavn/base/repository/token/token_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/user/user_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/campaign/campaign_repository.dart';
+import 'package:lykke_mobile_mavn/base/repository/voucher/voucher_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
 import 'package:lykke_mobile_mavn/base/router/external_router.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
@@ -136,7 +138,9 @@ class AppModule extends Module {
 
   EarnRepository get earnRepository => get();
 
-  CampaignRepository get voucherRepository => get();
+  CampaignRepository get campaignRepository => get();
+
+  VoucherRepository get voucherRepository => get();
 
   NotificationRepository get notificationRepository => get();
 
@@ -289,6 +293,8 @@ class AppModule extends Module {
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
     provideSingleton(() => CampaignApi(
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
+    provideSingleton(() => VoucherApi(
+        get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
     provideSingleton(() => NotificationApi(
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
 
@@ -323,6 +329,7 @@ class AppModule extends Module {
     provideSingleton(() => ReferralRepository(get()));
     provideSingleton(() => EarnRepository(get()));
     provideSingleton(() => CampaignRepository(get()));
+    provideSingleton(() => VoucherRepository(get()));
     provideSingleton(() => NotificationRepository(get()));
     provideSingleton(() => NotificationCountBloc(get()));
 

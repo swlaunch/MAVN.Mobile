@@ -431,4 +431,19 @@ class TextStyles {
     fontWeight: FontWeight.w400,
     letterSpacing: 0,
   );
+
+  ///from design
+  static const voucherPartnerName = TextStyle(
+    color: ColorStyles.white,
+    fontFamily: commonFontFamily,
+    fontSize: 28,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const body3Light = TextStyle(
+    color: ColorStyles.white,
+    fontFamily: commonFontFamily,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
 }

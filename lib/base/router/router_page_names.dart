@@ -140,6 +140,11 @@ class RouterPageName {
 
   //endregion Campaigns
 
+  //region Voucher
+  static const String voucherDetailsPage = 'voucher_details_page';
+
+  //endregion Voucher
+
   //region misc
   static const String mandatoryAppUpgradePage = 'mandatory_app_upgrade_page';
 

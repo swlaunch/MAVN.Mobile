@@ -4,7 +4,6 @@ import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/response_model/campaign_response_model.dart';
 import 'package:lykke_mobile_mavn/base/router/external_router.dart';
-import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_details/ui_components/campaign_about_section.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_details/ui_components/campaign_top_section.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_list/ui_components/campaign_widget.dart';

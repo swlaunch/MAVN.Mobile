@@ -421,6 +421,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Entschuldige, leider ist dein Wallet derzeit blockiert und kann keine Transaktionen verarbeiten"),
         "dapBrowserHint": MessageLookupByLibrary.simpleMessage(
             "Sie können die Verknüpfungs-URL auch kopieren, um sie in einem dApp-Browser zu öffnen"),
+        "dashboard": MessageLookupByLibrary.simpleMessage("Instrumententafel"),
         "dateTimeToday": MessageLookupByLibrary.simpleMessage("Heute"),
         "dateTimeYesterday": MessageLookupByLibrary.simpleMessage("Gestern"),
         "daysAgo": m10,
@@ -1174,6 +1175,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vielen Dank für die Übermittlung deiner Zahlung. Wir werden dich informieren, sobald es verarbeitet ist."),
         "transactionSuccessTitle":
             MessageLookupByLibrary.simpleMessage("Transfer eingereicht"),
+        "transactions": MessageLookupByLibrary.simpleMessage("Transaktionen"),
         "transfer": MessageLookupByLibrary.simpleMessage("Transfer"),
         "transferInProgress":
             MessageLookupByLibrary.simpleMessage("Transfer läuft"),
@@ -1286,6 +1288,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Fehler. Der Bestätigungscode ist ungültig"),
         "viewPartnerDetailsButtonTitle":
             MessageLookupByLibrary.simpleMessage("Partnerdetails anzeigen"),
+        "viewVoucher":
+            MessageLookupByLibrary.simpleMessage("Gutschein anzeigen"),
         "voucherCopied": MessageLookupByLibrary.simpleMessage(
             "Voucher in Zwischenablage kopiert"),
         "voucherDetailsAmount": MessageLookupByLibrary.simpleMessage("Menge"),
@@ -1295,6 +1299,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Derzeit sind keine Voucher verfügbar"),
         "voucherSoldCountInfo": m87,
         "voucherStockCount": m88,
+        "vouchers": MessageLookupByLibrary.simpleMessage("Gutscheine"),
         "vouchersOption": MessageLookupByLibrary.simpleMessage("Gutscheine"),
         "walletLinkingInProgress":
             MessageLookupByLibrary.simpleMessage("Wallet Verknüpfung läuft"),

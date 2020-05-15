@@ -65,7 +65,7 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
       // Since we add a transparent bottom navigation item,
       // we add an empty container in the page list
       Container(),
-      bottomBarModule.walletPage,
+      bottomBarModule.voucherWalletPage,
       bottomBarModule.socialPage,
     ];
 
