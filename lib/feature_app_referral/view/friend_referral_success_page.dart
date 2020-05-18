@@ -11,9 +11,9 @@ class FriendReferralSuccessPage extends HookWidget {
     final router = useRouter();
     return ResultFeedbackPage(
       widgetKey: const Key('friendReferralSuccessWidget'),
-      details: LocalizedStrings.friendReferralSuccessDetails,
-      title: LocalizedStrings.referralSuccessPageTitle,
-      buttonText: LocalizedStrings.referralSuccessGoToRefsButton,
+      details: useLocalizedStrings().friendReferralSuccessDetails,
+      title: useLocalizedStrings().referralSuccessPageTitle,
+      buttonText: useLocalizedStrings().referralSuccessGoToRefsButton,
       onButtonTap: () {
         router
           ..popToRoot()

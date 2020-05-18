@@ -1,3 +1,4 @@
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 
@@ -21,7 +22,7 @@ class LinkWalletErrorState extends LinkWalletState {
 class LinkWalletErrorEvent extends LinkWalletEvent {
   LinkWalletErrorEvent(this.message);
 
-  final String message;
+  final LocalizedStringBuilder message;
 
   @override
   List get props => [message];

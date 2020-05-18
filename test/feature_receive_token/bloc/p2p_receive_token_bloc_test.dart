@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_receive_token/bloc/p2p_receive_token_bloc.dart';
@@ -81,8 +81,8 @@ void main() {
         ReceiveTokenPageUninitializedState(),
         ReceiveTokenPageLoadingState(),
         ReceiveTokenPageErrorState(
-            errorTitle: LocalizedStrings.networkErrorTitle,
-            errorSubtitle: LocalizedStrings.networkError,
+            errorTitle: LazyLocalizedStrings.networkErrorTitle,
+            errorSubtitle: LazyLocalizedStrings.networkError,
             iconAsset: SvgAssets.networkError),
       ]);
     });
@@ -99,9 +99,9 @@ void main() {
         ReceiveTokenPageUninitializedState(),
         ReceiveTokenPageLoadingState(),
         ReceiveTokenPageErrorState(
-            errorTitle: LocalizedStrings.somethingIsNotRightError,
+            errorTitle: LazyLocalizedStrings.somethingIsNotRightError,
             errorSubtitle:
-                LocalizedStrings.receiveTokenPageGenericErrorSubtitle,
+                LazyLocalizedStrings.receiveTokenPageGenericErrorSubtitle,
             iconAsset: SvgAssets.networkError),
       ]);
     });

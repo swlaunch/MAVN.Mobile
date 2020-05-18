@@ -30,36 +30,6 @@ class Heading extends StatelessWidget {
   final bool invert;
   final double dividerTopSpacing;
 
-  Widget _buildIcon() => Padding(
-        padding: const EdgeInsets.only(right: 12),
-        child: SvgPicture.asset(
-          icon,
-          width: iconSize,
-          height: iconSize,
-          color: invert ? ColorStyles.white : ColorStyles.primaryDark,
-        ),
-      );
-
-  Widget _buildTitle() => Expanded(
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            text,
-            style:
-                invert ? TextStyles.lightHeadersH2 : TextStyles.darkHeadersH2,
-            textAlign: TextAlign.left,
-          ),
-        ),
-      );
-
-  Widget _buildStepInfo() => Padding(
-        padding: const EdgeInsets.only(left: 12),
-        child: Text(
-          LocalizedStrings.stepOf(currentStep, totalSteps),
-          style: TextStyles.darkBodyBody3RegularHigh,
-        ),
-      );
-
   @override
   Widget build(BuildContext context) => Align(
         alignment: Alignment.centerLeft,
@@ -88,7 +58,7 @@ class Heading extends StatelessWidget {
                             : ColorStyles.primaryDark,
                       ),
                       if (currentStep != null && totalSteps != null)
-                        _buildStepInfo(),
+                        _buildStepInfo(context),
                     ],
                   ),
                 ],
@@ -96,6 +66,36 @@ class Heading extends StatelessWidget {
             ),
             if (endContent != null && !endContentAlignedToTitle) endContent,
           ],
+        ),
+      );
+
+  Widget _buildIcon() => Padding(
+        padding: const EdgeInsets.only(right: 12),
+        child: SvgPicture.asset(
+          icon,
+          width: iconSize,
+          height: iconSize,
+          color: invert ? ColorStyles.white : ColorStyles.primaryDark,
+        ),
+      );
+
+  Widget _buildTitle() => Expanded(
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            text,
+            style:
+                invert ? TextStyles.lightHeadersH2 : TextStyles.darkHeadersH2,
+            textAlign: TextAlign.left,
+          ),
+        ),
+      );
+
+  Widget _buildStepInfo(BuildContext context) => Padding(
+        padding: const EdgeInsets.only(left: 12),
+        child: Text(
+          LocalizedStrings.of(context).stepOf(currentStep, totalSteps),
+          style: TextStyles.darkBodyBody3RegularHigh,
         ),
       );
 }

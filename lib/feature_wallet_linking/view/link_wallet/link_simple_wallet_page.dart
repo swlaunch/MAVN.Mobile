@@ -31,10 +31,10 @@ class LinkSimpleWalletPage extends HookWidget {
         : '';
 
     return ScaffoldWithScrollableContent(
-        heading: LocalizedStrings.linkSimpleWalletHeader,
-        hint: LocalizedStrings.linkSimpleWalletDescription,
+        heading: useLocalizedStrings().linkSimpleWalletHeader,
+        hint: useLocalizedStrings().linkSimpleWalletDescription,
         bottomButton: PrimaryButton(
-          text: LocalizedStrings.backToWalletButton,
+          text: useLocalizedStrings().backToWalletButton,
           onTap: () {
             walletBloc.fetchWallet();
             router.popToRoot();
@@ -49,17 +49,17 @@ class LinkSimpleWalletPage extends HookWidget {
               Expanded(
                 child: GenericErrorIconWidget(
                   onRetryTap: linkSimpleWalletBloc.generateDAppURL,
-                  title: LocalizedStrings.genericErrorShort,
-                  text: linkSimpleWalletState.message,
+                  title: useLocalizedStrings().genericErrorShort,
+                  text: linkSimpleWalletState.message.localize(useContext()),
                   errorKey: null,
                 ),
               ),
+            _buildListItem(useLocalizedStrings()
+                .linkSimpleWalletInstructionSwitchToWallet),
             _buildListItem(
-                LocalizedStrings.linkSimpleWalletInstructionSwitchToWallet),
+                useLocalizedStrings().linkSimpleWalletInstructionPasteAddress),
             _buildListItem(
-                LocalizedStrings.linkSimpleWalletInstructionPasteAddress),
-            _buildListItem(
-                LocalizedStrings.linkSimpleWalletInstructionPasteLink),
+                useLocalizedStrings().linkSimpleWalletInstructionPasteLink),
           ],
           numberStyle: TextStyles.darkBodyBody3Regular,
           itemBuilder: (item) => item,
@@ -70,7 +70,7 @@ class LinkSimpleWalletPage extends HookWidget {
           String link, LinkSimpleWalletState linkSimpleWalletState) =>
       Expanded(
         child: CopyRowWidget(
-          title: LocalizedStrings.linkSimpleWalletInstructionCopyUrl,
+          title: useLocalizedStrings().linkSimpleWalletInstructionCopyUrl,
           copyText: link,
           isLoading: linkSimpleWalletState is LinkSimpleWalletLoadingState,
         ),

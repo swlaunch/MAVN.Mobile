@@ -23,8 +23,9 @@ class CustomCheckbox extends HookWidget {
 
     return FormField<bool>(
       initialValue: isCheckedValueNotifier.value,
-      validator: (_) =>
-          fieldValidationManager?.validator(isCheckedValueNotifier.value),
+      validator: (_) => fieldValidationManager
+          ?.validator(isCheckedValueNotifier.value)
+          ?.localize(context),
       builder: (state) => Theme(
         data: ThemeData(
           unselectedWidgetColor:

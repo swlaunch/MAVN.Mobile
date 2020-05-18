@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/feature_maintenance/bloc/maintenance_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_maintenance/bloc/maintenance_bloc_output.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
@@ -17,6 +18,7 @@ List<BlocOutput> _expectedFullBlocOutput = [];
 
 BlocTester<MaintenanceBloc> _blocTester;
 MaintenanceBloc _subject;
+final _localizedStrings = LocalizedStrings();
 
 void main() {
   group('MaintenanceBloc tests', () {
@@ -35,7 +37,7 @@ void main() {
     test('errorState', () {
       void testErrorMessage(int duration, String errorMessage) {
         _subject.setInitialDurationPeriod(duration);
-        _blocTester.assertCurrentState(MaintenanceErrorState(errorMessage));
+        assertMaintenanceErrorStateMessage(errorMessage);
       }
 
       testErrorMessage(160, '2 hours');
@@ -48,12 +50,11 @@ void main() {
     test('retry', () async {
       givenMobileRepositoryWillThrow(160);
       await _subject.retry();
-      await _blocTester.assertCurrentState(MaintenanceErrorState('2 hours'));
+      assertMaintenanceErrorStateMessage('2 hours');
 
       givenMobileRepositoryWillThrow(null, statusCode: 400);
       await _subject.retry();
-      await _blocTester
-          .assertCurrentState(MaintenanceErrorState('couple of hours'));
+      assertMaintenanceErrorStateMessage('couple of hours');
 
       givenMobileRepositoryWillReturnSuccess();
       await _subject.retry();
@@ -72,4 +73,11 @@ void givenMobileRepositoryWillThrow(int duration, {int statusCode = 503}) {
 void givenMobileRepositoryWillReturnSuccess() {
   when(_mobileRepository.getSettings())
       .thenAnswer((_) => Future.value(TestConstants.stubMobileSettings));
+}
+
+void assertMaintenanceErrorStateMessage(String errorMessage) {
+  _blocTester.assertCurrentStateType(MaintenanceErrorState);
+  final blockErrorState = _blocTester.currentState as MaintenanceErrorState;
+  expect(blockErrorState.remainingMaintenanceDuration.from(_localizedStrings),
+      errorMessage);
 }

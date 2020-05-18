@@ -26,15 +26,15 @@ class LinkWalletReceivePage extends HookWidget {
         : '';
 
     return ScaffoldWithScrollableContent(
-      heading: LocalizedStrings.linkWalletReceiveTitle(tokenSymbol.value),
-      hint: LocalizedStrings.linkWalletReceiveHint(tokenSymbol.value),
+      heading: useLocalizedStrings().linkWalletReceiveTitle(tokenSymbol.value),
+      hint: useLocalizedStrings().linkWalletReceiveHint(tokenSymbol.value),
       content: Column(
         children: <Widget>[
           const SizedBox(height: 24),
           _buildQRCode(context, gatewayAddress),
           const SizedBox(height: 24),
           _buildCopyRow(
-            LocalizedStrings.linkWalletReceiveCopyAddress,
+            useLocalizedStrings().linkWalletReceiveCopyAddress,
             gatewayAddress,
             false,
           ),
@@ -42,7 +42,7 @@ class LinkWalletReceivePage extends HookWidget {
           Container(
             width: 248,
             child: Text(
-              LocalizedStrings.linkWalletReceiveNote,
+              useLocalizedStrings().linkWalletReceiveNote,
               style: TextStyles.darkBodyBody3RegularHigh,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,

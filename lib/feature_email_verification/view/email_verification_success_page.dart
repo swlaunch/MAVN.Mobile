@@ -11,9 +11,9 @@ class EmailVerificationSuccessPage extends HookWidget {
     final router = useRouter();
     return ResultFeedbackPage(
       widgetKey: const Key('changePasswordSuccessWidget'),
-      title: LocalizedStrings.emailVerificationSuccessTitle,
-      details: LocalizedStrings.emailVerificationSuccessDetails,
-      buttonText: LocalizedStrings.nextPageButton,
+      title: useLocalizedStrings().emailVerificationSuccessTitle,
+      details: useLocalizedStrings().emailVerificationSuccessDetails,
+      buttonText: useLocalizedStrings().nextPageButton,
       onButtonTap: router.pushRootBottomBarPage,
       endIcon: SvgAssets.success,
       hasBackButton: false,

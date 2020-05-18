@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/remote_config_manager/remote_config_manager.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_biometrics/bloc/biometric_bloc_output.dart';
@@ -85,7 +86,8 @@ void main() {
     testWidgets('LoginErrorState', (widgetTester) async {
       await givenSubjectWidgetWithInitialBlocState(
         widgetTester,
-        LoginErrorState(TestConstants.stubErrorText),
+        LoginErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
       );
 
       _thenLoginSubmitButtonIsEnabled();

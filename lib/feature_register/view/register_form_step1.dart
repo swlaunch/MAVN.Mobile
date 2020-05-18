@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/countries_response_model.dart';
 import 'package:lykke_mobile_mavn/feature_register/analytics/register_analytics_manager.dart';
@@ -92,7 +93,7 @@ class RegisterFormStep1 extends HookWidget with FormMixin {
 
     final countryValidationManager = useFieldValidationManager([
       CountryFieldValidation(
-          errorMessage: '',
+          errorMessage: LocalizedStringBuilder.empty(),
           onValidationError:
               registerAnalyticsManager.nationalityEmptyClientValidationError),
     ]);
@@ -122,8 +123,8 @@ class RegisterFormStep1 extends HookWidget with FormMixin {
             children: <Widget>[
               FieldPadding(
                 CustomTextField(
-                  label: LocalizedStrings.emailRequiredLabel,
-                  hint: LocalizedStrings.emailAddressHint,
+                  label: useLocalizedStrings().emailRequiredLabel,
+                  hint: useLocalizedStrings().emailAddressHint,
                   valueKey: const Key('emailTextField'),
                   contextGlobalKey: emailGlobalKey,
                   focusNode: emailFocusNode,
@@ -138,8 +139,8 @@ class RegisterFormStep1 extends HookWidget with FormMixin {
               ),
               FieldPadding(
                 CustomTextField(
-                  label: LocalizedStrings.firstNameRequiredLabel,
-                  hint: LocalizedStrings.firstNameHint,
+                  label: useLocalizedStrings().firstNameRequiredLabel,
+                  hint: useLocalizedStrings().firstNameHint,
                   focusNode: firstNameFocusNode,
                   contextGlobalKey: firstNameGlobalKey,
                   valueKey: const Key('firstNameTextField'),
@@ -154,8 +155,8 @@ class RegisterFormStep1 extends HookWidget with FormMixin {
               ),
               FieldPadding(
                 CustomTextField(
-                  label: LocalizedStrings.lastNameRequiredLabel,
-                  hint: LocalizedStrings.lastNameHint,
+                  label: useLocalizedStrings().lastNameRequiredLabel,
+                  hint: useLocalizedStrings().lastNameHint,
                   focusNode: lastNameFocusNode,
                   nextFocusNode: nationalityFocusNode,
                   contextGlobalKey: lastNameGlobalKey,
@@ -170,19 +171,19 @@ class RegisterFormStep1 extends HookWidget with FormMixin {
               ),
               FieldPadding(
                 SelectCountryField(
-                  label: LocalizedStrings.nationalityOptionalLabel,
-                  hint: LocalizedStrings.nationalityHint,
+                  label: useLocalizedStrings().nationalityOptionalLabel,
+                  hint: useLocalizedStrings().nationalityHint,
                   valueKey: const Key('nationalityField'),
                   inputGlobalKey: nationalityGlobalKey,
                   selectedCountryNotifier: selectedCountryOfNationalityNotifier,
                   fieldValidationManager: countryValidationManager,
                   focusNode: nationalityFocusNode,
-                  listPageTitle: LocalizedStrings.nationalityListPageTitle,
+                  listPageTitle: useLocalizedStrings().nationalityListPageTitle,
                 ),
               ),
               PrimaryButton(
                 buttonKey: const Key('registerNextButton'),
-                text: LocalizedStrings.nextPageButton,
+                text: useLocalizedStrings().nextPageButton,
                 onTap: () {
                   registerAnalyticsManager.nextButtonTapped();
                   onNextTapFunction();

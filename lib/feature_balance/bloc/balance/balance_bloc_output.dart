@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/conversion/response_model/currency_converter_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/wallet_response_model.dart';
@@ -19,8 +21,8 @@ class BalanceErrorState extends BalanceBaseErrorState {
     @required this.iconAsset,
   });
 
-  final String errorTitle;
-  final String errorSubtitle;
+  final LocalizedStringBuilder errorTitle;
+  final LocalizedStringBuilder errorSubtitle;
   final String iconAsset;
 
   @override

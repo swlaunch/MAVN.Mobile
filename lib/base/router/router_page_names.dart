@@ -134,10 +134,16 @@ class RouterPageName {
 
 //endregion Account Static Pages
 
-  //region Vouchers
-  static const String voucherListPage = 'voucher_list_page';
+  //region Campaigns
+  static const String campaignListPage = 'campaign_list_page';
+  static const String campaignDetailsPage = 'campaign_details_page';
 
-  //endregion Vouchers
+  //endregion Campaigns
+
+  //region Voucher
+  static const String voucherDetailsPage = 'voucher_details_page';
+
+  //endregion Voucher
 
   //region misc
   static const String mandatoryAppUpgradePage = 'mandatory_app_upgrade_page';
@@ -153,4 +159,10 @@ class RouterPageName {
   static const String socialPage = 'social_page';
 
 //endregion Social
+
+//region Misc
+
+  static const String comingSoonPage = 'coming_soon_page';
+
+//endregion Misc
 }

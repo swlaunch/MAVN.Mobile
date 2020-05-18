@@ -9,12 +9,13 @@ class NonMandatoryAppUpgradeDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => CustomDialog(
-        title: LocalizedStrings.nonMandatoryAppUpgradeDialogTitle,
-        content: LocalizedStrings.nonMandatoryAppUpgradeDialogContent,
-        positiveButtonText:
-            LocalizedStrings.nonMandatoryAppUpgradeDialogPositiveButton,
-        negativeButtonText:
-            LocalizedStrings.nonMandatoryAppUpgradeDialogNegativeButton,
+        title: LocalizedStrings.of(context).nonMandatoryAppUpgradeDialogTitle,
+        content:
+            LocalizedStrings.of(context).nonMandatoryAppUpgradeDialogContent,
+        positiveButtonText: LocalizedStrings.of(context)
+            .nonMandatoryAppUpgradeDialogPositiveButton,
+        negativeButtonText: LocalizedStrings.of(context)
+            .nonMandatoryAppUpgradeDialogNegativeButton,
         titleIcon: SvgPicture.asset(SvgAssets.appUpdate),
       );
 }

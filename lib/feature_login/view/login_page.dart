@@ -90,7 +90,7 @@ class LoginPage extends HookWidget {
           children: <Widget>[
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Heading(LocalizedStrings.loginPageHeader)),
+                child: Heading(useLocalizedStrings().loginPageHeader)),
             const SizedBox(height: 12),
             Expanded(
               child: LoginForm(
@@ -116,7 +116,7 @@ class LoginPage extends HookWidget {
       biometricBloc.clear();
       _scaffoldKey.currentState.showSnackBar(SnackBar(
         content: Text(
-          LocalizedStrings.loginPageUnauthorizedRedirectionMessage,
+          useLocalizedStrings().loginPageUnauthorizedRedirectionMessage,
           key: const Key('unauthorizedRedirectionMessage'),
         ),
       ));

@@ -3,12 +3,11 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
+import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/constants/bottom_bar_navigation_constants.dart';
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
@@ -18,8 +17,7 @@ import 'package:lykke_mobile_mavn/feature_bottom_bar/bloc/bottom_bar_page_bloc.d
 import 'package:lykke_mobile_mavn/feature_bottom_bar/di/bottom_bar_module.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/view/floating_action_button_location.dart';
 import 'package:lykke_mobile_mavn/feature_p2p_transactions/bloc/barcode_scanner_manager.dart';
-import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc_output.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_purchase/bloc/voucher_purchase_success_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/dynamic_link_manager.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/dynamic_link_manager_mixin.dart';
@@ -36,14 +34,12 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
 
   @override
   Widget build(BuildContext context) {
-    final themeBloc = useThemeBloc();
-    final themeBlocState = useBlocState(themeBloc);
     final bottomBarAnalyticsManager = useBottomBarAnalyticsManager();
     final bottomBarPageBloc = useBottomBarPageBloc();
     final balanceBloc = useBalanceBloc();
     final walletBloc = useWalletBloc();
     final hotelReferralBloc = useAcceptHotelReferralBloc();
-    final leadReferralBloc = useAcceptLeadReferralBloc();
+    final voucherPurchaseSuccessBloc = useVoucherPurchaseSuccessBloc();
     final firebaseMessagingBloc = useFirebaseMessagingBloc();
     final dynamicLinkManager = useDynamicLinkManager();
     final router = useRouter();
@@ -69,7 +65,7 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
       // Since we add a transparent bottom navigation item,
       // we add an empty container in the page list
       Container(),
-      bottomBarModule.walletPage,
+      bottomBarModule.voucherWalletPage,
       bottomBarModule.socialPage,
     ];
 
@@ -118,7 +114,7 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
       dynamicLinkManager.routePendingRequests(fromEvent: event);
     });
 
-    useBlocEventListener(leadReferralBloc, (event) {
+    useBlocEventListener(voucherPurchaseSuccessBloc, (event) {
       dynamicLinkManager.routePendingRequests(fromEvent: event);
     });
 
@@ -133,105 +129,99 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
         dynamicLinkManager.routePendingRequests();
       });
     }, [_scaffoldKey]);
-    if (themeBlocState is ThemeUninitializedState) {
-      return Container();
-    }
-    if (themeBlocState is ThemeSelectedState) {
-      return WillPopScope(
-        onWillPop: () {
-          if (currentTabIndexState.value != 0) {
-            currentTabIndexState.value = 0;
-            return Future.value(false);
-          } else {
-            return Future.value(true);
-          }
-        },
-        child: AnnotatedRegion<SystemUiOverlayStyle>(
-            value: SystemUiOverlayStyle.dark,
-            child: Scaffold(
-              key: _scaffoldKey,
-              floatingActionButton: Container(
-                width: 56,
-                height: 56,
-                child: FittedBox(
-                  child: FloatingActionButton(
-                    elevation: 0,
-                    backgroundColor:
-                        themeBlocState.theme.bottomBarNotchBackground,
-                    onPressed: () => _openScanPage(router, qrContentManager),
-                    child: StandardSizedSvg(SvgAssets.qrCode,
-                        color: themeBlocState.theme.bottomBarNotchIcon),
+
+    return WillPopScope(
+      onWillPop: () {
+        if (currentTabIndexState.value != 0) {
+          currentTabIndexState.value = 0;
+          return Future.value(false);
+        } else {
+          return Future.value(true);
+        }
+      },
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle.dark,
+          child: Scaffold(
+            key: _scaffoldKey,
+            floatingActionButton: Container(
+              width: 56,
+              height: 56,
+              child: FittedBox(
+                child: FloatingActionButton(
+                  elevation: 0,
+                  backgroundColor: ColorStyles.bitterSweet,
+                  onPressed: () => _openScanPage(
+                      LocalizedStrings.of(context), router, qrContentManager),
+                  child: const StandardSizedSvg(
+                    SvgAssets.qrCode,
+                    color: ColorStyles.white,
                   ),
                 ),
               ),
-              floatingActionButtonLocation:
-                  const CenterDockedFloatingActionButtonLocation(),
-              bottomNavigationBar: BottomAppBar(
-                shape: const CircularNotchedRectangle(),
-                notchMargin: 24,
-                color: themeBlocState.theme.bottomBarBackground,
-                child: _buildBottomNavigationBar(
-                  context,
-                  currentTabIndexState,
-                  themeBlocState.theme,
-                ),
+            ),
+            floatingActionButtonLocation:
+                const CenterDockedFloatingActionButtonLocation(),
+            bottomNavigationBar: BottomAppBar(
+              shape: const CircularNotchedRectangle(),
+              notchMargin: 24,
+              color: ColorStyles.white,
+              child: _buildBottomNavigationBar(
+                context,
+                currentTabIndexState,
               ),
-              body: IndexedStack(
-                  index: currentTabIndexState.value,
-                  children:
-                      offStagePageList(pageList, currentTabIndexState.value)),
-            )),
-      );
-    }
+            ),
+            body: IndexedStack(
+                index: currentTabIndexState.value,
+                children:
+                    offStagePageList(pageList, currentTabIndexState.value)),
+          )),
+    );
   }
 
-  Widget _buildBottomNavigationBar(BuildContext context,
-          ValueNotifier<int> currentIndexState, BaseAppTheme theme) =>
+  Widget _buildBottomNavigationBar(
+    BuildContext context,
+    ValueNotifier<int> currentIndexState,
+  ) =>
       Container(
         padding: const EdgeInsets.only(top: 2),
         decoration: BoxDecoration(
-          color: theme.bottomBarBackground,
+          color: ColorStyles.white,
           border: Border(
-            top: BorderSide(width: 2, color: theme.bottomBarBorder),
+            top: BorderSide(width: 2, color: ColorStyles.grayNurse),
           ),
         ),
         child: BottomNavigationBar(
           key: ModuleProvider.of<AppModule>(context).bottomBarGlobalKey,
           items: [
             _buildBottomNavigationBarItem(
-              title: LocalizedStrings.bottomBarExplore,
+              title: LocalizedStrings.of(context).bottomBarExplore,
               assetString: SvgAssets.search,
               valueKey: 'exploreTab',
-              theme: theme,
             ),
             _buildBottomNavigationBarItem(
-              title: LocalizedStrings.bottomBarOffers,
+              title: LocalizedStrings.of(context).bottomBarOffers,
               assetString: SvgAssets.announce,
               valueKey: 'offersTab',
-              theme: theme,
             ),
             _buildBottomNavigationBarItem(
               title: '',
               assetString: SvgAssets.transparent,
               valueKey: 'transparentTab',
-              theme: theme,
             ),
             _buildBottomNavigationBarItem(
-              title: LocalizedStrings.bottomBarWallet,
+              title: LocalizedStrings.of(context).bottomBarWallet,
               assetString: SvgAssets.wallet,
               valueKey: 'walletTab',
-              theme: theme,
             ),
             _buildBottomNavigationBarItem(
-              title: LocalizedStrings.bottomBarSocial,
+              title: LocalizedStrings.of(context).bottomBarSocial,
               assetString: SvgAssets.socialIcon,
               valueKey: 'socialTab',
-              theme: theme,
             ),
           ],
-          selectedItemColor: theme.bottomBarSelected,
-          unselectedItemColor: theme.bottomBarDeselected,
-          backgroundColor: theme.bottomBarBackground,
+          selectedItemColor: ColorStyles.vividTangerine,
+          unselectedItemColor: ColorStyles.dustyGray,
+          backgroundColor: ColorStyles.white,
           currentIndex: currentIndexState.value,
           type: BottomNavigationBarType.fixed,
           //https://github.com/flutter/flutter/issues/21688
@@ -252,21 +242,20 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
     @required String title,
     @required String assetString,
     @required String valueKey,
-    @required BaseAppTheme theme,
   }) =>
       BottomNavigationBarItem(
         icon: Padding(
           padding: const EdgeInsets.symmetric(vertical: 4),
           child: StandardSizedSvg(
             assetString,
-            color: theme.bottomBarDeselected,
+            color: ColorStyles.dustyGray,
           ),
         ),
         activeIcon: Padding(
           padding: const EdgeInsets.symmetric(vertical: 4),
           child: StandardSizedSvg(
             assetString,
-            color: theme.bottomBarSelected,
+            color: ColorStyles.vividTangerine,
           ),
         ),
         title: Padding(
@@ -311,12 +300,13 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
   }
 
   Future<void> _openScanPage(
+    LocalizedStrings localizedStrings,
     Router router,
     QrContentManager qrContentManager,
   ) async {
     final scannedInfo = await BarcodeScanManager().startScan();
     final action = await qrContentManager.getQrAction(scannedInfo);
 
-    await router.showScannedInfoDialog(action);
+    await router.showScannedInfoDialog(localizedStrings, action);
   }
 }

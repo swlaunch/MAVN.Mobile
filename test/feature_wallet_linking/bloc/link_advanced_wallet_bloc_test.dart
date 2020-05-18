@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/link_advanced_wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/link_advanced_wallet_output.dart';
@@ -65,8 +66,8 @@ void main() {
         publicAddress: TestConstants.stubWalletPublicAddress,
         signature: TestConstants.stubWalletLinkingCode,
       )).thenThrow(Exception());
-      when(_mockExceptionToMessageMapper.map(null))
-          .thenReturn(TestConstants.stubErrorText);
+      when(_mockExceptionToMessageMapper.map(null)).thenReturn(
+          LocalizedStringBuilder.custom(TestConstants.stubErrorText));
 
       await subject.linkPrivateWallet(
           publicAddress: TestConstants.stubWalletPublicAddress,
@@ -75,8 +76,10 @@ void main() {
       await blocTester.assertFullBlocOutputInOrder([
         LinkAdvancedWalletUninitializedState(),
         LinkAdvancedWalletLoadingState(),
-        LinkAdvancedWalletSubmissionErrorEvent(TestConstants.stubErrorText),
-        LinkAdvancedWalletErrorState(TestConstants.stubErrorText)
+        LinkAdvancedWalletSubmissionErrorEvent(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
+        LinkAdvancedWalletErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText))
       ]);
     });
   });

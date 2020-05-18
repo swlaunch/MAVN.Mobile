@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_payment_request_list/di/partner_payments_module.dart';
 import 'package:lykke_mobile_mavn/feature_payment_request_list/ui_components/payment_request_status_card.dart';
@@ -87,7 +88,7 @@ void main() {
 
     testWidgets('Each tab shows its own error', (widgetTester) async {
       final paginationError = GenericListErrorState(
-        error: TestConstants.stubErrorText,
+        error: LocalizedStringBuilder.custom(TestConstants.stubErrorText),
         currentPage: 1,
         list: [],
       );

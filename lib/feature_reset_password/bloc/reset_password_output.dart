@@ -1,3 +1,4 @@
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:meta/meta.dart';
@@ -16,7 +17,7 @@ class ResetPasswordErrorState extends ResetPasswordState
   ResetPasswordErrorState({@required this.errorMessage});
 
   @override
-  String errorMessage;
+  LocalizedStringBuilder errorMessage;
 
   @override
   List get props => super.props..addAll([errorMessage]);

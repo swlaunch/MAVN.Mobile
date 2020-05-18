@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/country_codes_response_model.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
@@ -89,8 +90,8 @@ void main() {
 
     testWidgets('CountryCodeListErrorState', (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(widgetTester,
-          countryCodeListState:
-              CountryCodeListErrorState(TestConstants.stubErrorText));
+          countryCodeListState: CountryCodeListErrorState(
+              LocalizedStringBuilder.custom(TestConstants.stubErrorText)));
 
       verify(_mockCountryCodeListBloc.loadCountryCodeList()).called(1);
       expect(find.byKey(const Key('fullPageSelectListLoadingSpinner')),

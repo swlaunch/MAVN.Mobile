@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/remote_config_manager/remote_config_keys.dart';
@@ -60,7 +61,8 @@ class RegisterFormStep2 extends HookWidget with FormMixin {
 
     final termsAndConditionFieldValidationManager = useFieldValidationManager([
       CheckboxShouldBeChecked(
-          localizedString: LocalizedStrings.registerPageAgreeTermsOfUseError,
+          localizedString:
+              LazyLocalizedStrings.registerPageAgreeTermsOfUseError,
           onValidationError: registerAnalyticsManager
               .policiesCheckboxUncheckedClientValidationError),
     ]);
@@ -113,8 +115,8 @@ class RegisterFormStep2 extends HookWidget with FormMixin {
             children: <Widget>[
               FieldPadding(
                 PasswordTextField(
-                  label: LocalizedStrings.passwordRequiredLabel,
-                  hint: LocalizedStrings.passwordHint,
+                  label: useLocalizedStrings().passwordRequiredLabel,
+                  hint: useLocalizedStrings().passwordHint,
                   valueKey: const Key('passwordTextField'),
                   contextGlobalKey: passwordGlobalKey,
                   focusNode: passwordFocusNode,
@@ -255,7 +257,7 @@ class RegisterFormStep2 extends HookWidget with FormMixin {
   }) =>
       PrimaryButton(
         buttonKey: const Key('registerSubmitButton'),
-        text: LocalizedStrings.submitButton,
+        text: useLocalizedStrings().submitButton,
         onTap: () {
           registerAnalyticsManager.submitButtonTapped();
           onRegisterSubmitFunction();
@@ -274,7 +276,8 @@ class RegisterFormStep2 extends HookWidget with FormMixin {
         child: InlineErrorWidget(
             padding: const EdgeInsets.only(bottom: 8),
             keyValue: 'registerTermsOfUseError',
-            errorMessage: LocalizedStrings.registerPageAgreeTermsOfUseError),
+            errorMessage:
+                useLocalizedStrings().registerPageAgreeTermsOfUseError),
       );
     }
 
@@ -282,7 +285,7 @@ class RegisterFormStep2 extends HookWidget with FormMixin {
       return InlineErrorWidget(
         padding: const EdgeInsets.only(bottom: 8),
         keyValue: 'registerError',
-        errorMessage: registerState.error,
+        errorMessage: registerState.error.localize(useContext()),
       );
     }
 

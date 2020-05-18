@@ -61,7 +61,7 @@ class PrimaryButton extends StatelessWidget {
                       : TextStyles.lightButtonExtraBold,
                 ),
           onPressed: _getOnTapFunction(),
-          color: isLight ? Colors.white : ColorStyles.primaryDark,
+          color: isLight ? Colors.white : ColorStyles.resolutionBlue,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         ),

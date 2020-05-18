@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_personal_details/bloc/delete_account_use_case.dart';
 import 'package:mockito/mockito.dart';
@@ -30,11 +31,13 @@ void main() {
     test('error path', () async {
       when(_mockCustomerRepository.deleteAccount()).thenThrow(Exception());
 
-      when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(TestConstants.stubErrorText);
+      when(_mockExceptionToMessageMapper.map(any)).thenReturn(
+          LocalizedStringBuilder.custom(TestConstants.stubErrorText));
 
-      expect(() => _subject.execute(),
-          throwsA(const CustomException(TestConstants.stubErrorText)));
+      expect(
+          () => _subject.execute(),
+          throwsA(CustomException(
+              LocalizedStringBuilder.custom(TestConstants.stubErrorText))));
     });
   });
 }

@@ -182,7 +182,7 @@ class CameraView extends HookWidget {
               children: <Widget>[
                 const SizedBox(height: 24),
                 AutoSizeText(
-                  LocalizedStrings.cameraViewGuide,
+                  useLocalizedStrings().cameraViewGuide,
                   style: TextStyles.lightBodyBody2Regular,
                   maxLines: 3,
                 ),
@@ -217,7 +217,8 @@ class CameraView extends HookWidget {
                           margin: const EdgeInsets.only(
                               right: 8, left: 16, bottom: 4, top: 4),
                           child: SecondaryButton(
-                            text: LocalizedStrings.cameraPreviewRetakeButton,
+                            text:
+                                useLocalizedStrings().cameraPreviewRetakeButton,
                             onTap: cameraBloc.retakePicture,
                           ),
                         ),
@@ -231,7 +232,7 @@ class CameraView extends HookWidget {
                           child: PrimaryButton(
                             buttonKey: const Key('imageSubmitButton'),
                             isLight: true,
-                            text: LocalizedStrings.submitButton,
+                            text: useLocalizedStrings().submitButton,
                             onTap: () {
                               if (onPictureSubmitTapped != null) {
                                 cameraBloc
@@ -308,7 +309,7 @@ class CameraView extends HookWidget {
           maxLines: 2,
         ),
         secondChild: AutoSizeText(
-          LocalizedStrings.cameraPreviewTitle,
+          useLocalizedStrings().cameraPreviewTitle,
           style: TextStyles.h1PageHeaderLight,
           maxLines: 2,
         ),

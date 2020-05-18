@@ -31,7 +31,7 @@ class LinkAdvancedWalletPage extends HookWidget {
       }
 
       if (event is LinkAdvancedWalletSubmissionErrorEvent) {
-        ToastMessage.show(event.message, context);
+        ToastMessage.show(event.message.localize(context), context);
       }
     });
 
@@ -42,8 +42,8 @@ class LinkAdvancedWalletPage extends HookWidget {
     }
 
     return ScaffoldWithScrollableContent(
-      heading: LocalizedStrings.linkAdvancedWalletHeader,
-      hint: LocalizedStrings.linkAdvancedWalletDescription,
+      heading: useLocalizedStrings().linkAdvancedWalletHeader,
+      hint: useLocalizedStrings().linkAdvancedWalletDescription,
       content: LinkingAdvancedWalletForm(
         formKey: _formKey,
         linkingCodeContextGlobalKey: _linkingCodeGlobalKey,

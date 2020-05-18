@@ -30,15 +30,16 @@ class HotelReferralSuccessPage extends HookWidget {
 
     return ResultFeedbackPage(
       widgetKey: const Key('hotelReferralSuccessWidget'),
-      title: LocalizedStrings.referralSuccessPageTitle,
-      details:
-          LocalizedStrings.hotelReferralSuccessPageDetails(refereeFullName) +
-              (partnerNameState is PartnerNameLoadedState
-                  ? LocalizedStrings.hotelReferralSuccessPageDetailsPartnerName(
+      title: useLocalizedStrings().referralSuccessPageTitle,
+      details: useLocalizedStrings()
+              .hotelReferralSuccessPageDetails(refereeFullName) +
+          (partnerNameState is PartnerNameLoadedState
+              ? useLocalizedStrings()
+                  .hotelReferralSuccessPageDetailsPartnerName(
                       partnerNameState.partnerName)
-                  : ''),
-      subDetails: LocalizedStrings.referralSuccessPageSubDetails,
-      buttonText: LocalizedStrings.referralSuccessGoToRefsButton,
+              : ''),
+      subDetails: useLocalizedStrings().referralSuccessPageSubDetails,
+      buttonText: useLocalizedStrings().referralSuccessGoToRefsButton,
       onButtonTap: () {
         router
           ..popToRoot()

@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
@@ -8,7 +9,7 @@ abstract class GenericListBloc<R, T> extends Bloc<GenericListState> {
     @required this.genericErrorSubtitle,
   });
 
-  final String genericErrorSubtitle;
+  final LocalizedStringBuilder genericErrorSubtitle;
 
   @override
   GenericListState initialState() => GenericListUninitializedState();
@@ -60,7 +61,7 @@ abstract class GenericListBloc<R, T> extends Bloc<GenericListState> {
         setState(GenericListLoadedState(
           list: newGenericList,
           totalCount: getTotalCount(response),
-          currentPage: getCurrentPage(response),
+          currentPage: page,
         ));
       }
     } on Exception catch (e) {
@@ -86,8 +87,6 @@ abstract class GenericListBloc<R, T> extends Bloc<GenericListState> {
   List<T> getDataFromResponse(R response);
 
   int getTotalCount(R response);
-
-  int getCurrentPage(R response);
 
   List<T> sort(List<T> list) => list;
 }

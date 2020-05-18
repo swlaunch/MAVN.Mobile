@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/notification/response_model/notification_list_response_model.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/null_safe_text.dart';
@@ -13,6 +14,7 @@ class NotificationListItemView extends StatelessWidget {
 
   final NotificationListNotification notificationListItem;
   final VoidCallback onTap;
+
   @override
   Widget build(BuildContext context) => InkWell(
         child: Container(
@@ -39,7 +41,7 @@ class NotificationListItemView extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     NullSafeText(
-                      notificationListItem.formattedDate,
+                      notificationListItem.formattedDate.localize(context),
                       style: TextStyles.notificationListItemSubtitle,
                     )
                   ],
@@ -61,7 +63,7 @@ class NotificationListHeaderView extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
         child: NullSafeText(
-          notificationListHeader.text,
+          notificationListHeader.text.localize(context),
           style: TextStyles.darkHeadersH3,
         ),
       );
@@ -78,11 +80,11 @@ class NotificationListNotification extends NotificationListItem {
 
   final NotificationMessage notification;
   final String icon;
-  final String formattedDate;
+  final LocalizedStringBuilder formattedDate;
 }
 
 class NotificationListHeader extends NotificationListItem {
   NotificationListHeader(this.text);
 
-  final String text;
+  final LocalizedStringBuilder text;
 }

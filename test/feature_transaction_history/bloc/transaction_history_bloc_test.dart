@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/transaction_history_response_model.dart';
 import 'package:lykke_mobile_mavn/base/repository/customer/customer_repository.dart';
 import 'package:lykke_mobile_mavn/feature_transaction_history/bloc/transaction_history_bloc.dart';
@@ -56,14 +56,16 @@ void main() {
           whenRepositoryGetTransactionHistoryInitialPageSuccess();
 
           subject.setState(TransactionHistoryInitialPageError(
-              error: TestConstants.stubErrorText));
+              error:
+                  LocalizedStringBuilder.custom(TestConstants.stubErrorText)));
 
           await subject.loadTransactionHistory();
 
           await _blocTester.assertFullBlocOutputInOrder([
             TransactionHistoryUninitialized(),
             TransactionHistoryInitialPageError(
-                error: TestConstants.stubErrorText),
+                error:
+                    LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
             TransactionHistoryInitialPageLoading(),
             TransactionHistoryLoaded(
               transactionHistoryResponseModel:
@@ -140,7 +142,7 @@ void main() {
                   totalCount: TransactionHistoryBloc.pageSize + 1);
 
           final loadedState = TransactionHistoryPaginationError(
-              error: TestConstants.stubErrorText,
+              error: LocalizedStringBuilder.custom(TestConstants.stubErrorText),
               transactionHistoryResponseModel: initialTransactionResponseModel,
               currentPage: TransactionHistoryBloc.initialPage + 1);
 
@@ -319,7 +321,7 @@ void main() {
             TransactionHistoryUninitialized(),
             TransactionHistoryInitialPageLoading(),
             TransactionHistoryInitialPageError(
-                error: LocalizedStrings
+                error: LazyLocalizedStrings
                     .walletPageTransactionHistoryInitialPageError),
           ]);
 
@@ -330,17 +332,19 @@ void main() {
           whenRepositoryGetTransactionHistoryInitialPageError();
 
           subject.setState(TransactionHistoryInitialPageError(
-              error: TestConstants.stubErrorText));
+              error:
+                  LocalizedStringBuilder.custom(TestConstants.stubErrorText)));
 
           await subject.loadTransactionHistory();
 
           await _blocTester.assertFullBlocOutputInOrder([
             TransactionHistoryUninitialized(),
             TransactionHistoryInitialPageError(
-                error: TestConstants.stubErrorText),
+                error:
+                    LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
             TransactionHistoryInitialPageLoading(),
             TransactionHistoryInitialPageError(
-                error: LocalizedStrings
+                error: LazyLocalizedStrings
                     .walletPageTransactionHistoryInitialPageError),
           ]);
         });
@@ -361,7 +365,7 @@ void main() {
                   totalCount: TransactionHistoryBloc.pageSize + 1);
 
           final loadedState = TransactionHistoryPaginationError(
-              error: TestConstants.stubErrorText,
+              error: LocalizedStringBuilder.custom(TestConstants.stubErrorText),
               transactionHistoryResponseModel: initialTransactionResponseModel,
               currentPage: TransactionHistoryBloc.initialPage + 1);
 
@@ -376,7 +380,7 @@ void main() {
                 transactionHistoryResponseModel:
                     initialTransactionResponseModel),
             TransactionHistoryPaginationError(
-                error: LocalizedStrings
+                error: LazyLocalizedStrings
                     .walletPageTransactionHistoryPaginationError,
                 transactionHistoryResponseModel:
                     initialTransactionResponseModel,
@@ -416,7 +420,7 @@ void main() {
                 transactionHistoryResponseModel:
                     initialTransactionResponseModel),
             TransactionHistoryPaginationError(
-                error: LocalizedStrings
+                error: LazyLocalizedStrings
                     .walletPageTransactionHistoryPaginationError,
                 transactionHistoryResponseModel:
                     initialTransactionResponseModel,

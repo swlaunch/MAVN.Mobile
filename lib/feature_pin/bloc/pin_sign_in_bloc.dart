@@ -1,5 +1,5 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/exception_to_message_mapper.dart';
@@ -60,7 +60,7 @@ class PinSignInBloc extends PinBlocBase {
 
         if (_attemptCount >= _warningAttemptCount) {
           setState(PinErrorState(
-            error: LocalizedStrings.pinErrorRemainingAttempts(
+            error: LazyLocalizedStrings.pinErrorRemainingAttempts(
                 _remainingAttemptCount),
             isSubmitVisible: isSubmitVisible,
             isHidden: isHidden,

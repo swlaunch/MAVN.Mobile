@@ -26,7 +26,7 @@ class AccountDeactivatedPage extends HookWidget {
       body: Column(
         children: [
           PageTitle(
-            title: LocalizedStrings.accountDeactivatedPageTitle,
+            title: useLocalizedStrings().accountDeactivatedPageTitle,
             assetIconLeading: SvgAssets.accountDeactivated,
           ),
           Expanded(
@@ -44,11 +44,12 @@ class AccountDeactivatedPage extends HookWidget {
                       errorMessage: errorMessageState.value,
                     ),
                   PrimaryButton(
-                    text: LocalizedStrings.accountDeactivatedPageContactButton,
+                    text: useLocalizedStrings()
+                        .accountDeactivatedPageContactButton,
                     onTap: () {
                       externalRouter.launchPhone(contactPhoneNumberState.value,
                           onLaunchError: () {
-                        errorMessageState.value = LocalizedStrings
+                        errorMessageState.value = useLocalizedStrings()
                             .accountDeactivatedLaunchContactNumberError;
                       });
                     },
@@ -68,19 +69,19 @@ Widget _buildPageContent(String contactNumberUrl) => Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         const SizedBox(height: 22),
-        _buildStyledText(LocalizedStrings.accountDeactivatedPageMessagePart1),
+        _buildStyledText(
+            useLocalizedStrings().accountDeactivatedPageMessagePart1),
         const SizedBox(height: 16),
-        _buildStyledText(LocalizedStrings.accountDeactivatedPageMessagePart2(
-            Configuration.appName)),
+        _buildStyledText(useLocalizedStrings()
+            .accountDeactivatedPageMessagePart2(Configuration.appName)),
         const SizedBox(height: 16),
-        _buildStyledText(LocalizedStrings.accountDeactivatedPageMessagePart3(
-            contactNumberUrl)),
+        _buildStyledText(useLocalizedStrings()
+            .accountDeactivatedPageMessagePart3(contactNumberUrl)),
         const SizedBox(height: 16),
         _buildStyledText(
-            LocalizedStrings.accountDeactivatedPageMessageClosePart1),
-        _buildStyledText(
-            LocalizedStrings.accountDeactivatedPageMessageClosePart2(
-                Configuration.appName)),
+            useLocalizedStrings().accountDeactivatedPageMessageClosePart1),
+        _buildStyledText(useLocalizedStrings()
+            .accountDeactivatedPageMessageClosePart2(Configuration.appName)),
         const SizedBox(height: 22),
       ],
     );

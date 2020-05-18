@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/extended_earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
@@ -68,8 +68,8 @@ void main() {
         EarnRuleDetailUninitializedState(),
         EarnRuleDetailLoadingState(),
         EarnRuleDetailErrorState(
-          errorTitle: LocalizedStrings.networkErrorTitle,
-          errorSubtitle: LocalizedStrings.networkError,
+          errorTitle: LazyLocalizedStrings.networkErrorTitle,
+          errorSubtitle: LazyLocalizedStrings.networkError,
           iconAsset: SvgAssets.networkError,
         ),
       ]);
@@ -90,8 +90,9 @@ void main() {
         EarnRuleDetailUninitializedState(),
         EarnRuleDetailLoadingState(),
         EarnRuleDetailErrorState(
-          errorTitle: LocalizedStrings.somethingIsNotRightError,
-          errorSubtitle: LocalizedStrings.earnDetailPageGenericErrorSubTitle,
+          errorTitle: LazyLocalizedStrings.somethingIsNotRightError,
+          errorSubtitle:
+              LazyLocalizedStrings.earnDetailPageGenericErrorSubTitle,
           iconAsset: SvgAssets.genericError,
         ),
       ]);

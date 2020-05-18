@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:async/async.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
@@ -20,17 +20,13 @@ import 'package:lykke_mobile_mavn/library_dependency_injection/core.dart';
 export 'package:lykke_mobile_mavn/feature_balance/bloc/balance/balance_bloc_output.dart';
 
 class BalanceBloc extends Bloc<BalanceState> {
-  BalanceBloc(
-    this._conversionRepository,
-    this._walletRealTimeRepository,
-    this._tokenRepository,
-    this.getMobileSettingsUseCase,
-  );
+  BalanceBloc(this._conversionRepository, this._walletRealTimeRepository,
+      this._tokenRepository, this._getMobileSettingsUseCase);
 
   final ConversionRepository _conversionRepository;
   final WalletRealTimeRepository _walletRealTimeRepository;
   final TokenRepository _tokenRepository;
-  final GetMobileSettingsUseCase getMobileSettingsUseCase;
+  final GetMobileSettingsUseCase _getMobileSettingsUseCase;
 
   StreamSubscription _walletUpdatesSubscription;
 
@@ -123,7 +119,7 @@ class BalanceBloc extends Bloc<BalanceState> {
   Future<void> _handleWalletBalanceUpdate(
     WalletResponseModel data,
   ) async {
-    final currencyCode = getMobileSettingsUseCase.execute()?.baseCurrency;
+    final currencyCode = _getMobileSettingsUseCase.execute()?.baseCurrency;
 
     final conversionRateAmount =
         await _getAmountInBaseCurrency(data.balance.doubleValue);
@@ -194,8 +190,8 @@ class BalanceBloc extends Bloc<BalanceState> {
     }
 
     return BalanceErrorState(
-      errorTitle: LocalizedStrings.somethingIsNotRightError,
-      errorSubtitle: LocalizedStrings.balanceBoxErrorMessage,
+      errorTitle: LazyLocalizedStrings.somethingIsNotRightError,
+      errorSubtitle: LazyLocalizedStrings.balanceBoxErrorMessage,
       iconAsset: SvgAssets.walletError,
     );
   }

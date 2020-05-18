@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
@@ -11,15 +12,15 @@ abstract class BaseOfferUnavailableWidget {
     this.title,
     this.buttonText,
     this.onButtonTap,
-    this.body,
+    this.bodyBuilder,
   });
 
-  final String title;
-  final String buttonText;
+  final LocalizedStringBuilder title;
+  final LocalizedStringBuilder buttonText;
   final VoidCallback onButtonTap;
-  final Widget body;
+  final WidgetBuilder bodyBuilder;
 
-  Widget build() => Container(
+  Widget build(BuildContext context) => Container(
         color: ColorStyles.white,
         child: Container(
           margin: const EdgeInsets.all(24),
@@ -47,20 +48,20 @@ abstract class BaseOfferUnavailableWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(
-                      title.toUpperCase(),
+                      title.localize(context).toUpperCase(),
                       style: TextStyles.darkInputLabelBold,
                     ),
                   )
                 ],
               ),
               const SizedBox(height: 4),
-              body,
+              bodyBuilder(context),
               const SizedBox(height: 16),
               FlatButton(
                 padding: const EdgeInsets.all(0),
                 onPressed: onButtonTap,
                 child: Text(
-                  buttonText,
+                  buttonText.localize(context),
                   style: TextStyles.linksTextLinkBold,
                 ),
               )
@@ -73,11 +74,11 @@ abstract class BaseOfferUnavailableWidget {
 class WalletDisabledWidget extends BaseOfferUnavailableWidget {
   WalletDisabledWidget({this.router})
       : super(
-          title: LocalizedStrings.walletPageWalletDisabledError,
-          buttonText: LocalizedStrings.contactUsButton,
+          title: LazyLocalizedStrings.walletPageWalletDisabledError,
+          buttonText: LazyLocalizedStrings.contactUsButton,
           onButtonTap: router.pushContactUsPage,
-          body: Text(
-            LocalizedStrings.walletPageWalletDisabledErrorMessage,
+          bodyBuilder: (context) => Text(
+            LocalizedStrings.of(context).walletPageWalletDisabledErrorMessage,
             style: TextStyles.darkBodyBody1RegularHigh,
           ),
         );

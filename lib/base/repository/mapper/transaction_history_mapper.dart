@@ -1,7 +1,8 @@
 import 'package:decimal/decimal.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:intl/intl.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/transaction_history_response_model.dart';
 import 'package:lykke_mobile_mavn/feature_transaction_history/view/transaction_history_header.dart';
 import 'package:lykke_mobile_mavn/feature_transaction_history/view/transaction_history_item.dart';
@@ -38,6 +39,7 @@ class TransactionHistoryMapper {
   List<TransactionItem> mapTransactions(
     List<Transaction> transactions,
     final String tokenSymbol,
+    BuildContext context,
   ) {
     DateTime groupDate;
     final mappedTransactions = <TransactionItem>[];
@@ -55,6 +57,7 @@ class TransactionHistoryMapper {
           !DateTimeUtils.isSameDate(groupDate, transactionDateTime)) {
         groupDate = transactionDateTime;
         mappedTransactions.add(_getHeader(
+          context,
           groupDate: groupDate,
           transactions: transactions,
           tokenSymbol: tokenSymbol,
@@ -66,7 +69,8 @@ class TransactionHistoryMapper {
   }
 
   ///Returns a header for the specified date
-  TransactionHeaderItem _getHeader({
+  TransactionHeaderItem _getHeader(
+    BuildContext context, {
     DateTime groupDate,
     List<Transaction> transactions,
     String tokenSymbol,
@@ -90,7 +94,7 @@ class TransactionHistoryMapper {
         dateTime: groupDate,
         dateFormat: dateFormat,
         currentDateTime: DateTime.now(),
-      ),
+      ).localize(context),
       amount: formattedAmount,
     );
   }
@@ -109,8 +113,8 @@ class TransactionHistoryMapper {
         return TransactionListItem(
           transaction: transaction,
           title: transaction.otherSideCustomerEmail != null
-              ? LocalizedStrings.to(transaction.otherSideCustomerEmail)
-              : null,
+              ? LazyLocalizedStrings.to(transaction.otherSideCustomerEmail)
+              : LocalizedStringBuilder.empty(),
           amount: formattedAmount,
           formattedDate: formattedDate,
           transactionType: transaction.type,
@@ -119,8 +123,8 @@ class TransactionHistoryMapper {
         return TransactionListItem(
           transaction: transaction,
           title: transaction.otherSideCustomerEmail != null
-              ? LocalizedStrings.from(transaction.otherSideCustomerEmail)
-              : null,
+              ? LazyLocalizedStrings.from(transaction.otherSideCustomerEmail)
+              : LocalizedStringBuilder.empty(),
           amount: formattedAmount,
           formattedDate: formattedDate,
           transactionType: transaction.type,
@@ -128,34 +132,34 @@ class TransactionHistoryMapper {
       case TransactionType.bonusReward:
         return TransactionListItem(
           transaction: transaction,
-          title: LocalizedStrings.walletPageTransactionHistoryRewardType,
+          title: LazyLocalizedStrings.walletPageTransactionHistoryRewardType,
           amount: formattedAmount,
           formattedDate: formattedDate,
-          subtitle: transaction.actionRule,
+          subtitle: LocalizedStringBuilder.custom(transaction.actionRule),
           transactionType: transaction.type,
         );
       case TransactionType.paymentTransfer:
         return TransactionListItem(
           transaction: transaction,
-          title: LocalizedStrings.walletPageTransactionHistoryPaymentType,
+          title: LazyLocalizedStrings.walletPageTransactionHistoryPaymentType,
           amount: formattedAmount,
           formattedDate: formattedDate,
           transactionType: transaction.type,
-          subtitle: transaction.instalmentName,
+          subtitle: LocalizedStringBuilder.custom(transaction.instalmentName),
         );
       case TransactionType.paymentTransferRefund:
         return TransactionListItem(
           transaction: transaction,
-          title: LocalizedStrings.walletPageTransactionHistoryRefundType,
+          title: LazyLocalizedStrings.walletPageTransactionHistoryRefundType,
           amount: formattedAmount,
           formattedDate: formattedDate,
           transactionType: transaction.type,
-          subtitle: transaction.instalmentName,
+          subtitle: LocalizedStringBuilder.custom(transaction.instalmentName),
         );
       case TransactionType.partnerPayment:
         return TransactionListItem(
           transaction: transaction,
-          title: transaction.partnerName,
+          title: LocalizedStringBuilder.custom(transaction.partnerName),
           amount: formattedAmount,
           formattedDate: formattedDate,
           transactionType: transaction.type,
@@ -163,16 +167,16 @@ class TransactionHistoryMapper {
       case TransactionType.partnerPaymentRefund:
         return TransactionListItem(
           transaction: transaction,
-          title: transaction.partnerName,
+          title: LocalizedStringBuilder.custom(transaction.partnerName),
           amount: formattedAmount,
           formattedDate: formattedDate,
           transactionType: transaction.type,
-          subtitle: LocalizedStrings.walletPageTransactionHistoryRefundType,
+          subtitle: LazyLocalizedStrings.walletPageTransactionHistoryRefundType,
         );
       case TransactionType.referralStake:
         return TransactionListItem(
           transaction: transaction,
-          title: transaction.actionRule,
+          title: LocalizedStringBuilder.custom(transaction.actionRule),
           amount: formattedAmount,
           formattedDate: formattedDate,
           transactionType: transaction.type,
@@ -180,7 +184,7 @@ class TransactionHistoryMapper {
       case TransactionType.releasedReferralStake:
         return TransactionListItem(
           transaction: transaction,
-          title: transaction.actionRule,
+          title: LocalizedStringBuilder.custom(transaction.actionRule),
           amount: formattedAmount,
           formattedDate: formattedDate,
           transactionType: transaction.type,
@@ -188,7 +192,8 @@ class TransactionHistoryMapper {
       case TransactionType.walletLinkingFee:
         return TransactionListItem(
           transaction: transaction,
-          title: LocalizedStrings.walletPageTransactionHistoryWalletLinkingType,
+          title: LazyLocalizedStrings
+              .walletPageTransactionHistoryWalletLinkingType,
           amount: formattedAmount,
           formattedDate: formattedDate,
           transactionType: transaction.type,
@@ -197,7 +202,8 @@ class TransactionHistoryMapper {
       case TransactionType.transferToPublicFee:
         return TransactionListItem(
           transaction: transaction,
-          title: LocalizedStrings.walletPageTransactionHistoryTransferFeeType,
+          title:
+              LazyLocalizedStrings.walletPageTransactionHistoryTransferFeeType,
           amount: formattedAmount,
           formattedDate: formattedDate,
           transactionType: transaction.type,
@@ -205,7 +211,7 @@ class TransactionHistoryMapper {
       case TransactionType.linkedWalletSendTransfer:
         return TransactionListItem(
           transaction: transaction,
-          title: LocalizedStrings
+          title: LazyLocalizedStrings
               .walletPageTransactionHistoryTransferToExternalType,
           amount: formattedAmount,
           formattedDate: formattedDate,
@@ -214,7 +220,7 @@ class TransactionHistoryMapper {
       case TransactionType.linkedWalletReceiveTransfer:
         return TransactionListItem(
           transaction: transaction,
-          title: LocalizedStrings
+          title: LazyLocalizedStrings
               .walletPageTransactionHistoryTransferFromExternalType,
           amount: formattedAmount,
           formattedDate: formattedDate,
@@ -223,12 +229,12 @@ class TransactionHistoryMapper {
       case TransactionType.voucherPurchasePayment:
         return TransactionListItem(
           transaction: transaction,
-          title:
-              LocalizedStrings.walletPageTransactionHistoryVoucherPurchaseType,
+          title: LazyLocalizedStrings
+              .walletPageTransactionHistoryVoucherPurchaseType,
           amount: formattedAmount,
           formattedDate: formattedDate,
           transactionType: transaction.type,
-          subtitle: transaction.actionRule,
+          subtitle: LocalizedStringBuilder.custom(transaction.actionRule),
         );
     }
   }

@@ -13,9 +13,9 @@ class WalletDisabledDialog extends HookWidget {
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: SingleButtonDialog(
-        title: LocalizedStrings.walletPageWalletDisabledError,
-        content: LocalizedStrings.walletPageWalletDisabledErrorMessage,
-        buttonText: LocalizedStrings.contactUsButton,
+        title: useLocalizedStrings().walletPageWalletDisabledError,
+        content: useLocalizedStrings().walletPageWalletDisabledErrorMessage,
+        buttonText: useLocalizedStrings().contactUsButton,
         onTap: () {
           router
             ..popDialog()

@@ -1,4 +1,4 @@
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_qr_actions/actions/qr_base_action.dart';
 
 class QrUnsupportedAction extends QrBaseAction {
@@ -13,11 +13,13 @@ class QrUnsupportedAction extends QrBaseAction {
   Future<bool> match(String pattern) => Future.value(true);
 
   @override
-  String get dialogPositiveButtonTitle => null;
+  LocalizedStringBuilder get dialogPositiveButtonTitle =>
+      LocalizedStringBuilder.empty();
 
   @override
   String get qrCodeContent => null;
 
   @override
-  String get dialogMessage => LocalizedStrings.scannedInfoDialogErrorMessage;
+  LocalizedStringBuilder get dialogMessage =>
+      LazyLocalizedStrings.scannedInfoDialogErrorMessage;
 }

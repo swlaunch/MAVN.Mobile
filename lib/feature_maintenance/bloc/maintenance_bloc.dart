@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/maintenance/response_model/maintenance_response_model.dart';
 import 'package:lykke_mobile_mavn/base/repository/mobile/mobile_repository.dart';
 import 'package:lykke_mobile_mavn/feature_maintenance/di/maintenance_module.dart';
@@ -63,18 +63,18 @@ class MaintenanceBloc extends Bloc<MaintenanceState> {
 
   // ignore: lines_longer_than_80_chars
   //TODO: Instead of formatting the duration here, use enum to represent all cases, which the view should format it afterwards
-  String _formatDuration(int durationInMinutes) {
+  LocalizedStringBuilder _formatDuration(int durationInMinutes) {
     if (durationInMinutes == null) {
-      return LocalizedStrings.maintenanceErrorCoupleOfHours;
+      return LazyLocalizedStrings.maintenanceErrorCoupleOfHours;
     }
 
     // in case that duration is less than two hours, return 1 hour
     if (durationInMinutes <= 119) {
-      return LocalizedStrings.hours(1);
+      return LazyLocalizedStrings.hours(1);
     }
 
     final durationInHours = Duration(minutes: durationInMinutes).inHours;
-    return LocalizedStrings.hours(durationInHours);
+    return LazyLocalizedStrings.hours(durationInHours);
   }
 
   @override

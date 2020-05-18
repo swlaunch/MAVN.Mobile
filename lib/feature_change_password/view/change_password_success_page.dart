@@ -11,9 +11,10 @@ class ChangePasswordSuccessPage extends HookWidget {
     final router = useRouter();
     return ResultFeedbackPage(
       widgetKey: const Key('changePasswordSuccessWidget'),
-      title: LocalizedStrings.changePasswordSuccessTitle,
-      details: LocalizedStrings.changePasswordSuccessDetails,
-      buttonText: LocalizedStrings.changePasswordSuccessBackToAccountButton,
+      title: useLocalizedStrings().changePasswordSuccessTitle,
+      details: useLocalizedStrings().changePasswordSuccessDetails,
+      buttonText:
+          useLocalizedStrings().changePasswordSuccessBackToAccountButton,
       onButtonTap: () {
         router
           ..popToRoot()

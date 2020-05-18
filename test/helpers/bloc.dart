@@ -52,8 +52,14 @@ class BlocTester<T extends Bloc> {
 
   int _outputsEmitted = 0;
 
+  BlocState get currentState => _bloc.currentState;
+
   Future<void> assertCurrentState(BlocState expectedState) async {
-    expect(_bloc.currentState, expectedState);
+    expect(currentState, expectedState);
+  }
+
+  Future<void> assertCurrentStateType(Type expectedStateType) async {
+    expect(currentState.runtimeType, expectedStateType);
   }
 
   Future<void> assertFullBlocOutputInOrder(

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/feature_balance/bloc/balance/balance_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/link_wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/link_wallet_output.dart';
@@ -32,7 +32,7 @@ void main() {
 
       await blocTester.assertFullBlocOutputInOrder([
         LinkWalletUninitializedState(),
-        LinkWalletErrorEvent(LocalizedStrings.couldNotLoadBalanceError)
+        LinkWalletErrorEvent(LazyLocalizedStrings.couldNotLoadBalanceError)
       ]);
     });
 
@@ -46,7 +46,7 @@ void main() {
 
       await blocTester.assertFullBlocOutputInOrder([
         LinkWalletUninitializedState(),
-        LinkWalletErrorEvent(LocalizedStrings.insufficientFunds)
+        LinkWalletErrorEvent(LazyLocalizedStrings.insufficientFunds)
       ]);
     });
 

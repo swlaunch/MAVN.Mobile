@@ -13,7 +13,7 @@ class BottomBarModule extends Module {
 
   Widget get offersPage => get(qualifierName: 'offersPage');
 
-  Widget get walletPage => get(qualifierName: 'walletPage');
+  Widget get voucherWalletPage => get(qualifierName: 'voucherWalletPage');
 
   Widget get socialPage => get(qualifierName: 'socialPage');
 
@@ -26,8 +26,8 @@ class BottomBarModule extends Module {
         qualifierName: 'homePage');
     provideSingleton<Widget>(() => RouterPageFactory.getOffersPage(),
         qualifierName: 'offersPage');
-    provideSingleton<Widget>(() => RouterPageFactory.getWalletPage(),
-        qualifierName: 'walletPage');
+    provideSingleton<Widget>(() => RouterPageFactory.getVoucherWalletPage(),
+        qualifierName: 'voucherWalletPage');
     provideSingleton<Widget>(() => RouterPageFactory.getSocialPage(),
         qualifierName: 'socialPage');
   }

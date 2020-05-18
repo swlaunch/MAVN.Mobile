@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/transaction_history_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/repository/customer/customer_repository.dart';
@@ -88,7 +88,8 @@ class TransactionHistoryBloc extends Bloc<TransactionHistoryState> {
     }
 
     return TransactionHistoryInitialPageError(
-        error: LocalizedStrings.walletPageTransactionHistoryInitialPageError);
+        error:
+            LazyLocalizedStrings.walletPageTransactionHistoryInitialPageError);
   }
 
   Future<void> _loadMore({
@@ -128,13 +129,14 @@ class TransactionHistoryBloc extends Bloc<TransactionHistoryState> {
       int nextPage) {
     if (exception is NetworkException) {
       return TransactionHistoryPaginationNetworkError(
-          error: LocalizedStrings.walletPageTransactionHistoryPaginationError,
+          error:
+              LazyLocalizedStrings.walletPageTransactionHistoryPaginationError,
           transactionHistoryResponseModel: currentTransactionHistory,
           currentPage: nextPage);
     }
 
     return TransactionHistoryPaginationError(
-      error: LocalizedStrings.walletPageTransactionHistoryPaginationError,
+      error: LazyLocalizedStrings.walletPageTransactionHistoryPaginationError,
       transactionHistoryResponseModel: currentTransactionHistory,
       currentPage: nextPage,
     );

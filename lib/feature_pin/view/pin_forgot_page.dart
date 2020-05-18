@@ -26,17 +26,17 @@ class PinForgotPage extends HookWidget {
         child: Column(
           children: <Widget>[
             Heading(
-              LocalizedStrings.pinForgotPageTitle,
+              useLocalizedStrings().pinForgotPageTitle,
               dividerTopSpacing: 16,
             ),
             const SizedBox(height: 32),
             Text(
-              LocalizedStrings.pinForgotPageDescription,
+              useLocalizedStrings().pinForgotPageDescription,
               style: TextStyles.darkBodyBody1Bold,
             ),
             const Spacer(),
             PrimaryButton(
-              text: LocalizedStrings.pinForgotPageButton,
+              text: useLocalizedStrings().pinForgotPageButton,
               buttonKey: const Key('proceedButton'),
               isLoading: isLoading.value,
               onTap: () async {

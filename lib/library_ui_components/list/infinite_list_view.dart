@@ -35,7 +35,7 @@ class InfiniteListWidget<T> extends StatelessWidget {
   final EdgeInsets errorPadding;
   final Color backgroundColor;
   final bool showError;
-  final Function(T item, Function onTap) itemBuilder;
+  final Function(T item, Function onTap, BuildContext context) itemBuilder;
   final Function(int index) separatorBuilder;
   final VoidCallback retryOnError;
 
@@ -83,7 +83,7 @@ class InfiniteListWidget<T> extends StatelessWidget {
                     itemCount: data.length,
                     controller: _scrollController,
                     itemBuilder: (context, index) =>
-                        itemBuilder(data[index], onItemTap),
+                        itemBuilder(data[index], onItemTap, context),
                     separatorBuilder: (context, position) =>
                         separatorBuilder(position),
                   ),

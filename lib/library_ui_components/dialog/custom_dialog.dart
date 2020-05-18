@@ -4,7 +4,6 @@ import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/spinner.dart';
-import 'package:lykke_mobile_mavn/library_utils/string_utils.dart';
 
 class CustomDialog extends HookWidget {
   const CustomDialog({
@@ -61,7 +60,7 @@ class CustomDialog extends HookWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                if (!StringUtils.isNullOrEmpty(negativeButtonText))
+                if (negativeButtonText != null)
                   _buildButton(
                     key: const Key('customDialogNegativeButton'),
                     label: negativeButtonText,
@@ -69,7 +68,7 @@ class CustomDialog extends HookWidget {
                         ? null
                         : () => onNegativeButtonTap(context, router, isLoading),
                   ),
-                if (!StringUtils.isNullOrEmpty(positiveButtonText))
+                if (positiveButtonText != null)
                   _buildButton(
                       key: const Key('customDialogPositiveButton'),
                       label: positiveButtonText,

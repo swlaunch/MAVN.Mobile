@@ -104,8 +104,8 @@ class ChangePasswordForm extends HookWidget with FormMixin {
           children: <Widget>[
             FieldPadding(
               PasswordTextField(
-                label: LocalizedStrings.changePasswordPagePasswordLabel,
-                hint: LocalizedStrings.changePasswordPagePasswordHint,
+                label: useLocalizedStrings().changePasswordPagePasswordLabel,
+                hint: useLocalizedStrings().changePasswordPagePasswordHint,
                 valueKey: const Key('passwordTextField'),
                 contextGlobalKey: passwordGlobalKey,
                 focusNode: passwordFocusNode,
@@ -117,8 +117,9 @@ class ChangePasswordForm extends HookWidget with FormMixin {
             ),
             FieldPadding(
               PasswordTextField(
-                label: LocalizedStrings.confirmPasswordLabel,
-                hint: LocalizedStrings.changePasswordPageConfirmPasswordHint,
+                label: useLocalizedStrings().confirmPasswordLabel,
+                hint:
+                    useLocalizedStrings().changePasswordPageConfirmPasswordHint,
                 valueKey: const Key('confirmPasswordTextField'),
                 contextGlobalKey: confirmPasswordGlobalKey,
                 focusNode: confirmPasswordFocusNode,
@@ -131,7 +132,7 @@ class ChangePasswordForm extends HookWidget with FormMixin {
             const PasswordValidationRulesWidget(),
             const SizedBox(height: 56),
             if (state is BaseInlineErrorState)
-              _buildInlineError(state.errorMessage),
+              _buildInlineError(state.errorMessage.localize(useContext())),
             _buildChangePasswordButton(
                 onSubmitTap: onSubmitButtonTap,
                 isLoading: state is BaseLoadingState,

@@ -1,6 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/feature_balance/bloc/balance/balance_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/di/wallet_linking_module.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
@@ -21,7 +21,7 @@ class LinkWalletBloc extends Bloc<LinkWalletState> {
 
     if (balanceState is BalanceLoadedState) {
       if (balanceState.wallet.balance.decimalValue <= Decimal.fromInt(1)) {
-        sendEvent(LinkWalletErrorEvent(LocalizedStrings.insufficientFunds));
+        sendEvent(LinkWalletErrorEvent(LazyLocalizedStrings.insufficientFunds));
         return;
       }
 
@@ -29,7 +29,8 @@ class LinkWalletBloc extends Bloc<LinkWalletState> {
       return;
     }
 
-    sendEvent(LinkWalletErrorEvent(LocalizedStrings.couldNotLoadBalanceError));
+    sendEvent(
+        LinkWalletErrorEvent(LazyLocalizedStrings.couldNotLoadBalanceError));
   }
 }
 

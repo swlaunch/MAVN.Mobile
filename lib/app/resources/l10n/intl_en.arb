@@ -1,6 +1,6 @@
 {
-  "@@last_modified": "2020-04-14T09:44:49.223681",
-  "networkErrorTitle": "Let's sort this connection problem out",
+  "@@last_modified": "2020-05-15T15:31:36.382639",
+  "networkErrorTitle": "Internet connection problem",
   "@networkErrorTitle": {
     "type": "text",
     "placeholders": {}
@@ -34,12 +34,12 @@
     "type": "text",
     "placeholders": {}
   },
-  "couldNotLoadBalanceError": "We are unable to make transactions at this point as we could not load your balance",
+  "couldNotLoadBalanceError": "We are unable to make transactions at this point as we could not retrieve your balance. Please try again.",
   "@couldNotLoadBalanceError": {
     "type": "text",
     "placeholders": {}
   },
-  "referralLeadAlreadyExistError": "Looks like this lovely person is already in our system, try referring someone else",
+  "referralLeadAlreadyExistError": "Looks like this lovely person is already in our system, try referring someone else!",
   "@referralLeadAlreadyExistError": {
     "type": "text",
     "placeholders": {}
@@ -59,7 +59,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "noVouchersInStockError": "Sorry, there are no vouchers in stock",
+  "noVouchersInStockError": "Sorry, all vouchers are sold out",
   "@noVouchersInStockError": {
     "type": "text",
     "placeholders": {}
@@ -145,21 +145,6 @@
   },
   "phoneNumberHint": "Enter phone number",
   "@phoneNumberHint": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "noteLabel": "Notes",
-  "@noteLabel": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "noteHint": "Add additional notes",
-  "@noteHint": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "nationalityLabel": "Nationality",
-  "@nationalityLabel": {
     "type": "text",
     "placeholders": {}
   },
@@ -326,26 +311,6 @@
       }
     }
   },
-  "requiredCountryOfResidenceClientSideValidationError": "Please select a country",
-  "@requiredCountryOfResidenceClientSideValidationError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "requiredPhotoIdClientSideValidationError": "Photo ID is required",
-  "@requiredPhotoIdClientSideValidationError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "requiredPhotoIdFrontSideClientSideValidationError": "Photo on the front side is required",
-  "@requiredPhotoIdFrontSideClientSideValidationError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "requiredPhotoIdBackSideClientSideValidationError": "Photo on the back side is required",
-  "@requiredPhotoIdBackSideClientSideValidationError": {
-    "type": "text",
-    "placeholders": {}
-  },
   "maximumDecimalPlacesError": "Amount should not exceed {precision} decimal places",
   "@maximumDecimalPlacesError": {
     "type": "text",
@@ -483,7 +448,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "transferTokensButton": "Transfer tokens",
+  "transferTokensButton": "Send points",
   "@transferTokensButton": {
     "type": "text",
     "placeholders": {}
@@ -507,14 +472,14 @@
       "appName": {}
     }
   },
-  "onboardingPage2Title": "Start earning {token} tokens",
+  "onboardingPage2Title": "Start earning {token} points",
   "@onboardingPage2Title": {
     "type": "text",
     "placeholders": {
       "token": {}
     }
   },
-  "onboardingPage2Details": "Earn {token} tokens by referring friends to {company} properties, hotels, restaurants and much more",
+  "onboardingPage2Details": "Earn {token} points by referring friends to {company} and much more",
   "@onboardingPage2Details": {
     "type": "text",
     "placeholders": {
@@ -522,14 +487,14 @@
       "company": {}
     }
   },
-  "onboardingPage3Title": "Use {token} tokens easily",
+  "onboardingPage3Title": "Use {token} points easily",
   "@onboardingPage3Title": {
     "type": "text",
     "placeholders": {
       "token": {}
     }
   },
-  "onboardingPage3Details": "Use your {token} tokens on {company} property invoices, hotel stays, restaurants and much more",
+  "onboardingPage3Details": "Use your {token} points on {company} for invoices, hotel stays, restaurants and much more",
   "@onboardingPage3Details": {
     "type": "text",
     "placeholders": {
@@ -563,11 +528,6 @@
   },
   "welcomeCreateAccountButtonText": "Create an account",
   "@welcomeCreateAccountButtonText": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "socialOrContinueWith": "Or continue with",
-  "@socialOrContinueWith": {
     "type": "text",
     "placeholders": {}
   },
@@ -684,62 +644,6 @@
     "type": "text",
     "placeholders": {}
   },
-  "setPhoneNumberPageTitle": "Add phone number",
-  "@setPhoneNumberPageTitle": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "setPhoneNumberVerifyButton": "Verify",
-  "@setPhoneNumberVerifyButton": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationPageTitle": "Enter code",
-  "@phoneNumberVerificationPageTitle": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationDetails": "We’ve sent a verification code  to {phoneNumber}",
-  "@phoneNumberVerificationDetails": {
-    "type": "text",
-    "placeholders": {
-      "phoneNumber": {}
-    }
-  },
-  "phoneNumberVerificationCodeResent": "Verification code was re-sent",
-  "@phoneNumberVerificationCodeResent": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationRequestNewCode": "Request a new verification code",
-  "@phoneNumberVerificationRequestNewCode": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationResendCodeTimer": "Resend code in {timeLeft} if it doesn’t arrive or expires",
-  "@phoneNumberVerificationResendCodeTimer": {
-    "type": "text",
-    "placeholders": {
-      "timeLeft": {
-        "example": "00:50"
-      }
-    }
-  },
-  "phoneNumberVerificationCodeNotSentError": "Verification code was not sent, please retry",
-  "@phoneNumberVerificationCodeNotSentError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationExpiredCodeError": "This code has expired, please request a new one",
-  "@phoneNumberVerificationExpiredCodeError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneNumberVerificationInvalidCodeError": "Incorrect code, please check it and try again",
-  "@phoneNumberVerificationInvalidCodeError": {
-    "type": "text",
-    "placeholders": {}
-  },
   "countryCodeListPageTitle": "Select your country code",
   "@countryCodeListPageTitle": {
     "type": "text",
@@ -790,7 +694,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "monthlyChallengesSubtitle": "Test yourself and earn tokens",
+  "monthlyChallengesSubtitle": "Test yourself and earn points",
   "@monthlyChallengesSubtitle": {
     "type": "text",
     "placeholders": {}
@@ -837,7 +741,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "walletPageMyTotalTokens": "My total tokens",
+  "walletPageMyTotalTokens": "My total points",
   "@walletPageMyTotalTokens": {
     "type": "text",
     "placeholders": {}
@@ -876,21 +780,21 @@
       "recipient": {}
     }
   },
-  "walletPageSendButtonSubtitle": "Transfer {token} tokens to anyone",
+  "walletPageSendButtonSubtitle": "Send {token} points to anyone",
   "@walletPageSendButtonSubtitle": {
     "type": "text",
     "placeholders": {
       "token": {}
     }
   },
-  "walletPageReceiveButtonTitle": "Receive {token} tokens",
+  "walletPageReceiveButtonTitle": "Receive {token} points",
   "@walletPageReceiveButtonTitle": {
     "type": "text",
     "placeholders": {
       "token": {}
     }
   },
-  "walletPageReceiveButtonSubtitle": "Receive tokens from other {token} users",
+  "walletPageReceiveButtonSubtitle": "Receive points from other {token} users",
   "@walletPageReceiveButtonSubtitle": {
     "type": "text",
     "placeholders": {
@@ -938,14 +842,14 @@
     "type": "text",
     "placeholders": {}
   },
-  "walletPageTransactionHistorySentType": "Sent {token} tokens",
+  "walletPageTransactionHistorySentType": "Sent {token} points",
   "@walletPageTransactionHistorySentType": {
     "type": "text",
     "placeholders": {
       "token": {}
     }
   },
-  "walletPageTransactionHistoryReceivedType": "Received {token} tokens",
+  "walletPageTransactionHistoryReceivedType": "Received {token} points",
   "@walletPageTransactionHistoryReceivedType": {
     "type": "text",
     "placeholders": {
@@ -1022,26 +926,6 @@
     "type": "text",
     "placeholders": {}
   },
-  "leadReferralFormPageCommunityOfInterestLabel": "Community/Property of interest",
-  "@leadReferralFormPageCommunityOfInterestLabel": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "leadReferralSuccessPageDetails": "Great! You've successfully referred {refereeFirstName} {refereeLastName}",
-  "@leadReferralSuccessPageDetails": {
-    "type": "text",
-    "placeholders": {
-      "refereeFirstName": {},
-      "refereeLastName": {}
-    }
-  },
-  "leadReferralSuccessPageDetailsPartnerName": " to {partnerName} properties",
-  "@leadReferralSuccessPageDetailsPartnerName": {
-    "type": "text",
-    "placeholders": {
-      "partnerName": {}
-    }
-  },
   "referralSuccessPageTitle": "Referral submitted",
   "@referralSuccessPageTitle": {
     "type": "text",
@@ -1054,11 +938,6 @@
   },
   "referralSuccessGoToRefsButton": "Go to referrals",
   "@referralSuccessGoToRefsButton": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "leadReferralAcceptedSuccessBody": "Thanks for accepting the referral.",
-  "@leadReferralAcceptedSuccessBody": {
     "type": "text",
     "placeholders": {}
   },
@@ -1113,7 +992,7 @@
       "partnerName": {}
     }
   },
-  "hotelReferralAcceptedSuccessBody": "Thanks for accepting the referral, the next time you stay at {company} hotel you will be awarded with {token} tokens",
+  "hotelReferralAcceptedSuccessBody": "Thanks for accepting the referral, the next time you stay at {company} hotel you will be awarded with {token} points",
   "@hotelReferralAcceptedSuccessBody": {
     "type": "text",
     "placeholders": {
@@ -1206,14 +1085,14 @@
     "type": "text",
     "placeholders": {}
   },
-  "transactionFormPageTitle": "Transfer {token} tokens",
+  "transactionFormPageTitle": "Transfer {token} points",
   "@transactionFormPageTitle": {
     "type": "text",
     "placeholders": {
       "token": {}
     }
   },
-  "transactionFormPageSubDetails": "Transfer {token} tokens easily, scan the receivers QR code or enter their email address",
+  "transactionFormPageSubDetails": "Transfer {token} points easily, scan the receivers QR code or enter their email address",
   "@transactionFormPageSubDetails": {
     "type": "text",
     "placeholders": {
@@ -1247,14 +1126,14 @@
     "type": "text",
     "placeholders": {}
   },
-  "transactionAmountTokensLabel": "Amount ({token} tokens)",
+  "transactionAmountTokensLabel": "Amount ({token} points)",
   "@transactionAmountTokensLabel": {
     "type": "text",
     "placeholders": {
       "token": {}
     }
   },
-  "transactionAmountOfTokensHint": "How many tokens are required?",
+  "transactionAmountOfTokensHint": "How many points are required?",
   "@transactionAmountOfTokensHint": {
     "type": "text",
     "placeholders": {}
@@ -1279,7 +1158,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "transactionAmountGreaterThanBalanceError": "Hey big spender, it looks  as though your balance is too low for this transaction. Please try again.",
+  "transactionAmountGreaterThanBalanceError": "Your balance is too low for this transaction.",
   "@transactionAmountGreaterThanBalanceError": {
     "type": "text",
     "placeholders": {}
@@ -1309,7 +1188,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "insufficientFunds": "You have unsufficient funds to link to an external wallet",
+  "insufficientFunds": "You have insufficient funds to link to an external wallet",
   "@insufficientFunds": {
     "type": "text",
     "placeholders": {}
@@ -1339,7 +1218,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "linkSimpleWalletInstructionPasteLink": "Press link wallet",
+  "linkSimpleWalletInstructionPasteLink": "Press \"link wallet\"",
   "@linkSimpleWalletInstructionPasteLink": {
     "type": "text",
     "placeholders": {}
@@ -1354,7 +1233,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "linkWalletInstructionFees": "Linking wallet has associated fees",
+  "linkWalletInstructionFees": "Linking external wallets has associated fees",
   "@linkWalletInstructionFees": {
     "type": "text",
     "placeholders": {}
@@ -1528,14 +1407,14 @@
     "type": "text",
     "placeholders": {}
   },
-  "linkWalletReceiveTitle": "Receive {token} tokens from external wallet",
+  "linkWalletReceiveTitle": "Receive {token} points from external wallet",
   "@linkWalletReceiveTitle": {
     "type": "text",
     "placeholders": {
       "token": {}
     }
   },
-  "linkWalletReceiveHint": "Transfer from your linked external wallet to your {token} wallet",
+  "linkWalletReceiveHint": "Transfer balance from your linked external wallet to your {token} wallet",
   "@linkWalletReceiveHint": {
     "type": "text",
     "placeholders": {
@@ -1567,7 +1446,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "linkedWalletSendTitle": "Transfer {token} tokens to external wallet",
+  "linkedWalletSendTitle": "Transfer {token} points to external wallet",
   "@linkedWalletSendTitle": {
     "type": "text",
     "placeholders": {
@@ -1596,7 +1475,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "socialPageTitle": "Social",
+  "socialPageTitle": "Community",
   "@socialPageTitle": {
     "type": "text",
     "placeholders": {}
@@ -1669,71 +1548,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "outOfStockDescription": "The vouchers in this offer are currently out of stock.",
+  "outOfStockDescription": "The vouchers in this offer are currently sold out.",
   "@outOfStockDescription": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "realEstateListChooseAProperty": "Choose a property",
-  "@realEstateListChooseAProperty": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "realEstateListNoPurchases": "You have no ongoing purchases at the moment",
-  "@realEstateListNoPurchases": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "instalmentListChooseAnInstalment": "Choose an instalment",
-  "@instalmentListChooseAnInstalment": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "installmentOverdue": "Overdue",
-  "@installmentOverdue": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentPageTitle": "Pay your instalment",
-  "@propertyPaymentPageTitle": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentPageSubDetails": "Your can pay your instalment in full or partially",
-  "@propertyPaymentPageSubDetails": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentFull": "Full",
-  "@propertyPaymentFull": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentPartial": "Partial",
-  "@propertyPaymentPartial": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentProperty": "Property",
-  "@propertyPaymentProperty": {
     "type": "text",
     "placeholders": {}
   },
   "propertyPaymentAvailableBalanceLabel": "Available balance",
   "@propertyPaymentAvailableBalanceLabel": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "propertyPaymentConversionHolder": "Equals to: {amount} {currencyName}",
-  "@propertyPaymentConversionHolder": {
-    "type": "text",
-    "placeholders": {
-      "amount": {},
-      "currencyName": {}
-    }
-  },
-  "propertyPaymentAmountExceedsInstalment": "Amount can't exceed the total of the instalment",
-  "@propertyPaymentAmountExceedsInstalment": {
     "type": "text",
     "placeholders": {}
   },
@@ -1747,18 +1568,13 @@
       "currency": {}
     }
   },
-  "paymentAmountRequiredError": "Transfer amount is required",
+  "paymentAmountRequiredError": "Amount is required",
   "@paymentAmountRequiredError": {
     "type": "text",
     "placeholders": {}
   },
-  "paymentAmountInvalidError": "Transfer amount is not valid",
+  "paymentAmountInvalidError": "Amount is not valid",
   "@paymentAmountInvalidError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "emptyPaymentInvoiceError": "Invoice number is required",
-  "@emptyPaymentInvoiceError": {
     "type": "text",
     "placeholders": {}
   },
@@ -1850,7 +1666,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "warningDialogLeavingPageTitle": "Confirm action",
+  "warningDialogLeavingPageTitle": "Confirm",
   "@warningDialogLeavingPageTitle": {
     "type": "text",
     "placeholders": {}
@@ -2009,12 +1825,12 @@
     "type": "text",
     "placeholders": {}
   },
-  "changePasswordPageConfirmPasswordHint": "Confirm new password",
+  "changePasswordPageConfirmPasswordHint": "Please confirm new password",
   "@changePasswordPageConfirmPasswordHint": {
     "type": "text",
     "placeholders": {}
   },
-  "changePasswordPagePasswordHint": "Enter new password",
+  "changePasswordPagePasswordHint": "Please enter new password",
   "@changePasswordPagePasswordHint": {
     "type": "text",
     "placeholders": {}
@@ -2054,12 +1870,12 @@
     "type": "text",
     "placeholders": {}
   },
-  "resetPasswordSendLinkHint": "We’ll send you link to reset your password",
+  "resetPasswordSendLinkHint": "We’ll send you a link to reset your password",
   "@resetPasswordSendLinkHint": {
     "type": "text",
     "placeholders": {}
   },
-  "resetPasswordSentEmailHint": "Link has been sent, please check your email, if you didn’t receive it try to request it again",
+  "resetPasswordSentEmailHint": "Link has been sent, please check your email, if you didn’t receive it try to request it again or check your spam folder",
   "@resetPasswordSentEmailHint": {
     "type": "text",
     "placeholders": {}
@@ -2111,7 +1927,7 @@
       "count": {}
     }
   },
-  "pinErrorIncorrectPassCode": "Incorect passcode, please retry",
+  "pinErrorIncorrectPassCode": "Incorrect passcode, please retry",
   "@pinErrorIncorrectPassCode": {
     "type": "text",
     "placeholders": {}
@@ -2198,14 +2014,14 @@
     "type": "text",
     "placeholders": {}
   },
-  "receiveTokenPageTitle": "Receive {token} tokens",
+  "receiveTokenPageTitle": "Receive {token} points",
   "@receiveTokenPageTitle": {
     "type": "text",
     "placeholders": {
       "token": {}
     }
   },
-  "receiveTokenPageSubDetails": "Share this code with the sender, you'll receive tokens quicker than you thought",
+  "receiveTokenPageSubDetails": "Share this code with the sender, you'll receive points quicker than you thought",
   "@receiveTokenPageSubDetails": {
     "type": "text",
     "placeholders": {}
@@ -2305,19 +2121,19 @@
     "type": "text",
     "placeholders": {}
   },
-  "earnRuleRewardBoxSubTitle": "Earn {token} tokens every time you complete the offer",
+  "earnRuleRewardBoxSubTitle": "Earn {token} points every time you complete the offer",
   "@earnRuleRewardBoxSubTitle": {
     "type": "text",
     "placeholders": {
       "token": {}
     }
   },
-  "earnRuleCampaignMissionTitle": "Offer mission",
+  "earnRuleCampaignMissionTitle": "Task mission",
   "@earnRuleCampaignMissionTitle": {
     "type": "text",
     "placeholders": {}
   },
-  "earnRuleCampaignMissionSubtitle": "Finish the tasks below and earn the offer award",
+  "earnRuleCampaignMissionSubtitle": "Finish the tasks below and earn the offer award!",
   "@earnRuleCampaignMissionSubtitle": {
     "type": "text",
     "placeholders": {}
@@ -2332,7 +2148,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "earnRuleCompletionMessage": "Congratulations! You have completed this offer! Have a look at other offers to continue earning {token}s",
+  "earnRuleCompletionMessage": "Congratulations! You have completed this task! Have a look at other offers to continue earning {token}s",
   "@earnRuleCompletionMessage": {
     "type": "text",
     "placeholders": {
@@ -2349,7 +2165,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "earnRuleDetailsEarnUponCompletion": "Each time you complete this offer, you could earn ",
+  "earnRuleDetailsEarnUponCompletion": "Each time you complete this task, you could earn ",
   "@earnRuleDetailsEarnUponCompletion": {
     "type": "text",
     "placeholders": {}
@@ -2386,7 +2202,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "earnRuleDetailsPreviousParticipationPart1": "You have participated ",
+  "earnRuleDetailsPreviousParticipationPart1": "You have successfully participated ",
   "@earnRuleDetailsPreviousParticipationPart1": {
     "type": "text",
     "placeholders": {}
@@ -2406,7 +2222,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "earnRuleDetailsOfferUnavailableTitle": "Offer unavailable",
+  "earnRuleDetailsOfferUnavailableTitle": "Task unavailable",
   "@earnRuleDetailsOfferUnavailableTitle": {
     "type": "text",
     "placeholders": {}
@@ -2433,11 +2249,6 @@
   },
   "earnRuleIndicativeAmountInfoHospitality": "* This is an indicative amount based on average night stay.",
   "@earnRuleIndicativeAmountInfoHospitality": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "earnRuleIndicativeAmountInfoRealEstate": "* It will depend on the property price.",
-  "@earnRuleIndicativeAmountInfoRealEstate": {
     "type": "text",
     "placeholders": {}
   },
@@ -2493,7 +2304,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "amountTokens": " {amount} {token} tokens ",
+  "amountTokens": " {amount} {token} points ",
   "@amountTokens": {
     "description": "Amount of tokens",
     "type": "text",
@@ -2521,7 +2332,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "bottomBarSocial": "Social",
+  "bottomBarSocial": "Community",
   "@bottomBarSocial": {
     "type": "text",
     "placeholders": {}
@@ -2538,7 +2349,7 @@
       "period": {}
     }
   },
-  "maintenanceErrorMessage": "The server is under maintenance. Please try again later.",
+  "maintenanceErrorMessage": "The system is under maintenance. Please try again later.",
   "@maintenanceErrorMessage": {
     "type": "text",
     "placeholders": {}
@@ -2609,7 +2420,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "amountTokensHolder": "{amount} {token} tokens ",
+  "amountTokensHolder": "{amount} {token} points ",
   "@amountTokensHolder": {
     "description": "Amount of tokens",
     "type": "text",
@@ -2663,12 +2474,12 @@
     "type": "text",
     "placeholders": {}
   },
-  "transferRequestNotEnoughTokensError": "Sorry, you do not have enough tokens to complete this transaction.",
+  "transferRequestNotEnoughTokensError": "Sorry, you do not have enough points to complete this transaction.",
   "@transferRequestNotEnoughTokensError": {
     "type": "text",
     "placeholders": {}
   },
-  "transferRequestInvalidStateError": "Something's wrong… The request seems to be already completed or cancelled.",
+  "transferRequestInvalidStateError": "Something's wrong… The request seems to be already completed or canceled.",
   "@transferRequestInvalidStateError": {
     "type": "text",
     "placeholders": {}
@@ -2737,7 +2548,7 @@
       }
     }
   },
-  "transferRequestStatusCardStatusCancelled": "Cancelled",
+  "transferRequestStatusCardStatusCancelled": "Canceled",
   "@transferRequestStatusCardStatusCancelled": {
     "type": "text",
     "placeholders": {}
@@ -2847,7 +2658,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "scannedInfoDialogErrorMessage": "This QR code is currently unsupported",
+  "scannedInfoDialogErrorMessage": "This QR code type is currently unsupported",
   "@scannedInfoDialogErrorMessage": {
     "type": "text",
     "placeholders": {}
@@ -2903,11 +2714,6 @@
     "type": "text",
     "placeholders": {}
   },
-  "personalDetailsPhoneNumberTitle": "Phone Number",
-  "@personalDetailsPhoneNumberTitle": {
-    "type": "text",
-    "placeholders": {}
-  },
   "personalDetailsCountryOfNationality": "Country of nationality",
   "@personalDetailsCountryOfNationality": {
     "type": "text",
@@ -2918,7 +2724,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "personalDetailsGenericError": "We are unable to get your personal details right now.Please try again.",
+  "personalDetailsGenericError": "We are unable to get your personal details right now. Please try again.",
   "@personalDetailsGenericError": {
     "type": "text",
     "placeholders": {}
@@ -2979,11 +2785,6 @@
   },
   "emailVerificationSuccessDetails": "Thanks! your email address has been confirmed",
   "@emailVerificationSuccessDetails": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "previousReferralsCardTypeRealEstate": "Real estate",
-  "@previousReferralsCardTypeRealEstate": {
     "type": "text",
     "placeholders": {}
   },
@@ -3085,7 +2886,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "mandatoryAppUpgradePageContent": "There is a new version of the app available to download. Please update in order to continue.",
+  "mandatoryAppUpgradePageContent": "A new version of the app available to download. Please update in order to continue.",
   "@mandatoryAppUpgradePageContent": {
     "type": "text",
     "placeholders": {}
@@ -3222,7 +3023,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "notEnoughTokensError": "Sorry, you do not have sufficient {token} tokens for this operation",
+  "notEnoughTokensError": "Sorry, you do not have sufficient {token} points for this activity",
   "@notEnoughTokensError": {
     "type": "text",
     "placeholders": {
@@ -3234,7 +3035,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "paymentIsNotInACorrectStatusToBeUpdatedError": "Something's wrong… The request seems to be already completed or cancelled.",
+  "paymentIsNotInACorrectStatusToBeUpdatedError": "The request seems to be already completed or canceled.",
   "@paymentIsNotInACorrectStatusToBeUpdatedError": {
     "type": "text",
     "placeholders": {}
@@ -3244,17 +3045,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "phoneAlreadyExistsError": "This phone is already verified",
-  "@phoneAlreadyExistsError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "phoneIsAlreadyVerifiedError": "An account with this phone number is already verified",
-  "@phoneIsAlreadyVerifiedError": {
-    "type": "text",
-    "placeholders": {}
-  },
-  "referralAlreadyConfirmedError": "You snooze, you lose… It appears this person has already been referred by another user. Please refer someone else.",
+  "referralAlreadyConfirmedError": "It appears this person has already been referred by another user. Why don't you try someone else?",
   "@referralAlreadyConfirmedError": {
     "type": "text",
     "placeholders": {}
@@ -3274,12 +3065,12 @@
     "type": "text",
     "placeholders": {}
   },
-  "senderCustomerNotFoundError": "Sorry, we couldn't find this account. Transfer cancelled",
+  "senderCustomerNotFoundError": "Sorry, we couldn't find this account. Transfer canceled",
   "@senderCustomerNotFoundError": {
     "type": "text",
     "placeholders": {}
   },
-  "targetCustomerNotFoundError": "Sorry, we couldn't find this account. Transfer cancelled",
+  "targetCustomerNotFoundError": "Sorry, we couldn't find this account. Transfer canceled",
   "@targetCustomerNotFoundError": {
     "type": "text",
     "placeholders": {}
@@ -3329,7 +3120,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "friendReferralSuccessDetails": "Great! Your referral has been submitted, we will notify you when the tokens are added to your wallet.",
+  "friendReferralSuccessDetails": "Great! Your referral has been submitted, we will notify you when the points are added to your wallet.",
   "@friendReferralSuccessDetails": {
     "type": "text",
     "placeholders": {}
@@ -3341,6 +3132,55 @@
   },
   "voucherCopied": "Voucher copied to clipboard",
   "@voucherCopied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "about": "About",
+  "@about": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "availableAt": "Available at {vendorName}",
+  "@availableAt": {
+    "type": "text",
+    "placeholders": {
+      "vendorName": {}
+    }
+  },
+  "offerExpiresOn": "This offer expires on {expirationDate}",
+  "@offerExpiresOn": {
+    "type": "text",
+    "placeholders": {
+      "expirationDate": {}
+    }
+  },
+  "offerNoExpirationDate": "This offer has no expiration date",
+  "@offerNoExpirationDate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "redeemOffer": "Redeem Offer",
+  "@redeemOffer": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "dashboard": "Dashboard",
+  "@dashboard": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "vouchers": "Vouchers",
+  "@vouchers": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "transactions": "Transactions",
+  "@transactions": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "viewVoucher": "View Voucher",
+  "@viewVoucher": {
     "type": "text",
     "placeholders": {}
   },
@@ -3400,7 +3240,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "emailBody": "Body",
+  "emailBody": "Content",
   "@emailBody": {
     "type": "text",
     "placeholders": {}

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/feature_pin/bloc/pin_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_pin/bloc/pin_confirm_bloc.dart';
 import 'package:mockito/mockito.dart';
@@ -46,7 +46,7 @@ void main() {
       await addDigitsToPinBloc(_subject, 2, 4);
 
       await _blocTester.assertCurrentState(PinErrorState(
-        error: LocalizedStrings.pinErrorDoesNotMatch,
+        error: LazyLocalizedStrings.pinErrorDoesNotMatch,
         isSubmitVisible: false,
         isHidden: true,
         digits: [2, 2, 2, 2],

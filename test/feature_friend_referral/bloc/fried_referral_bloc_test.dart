@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_app_referral/bloc/friend_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_app_referral/bloc/friend_referral_bloc_output.dart';
@@ -72,7 +72,7 @@ void main() {
       )).thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await _subject.submitFriendReferral(
         fullName: TestConstants.stubFullName,
@@ -84,7 +84,7 @@ void main() {
         FriendReferralUninitializedState(),
         FriendReferralSubmissionLoadingState(),
         FriendReferralSubmissionErrorState(
-            error: LocalizedStrings.defaultGenericError, canRetry: true),
+            error: LazyLocalizedStrings.defaultGenericError, canRetry: true),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -98,7 +98,7 @@ void main() {
       )).thenThrow(NetworkException());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.networkError);
+          .thenReturn(LazyLocalizedStrings.networkError);
 
       await _subject.submitFriendReferral(
         fullName: TestConstants.stubFullName,
@@ -110,7 +110,7 @@ void main() {
         FriendReferralUninitializedState(),
         FriendReferralSubmissionLoadingState(),
         FriendReferralSubmissionErrorState(
-            error: LocalizedStrings.networkError, canRetry: true),
+            error: LazyLocalizedStrings.networkError, canRetry: true),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -125,7 +125,7 @@ void main() {
         ServiceExceptionType.referralAlreadyConfirmed,
       ));
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.referralAlreadyConfirmedError);
+          .thenReturn(LazyLocalizedStrings.referralAlreadyConfirmedError);
 
       await _subject.submitFriendReferral(
         fullName: TestConstants.stubFullName,
@@ -137,7 +137,7 @@ void main() {
         FriendReferralUninitializedState(),
         FriendReferralSubmissionLoadingState(),
         FriendReferralSubmissionErrorState(
-            error: LocalizedStrings.referralAlreadyConfirmedError,
+            error: LazyLocalizedStrings.referralAlreadyConfirmedError,
             canRetry: false),
       ]);
 
@@ -154,7 +154,7 @@ void main() {
       ));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.canNotReferYourselfError);
+          .thenReturn(LazyLocalizedStrings.canNotReferYourselfError);
 
       await _subject.submitFriendReferral(
         fullName: TestConstants.stubFullName,
@@ -166,7 +166,8 @@ void main() {
         FriendReferralUninitializedState(),
         FriendReferralSubmissionLoadingState(),
         FriendReferralSubmissionErrorState(
-            error: LocalizedStrings.canNotReferYourselfError, canRetry: false),
+            error: LazyLocalizedStrings.canNotReferYourselfError,
+            canRetry: false),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -182,7 +183,7 @@ void main() {
       ));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.hotelReferralErrorLeadAlreadyExists);
+          .thenReturn(LazyLocalizedStrings.hotelReferralErrorLeadAlreadyExists);
 
       await _subject.submitFriendReferral(
         fullName: TestConstants.stubFullName,
@@ -194,7 +195,7 @@ void main() {
         FriendReferralUninitializedState(),
         FriendReferralSubmissionLoadingState(),
         FriendReferralSubmissionErrorState(
-            error: LocalizedStrings.hotelReferralErrorLeadAlreadyExists,
+            error: LazyLocalizedStrings.hotelReferralErrorLeadAlreadyExists,
             canRetry: false),
       ]);
 
