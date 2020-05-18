@@ -1,3 +1,4 @@
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 
 abstract class BaseState extends BlocState {}
@@ -7,9 +8,9 @@ mixin BaseLoadingState on BaseState {}
 mixin BaseErrorState on BaseState {}
 
 mixin BaseDetailedErrorState on BaseState {
-  String get title;
+  LocalizedStringBuilder get title;
 
-  String get subtitle;
+  LocalizedStringBuilder get subtitle;
 
   String get asset;
 
@@ -18,7 +19,7 @@ mixin BaseDetailedErrorState on BaseState {
 }
 
 mixin BaseInlineErrorState on BaseState {
-  String get errorMessage;
+  LocalizedStringBuilder get errorMessage;
 
   @override
   List get props => super.props..addAll([errorMessage]);

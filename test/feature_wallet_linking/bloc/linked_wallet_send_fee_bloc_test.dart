@@ -1,6 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/linked_wallet_send_fee_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/linked_wallet_send_fee_output.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
@@ -67,14 +67,14 @@ void main() {
           .thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await subject.fetchFee();
 
       await blocTester.assertFullBlocOutputInOrder([
         LinkedWalletSendFeeUninitializedState(),
         LinkedWalletSendFeeLoadingState(),
-        LinkedWalletSendFeeErrorState(LocalizedStrings.defaultGenericError)
+        LinkedWalletSendFeeErrorState(LazyLocalizedStrings.defaultGenericError)
       ]);
     });
   });

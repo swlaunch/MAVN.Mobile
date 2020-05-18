@@ -11,9 +11,9 @@ class SetPasswordSuccessPage extends HookWidget {
     final router = useRouter();
     return ResultFeedbackPage(
       widgetKey: const Key('setPasswordSuccessWidget'),
-      title: LocalizedStrings.setPasswordSuccessTitle,
-      details: LocalizedStrings.setPasswordSuccessDetails,
-      buttonText: LocalizedStrings.setPasswordSuccessBackToAccountButton,
+      title: useLocalizedStrings().setPasswordSuccessTitle,
+      details: useLocalizedStrings().setPasswordSuccessDetails,
+      buttonText: useLocalizedStrings().setPasswordSuccessBackToAccountButton,
       onButtonTap: router.navigateToLoginPage,
       endIcon: SvgAssets.success,
       hasLogo: true,

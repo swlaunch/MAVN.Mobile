@@ -121,17 +121,17 @@ class NotificationListPage extends HookWidget {
                     isLoading: notificationListBlocState
                         is GenericListPaginationLoadingState,
                     isEmpty: notificationListBlocState is GenericListEmptyState,
-                    emptyText: LocalizedStrings.notificationListEmpty,
+                    emptyText: useLocalizedStrings().notificationListEmpty,
                     emptyIcon: SvgAssets.bell,
                     retryOnError: loadData,
                     loadData: loadData,
                     showError:
                         notificationListBlocState is GenericListErrorState,
-                    errorText:
-                        notificationListBlocState is GenericListErrorState
-                            ? notificationListBlocState.error
-                            : null,
-                    itemBuilder: (item, _) {
+                    errorText: notificationListBlocState
+                            is GenericListErrorState
+                        ? notificationListBlocState.error.localize(useContext())
+                        : null,
+                    itemBuilder: (item, _, itemContext) {
                       if (item is NotificationListNotification) {
                         return NotificationListItemView(
                           notificationListItem: item,
@@ -161,7 +161,7 @@ class NotificationListPage extends HookWidget {
     @required VoidCallback onMarkAllAsReadTap,
   }) =>
       [
-        PageTitle(title: LocalizedStrings.notifications),
+        PageTitle(title: useLocalizedStrings().notifications),
         if (!haveContent) const SizedBox(height: 32),
         if (haveContent)
           Row(
@@ -169,7 +169,7 @@ class NotificationListPage extends HookWidget {
             children: <Widget>[
               FlatButton(
                 child: Text(
-                  LocalizedStrings.notificationListMarkAllAsRead,
+                  useLocalizedStrings().notificationListMarkAllAsRead,
                   style: TextStyles.linksTextLinkBoldHigh,
                 ),
                 onPressed: onMarkAllAsReadTap,

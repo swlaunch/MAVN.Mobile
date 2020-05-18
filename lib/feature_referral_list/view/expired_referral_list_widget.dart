@@ -8,6 +8,6 @@ class ExpiredReferralListWidget extends HookWidget {
   @override
   Widget build(BuildContext context) => ReferralListWidget(
         useBloc: () => useExpiredReferralListBloc(),
-        emptyStateText: LocalizedStrings.expiredReferralListEmptyState,
+        emptyStateText: useLocalizedStrings().expiredReferralListEmptyState,
       );
 }

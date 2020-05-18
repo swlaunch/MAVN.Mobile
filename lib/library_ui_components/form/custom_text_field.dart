@@ -132,8 +132,9 @@ class CustomTextField extends HookWidget {
         // value is returning null when the textEditingController is not used.
         // Therefore textEditingController?.text is used instead.
         validator: fieldValidationManager != null
-            ? (value) =>
-                fieldValidationManager.validator(textEditingController?.text)
+            ? (_) => fieldValidationManager
+                .validator(textEditingController?.text)
+                .localize(context)
             : null,
         initialValue: textEditingController?.text,
         autovalidate: _autoValidate.value,

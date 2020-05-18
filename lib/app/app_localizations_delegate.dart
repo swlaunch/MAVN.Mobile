@@ -1,15 +1,19 @@
 import 'package:flutter/widgets.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 
-class AppLocalizationsDelegate extends LocalizationsDelegate<void> {
+const supportedLocalesCodes = ['en', 'de'];
+final appSupportedLocales = supportedLocalesCodes.map((code) => Locale(code));
+
+class AppLocalizationsDelegate extends LocalizationsDelegate<LocalizedStrings> {
   const AppLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) => ['en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      supportedLocalesCodes.contains(locale.languageCode);
 
   @override
-  Future<void> load(Locale locale) => LocalizedStrings.load(locale);
+  Future<LocalizedStrings> load(Locale locale) => LocalizedStrings.load(locale);
 
   @override
-  bool shouldReload(LocalizationsDelegate<void> old) => false;
+  bool shouldReload(LocalizationsDelegate<LocalizedStrings> old) => false;
 }

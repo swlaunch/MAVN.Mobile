@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/earn_rule_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_list_response_model.dart';
@@ -69,7 +69,7 @@ void main() {
         GenericListUninitializedState(),
         GenericListLoadingState(),
         GenericListErrorState<EarnRule>(
-            error: LocalizedStrings.cannotGetOffersError,
+            error: LazyLocalizedStrings.cannotGetOffersError,
             currentPage: 1,
             list: []),
       ]);

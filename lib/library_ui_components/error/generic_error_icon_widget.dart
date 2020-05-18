@@ -36,6 +36,7 @@ class GenericErrorIconWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -65,7 +66,8 @@ class GenericErrorIconWidget extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
               child: Text(
-                (buttonText ?? LocalizedStrings.retryButton).toUpperCase(),
+                (buttonText ?? LocalizedStrings.of(context).retryButton)
+                    .toUpperCase(),
                 style: TextStyles.linksTextLinkSmallBold,
               ),
               onPressed: onRetryTap,

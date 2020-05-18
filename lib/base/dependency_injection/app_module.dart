@@ -8,12 +8,10 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:lykke_mobile_mavn/app/app.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/customer_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/earn_rule_list_bloc.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/spend_rule_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/has_pin_use_case.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/logout_use_case.dart';
@@ -38,7 +36,7 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/mobile/mobile_sett
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/partner_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/phone/phone_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/referral_api.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/spend/spend_api.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/campaign_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/voucher_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/wallet/wallet_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/notification/notification_api.dart';
@@ -58,9 +56,9 @@ import 'package:lykke_mobile_mavn/base/repository/partner/partner_repository.dar
 import 'package:lykke_mobile_mavn/base/repository/phone/phone_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/pin/pin_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/referral/referral_repository.dart';
-import 'package:lykke_mobile_mavn/base/repository/spend/spend_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/token/token_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/user/user_repository.dart';
+import 'package:lykke_mobile_mavn/base/repository/campaign/campaign_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/voucher/voucher_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
 import 'package:lykke_mobile_mavn/base/router/external_router.dart';
@@ -77,8 +75,8 @@ import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_count_b
 import 'package:lykke_mobile_mavn/feature_notification/router/notification_router.dart';
 import 'package:lykke_mobile_mavn/feature_payment_request_list/bloc/pending_payment_requests_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_personal_details/bloc/delete_account_use_case.dart';
-import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_user_verification/bloc/user_verification_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_purchase/bloc/voucher_purchase_success_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/dynamic_link_manager.dart';
 import 'package:lykke_mobile_mavn/library_analytics/analytics_service.dart';
@@ -140,7 +138,7 @@ class AppModule extends Module {
 
   EarnRepository get earnRepository => get();
 
-  SpendRepository get spendRepository => get();
+  CampaignRepository get campaignRepository => get();
 
   VoucherRepository get voucherRepository => get();
 
@@ -164,8 +162,6 @@ class AppModule extends Module {
 
   CountryCodeListBloc get countryCodeListBloc => get();
 
-  SpendRuleListBloc get spendRuleListBloc => get();
-
   EarnRuleListBloc get earnRuleListBloc => get();
 
   PendingPartnerPaymentsBloc get pendingPartnerPaymentsBloc => get();
@@ -181,8 +177,6 @@ class AppModule extends Module {
   LocalAuthentication get localAuthentication => get();
 
   AcceptHotelReferralBloc get acceptHotelReferralBloc => get();
-
-  AcceptLeadReferralBloc get acceptLeadReferralBloc => get();
 
   LogOutUseCase get logoutUseCase => get();
 
@@ -207,7 +201,7 @@ class AppModule extends Module {
 
   FirebaseMessagingBloc get firebaseMessagingBloc => get();
 
-  ThemeBloc get themeBloc => get();
+  VoucherPurchaseSuccessBloc get voucherPurchaseSuccessBloc => get();
 
   @override
   void provideInstances() {
@@ -248,7 +242,7 @@ class AppModule extends Module {
 
     provideSingleton(
       () => HttpClient(
-        "https://customer-api.mavn.ch/api",
+        remoteConfig.getString(RemoteConfigKeys.customerApiBaseRestUrl),
         interceptors: [
           get<LogInterceptor>(),
           get<TokenInterceptor>(),
@@ -297,7 +291,7 @@ class AppModule extends Module {
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
     provideSingleton(() => EarnApi(
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
-    provideSingleton(() => SpendApi(
+    provideSingleton(() => CampaignApi(
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
     provideSingleton(() => VoucherApi(
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
@@ -326,7 +320,6 @@ class AppModule extends Module {
     provideSingleton(() => ConversionRepository(get()));
     provideSingleton(() => FirebaseMessaging());
     provideSingleton(() => FirebaseMessagingBloc(get(), get(), get()));
-    provideSingleton(() => ThemeBloc(get()));
     provideSingleton(() => MobileSettingsRepository(get()));
     provideSingleton(() => WalletRealTimeRepository(get()));
     provideSingleton(() => EmailRepository(get()));
@@ -335,7 +328,7 @@ class AppModule extends Module {
     provideSingleton(() => PinRepository(get(), get()));
     provideSingleton(() => ReferralRepository(get()));
     provideSingleton(() => EarnRepository(get()));
-    provideSingleton(() => SpendRepository(get()));
+    provideSingleton(() => CampaignRepository(get()));
     provideSingleton(() => VoucherRepository(get()));
     provideSingleton(() => NotificationRepository(get()));
     provideSingleton(() => NotificationCountBloc(get()));
@@ -351,8 +344,6 @@ class AppModule extends Module {
 
     provideSingleton(() => CountryCodeListBloc(get(), get(), get()));
 
-    provideSingleton(() => SpendRuleListBloc(get()));
-
     provideSingleton(() => EarnRuleListBloc(get()));
 
     provideSingleton<PendingPartnerPaymentsBloc>(
@@ -364,8 +355,6 @@ class AppModule extends Module {
 
     provideSingleton(() => AcceptHotelReferralBloc(get(), get(), get()));
 
-    provideSingleton(() => AcceptLeadReferralBloc(get(), get(), get()));
-
     provideSingleton(() => EmailConfirmationBloc(get(), get(), get()));
 
     provideSingleton(() => CustomerBloc(get(), get()));
@@ -373,14 +362,16 @@ class AppModule extends Module {
     provideSingleton(
         () => UserVerificationBloc(get(), get(), get(), get(), get()));
 
+    provideSingleton(() => VoucherPurchaseSuccessBloc(get()));
+
     // Dynamic Link Manager
     provideSingleton(
       () => DynamicLinkManager(
         firebaseDynamicLinks: FirebaseDynamicLinks.instance,
         router: get(),
         hotelReferralBloc: get(),
-        leadReferralBloc: get(),
         emailConfirmationBloc: get(),
+        voucherPurchaseSuccessBloc: get(),
         sharedPreferencesManager: get(),
       ),
     );

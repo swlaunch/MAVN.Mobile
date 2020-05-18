@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
@@ -36,7 +35,8 @@ class AvailableAndStakedBalanceWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-                LocalizedStrings.propertyPaymentAvailableBalanceLabel
+                LocalizedStrings.of(context)
+                    .propertyPaymentAvailableBalanceLabel
                     .toUpperCase(),
                 style: TextStyles.darkInputLabelBold),
             const SizedBox(height: 8),
@@ -55,13 +55,10 @@ class AvailableAndStakedBalanceWidget extends StatelessWidget {
               Row(
                 children: <Widget>[
                   const SizedBox(width: 2),
-                  const ScaledDownSvg(
-                    asset: SvgAssets.tokenLight,
-                    color: ColorStyles.primaryDark,
-                  ),
+                  const ScaledDownSvg(asset: SvgAssets.token),
                   const SizedBox(width: 4),
                   Text(
-                    LocalizedStrings.transactionFormStakedAmount(
+                    LocalizedStrings.of(context).transactionFormStakedAmount(
                         wallet.stakedBalance.displayValueWithoutTrailingZeroes),
                     style: TextStyles.darkBodyBody4Regular,
                   ),

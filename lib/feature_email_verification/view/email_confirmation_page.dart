@@ -81,7 +81,7 @@ class EmailConfirmationPage extends HookWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Heading(LocalizedStrings.emailVerificationTitle),
+                  Heading(useLocalizedStrings().emailVerificationTitle),
                 ],
               ),
               if (confirmationBlocState is EmailConfirmationLoadingState ||
@@ -109,7 +109,7 @@ class EmailConfirmationPage extends HookWidget {
   }) {
     if (errorState is EmailConfirmationErrorState && !isErrorDismissed) {
       return _buildGenericError(
-        error: errorState.error,
+        error: errorState.error.localize(useContext()),
         onRetryTap: errorState.canRetry ? onRetryTap : null,
         onCloseTap: onCloseTap,
       );

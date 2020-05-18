@@ -24,19 +24,19 @@ class PaymentRequestListPage extends HookWidget {
   Widget build(BuildContext context) {
     final tabs = [
       TabConfiguration(
-          title: LocalizedStrings.transferRequestOngoingTab,
+          title: useLocalizedStrings().transferRequestOngoingTab,
           globalKey: GlobalKey(),
           tabKey: const Key('paymentRequestListOngoingTab'),
           buildWidget: () => const PendingRequestsWidget(
               key: Key('paymentRequestListOngoingList'))),
       TabConfiguration(
-          title: LocalizedStrings.transferRequestCompletedTab,
+          title: useLocalizedStrings().transferRequestCompletedTab,
           globalKey: GlobalKey(),
           tabKey: const Key('paymentRequestListCompletedTab'),
           buildWidget: () => const CompletedRequestsWidget(
               key: Key('paymentRequestListCompletedList'))),
       TabConfiguration(
-          title: LocalizedStrings.transferRequestUnsuccessfulTab,
+          title: useLocalizedStrings().transferRequestUnsuccessfulTab,
           globalKey: GlobalKey(),
           tabKey: const Key('paymentRequestListUnsuccessfulTab'),
           buildWidget: () => const FailedRequestsWidget(
@@ -78,7 +78,8 @@ class PaymentRequestListPage extends HookWidget {
   }
 
   List<Widget> _buildSuccessState(List<TabConfiguration> tabs) => <Widget>[
-        DarkPageTitle(pageTitle: LocalizedStrings.transferRequestListPageTitle),
+        DarkPageTitle(
+            pageTitle: useLocalizedStrings().transferRequestListPageTitle),
         Expanded(child: TabBarLayout(tabs: tabs)),
       ];
 

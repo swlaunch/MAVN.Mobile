@@ -1,23 +1,23 @@
 import 'package:intl/intl.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:meta/meta.dart';
 
 class DateTimeUtils {
-  static String getDescriptiveDate({
+  static LocalizedStringBuilder getDescriptiveDate({
     @required DateTime dateTime,
     @required DateFormat dateFormat,
     @required DateTime currentDateTime,
   }) {
     if (DateTimeUtils.isSameDate(dateTime, _todayDateOnly(currentDateTime))) {
-      return LocalizedStrings.dateTimeToday;
+      return LazyLocalizedStrings.dateTimeToday;
     }
 
     if (DateTimeUtils.isSameDate(
         dateTime, _yesterdayDateOnly(currentDateTime))) {
-      return LocalizedStrings.dateTimeYesterday;
+      return LazyLocalizedStrings.dateTimeYesterday;
     }
 
-    return dateFormat.format(dateTime);
+    return LocalizedStringBuilder.custom(dateFormat.format(dateTime));
   }
 
   static DateTime _todayDateOnly(DateTime currentDateTime) => DateTime(

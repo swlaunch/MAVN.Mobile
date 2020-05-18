@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:meta/meta.dart';
 
@@ -12,7 +13,7 @@ class HotelPreCheckoutErrorState extends HotelPreCheckoutState
     with EquatableMixin {
   HotelPreCheckoutErrorState(this.error);
 
-  final String error;
+  final LocalizedStringBuilder error;
 
   @override
   List get props => super.props..addAll([error]);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
@@ -36,6 +37,8 @@ const Key _passwordTextField = Key('passwordTextField');
 const Key _confirmPasswordTextField = Key('confirmPasswordTextField');
 const Key _changePasswordButton = Key('changePasswordSubmitButton');
 
+final _localizedStrings = LocalizedStrings();
+
 void main() {
   group('ChangePasswordPage tests', () {
     setUpAll(() {
@@ -67,7 +70,8 @@ void main() {
     testWidgets('ChangePasswordInlineErrorState', (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
-        ChangePasswordInlineErrorState(TestConstants.stubErrorText),
+        ChangePasswordInlineErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
       );
 
       expect(find.byType(InlineErrorWidget), findsOneWidget);
@@ -78,7 +82,8 @@ void main() {
     testWidgets('ChangePasswordErrorState', (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
-        ChangePasswordErrorState(TestConstants.stubErrorText),
+        ChangePasswordErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
       );
 
       expect(find.byType(GenericErrorWidget), findsOneWidget);
@@ -90,7 +95,8 @@ void main() {
         (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
-        ChangePasswordErrorState(TestConstants.stubErrorText),
+        ChangePasswordErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
       );
       await _whenIFillAllFieldsCorrectly();
 
@@ -131,8 +137,8 @@ void main() {
       await _formHelper.whenButtonTapped(_changePasswordButton);
 
       _formHelper.thenValidationErrorsAreNotPresent([
-        LocalizedStrings.passwordInvalidCharactersClientSideValidationError,
-        LocalizedStrings.emptyPasswordClientSideValidationError,
+        _localizedStrings.passwordInvalidCharactersClientSideValidationError,
+        _localizedStrings.emptyPasswordClientSideValidationError,
       ]);
       _thenBlocNotCalled();
     });
@@ -149,7 +155,7 @@ void main() {
       await _formHelper.whenButtonTapped(_changePasswordButton);
 
       _formHelper.thenValidationErrorIsPresent(
-          LocalizedStrings.emptyPasswordClientSideValidationError);
+          _localizedStrings.emptyPasswordClientSideValidationError);
       _thenBlocNotCalled();
     });
 
@@ -167,8 +173,8 @@ void main() {
       await _formHelper.whenButtonTapped(_changePasswordButton);
 
       _formHelper.thenValidationErrorsArePresent([
-        LocalizedStrings.passwordInvalidError,
-        LocalizedStrings.passwordsDoNotMatchClientSideValidationError,
+        _localizedStrings.passwordInvalidError,
+        _localizedStrings.passwordsDoNotMatchClientSideValidationError,
       ]);
       _thenBlocNotCalled();
     });
@@ -187,8 +193,8 @@ void main() {
 
       _formHelper
         ..thenValidationErrorsAreNotPresent([
-          LocalizedStrings.emptyPasswordClientSideValidationError,
-          LocalizedStrings.passwordInvalidCharactersClientSideValidationError,
+          _localizedStrings.emptyPasswordClientSideValidationError,
+          _localizedStrings.passwordInvalidCharactersClientSideValidationError,
         ])
         ..thenTextFieldIsNotFocused(key: _passwordTextField)
         ..thenTextFieldIsFocused(key: _confirmPasswordTextField);
@@ -209,7 +215,7 @@ void main() {
 
       _formHelper
         ..thenValidationErrorIsPresent(
-            LocalizedStrings.emptyPasswordClientSideValidationError)
+            _localizedStrings.emptyPasswordClientSideValidationError)
         ..thenTextFieldIsFocused(key: _passwordTextField);
       _thenBlocNotCalled();
     });
@@ -227,7 +233,7 @@ void main() {
       await _formHelper.whenKeyboardTextInputActionTapped(TextInputAction.next);
 
       _formHelper
-        ..thenValidationErrorIsPresent(LocalizedStrings.passwordInvalidError)
+        ..thenValidationErrorIsPresent(_localizedStrings.passwordInvalidError)
         ..thenTextFieldIsFocused(key: _passwordTextField);
       _thenBlocNotCalled();
     });
@@ -250,9 +256,9 @@ void main() {
       await _formHelper.whenButtonTapped(_changePasswordButton);
 
       _formHelper.thenValidationErrorsAreNotPresent([
-        LocalizedStrings.passwordInvalidCharactersClientSideValidationError,
-        LocalizedStrings.emptyPasswordClientSideValidationError,
-        LocalizedStrings.passwordsDoNotMatchClientSideValidationError,
+        _localizedStrings.passwordInvalidCharactersClientSideValidationError,
+        _localizedStrings.emptyPasswordClientSideValidationError,
+        _localizedStrings.passwordsDoNotMatchClientSideValidationError,
       ]);
       _thenBlocCalled();
     });
@@ -272,7 +278,7 @@ void main() {
       await _formHelper.whenButtonTapped(_changePasswordButton);
 
       _formHelper.thenValidationErrorIsPresent(
-          LocalizedStrings.passwordsDoNotMatchClientSideValidationError);
+          _localizedStrings.passwordsDoNotMatchClientSideValidationError);
       _thenBlocNotCalled();
     });
 
@@ -292,7 +298,7 @@ void main() {
       await _formHelper.whenButtonTapped(_changePasswordButton);
 
       _formHelper.thenValidationErrorsArePresent([
-        LocalizedStrings.passwordsDoNotMatchClientSideValidationError,
+        _localizedStrings.passwordsDoNotMatchClientSideValidationError,
       ]);
       _thenBlocNotCalled();
     });
@@ -314,9 +320,9 @@ void main() {
       await _formHelper.whenKeyboardTextInputActionTapped(TextInputAction.done);
 
       _formHelper.thenValidationErrorsAreNotPresent([
-        LocalizedStrings.emptyPasswordClientSideValidationError,
-        LocalizedStrings.passwordInvalidCharactersClientSideValidationError,
-        LocalizedStrings.passwordsDoNotMatchClientSideValidationError
+        _localizedStrings.emptyPasswordClientSideValidationError,
+        _localizedStrings.passwordInvalidCharactersClientSideValidationError,
+        _localizedStrings.passwordsDoNotMatchClientSideValidationError
       ]);
       _thenBlocCalled();
     });
@@ -340,7 +346,7 @@ void main() {
 
       _formHelper
         ..thenValidationErrorIsPresent(
-            LocalizedStrings.emptyPasswordClientSideValidationError)
+            _localizedStrings.emptyPasswordClientSideValidationError)
         ..thenTextFieldIsFocused(key: _passwordTextField);
       _thenBlocNotCalled();
     });
@@ -364,7 +370,7 @@ void main() {
 
       _formHelper
         ..thenValidationErrorIsPresent(
-            LocalizedStrings.passwordsDoNotMatchClientSideValidationError)
+            _localizedStrings.passwordsDoNotMatchClientSideValidationError)
         ..thenTextFieldIsFocused(key: _confirmPasswordTextField);
       _thenBlocNotCalled();
     });

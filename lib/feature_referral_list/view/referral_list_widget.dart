@@ -68,7 +68,7 @@ class ReferralListWidget extends HookWidget {
             retryOnError: loadData,
             showError: referralListBlocState is GenericListErrorState,
             errorText: referralListBlocState is GenericListErrorState
-                ? referralListBlocState.error
+                ? referralListBlocState.error.localize(useContext())
                 : null,
             itemBuilder: (item, _) => PreviousReferralsWidget(
                 referral: referralMapper.previousReferralsFromReferral(item)),

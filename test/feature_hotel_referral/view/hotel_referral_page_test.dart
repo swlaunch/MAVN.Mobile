@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/country_codes_response_model.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
@@ -30,6 +31,7 @@ const Key _emailTextField = Key('emailTextField');
 const Key _countryCodeTextField = Key('countryCodeField');
 const Key _phoneNumberTextField = Key('phoneNumberTextField');
 const Key _submitButton = Key('submitButton');
+final _localizedStrings = LocalizedStrings();
 
 void main() {
   group('HotelReferralPage tests', () {
@@ -60,7 +62,8 @@ void main() {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
         HotelReferralSubmissionErrorState(
-            error: TestConstants.stubErrorText, canRetry: false),
+            error: LocalizedStringBuilder.custom(TestConstants.stubErrorText),
+            canRetry: false),
       );
 
       expect(find.byType(CircularProgressIndicator), findsNothing);
@@ -74,7 +77,8 @@ void main() {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
         HotelReferralSubmissionErrorState(
-            error: TestConstants.stubErrorText, canRetry: true),
+            error: LocalizedStringBuilder.custom(TestConstants.stubErrorText),
+            canRetry: true),
       );
       await _whenIFillAllFieldsCorrectly();
 
@@ -180,7 +184,7 @@ void main() {
 
       _formHelper
         ..thenValidationErrorIsPresent(
-            LocalizedStrings.emptyFullNameClientSideValidationError)
+            _localizedStrings.emptyFullNameClientSideValidationError)
         ..thenTextFieldIsFocused(key: _fullNameTextField);
 
       _thenHotelReferralBlocNotCalled();

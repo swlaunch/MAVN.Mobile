@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:lykke_mobile_mavn/app/resources/feature_keys.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/customer_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/http_client.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/referral_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/wallet/wallet_api.dart';
 import 'package:lykke_mobile_mavn/library_analytics/analytics_service.dart';
 import 'package:lykke_mobile_mavn/library_analytics/network_analytics_event.dart';
@@ -75,8 +74,6 @@ class AnalyticsInterceptor extends CustomInterceptor {
         return Feature.registration;
       case WalletApi.getWalletPath:
         return Feature.balance;
-      case ReferralApi.leadReferralPath:
-        return Feature.leadReferral;
       default:
         return null;
     }

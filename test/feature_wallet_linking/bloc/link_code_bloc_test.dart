@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/link_code_block.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/link_code_output.dart';
@@ -49,15 +50,16 @@ void main() {
     test('generateLinkCode error state', () async {
       when(_mockWalletRepository.createPublicLinkCodeRequest())
           .thenThrow(Exception());
-      when(_mockExceptionToMessageMapper.map(null))
-          .thenReturn(TestConstants.stubErrorText);
+      when(_mockExceptionToMessageMapper.map(null)).thenReturn(
+          LocalizedStringBuilder.custom(TestConstants.stubErrorText));
 
       await subject.generateLinkCode();
 
       await blocTester.assertFullBlocOutputInOrder([
         LinkCodeUninitializedState(),
         LinkCodeLoadingState(),
-        LinkCodeErrorState(TestConstants.stubErrorText)
+        LinkCodeErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText))
       ]);
     });
   });

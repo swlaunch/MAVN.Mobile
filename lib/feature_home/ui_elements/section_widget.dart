@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
+import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/circular_widget.dart';
 
 class SectionWidget extends StatelessWidget {
   const SectionWidget({
-    @required this.theme,
     @required this.child,
     @required this.circularWidget,
     @required this.title,
     @required this.subtitle,
   });
 
-  final BaseAppTheme theme;
   final Widget child;
   final Widget circularWidget;
   final String title;
@@ -21,7 +19,7 @@ class SectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        color: theme.sectionBackground,
+        color: ColorStyles.white,
         padding: const EdgeInsets.only(top: 12, bottom: 12),
         child: Column(
           children: <Widget>[

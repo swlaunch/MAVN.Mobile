@@ -1,3 +1,4 @@
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/wallet_response_model.dart';
 import 'package:meta/meta.dart';
@@ -27,7 +28,7 @@ class WalletErrorState extends WalletState with BaseInlineErrorState {
   WalletErrorState({@required this.errorMessage});
 
   @override
-  String errorMessage;
+  LocalizedStringBuilder errorMessage;
 
   @override
   List get props => super.props..addAll([errorMessage]);

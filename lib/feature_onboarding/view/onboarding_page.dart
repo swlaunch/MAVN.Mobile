@@ -32,17 +32,18 @@ class OnboardingPage extends HookWidget with DynamicLinkManagerMixin {
 
     final List<_OnboardingPageData> pageData = [
       _OnboardingPageData(
-          title: LocalizedStrings.onboardingPage1Title(Configuration.appName),
+          title:
+              useLocalizedStrings().onboardingPage1Title(Configuration.appName),
           details: '',
           asset: ImageAssets.onboarding1),
       _OnboardingPageData(
-          title: LocalizedStrings.onboardingPage2Title(tokenSymbol.value),
-          details: LocalizedStrings.onboardingPage2Details(
+          title: useLocalizedStrings().onboardingPage2Title(tokenSymbol.value),
+          details: useLocalizedStrings().onboardingPage2Details(
               tokenSymbol.value, Configuration.appCompany),
           asset: ImageAssets.onboarding2),
       _OnboardingPageData(
-          title: LocalizedStrings.onboardingPage3Title(tokenSymbol.value),
-          details: LocalizedStrings.onboardingPage3Details(
+          title: useLocalizedStrings().onboardingPage3Title(tokenSymbol.value),
+          details: useLocalizedStrings().onboardingPage3Details(
               tokenSymbol.value, Configuration.appCompany),
           asset: ImageAssets.onboarding3),
     ];
@@ -144,7 +145,7 @@ class OnboardingPage extends HookWidget with DynamicLinkManagerMixin {
               key: const Key('onboardingPageSkipButton'),
               onTap: onSkipTap,
               child: Text(
-                LocalizedStrings.onboardingSkipButton,
+                useLocalizedStrings().onboardingSkipButton,
                 style: TextStyles.darkButtonExtraBold,
               ),
             ),
@@ -155,7 +156,7 @@ class OnboardingPage extends HookWidget with DynamicLinkManagerMixin {
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: Center(
                   child: Text(
-                    LocalizedStrings.nextPageButton,
+                    useLocalizedStrings().nextPageButton,
                     style: TextStyles.lightButtonExtraBold,
                     textAlign: TextAlign.center,
                   ),
@@ -185,7 +186,7 @@ class OnboardingPage extends HookWidget with DynamicLinkManagerMixin {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Center(
                   child: Text(
-                    LocalizedStrings.getStartedButton,
+                    useLocalizedStrings().getStartedButton,
                     style: TextStyles.lightButtonExtraBold,
                     textAlign: TextAlign.center,
                   ),

@@ -14,21 +14,21 @@ class TransactionBalanceErrorWidget extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Text(
-              LocalizedStrings.couldNotLoadBalanceError,
+              LocalizedStrings.of(context).couldNotLoadBalanceError,
               style: TextStyles.darkBodyBody1Bold,
             ),
             const SizedBox(height: 24),
-            _buildRetryButton(),
+            _buildRetryButton(context),
           ],
         ),
       );
 
-  Widget _buildRetryButton() => Container(
+  Widget _buildRetryButton(BuildContext context) => Container(
         width: double.infinity,
         height: 48,
         child: RaisedButton(
           key: const Key('balanceErrorRetryButton'),
-          child: Text(LocalizedStrings.retryButton,
+          child: Text(LocalizedStrings.of(context).retryButton,
               style: TextStyles.darkButtonExtraBold),
           onPressed: onRetryTap,
           color: ColorStyles.white,

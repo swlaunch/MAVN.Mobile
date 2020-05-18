@@ -1,3 +1,4 @@
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 
 abstract class TransactionFormState extends BlocState {}
@@ -11,7 +12,7 @@ class TransactionFormLoadingState extends TransactionFormState {}
 class TransactionFormErrorState extends TransactionFormState {
   TransactionFormErrorState(this.error);
 
-  final String error;
+  final LocalizedStringBuilder error;
 
   @override
   List get props => super.props..addAll([error]);
@@ -20,7 +21,7 @@ class TransactionFormErrorState extends TransactionFormState {
 class TransactionFormInlineErrorState extends TransactionFormState {
   TransactionFormInlineErrorState(this.error);
 
-  final String error;
+  final LocalizedStringBuilder error;
 
   @override
   List get props => super.props..addAll([error]);
@@ -44,7 +45,7 @@ class BarcodeScanSuccessEvent extends BlocEvent {
 class BarcodeScanPermissionErrorState extends TransactionFormState {
   BarcodeScanPermissionErrorState(this.error);
 
-  final String error;
+  final LocalizedStringBuilder error;
 
   @override
   List get props => super.props..addAll([error]);
@@ -53,7 +54,7 @@ class BarcodeScanPermissionErrorState extends TransactionFormState {
 class BarcodeScanErrorState extends TransactionFormState {
   BarcodeScanErrorState(this.error);
 
-  final String error;
+  final LocalizedStringBuilder error;
 
   @override
   List get props => super.props..addAll([error]);

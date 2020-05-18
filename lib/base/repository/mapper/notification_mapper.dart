@@ -1,5 +1,5 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/date/date_time_manager.dart';
 import 'package:lykke_mobile_mavn/base/notification/notification_routes.dart';
@@ -31,12 +31,12 @@ class NotificationToItemMapper {
         ..._getSection(
             now: now,
             isWithin24Hours: true,
-            headerName: LocalizedStrings.newHeader,
+            headerName: LazyLocalizedStrings.newHeader,
             notifications: notifications),
         ..._getSection(
             now: now,
             isWithin24Hours: false,
-            headerName: LocalizedStrings.earlierHeader,
+            headerName: LazyLocalizedStrings.earlierHeader,
             notifications: notifications),
       ];
     }
@@ -58,7 +58,7 @@ class NotificationToItemMapper {
   List<NotificationListItem> _getSection({
     DateTime now,
     bool isWithin24Hours,
-    String headerName,
+    LocalizedStringBuilder headerName,
     List<NotificationMessage> notifications,
   }) {
     final mappedNotifications = <NotificationListItem>[];

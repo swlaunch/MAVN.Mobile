@@ -1,3 +1,4 @@
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/response_model/referral_response_model.dart';
 import 'package:lykke_mobile_mavn/library_models/token_currency.dart';
 
@@ -18,7 +19,7 @@ class PreviousReferralModel {
 
   final ReferralStatus referralStatus;
   final ReferralType referralType;
-  final String referralName;
+  final LocalizedStringBuilder referralName;
   final String referralEmail;
   final String partnerName;
   final DateTime referralCreationDate;

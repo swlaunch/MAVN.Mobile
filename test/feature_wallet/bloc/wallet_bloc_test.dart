@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/repository/conversion/conversion_respository.dart';
@@ -66,28 +66,30 @@ void main() {
       when(_mockWalletRepository.getWallet()).thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await subject.fetchWallet();
 
       await _blocTester.assertFullBlocOutputInOrder([
         WalletUninitializedState(),
         WalletLoadingState(),
-        WalletErrorState(errorMessage: LocalizedStrings.defaultGenericError),
+        WalletErrorState(
+            errorMessage: LazyLocalizedStrings.defaultGenericError),
       ]);
     });
     test('fetchWallet - network error', () async {
       when(_mockWalletRepository.getWallet()).thenThrow(NetworkException());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await subject.fetchWallet();
 
       await _blocTester.assertFullBlocOutputInOrder([
         WalletUninitializedState(),
         WalletLoadingState(),
-        WalletErrorState(errorMessage: LocalizedStrings.defaultGenericError),
+        WalletErrorState(
+            errorMessage: LazyLocalizedStrings.defaultGenericError),
       ]);
     });
   });

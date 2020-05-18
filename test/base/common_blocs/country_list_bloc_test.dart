@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/countries_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
@@ -88,21 +88,22 @@ void main() {
       expectedFullBlocOutput.addAll([
         CountryListUninitializedState(),
         CountryListLoadingState(),
-        CountryListErrorState(LocalizedStrings.networkError),
+        CountryListErrorState(LazyLocalizedStrings.networkError),
       ]);
     });
 
     test('loadCountryList generic error', () async {
       when(mockCountryRepository.getCountryList()).thenThrow(Exception());
-      when(mockExceptionToMessageMapper.map(null))
-          .thenReturn(TestConstants.stubErrorText);
+      when(mockExceptionToMessageMapper.map(null)).thenReturn(
+          LocalizedStringBuilder.custom(TestConstants.stubErrorText));
 
       await subject.loadCountryList();
 
       expectedFullBlocOutput.addAll([
         CountryListUninitializedState(),
         CountryListLoadingState(),
-        CountryListErrorState(TestConstants.stubErrorText),
+        CountryListErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
       ]);
     });
 

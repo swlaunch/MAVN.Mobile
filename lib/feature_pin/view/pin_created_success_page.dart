@@ -11,9 +11,9 @@ class PinCreatedSuccessPage extends HookWidget {
     final router = useRouter();
     return ResultFeedbackPage(
       widgetKey: const Key('pinCreatedSuccessWidget'),
-      title: LocalizedStrings.pinCreatedSuccessTitle,
-      details: LocalizedStrings.pinCreatedSuccessDetails,
-      buttonText: LocalizedStrings.getStartedButton,
+      title: useLocalizedStrings().pinCreatedSuccessTitle,
+      details: useLocalizedStrings().pinCreatedSuccessDetails,
+      buttonText: useLocalizedStrings().getStartedButton,
       onButtonTap: router.navigateToLandingPage,
       endIcon: SvgAssets.success,
       hasLogo: true,

@@ -1,7 +1,6 @@
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
-import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/local_data_source/shared_preferences_manager/shared_preferences_manager.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_email_verification/bloc/email_confirmation_bloc.dart';
@@ -15,7 +14,6 @@ class MockFirebaseDynamicLinks extends Mock implements FirebaseDynamicLinks {}
 FirebaseDynamicLinks _mockDynamicLinks;
 Router _mockRouter;
 AcceptHotelReferralBloc _mockAcceptHotelReferralBloc;
-AcceptLeadReferralBloc _mockAcceptLeadReferralBloc;
 EmailConfirmationBloc _mockEmailConfirmationBloc;
 SharedPreferencesManager _mockSharedPreferencesManager;
 DynamicLinkManager _subject;
@@ -30,7 +28,6 @@ void main() {
         firebaseDynamicLinks: _mockDynamicLinks,
         router: _mockRouter,
         hotelReferralBloc: _mockAcceptHotelReferralBloc,
-        leadReferralBloc: _mockAcceptLeadReferralBloc,
         emailConfirmationBloc: _mockEmailConfirmationBloc,
         sharedPreferencesManager: _mockSharedPreferencesManager,
       );

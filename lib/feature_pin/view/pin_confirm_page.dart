@@ -40,8 +40,8 @@ class PinConfirmPage extends HookWidget with LoadingOverlayMixin {
     return ScaffoldWithLogo(
         hasBackButton: true,
         body: PinNumPad.withSubmitButton(
-          headingText: LocalizedStrings.pinConfirmHeading,
-          description: LocalizedStrings.pinConfirmDescription,
+          headingText: useLocalizedStrings().pinConfirmHeading,
+          description: useLocalizedStrings().pinConfirmDescription,
           addNumber: pinBloc.addDigit,
           maxPinLength: pinBloc.digitsLimit,
           pinState: pinState,
@@ -49,6 +49,7 @@ class PinConfirmPage extends HookWidget with LoadingOverlayMixin {
           removeLastNumber: pinBloc.removeFromPassCode,
           onSubmitTap: pinBloc.storePin,
           isFooterVisible: isSubmitVisible,
+          submitButtonText: useLocalizedStrings().submitButton,
         ));
   }
 }

@@ -48,7 +48,7 @@ class ChangePasswordPage extends HookWidget {
             Column(
               children: <Widget>[
                 PageTitle(
-                  title: LocalizedStrings.changePassword,
+                  title: useLocalizedStrings().changePassword,
                   assetIconLeading: SvgAssets.settingsChangePassword,
                 ),
                 const SizedBox(height: 16),
@@ -59,13 +59,13 @@ class ChangePasswordPage extends HookWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          LocalizedStrings.changePasswordPagePrompt,
+                          useLocalizedStrings().changePasswordPagePrompt,
                           style: TextStyles.darkBodyBody1RegularHigh,
                         ),
                         const SizedBox(height: 56),
                         ChangePasswordForm(
                           state: changePasswordState,
-                          buttonText: LocalizedStrings.changePassword,
+                          buttonText: useLocalizedStrings().changePassword,
                           formKey: _formKey,
                           passwordGlobalKey: _passwordGlobalKey,
                           confirmPasswordGlobalKey: _confirmPasswordGlobalKey,
@@ -83,7 +83,7 @@ class ChangePasswordPage extends HookWidget {
             if (changePasswordState is ChangePasswordErrorState &&
                 !isFormSubmissionErrorDismissed.value)
               _buildError(
-                error: changePasswordState.error,
+                error: changePasswordState.error.localize(useContext()),
                 onRetryTap: onSubmit,
                 onCloseTap: () {
                   isFormSubmissionErrorDismissed.value = true;

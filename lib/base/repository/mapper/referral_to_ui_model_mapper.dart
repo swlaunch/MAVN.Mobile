@@ -1,5 +1,5 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_ui_models/previous_referrals_list/previous_referrals_model.dart';
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/response_model/referral_response_model.dart';
@@ -11,7 +11,7 @@ class ReferralToUiModelMapper {
       PreviousReferralModel(
         referralStatus: referral.status,
         referralType: referral.referralType,
-        referralName: LocalizedStrings.previousReferralsNameHolder(
+        referralName: LazyLocalizedStrings.previousReferralsNameHolder(
             referral.firstName, referral.lastName),
         referralEmail: referral.email,
         partnerName: referral.partnerName ?? '',

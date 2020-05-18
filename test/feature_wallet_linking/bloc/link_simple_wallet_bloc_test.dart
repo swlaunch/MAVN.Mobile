@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/link_simple_wallet_bloc.dart';
@@ -69,14 +69,14 @@ void main() {
           .thenReturn(TestConstants.stubMobileSettings);
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStrings.defaultGenericError);
+          .thenReturn(LazyLocalizedStrings.defaultGenericError);
 
       await subject.generateDAppURL();
 
       await blocTester.assertFullBlocOutputInOrder([
         LinkSimpleWalletUninitializedState(),
         LinkSimpleWalletLoadingState(),
-        LinkSimpleWalletErrorState(LocalizedStrings.defaultGenericError)
+        LinkSimpleWalletErrorState(LazyLocalizedStrings.defaultGenericError)
       ]);
     });
   });

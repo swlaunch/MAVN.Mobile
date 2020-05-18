@@ -1,4 +1,4 @@
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/router/external_router.dart';
 import 'package:lykke_mobile_mavn/library_qr_actions/actions/qr_base_action.dart';
 
@@ -28,9 +28,10 @@ class QrOpenUrlAction extends QrBaseAction {
   }
 
   @override
-  String get dialogPositiveButtonTitle =>
-      LocalizedStrings.scannedInfoDialogPositiveButton;
+  LocalizedStringBuilder get dialogPositiveButtonTitle =>
+      LazyLocalizedStrings.scannedInfoDialogPositiveButton;
 
   @override
-  String get dialogMessage => qrCodeContent;
+  LocalizedStringBuilder get dialogMessage =>
+      LocalizedStringBuilder.custom(qrCodeContent);
 }

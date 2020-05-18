@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/wallet_response_model.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
@@ -33,6 +34,7 @@ FormHelper _formHelper;
 const Key _walletAddressTextField = Key('walletAddressTextField');
 const Key _amountTextField = Key('amountTextField');
 const Key _transactionFormSendButton = Key('transactionFormSendButton');
+final _localizedStrings = LocalizedStrings();
 
 WalletState _defaultWalletState = WalletLoadedState(
   wallet: WalletResponseModel(balance: TestConstants.stubTokenCurrency),
@@ -69,7 +71,8 @@ void main() {
     testWidgets('TransactionFormInlineErrorState', (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
-        TransactionFormInlineErrorState(TestConstants.stubErrorText),
+        TransactionFormInlineErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
       );
 
       expect(find.byType(InlineErrorWidget), findsOneWidget);
@@ -80,7 +83,8 @@ void main() {
     testWidgets('TransactionFormErrorState', (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
-        TransactionFormErrorState(TestConstants.stubErrorText),
+        TransactionFormErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
       );
 
       expect(find.byType(GenericErrorWidget), findsOneWidget);
@@ -92,7 +96,8 @@ void main() {
         (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
-        TransactionFormErrorState(TestConstants.stubErrorText),
+        TransactionFormErrorState(
+            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
       );
       await _whenIFillAllFieldsCorrectly();
 
@@ -136,7 +141,9 @@ void main() {
       await _givenSubjectWidgetWithInitialBlocState(
           widgetTester,
           TransactionFormUninitializedState(),
-          WalletErrorState(errorMessage: TestConstants.stubEmpty));
+          WalletErrorState(
+              errorMessage:
+                  LocalizedStringBuilder.custom(TestConstants.stubEmpty)));
       expect(find.byType(InlineErrorWidget), findsNothing);
       expect(find.byType(CircularProgressIndicator), findsNothing);
       expect(find.byType(GenericErrorWidget), findsNothing);
@@ -148,7 +155,9 @@ void main() {
       await _givenSubjectWidgetWithInitialBlocState(
           widgetTester,
           TransactionFormUninitializedState(),
-          WalletErrorState(errorMessage: TestConstants.stubEmpty));
+          WalletErrorState(
+              errorMessage:
+                  LocalizedStringBuilder.custom(TestConstants.stubEmpty)));
 
       expect(find.byType(TransactionBalanceErrorWidget), findsOneWidget);
       await _formHelper.whenButtonTapped(const Key('balanceErrorRetryButton'));
@@ -170,8 +179,8 @@ void main() {
       await _formHelper.whenButtonTapped(_transactionFormSendButton);
 
       _formHelper.thenValidationErrorsAreNotPresent([
-        LocalizedStrings.transactionEmptyAddressError,
-        LocalizedStrings.transactionInvalidAddressError,
+        _localizedStrings.transactionEmptyAddressError,
+        _localizedStrings.transactionInvalidAddressError,
       ]);
       _thenBlocNotCalled();
     });
@@ -188,7 +197,7 @@ void main() {
       await _formHelper.whenButtonTapped(_transactionFormSendButton);
 
       _formHelper.thenValidationErrorIsPresent(
-          LocalizedStrings.transactionEmptyAddressError);
+          _localizedStrings.transactionEmptyAddressError);
       _thenBlocNotCalled();
     });
 
@@ -206,7 +215,7 @@ void main() {
       await _formHelper.whenButtonTapped(_transactionFormSendButton);
 
       _formHelper.thenValidationErrorIsPresent(
-          LocalizedStrings.transactionInvalidAddressError);
+          _localizedStrings.transactionInvalidAddressError);
       _thenBlocNotCalled();
     });
 
@@ -225,8 +234,8 @@ void main() {
 
       _formHelper
         ..thenValidationErrorsAreNotPresent([
-          LocalizedStrings.transactionEmptyAddressError,
-          LocalizedStrings.transactionInvalidAddressError,
+          _localizedStrings.transactionEmptyAddressError,
+          _localizedStrings.transactionInvalidAddressError,
         ])
         ..thenTextFieldIsNotFocused(key: _walletAddressTextField)
         ..thenTextFieldIsFocused(key: _amountTextField);
@@ -248,7 +257,7 @@ void main() {
 
       _formHelper
         ..thenValidationErrorIsPresent(
-            LocalizedStrings.transactionEmptyAddressError)
+            _localizedStrings.transactionEmptyAddressError)
         ..thenTextFieldIsFocused(key: _walletAddressTextField);
       _thenBlocNotCalled();
     });
@@ -268,7 +277,7 @@ void main() {
 
       _formHelper
         ..thenValidationErrorIsPresent(
-            LocalizedStrings.transactionInvalidAddressError)
+            _localizedStrings.transactionInvalidAddressError)
         ..thenTextFieldIsFocused(key: _walletAddressTextField);
       _thenBlocNotCalled();
     });
@@ -287,9 +296,9 @@ void main() {
       await _formHelper.whenButtonTapped(_transactionFormSendButton);
 
       _formHelper.thenValidationErrorsAreNotPresent([
-        LocalizedStrings.transactionAmountRequiredError,
-        LocalizedStrings.transactionAmountInvalidError,
-        LocalizedStrings.transactionAmountGreaterThanBalanceError,
+        _localizedStrings.transactionAmountRequiredError,
+        _localizedStrings.transactionAmountInvalidError,
+        _localizedStrings.transactionAmountGreaterThanBalanceError,
       ]);
       _thenBlocNotCalled();
     });
@@ -306,7 +315,7 @@ void main() {
       await _formHelper.whenButtonTapped(_transactionFormSendButton);
 
       _formHelper.thenValidationErrorIsPresent(
-          LocalizedStrings.transactionAmountRequiredError);
+          _localizedStrings.transactionAmountRequiredError);
       _thenBlocNotCalled();
     });
 
@@ -324,7 +333,7 @@ void main() {
       await _formHelper.whenButtonTapped(_transactionFormSendButton);
 
       _formHelper.thenValidationErrorIsPresent(
-          LocalizedStrings.transactionAmountInvalidError);
+          _localizedStrings.transactionAmountInvalidError);
       _thenBlocNotCalled();
     });
 
@@ -343,7 +352,7 @@ void main() {
       await _formHelper.whenButtonTapped(_transactionFormSendButton);
 
       _formHelper.thenValidationErrorIsPresent(
-          LocalizedStrings.transactionAmountGreaterThanBalanceError);
+          _localizedStrings.transactionAmountGreaterThanBalanceError);
       _thenBlocNotCalled();
     });
 
@@ -361,9 +370,9 @@ void main() {
       await _formHelper.whenButtonTapped(_transactionFormSendButton);
 
       _formHelper.thenValidationErrorsAreNotPresent([
-        LocalizedStrings.transactionAmountRequiredError,
-        LocalizedStrings.transactionAmountInvalidError,
-        LocalizedStrings.transactionAmountGreaterThanBalanceError,
+        _localizedStrings.transactionAmountRequiredError,
+        _localizedStrings.transactionAmountInvalidError,
+        _localizedStrings.transactionAmountGreaterThanBalanceError,
       ]);
       _thenBlocNotCalled();
     });
@@ -383,12 +392,12 @@ void main() {
 
       _formHelper
         ..thenValidationErrorsAreNotPresent([
-          LocalizedStrings.transactionAmountRequiredError,
-          LocalizedStrings.transactionAmountInvalidError,
-          LocalizedStrings.transactionAmountGreaterThanBalanceError,
+          _localizedStrings.transactionAmountRequiredError,
+          _localizedStrings.transactionAmountInvalidError,
+          _localizedStrings.transactionAmountGreaterThanBalanceError,
         ])
         ..thenValidationErrorIsPresent(
-            LocalizedStrings.transferRequestAmountIsZeroError);
+            _localizedStrings.transferRequestAmountIsZeroError);
       _thenBlocNotCalled();
     });
 
@@ -406,9 +415,9 @@ void main() {
       await _formHelper.whenButtonTapped(_transactionFormSendButton);
 
       _formHelper.thenValidationErrorsAreNotPresent([
-        LocalizedStrings.transactionAmountRequiredError,
-        LocalizedStrings.transactionAmountInvalidError,
-        LocalizedStrings.transactionAmountGreaterThanBalanceError,
+        _localizedStrings.transactionAmountRequiredError,
+        _localizedStrings.transactionAmountInvalidError,
+        _localizedStrings.transactionAmountGreaterThanBalanceError,
       ]);
       _thenBlocNotCalled();
     });
@@ -427,7 +436,7 @@ void main() {
 
       _formHelper
         ..thenValidationErrorIsPresent(
-            LocalizedStrings.transactionAmountRequiredError)
+            _localizedStrings.transactionAmountRequiredError)
         ..thenTextFieldIsFocused(key: _amountTextField);
       _thenBlocNotCalled();
     });
@@ -446,7 +455,7 @@ void main() {
 
       _formHelper
         ..thenValidationErrorIsPresent(
-            LocalizedStrings.transactionAmountInvalidError)
+            _localizedStrings.transactionAmountInvalidError)
         ..thenTextFieldIsFocused(key: _amountTextField);
       _thenBlocNotCalled();
     });
@@ -523,13 +532,13 @@ void main() {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
         BarcodeScanPermissionErrorState(
-            LocalizedStrings.barcodeScanPermissionError),
+            LazyLocalizedStrings.barcodeScanPermissionError),
       );
 
       expect(find.byType(GenericErrorWidget), findsOneWidget);
       expect(find.byType(CircularProgressIndicator), findsNothing);
       expect(find.byType(InlineErrorWidget), findsNothing);
-      expect(find.text(LocalizedStrings.barcodeScanPermissionError),
+      expect(find.text(_localizedStrings.barcodeScanPermissionError),
           findsOneWidget);
     });
 
@@ -538,7 +547,7 @@ void main() {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
         BarcodeScanPermissionErrorState(
-            LocalizedStrings.barcodeScanPermissionError),
+            LazyLocalizedStrings.barcodeScanPermissionError),
       );
 
       await widgetTester
@@ -549,20 +558,20 @@ void main() {
     testWidgets('start scan - generic error', (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
-        BarcodeScanPermissionErrorState(LocalizedStrings.barcodeScanError),
+        BarcodeScanPermissionErrorState(LazyLocalizedStrings.barcodeScanError),
       );
 
       expect(find.byType(GenericErrorWidget), findsOneWidget);
       expect(find.byType(CircularProgressIndicator), findsNothing);
       expect(find.byType(InlineErrorWidget), findsNothing);
-      expect(find.text(LocalizedStrings.barcodeScanError), findsOneWidget);
+      expect(find.text(_localizedStrings.barcodeScanError), findsOneWidget);
     });
 
     testWidgets('start scan - generic error retry should call start scan',
         (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
-        BarcodeScanPermissionErrorState(LocalizedStrings.barcodeScanError),
+        BarcodeScanPermissionErrorState(LazyLocalizedStrings.barcodeScanError),
       );
 
       await widgetTester

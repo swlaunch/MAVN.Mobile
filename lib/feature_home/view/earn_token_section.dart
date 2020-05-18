@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
+import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
@@ -18,14 +18,12 @@ import 'package:lykke_mobile_mavn/library_ui_components/misc/spinner.dart';
 
 class EarnTokenSection extends HookWidget {
   const EarnTokenSection({
-    @required this.theme,
     @required this.router,
     @required this.earnRuleListState,
     @required this.onRetryTap,
     this.handleOwnLoading = true,
   });
 
-  final BaseAppTheme theme;
   final Router router;
   final GenericListState earnRuleListState;
   final VoidCallback onRetryTap;
@@ -38,15 +36,13 @@ class EarnTokenSection extends HookWidget {
     final tokenSymbol =
         useState(useGetMobileSettingsUseCase(context).execute()?.tokenSymbol);
     return SectionWidget(
-      theme: theme,
-      title: LocalizedStrings.monthlyChallenges,
-      subtitle: LocalizedStrings.monthlyChallengesSubtitle,
+      title: useLocalizedStrings().monthlyChallenges,
+      subtitle: useLocalizedStrings().monthlyChallengesSubtitle,
       circularWidget: Container(
-        color: theme.iconBackground,
         padding: const EdgeInsets.all(6),
         child: SvgPicture.asset(
           SvgAssets.rocket,
-          color: theme.icon,
+          color: ColorStyles.silverChalice,
         ),
       ),
       child: Container(
@@ -61,7 +57,9 @@ class EarnTokenSection extends HookWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: GenericErrorWidget(
                   onRetryTap: onRetryTap,
-                  text: (earnRuleListState as GenericListErrorState).error,
+                  text: (earnRuleListState as GenericListErrorState)
+                      .error
+                      .localize(useContext()),
                 ),
               ),
             if (earnRuleListState is GenericListLoadedState)

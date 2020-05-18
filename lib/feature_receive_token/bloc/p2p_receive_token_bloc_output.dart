@@ -1,3 +1,4 @@
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:meta/meta.dart';
 
@@ -14,8 +15,8 @@ class ReceiveTokenPageErrorState extends ReceiveTokenPageState {
     @required this.iconAsset,
   });
 
-  final String errorTitle;
-  final String errorSubtitle;
+  final LocalizedStringBuilder errorTitle;
+  final LocalizedStringBuilder errorSubtitle;
   final String iconAsset;
 
   @override

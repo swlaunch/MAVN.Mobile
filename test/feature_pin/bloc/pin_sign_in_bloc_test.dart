@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_pin/bloc/pin_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_pin/bloc/pin_sign_in_bloc.dart';
@@ -58,7 +58,7 @@ void main() {
           digits: [3, 3, 3, 3],
           isHidden: false,
           isSubmitVisible: false,
-          error: LocalizedStrings.pinErrorRemainingAttempts(2),
+          error: LazyLocalizedStrings.pinErrorRemainingAttempts(2),
         ),
       );
     });
