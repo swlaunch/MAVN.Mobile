@@ -1,4 +1,3 @@
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
 
 abstract class BiometricTypeState extends BaseState {}
@@ -12,7 +11,7 @@ class BiometricTypeLoadedState extends BiometricTypeState {
   });
 
   final String assetName;
-  final LocalizedStringBuilder label;
+  final String label;
 
   @override
   List get props => [label, assetName];

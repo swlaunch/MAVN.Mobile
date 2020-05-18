@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
@@ -22,7 +21,6 @@ import '../../test_constants.dart';
 
 Router _mockRouter;
 GetMobileSettingsUseCase _mockGetMobileSettingsUseCase;
-
 void main() {
   setUpAll(() {
     _mockGetMobileSettingsUseCase = MockGetMobileSettingsUseCase();
@@ -51,7 +49,7 @@ void main() {
           partnerPaymentsPendingState: GenericListErrorState(
             list: [TestConstants.stubPaymentRequest],
             currentPage: TestConstants.stubCurrentPage,
-            error: LocalizedStringBuilder.custom(TestConstants.stubErrorText),
+            error: TestConstants.stubErrorText,
           ));
       expect(find.byType(BadgeWidget), findsNWidgets(0));
     });

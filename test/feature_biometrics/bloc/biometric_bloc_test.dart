@@ -2,7 +2,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:local_auth/error_codes.dart' as auth_error_codes;
 import 'package:local_auth/local_auth.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/feature_biometrics/bloc/biometric_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_biometrics/bloc/biometric_bloc_output.dart';
@@ -17,7 +16,6 @@ import '../../test_constants.dart';
 final _mockLocalSettingsRepository = MockLocalSettingsRepository();
 final _mockUserRepository = MockUserRepository();
 final _mockLocalAuthentication = MockLocalAuthentication();
-final _localizedStrings = LocalizedStrings();
 
 void main() {
   group('BiometricBloc tests', () {
@@ -161,7 +159,7 @@ void main() {
       when(
         _mockLocalAuthentication.authenticateWithBiometrics(
           localizedReason:
-              _localizedStrings.biometricAuthenticationPromptMessage,
+              LocalizedStrings.biometricAuthenticationPromptMessage,
           androidAuthStrings: anyNamed('androidAuthStrings'),
           stickyAuth: true,
         ),
@@ -188,7 +186,7 @@ void main() {
       when(
         _mockLocalAuthentication.authenticateWithBiometrics(
           localizedReason:
-              _localizedStrings.biometricAuthenticationPromptMessage,
+              LocalizedStrings.biometricAuthenticationPromptMessage,
           androidAuthStrings: anyNamed('androidAuthStrings'),
           stickyAuth: true,
         ),
@@ -218,14 +216,14 @@ void main() {
       when(
         _mockLocalAuthentication.authenticateWithBiometrics(
           localizedReason:
-              _localizedStrings.biometricAuthenticationPromptMessage,
+              LocalizedStrings.biometricAuthenticationPromptMessage,
           androidAuthStrings: anyNamed('androidAuthStrings'),
           stickyAuth: true,
         ),
       ).thenAnswer((_) => Future.value(true));
 
-      when(_mockLoginBloc.currentState).thenReturn(LoginErrorState(
-          LocalizedStringBuilder.custom(TestConstants.stubErrorText)));
+      when(_mockLoginBloc.currentState)
+          .thenReturn(LoginErrorState(TestConstants.stubErrorText));
 
       await subject.tryUsingBiometricAuthentication();
 
@@ -251,7 +249,7 @@ void main() {
       when(
         _mockLocalAuthentication.authenticateWithBiometrics(
           localizedReason:
-              _localizedStrings.biometricAuthenticationPromptMessage,
+              LocalizedStrings.biometricAuthenticationPromptMessage,
           androidAuthStrings: anyNamed('androidAuthStrings'),
           stickyAuth: true,
         ),
@@ -389,5 +387,4 @@ BiometricBloc _getSubjectWidget({MockLoginBloc mockLoginBloc}) => BiometricBloc(
     _mockLocalSettingsRepository,
     _mockLocalAuthentication,
     _mockUserRepository,
-    mockLoginBloc ?? MockLoginBloc(LoginUninitializedState()))
-  ..localizedStrings = _localizedStrings;
+    mockLoginBloc ?? MockLoginBloc(LoginUninitializedState()));

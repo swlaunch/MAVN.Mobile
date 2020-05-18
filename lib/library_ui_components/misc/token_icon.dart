@@ -12,6 +12,6 @@ class TokenIcon extends StatelessWidget {
   final double size;
 
   @override
-  Widget build(BuildContext context) => SvgPicture.asset(SvgAssets.token,
+  Widget build(BuildContext context) => SvgPicture.asset(SvgAssets.tokenLight,
       color: color, height: size, width: size);
 }

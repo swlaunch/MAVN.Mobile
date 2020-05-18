@@ -55,7 +55,7 @@ class GenericErrorWidget extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5)),
                 child: Text(
-                  LocalizedStrings.of(context).retryButton.toUpperCase(),
+                  LocalizedStrings.retryButton.toUpperCase(),
                   style: TextStyles.linksTextLinkBold.copyWith(fontSize: 14),
                 ),
                 onPressed: onRetryTap,

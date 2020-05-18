@@ -1,9 +1,7 @@
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
-
 abstract class QrBaseAction {
-  LocalizedStringBuilder get dialogPositiveButtonTitle;
+  String get dialogPositiveButtonTitle;
 
-  LocalizedStringBuilder get dialogMessage;
+  String get dialogMessage;
 
   String qrCodeContent;
 

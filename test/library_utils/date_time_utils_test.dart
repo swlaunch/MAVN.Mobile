@@ -5,8 +5,6 @@ import 'package:lykke_mobile_mavn/library_utils/date_time_utils.dart';
 
 import '../test_constants.dart';
 
-final _localizedStrings = LocalizedStrings();
-
 void main() {
   group('Date time utils tests', () {
     group('get descriptive date', () {
@@ -18,8 +16,8 @@ void main() {
             dateTime: TestConstants.stubDateTimeToday,
             dateFormat: stubDateFormat,
             currentDateTime: TestConstants.stubDateTime,
-          ).from(_localizedStrings),
-          _localizedStrings.dateTimeToday,
+          ),
+          LocalizedStrings.dateTimeToday,
         );
       });
 
@@ -32,8 +30,8 @@ void main() {
             dateTime: TestConstants.stubDateTimeYesterday,
             dateFormat: stubDateFormat,
             currentDateTime: TestConstants.stubDateTime,
-          ).from(_localizedStrings),
-          _localizedStrings.dateTimeYesterday,
+          ),
+          LocalizedStrings.dateTimeYesterday,
         );
       });
 
@@ -46,7 +44,7 @@ void main() {
             dateTime: DateTime(2019, 6, 22, 14, 22, 10),
             dateFormat: stubDateFormat,
             currentDateTime: TestConstants.stubDateTime,
-          ).from(_localizedStrings),
+          ),
           'Saturday, 22 June',
         );
       });

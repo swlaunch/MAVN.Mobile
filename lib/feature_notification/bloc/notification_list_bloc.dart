@@ -1,5 +1,5 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/notification/response_model/notification_list_response_model.dart';
 import 'package:lykke_mobile_mavn/base/repository/notification/notification_repository.dart';
@@ -11,10 +11,14 @@ class NotificationListBloc extends GenericListBloc<
     NotificationListResponseModel, NotificationMessage> {
   NotificationListBloc(this._notificationRepository)
       : super(
-            genericErrorSubtitle: LazyLocalizedStrings
-                .notificationListRequestGenericErrorSubtitle);
+            genericErrorSubtitle:
+                LocalizedStrings.notificationListRequestGenericErrorSubtitle);
 
   final NotificationRepository _notificationRepository;
+
+  @override
+  int getCurrentPage(NotificationListResponseModel response) =>
+      response.currentPage;
 
   @override
   List<NotificationMessage> getDataFromResponse(

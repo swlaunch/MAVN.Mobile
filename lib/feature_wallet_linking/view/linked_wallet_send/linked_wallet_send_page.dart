@@ -40,7 +40,7 @@ class LinkedWalletSendPage extends HookWidget {
       if (event is LinkedWalletSendErrorEvent) {
         router.pushLinkedWalletSendFailedPage(
           amount: amountController.value.text,
-          error: event.message.localize(useContext()),
+          error: event.message,
         );
         return;
       }
@@ -57,8 +57,8 @@ class LinkedWalletSendPage extends HookWidget {
 
     return DismissKeyboardOnTap(
       child: ScaffoldWithScrollableContent(
-        heading: useLocalizedStrings().linkedWalletSendTitle(tokenSymbol.value),
-        hint: useLocalizedStrings().linkedWalletSendHint(tokenSymbol.value),
+        heading: LocalizedStrings.linkedWalletSendTitle(tokenSymbol.value),
+        hint: LocalizedStrings.linkedWalletSendHint(tokenSymbol.value),
         content: Column(
           children: [
             const SizedBox(height: 32),

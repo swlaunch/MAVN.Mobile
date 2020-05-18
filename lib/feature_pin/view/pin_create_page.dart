@@ -23,9 +23,8 @@ class PinCreatePage extends HookWidget with LoadingOverlayMixin {
 
     return ScaffoldWithLogo(
         body: PinNumPad.withSubmitButton(
-      headingText: useLocalizedStrings().pinCreateHeading,
-      description:
-          useLocalizedStrings().pinCreateDescription(Configuration.appName),
+      headingText: LocalizedStrings.pinCreateHeading,
+      description: LocalizedStrings.pinCreateDescription(Configuration.appName),
       addNumber: pinBloc.addDigit,
       maxPinLength: pinBloc.digitsLimit,
       pinState: pinState,
@@ -35,7 +34,6 @@ class PinCreatePage extends HookWidget with LoadingOverlayMixin {
         router.pushPinConfirmPage(passCode);
       },
       isFooterVisible: isSubmitVisible,
-      submitButtonText: useLocalizedStrings().submitButton,
     ));
   }
 }

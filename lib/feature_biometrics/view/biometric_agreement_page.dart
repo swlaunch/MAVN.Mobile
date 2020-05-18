@@ -30,7 +30,7 @@ class BiometricAgreementPage extends HookWidget {
       biometricBloc.clear();
       _scaffoldKey.currentState.showSnackBar(SnackBar(
         content: Text(
-          useLocalizedStrings().loginPageUnauthorizedRedirectionMessage,
+          LocalizedStrings.loginPageUnauthorizedRedirectionMessage,
           key: const Key('unauthorizedRedirectionMessage'),
         ),
       ));
@@ -78,7 +78,7 @@ class BiometricAgreementPage extends HookWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   PrimaryButton(
-                    text: useLocalizedStrings().warningDialogYesButton,
+                    text: LocalizedStrings.warningDialogYesButton,
                     onTap: () => biometricBloc
                         .setBiometricAuthenticationPermission(hasAgreed: true),
                   ),
@@ -86,7 +86,7 @@ class BiometricAgreementPage extends HookWidget {
                     onPressed: () => biometricBloc
                         .setBiometricAuthenticationPermission(hasAgreed: false),
                     child: Text(
-                      useLocalizedStrings().warningDialogNoThanksButton,
+                      LocalizedStrings.warningDialogNoThanksButton,
                       style: TextStyles.linksTextLinkBold,
                     ),
                   ),
@@ -100,10 +100,10 @@ class BiometricAgreementPage extends HookWidget {
   }
 
   String get _headingText => Platform.isIOS
-      ? useLocalizedStrings().biometricAuthenticationDialogTitleIOS
-      : useLocalizedStrings().biometricAuthenticationDialogTitleAndroid;
+      ? LocalizedStrings.biometricAuthenticationDialogTitleIOS
+      : LocalizedStrings.biometricAuthenticationDialogTitleAndroid;
 
   String get _descriptionText => Platform.isIOS
-      ? useLocalizedStrings().biometricAuthenticationDialogMessageIOS
-      : useLocalizedStrings().biometricAuthenticationDialogMessageAndroid;
+      ? LocalizedStrings.biometricAuthenticationDialogMessageIOS
+      : LocalizedStrings.biometricAuthenticationDialogMessageAndroid;
 }

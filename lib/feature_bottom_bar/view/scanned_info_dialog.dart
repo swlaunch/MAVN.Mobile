@@ -5,13 +5,12 @@ import 'package:lykke_mobile_mavn/library_qr_actions/actions/qr_base_action.dart
 import 'package:lykke_mobile_mavn/library_ui_components/dialog/custom_dialog.dart';
 
 class ScannedInfoDialog extends CustomDialog {
-  ScannedInfoDialog(LocalizedStrings localizedStrings, {@required this.action})
+  ScannedInfoDialog({@required this.action})
       : super(
-          title: localizedStrings.scannedInfoDialogTitle,
-          content: action.dialogMessage.from(localizedStrings),
-          positiveButtonText:
-              action.dialogPositiveButtonTitle.from(localizedStrings),
-          negativeButtonText: localizedStrings.scannedInfoDialogNegativeButton,
+          title: LocalizedStrings.scannedInfoDialogTitle,
+          content: action.dialogMessage,
+          positiveButtonText: action.dialogPositiveButtonTitle,
+          negativeButtonText: LocalizedStrings.scannedInfoDialogNegativeButton,
         );
 
   final QrBaseAction action;

@@ -1,5 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
+import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
 import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
@@ -16,6 +17,7 @@ class WalletBalanceBox extends StatelessWidget {
     @required this.tokenSymbol,
     @required this.title,
     @required this.isLoading,
+    @required this.theme,
     this.balanceInBaseCurrency,
     this.baseCurrencyCode,
   });
@@ -26,6 +28,7 @@ class WalletBalanceBox extends StatelessWidget {
   final String baseCurrencyCode;
   final String title;
   final bool isLoading;
+  final BaseAppTheme theme;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -34,8 +37,8 @@ class WalletBalanceBox extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              ColorStyles.sunglo,
-              ColorStyles.fuzzyWuzzyBrown,
+              theme.walletBoxGradientTop,
+              theme.walletBoxGradientBottom,
             ],
             tileMode: TileMode.clamp,
           ),
@@ -53,7 +56,7 @@ class WalletBalanceBox extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      StandardSizedSvg(SvgAssets.token,
+                      StandardSizedSvg(SvgAssets.tokenLight,
                           color: ColorStyles.white),
                       const SizedBox(width: 4),
                       BalanceText(amount: balance),
@@ -62,7 +65,6 @@ class WalletBalanceBox extends StatelessWidget {
                   const SizedBox(height: 8),
                   if (balanceInBaseCurrency != null)
                     _buildConversionRate(
-                      context,
                       balanceInBaseCurrency,
                       baseCurrencyCode,
                       tokenSymbol,
@@ -71,13 +73,13 @@ class WalletBalanceBox extends StatelessWidget {
               ),
       );
 
-  Widget _buildConversionRate(BuildContext context, String currencyCode,
-      String amount, String tokenSymbol) {
+  Widget _buildConversionRate(
+      String currencyCode, String amount, String tokenSymbol) {
     final decimalBalance = Decimal.tryParse(amount);
-    final conversionText = decimalBalance != null &&
-            decimalBalance.ceilToDouble() == 0
-        ? LocalizedStrings.of(context).noTokensConversionRateText(tokenSymbol)
-        : LocalizedStrings.of(context).conversionRate(currencyCode, amount);
+    final conversionText =
+        decimalBalance != null && decimalBalance.ceilToDouble() == 0
+            ? LocalizedStrings.noTokensConversionRateText(tokenSymbol)
+            : LocalizedStrings.conversionRate(currencyCode, amount);
     return NullSafeText(
       conversionText,
       style: TextStyles.balanceConversionText,

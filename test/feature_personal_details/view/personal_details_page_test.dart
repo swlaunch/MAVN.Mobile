@@ -24,8 +24,6 @@ Router _mockRouter;
 ExceptionToMessageMapper _mockExceptionToMessage =
     MockExceptionToMessageMapper();
 
-final _localizedStrings = LocalizedStrings();
-
 void main() {
   group('PersonalDetailsPage tests', () {
     setUpAll(() {
@@ -83,9 +81,9 @@ void main() {
       expect(find.byKey(const Key('personalDetailsError')), findsOneWidget);
       expect(find.byKey(const Key('personalDetailsView')), findsNothing);
 
-      expect(find.text(_localizedStrings.somethingIsNotRightError),
-          findsOneWidget);
-      expect(find.text(_localizedStrings.personalDetailsGenericError),
+      expect(
+          find.text(LocalizedStrings.somethingIsNotRightError), findsOneWidget);
+      expect(find.text(LocalizedStrings.personalDetailsGenericError),
           findsOneWidget);
     });
 
@@ -99,8 +97,8 @@ void main() {
       expect(find.byKey(const Key('personalDetailsView')), findsNothing);
       expect(find.byKey(const Key('networkError')), findsOneWidget);
 
-      expect(find.text(_localizedStrings.networkErrorTitle), findsOneWidget);
-      expect(find.text(_localizedStrings.networkError), findsOneWidget);
+      expect(find.text(LocalizedStrings.networkErrorTitle), findsOneWidget);
+      expect(find.text(LocalizedStrings.networkError), findsOneWidget);
     });
   });
 }

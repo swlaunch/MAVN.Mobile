@@ -14,10 +14,9 @@ class PaymentRequestApprovalSuccessPage extends HookWidget {
     final router = useRouter();
     return ResultFeedbackPage(
       widgetKey: const Key('paymentRequestApprovalSuccessWidget'),
-      title: useLocalizedStrings().transferRequestSuccessTitle,
-      details: useLocalizedStrings().transferRequestSuccessDetails,
-      buttonText:
-          useLocalizedStrings().backToTokenWalletButton(tokenSymbol.value),
+      title: LocalizedStrings.transferRequestSuccessTitle,
+      details: LocalizedStrings.transferRequestSuccessDetails,
+      buttonText: LocalizedStrings.backToTokenWalletButton(tokenSymbol.value),
       onButtonTap: () {
         router
           ..popToRoot()

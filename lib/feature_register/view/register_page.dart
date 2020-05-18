@@ -37,8 +37,8 @@ class RegisterPage extends HookWidget {
 
     final currentPage = useState<int>(0);
     final titles = [
-      useLocalizedStrings().personalDetailsHeader,
-      useLocalizedStrings().createAPasswordHeader,
+      LocalizedStrings.personalDetailsHeader,
+      LocalizedStrings.createAPasswordHeader,
     ];
     final _pageController =
         PageController(initialPage: currentPage.value, keepPage: true);

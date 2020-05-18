@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_ui_models/previous_referrals_list/previous_referrals_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/response_model/referral_response_model.dart';
 import 'package:lykke_mobile_mavn/library_models/token_currency.dart';
@@ -24,7 +23,7 @@ void main() {
         PreviousReferralModel(
           referralStatus: ReferralStatus.ongoing,
           referralType: ReferralType.hospitality,
-          referralName: LocalizedStringBuilder.custom('John Although'),
+          referralName: 'John Although',
           referralCreationDate: DateTime.parse(TestConstants.stubCreationDate),
           rewardValue: const TokenCurrency(value: '100'),
           partnerName: 'Great Hotels inc',
@@ -51,7 +50,7 @@ void main() {
         PreviousReferralModel(
           referralStatus: ReferralStatus.ongoing,
           referralType: ReferralType.hospitality,
-          referralName: LocalizedStringBuilder.custom('John Although'),
+          referralName: 'John Although',
           referralCreationDate: DateTime.parse(TestConstants.stubCreationDate),
           rewardValue: const TokenCurrency(value: '100'),
           partnerName: 'Great Hotels inc',
@@ -80,7 +79,7 @@ void main() {
         PreviousReferralModel(
           referralStatus: ReferralStatus.ongoing,
           referralType: ReferralType.hospitality,
-          referralName: LocalizedStringBuilder.custom('John Although'),
+          referralName: 'John Although',
           referralCreationDate: DateTime.parse(TestConstants.stubCreationDate),
           rewardValue: const TokenCurrency(value: '100'),
           partnerName: 'Great Hotels inc',
@@ -107,7 +106,7 @@ void main() {
         PreviousReferralModel(
           referralStatus: ReferralStatus.ongoing,
           referralType: ReferralType.realEstate,
-          referralName: LocalizedStringBuilder.custom('John Although'),
+          referralName: 'John Although',
           referralCreationDate: DateTime.parse(TestConstants.stubCreationDate),
           rewardValue: const TokenCurrency(value: '100'),
           partnerName: 'Great Hotels inc',
@@ -134,7 +133,7 @@ void main() {
         PreviousReferralModel(
           referralStatus: ReferralStatus.ongoing,
           referralType: ReferralType.hospitality,
-          referralName: LocalizedStringBuilder.custom('John Although'),
+          referralName: 'John Although',
           referralCreationDate: DateTime.parse(TestConstants.stubCreationDate),
           rewardValue: null,
           partnerName: 'Great Hotels inc',
@@ -163,7 +162,7 @@ void main() {
         widgetTester,
         PreviousReferralModel(
           referralType: ReferralType.hospitality,
-          referralName: LocalizedStringBuilder.custom('John Although'),
+          referralName: 'John Although',
           referralCreationDate: DateTime.parse(TestConstants.stubCreationDate),
           rewardValue: const TokenCurrency(value: '100'),
           partnerName: 'Great Hotels inc',
@@ -186,7 +185,7 @@ void main() {
         widgetTester,
         PreviousReferralModel(
           referralType: ReferralType.friend,
-          referralName: LocalizedStringBuilder.custom('John Although'),
+          referralName: 'John Although',
           referralCreationDate: DateTime.parse(TestConstants.stubCreationDate),
           rewardValue: const TokenCurrency(value: '100'),
           partnerName: 'Great Hotels inc',
@@ -209,7 +208,7 @@ void main() {
         widgetTester,
         PreviousReferralModel(
           referralType: ReferralType.hospitality,
-          referralName: LocalizedStringBuilder.custom('John Although'),
+          referralName: 'John Although',
           referralCreationDate: DateTime.parse(TestConstants.stubCreationDate),
           rewardValue: const TokenCurrency(value: '100'),
           partnerName: 'Great Hotels inc',
@@ -234,7 +233,7 @@ void main() {
         PreviousReferralModel(
           referralStatus: ReferralStatus.ongoing,
           referralType: ReferralType.hospitality,
-          referralName: LocalizedStringBuilder.custom('John Although'),
+          referralName: 'John Although',
           referralCreationDate: DateTime.parse(TestConstants.stubCreationDate),
           rewardValue: const TokenCurrency(value: '100'),
           partnerName: 'Great Hotels inc',

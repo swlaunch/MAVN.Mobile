@@ -40,14 +40,13 @@ class TermsOfUseWidget extends StatelessWidget {
                 style: TextStyles.darkBodyBody3Regular,
                 children: <InlineSpan>[
                   TextSpan(
-                    text: LocalizedStrings.of(context)
-                        .registerPageAgreeTermsOfUse,
+                    text: LocalizedStrings.registerPageAgreeTermsOfUse,
                   ),
                   WidgetSpan(
                     child: InkWell(
                       onTap: router.pushTermsOfUsePage,
                       child: Text(
-                        LocalizedStrings.of(context).termsOfUse,
+                        LocalizedStrings.termsOfUse,
                         style: TextStyles.darkBodyBody3Regular.copyWith(
                           color: ColorStyles.link,
                           decoration: TextDecoration.underline,
@@ -56,13 +55,13 @@ class TermsOfUseWidget extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: LocalizedStrings.of(context).and,
+                    text: LocalizedStrings.and,
                   ),
                   WidgetSpan(
                     child: InkWell(
                       onTap: router.pushPrivacyPolicyPage,
                       child: Text(
-                        LocalizedStrings.of(context).privacyPolicy,
+                        LocalizedStrings.privacyPolicy,
                         style: TextStyles.darkBodyBody3Regular.copyWith(
                           color: ColorStyles.link,
                           decoration: TextDecoration.underline,

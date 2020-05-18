@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/country_codes_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
@@ -65,22 +65,21 @@ void main() {
       expectedFullBlocOutput.addAll([
         CountryCodeListUninitializedState(),
         CountryCodeListLoadingState(),
-        CountryCodeListErrorState(LazyLocalizedStrings.networkError),
+        CountryCodeListErrorState(LocalizedStrings.networkError),
       ]);
     });
 
     test('loadCountryCodeList generic error', () async {
       when(mockCountryRepository.getCountryList()).thenThrow(Exception());
-      when(mockExceptionToMessageMapper.map(null)).thenReturn(
-          LocalizedStringBuilder.custom(TestConstants.stubErrorText));
+      when(mockExceptionToMessageMapper.map(null))
+          .thenReturn(TestConstants.stubErrorText);
 
       await subject.loadCountryCodeList();
 
       expectedFullBlocOutput.addAll([
         CountryCodeListUninitializedState(),
         CountryCodeListLoadingState(),
-        CountryCodeListErrorState(
-            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
+        CountryCodeListErrorState(TestConstants.stubErrorText),
       ]);
     });
 

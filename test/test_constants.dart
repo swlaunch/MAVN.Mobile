@@ -5,6 +5,8 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_m
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/country_codes_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/customer_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/partner_response_model.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/real_estate_properties_response_model.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/spend_rules_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/transaction_history_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/wallet_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_condition_response_model.dart';
@@ -15,6 +17,7 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/mobile/response_mo
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/response_model/partner_message_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/response_model/payment_request_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/wallet/response_model/link_request_response_model.dart';
+import 'package:lykke_mobile_mavn/feature_real_estate_payment/utility_model/extended_instalment_model.dart';
 import 'package:lykke_mobile_mavn/library_models/fiat_currency.dart';
 import 'package:lykke_mobile_mavn/library_models/token_currency.dart';
 
@@ -157,8 +160,81 @@ class TestConstants {
     locations: [],
   );
 
+  static const SpendRule stubSpendRuleHospitality = SpendRule(
+    amountInCurrency: stubAmountInCurrency,
+    amountInTokens: stubAmountInTokens,
+    currencyName: stubCurrencyName,
+    id: stubHospitalityId,
+    title: stubSpendRuleTitle,
+    description: stubSpendRuleDescription,
+    imageUrl: '',
+    type: OfferVertical.hospitality,
+    partners: [stubPartner],
+    creationDate: TestConstants.stubCreationDate,
+  );
+
+  static const SpendRule stubSpendRuleProperty = SpendRule(
+    amountInCurrency: stubAmountInCurrency,
+    amountInTokens: stubAmountInTokens,
+    currencyName: stubCurrencyName,
+    id: stubRealEstateId,
+    title: stubSpendRuleTitle,
+    description: stubSpendRuleDescription,
+    imageUrl: stubImageUrl,
+    type: OfferVertical.realEstate,
+    partners: [stubPartner],
+    creationDate: TestConstants.stubCreationDate,
+  );
+
+  static const SpendRule stubSpendRuleRetailInStock = SpendRule(
+    amountInCurrency: stubAmountInCurrency,
+    amountInTokens: stubAmountInTokens,
+    currencyName: stubCurrencyName,
+    id: stubRealEstateId,
+    title: stubSpendRuleTitle,
+    description: stubSpendRuleDescription,
+    imageUrl: stubImageUrl,
+    type: OfferVertical.retail,
+    partners: [stubPartner],
+    creationDate: stubCreationDate,
+    stockCount: stubInStockCount,
+    soldCount: stubSoldCount,
+  );
+
+  static const SpendRule stubSpendRuleRetailOutOfStock = SpendRule(
+    amountInCurrency: stubAmountInCurrency,
+    amountInTokens: stubAmountInTokens,
+    currencyName: stubCurrencyName,
+    id: stubRealEstateId,
+    title: stubSpendRuleTitle,
+    description: stubSpendRuleDescription,
+    imageUrl: stubImageUrl,
+    type: OfferVertical.retail,
+    partners: [stubPartner],
+    creationDate: stubCreationDate,
+    stockCount: stubOutOfStockCount,
+  );
+
+  static final stubSpendRuleList = <SpendRule>[
+    stubSpendRuleHospitality,
+    stubSpendRuleProperty
+  ];
+
   static const stubTokenCurrency =
       TokenCurrency(value: stubBalance, assetSymbol: stubTokenSymbol);
+
+  static const stubSpendRule = SpendRule(
+    id: 'id1',
+    title: 'Offer title',
+    amountInTokens: TokenCurrency(value: '2500', assetSymbol: stubTokenSymbol),
+    amountInCurrency: '100.12',
+    currencyName: 'USD',
+    description: 'Offer description',
+    type: OfferVertical.realEstate,
+    partners: [TestConstants.stubPartner],
+    imageUrl: '',
+    creationDate: TestConstants.stubCreationDate,
+  );
 
   static const stubConditionId = '123';
   static const stubAmountInCurrencyDouble = 50.0;
@@ -795,6 +871,28 @@ class TestConstants {
   static final stubAmountInFiat = FiatCurrency(
     value: stubDoubleAmountInCurrency,
     assetSymbol: stubTokenSymbol,
+  );
+
+  static final stubInstalment = Instalment(
+    id: stubInstalmentId,
+    name: stubInstalmentName,
+    amountInTokens: stubAmountInTokens,
+    amountInFiat: stubAmountInFiat,
+    dueDate: stubDateTime,
+  );
+
+  static const stubPropertyName = 'stubPropertyName';
+
+  static final stubProperty = Property(
+    name: stubPropertyName,
+    instalments: [stubInstalment],
+  );
+
+  static final stubExtendedInstalment = ExtendedInstalmentModel(
+    instalment: stubInstalment,
+    isOverdue: false,
+    localDueDate: stubDateTime,
+    formattedDate: stubDateString,
   );
 
   static const stubId = 'stubId';

@@ -1,22 +1,23 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/route_authentication_use_case.dart';
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/response_model/campaign_response_model.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/common/offer_type.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/countries_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/country_codes_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/partner_response_model.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/real_estate_properties_response_model.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/spend_rules_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/wallet_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/extended_earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/maintenance/response_model/maintenance_response_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
 import 'package:lykke_mobile_mavn/base/router/base_router.dart';
 import 'package:lykke_mobile_mavn/base/router/router_page_factory.dart';
 import 'package:lykke_mobile_mavn/base/router/router_page_names.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/view/scanned_info_dialog.dart';
 import 'package:lykke_mobile_mavn/feature_email_verification/view/email_verification_page.dart';
+import 'package:lykke_mobile_mavn/feature_real_estate_payment/utility_model/extended_instalment_model.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/link_wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/library_dependency_injection/core.dart';
 import 'package:lykke_mobile_mavn/library_qr_actions/actions/qr_base_action.dart';
@@ -299,15 +300,14 @@ class Router extends BaseRouter {
     );
   }
 
-  Future<bool> showEnableBiometricsDialog(LocalizedStrings localizedStrings) =>
-      showDialog(child: EnableBiometricsDialog(localizedStrings));
+  Future<bool> showEnableBiometricsDialog() =>
+      showDialog(child: EnableBiometricsDialog());
 
-  Future<bool> showLogOutConfirmationDialog(
-          LocalizedStrings localizedStrings) =>
-      showDialog(child: LogOutConfirmationDialog(localizedStrings));
+  Future<bool> showLogOutConfirmationDialog() =>
+      showDialog(child: LogOutConfirmationDialog());
 
-  Future<bool> showDeleteAccountDialog(LocalizedStrings localizedStrings) =>
-      showDialog(child: DeleteAccountDialog(localizedStrings));
+  Future<bool> showDeleteAccountDialog() =>
+      showDialog(child: DeleteAccountDialog());
 
   //endregion Misc authentication
 
@@ -343,6 +343,51 @@ class Router extends BaseRouter {
   //endregion Home
 
   //region Referrals
+
+  //region Lead Referral
+  Future<void> pushLeadReferralPage(ExtendedEarnRule extendedEarnRule) async {
+    await pushPage(
+      RouterPageFactory.getLeadReferralPage(extendedEarnRule),
+      pageName: RouterPageName.leadReferralPage,
+    );
+  }
+
+  Future<void> replaceWithLeadReferralSuccessPage({
+    @required String refereeFirstName,
+    @required String refereeLastName,
+    @required ExtendedEarnRule extendedEarnRule,
+  }) async {
+    await replacePage(
+      RouterPageFactory.getLeadReferralSuccessPage(
+        refereeFirstName,
+        refereeLastName,
+        extendedEarnRule,
+      ),
+      pageName: RouterPageName.leadReferralSuccessPage,
+    );
+  }
+
+  //TODO: Remove isLeadReferralAcceptedCurrentRoute custom implementation once
+  //we have ModalRoute.of(_navigatorKey.currentContext) working as expected.
+  bool get isLeadReferralAcceptedCurrentRoute =>
+      _isLeadReferralAcceptedCurrentRoute;
+
+  bool _isLeadReferralAcceptedCurrentRoute = false;
+
+  Future<void> pushLeadReferralAcceptedPage() async {
+    _isLeadReferralAcceptedCurrentRoute = true;
+
+    await pushPage(
+      RouterPageFactory.getLeadReferralAcceptedPage(),
+      pageName: RouterPageName.leadReferralAcceptedPage,
+    );
+  }
+
+  void markAsClosedLeadReferralAcceptedPage() {
+    _isLeadReferralAcceptedCurrentRoute = false;
+  }
+
+  //endregion Lead Referral
 
   //region Hotel Referral
 
@@ -546,10 +591,79 @@ class Router extends BaseRouter {
     );
   }
 
+  Future<void> pushSpendDetailsByType(SpendRule spendRule) async {
+    switch (spendRule.type) {
+      case OfferVertical.hospitality:
+        return pushOfferDetailsPage(spendRule);
+      case OfferVertical.realEstate:
+        return pushPropertyListPage(spendRule);
+      case OfferVertical.retail:
+        return pushOfferDetailsPage(spendRule);
+    }
+  }
+
+  Future<void> pushOfferDetailsPage(SpendRule spendRule) async {
+    await pushPage(
+      RouterPageFactory.getSpendOfferDetailsPage(spendRule),
+      pageName: RouterPageName.offerDetailsPage,
+    );
+  }
+
   Future<void> pushEarnRuleDetailsPage(EarnRule earnRule) async {
     await pushPage(
       RouterPageFactory.getEarnRuleDetailPage(earnRule),
       pageName: RouterPageName.earnRuleDetailsPage,
+    );
+  }
+
+  Future<void> pushPropertyPaymentPage({
+    @required String spendRuleId,
+    @required Property property,
+    @required ExtendedInstalmentModel extendedInstalment,
+  }) async {
+    await pushPage(
+      RouterPageFactory.getPropertyPaymentPage(
+        spendRuleId,
+        property,
+        extendedInstalment,
+      ),
+      pageName: RouterPageName.propertyPaymentPage,
+    );
+  }
+
+  Future<void> pushPropertyListPage(SpendRule spendRule) async {
+    await pushPage(
+      RouterPageFactory.getPropertyListPage(spendRule),
+      pageName: RouterPageName.propertyListPage,
+    );
+  }
+
+  Future<void> pushInstalmentListPage({
+    @required String spendRuleId,
+    @required Property property,
+  }) async {
+    await pushPage(
+      RouterPageFactory.getInstalmentListPage(
+        spendRuleId,
+        property,
+      ),
+      pageName: RouterPageName.instalmentListPage,
+    );
+  }
+
+  Future<void> pushPropertyPaymentSuccessPage() async {
+    await pushPage(
+      RouterPageFactory.getPropertyPaymentSuccessPage(),
+      pageName: RouterPageName.propertyPaymentSuccessPage,
+    );
+  }
+
+  Future<void> pushVoucherRedemptionSuccessPage({
+    @required String voucherCode,
+  }) async {
+    await replacePage(
+      RouterPageFactory.getRedemptionSuccessfulPage(voucherCode: voucherCode),
+      pageName: RouterPageName.redemptionSuccessfulPage,
     );
   }
 
@@ -734,43 +848,8 @@ class Router extends BaseRouter {
   //region Vouchers
   Future<void> pushVoucherListPage() async {
     await pushPage(
-      RouterPageFactory.getCampaignListPage(),
-      pageName: RouterPageName.campaignListPage,
-    );
-  }
-
-  Future<void> pushCampaignDetailsPage(
-      {@required CampaignResponseModel campaign}) async {
-    await pushPage(
-      RouterPageFactory.getCampaignDetailsPage(campaign: campaign),
-      pageName: RouterPageName.campaignDetailsPage,
-    );
-  }
-
-  //TODO: Remove _isBoughtVouchersCurrentRoute custom implementation once
-  //we have ModalRoute.of(_navigatorKey.currentContext) working as expected.
-  bool get isBoughtVouchersCurrentRoute => _isBoughtVouchersCurrentRoute;
-
-  bool _isBoughtVouchersCurrentRoute = false;
-
-  void pushBoughtVoucherSuccessPage() {
-    _isBoughtVouchersCurrentRoute = true;
-
-    //TODO open the bought vouchers tab when it's implemented
-    popToRoot();
-    switchToWalletTab();
-  }
-
-  void markAsClosedBoughtVouchersPage() {
-    _isBoughtVouchersCurrentRoute = false;
-  }
-
-  Future<void> pushVoucherDetailsPage({
-    @required VoucherResponseModel voucher,
-  }) async {
-    await pushPage(
-      RouterPageFactory.getVoucherDetailsPage(voucher: voucher),
-      pageName: RouterPageName.voucherDetailsPage,
+      RouterPageFactory.getVoucherListPage(),
+      pageName: RouterPageName.voucherListPage,
     );
   }
 
@@ -778,10 +857,8 @@ class Router extends BaseRouter {
 
   //region Misc
 
-  Future<bool> showScannedInfoDialog(
-          LocalizedStrings localizedStrings, QrBaseAction action) =>
-      showDialog(
-        child: ScannedInfoDialog(localizedStrings, action: action),
+  Future<bool> showScannedInfoDialog(QrBaseAction action) => showDialog(
+        child: ScannedInfoDialog(action: action),
       );
 
   //endregion Misc
@@ -796,17 +873,6 @@ class Router extends BaseRouter {
   }
 
 //endregion Notifications
-
-//region Misc
-
-  Future<void> pushComingSoonPage({String title}) async {
-    await pushPage(
-      RouterPageFactory.getComingSoonPage(title: title),
-      pageName: RouterPageName.comingSoonPage,
-    );
-  }
-
-//endregion Misc
 }
 
 Router useRouter() => ModuleProvider.of<AppModule>(useContext()).router;

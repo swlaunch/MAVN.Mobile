@@ -36,8 +36,8 @@ class PinVerificationPage extends HookWidget {
     return ScaffoldWithLogo(
       hasBackButton: true,
       body: PinNumPad(
-        headingText: useLocalizedStrings().pinSignInHeading,
-        description: useLocalizedStrings().pinVerificationDescription,
+        headingText: LocalizedStrings.pinSignInHeading,
+        description: LocalizedStrings.pinVerificationDescription,
         addNumber: pinBloc.addDigit,
         maxPinLength: pinBloc.digitsLimit,
         pinState: pinState,

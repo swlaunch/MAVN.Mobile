@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/transaction_history_response_model.dart';
 
@@ -28,7 +27,7 @@ class TransactionHistoryEmpty extends TransactionHistoryState {}
 class TransactionHistoryInitialPageError extends TransactionHistoryState {
   TransactionHistoryInitialPageError({@required this.error});
 
-  final LocalizedStringBuilder error;
+  final String error;
 
   @override
   List get props => super.props..add(error);
@@ -57,7 +56,7 @@ class TransactionHistoryPaginationError extends TransactionHistoryState {
     @required this.currentPage,
   });
 
-  final LocalizedStringBuilder error;
+  final String error;
   final TransactionHistoryResponseModel transactionHistoryResponseModel;
   final int currentPage;
 
@@ -69,7 +68,7 @@ class TransactionHistoryPaginationError extends TransactionHistoryState {
 class TransactionHistoryPaginationNetworkError
     extends TransactionHistoryPaginationError with BaseNetworkErrorState {
   TransactionHistoryPaginationNetworkError({
-    LocalizedStringBuilder error,
+    String error,
     TransactionHistoryResponseModel transactionHistoryResponseModel,
     int currentPage,
   }) : super(

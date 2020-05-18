@@ -8,9 +8,10 @@ import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/standard_sized_svg.dart';
 
 class NotificationIconWidget extends HookWidget {
-  const NotificationIconWidget({this.color});
+  const NotificationIconWidget({this.color, this.bubbleColor});
 
   final Color color;
+  final Color bubbleColor;
 
   @override
   Widget build(BuildContext context) {
@@ -45,5 +46,5 @@ class NotificationIconWidget extends HookWidget {
   }
 
   Widget _buildBadgeWidget(String text) =>
-      const Positioned(right: 1, top: 4, child: BadgeWidget());
+      Positioned(right: 1, top: 4, child: BadgeWidget(color: bubbleColor));
 }

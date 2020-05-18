@@ -1,4 +1,3 @@
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/response_model/referral_response_model.dart';
 import 'package:lykke_mobile_mavn/library_models/token_currency.dart';
@@ -18,8 +17,8 @@ class StakingReferralsErrorState extends StakingReferralsState {
     @required this.iconAsset,
   });
 
-  final LocalizedStringBuilder errorTitle;
-  final LocalizedStringBuilder errorSubtitle;
+  final String errorTitle;
+  final String errorSubtitle;
   final String iconAsset;
 
   @override

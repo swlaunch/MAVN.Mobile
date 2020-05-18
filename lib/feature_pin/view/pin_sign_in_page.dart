@@ -50,14 +50,14 @@ class PinSignInPage extends HookWidget with LoadingOverlayMixin {
       }
 
       if (event is BiometricAuthenticationDisabledEvent) {
-        router.showEnableBiometricsDialog(useLocalizedStrings());
+        router.showEnableBiometricsDialog();
       }
     });
 
     return ScaffoldWithLogo(
       body: PinNumPad(
-        headingText: useLocalizedStrings().pinSignInHeading,
-        description: useLocalizedStrings().pinSignInDescription,
+        headingText: LocalizedStrings.pinSignInHeading,
+        description: LocalizedStrings.pinSignInDescription,
         addNumber: pinBloc.addDigit,
         maxPinLength: pinBloc.digitsLimit,
         pinState: pinState,
@@ -79,7 +79,7 @@ class PinSignInPage extends HookWidget with LoadingOverlayMixin {
   FlatButton _buildForgotButton(Router router) => FlatButton(
         onPressed: router.pushPinForgotPage,
         child: Text(
-          useLocalizedStrings().pinForgotButton,
+          LocalizedStrings.pinForgotButton,
           style: TextStyles.darkBodyBody2Bold,
         ),
       );

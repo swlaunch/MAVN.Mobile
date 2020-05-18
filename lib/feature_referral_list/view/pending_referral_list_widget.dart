@@ -8,6 +8,6 @@ class PendingReferralListWidget extends HookWidget {
   @override
   Widget build(BuildContext context) => ReferralListWidget(
         useBloc: () => usePendingReferralListBloc(),
-        emptyStateText: useLocalizedStrings().pendingReferralListEmptyState,
+        emptyStateText: LocalizedStrings.pendingReferralListEmptyState,
       );
 }

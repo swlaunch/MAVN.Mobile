@@ -1,4 +1,3 @@
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/extended_earn_rule_response_model.dart';
 import 'package:meta/meta.dart';
@@ -16,8 +15,8 @@ class EarnRuleDetailErrorState extends EarnRuleDetailState {
     @required this.iconAsset,
   });
 
-  final LocalizedStringBuilder errorTitle;
-  final LocalizedStringBuilder errorSubtitle;
+  final String errorTitle;
+  final String errorSubtitle;
   final String iconAsset;
 
   @override

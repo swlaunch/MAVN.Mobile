@@ -34,21 +34,21 @@ class ReferralListPage extends HookWidget {
 
     final tabs = [
       SliverTabConfiguration(
-        title: useLocalizedStrings().referralListOngoingTab,
+        title: LocalizedStrings.referralListOngoingTab,
         globalKey: GlobalKey(),
         tabKey: const Key('referralListPendingTab'),
         buildWidget: () => PendingReferralListWidget(),
         onScroll: () => pendingReferralListBloc.getList(),
       ),
       SliverTabConfiguration(
-        title: useLocalizedStrings().referralListCompletedTab,
+        title: LocalizedStrings.referralListCompletedTab,
         globalKey: GlobalKey(),
         tabKey: const Key('referralListApprovedTab'),
         buildWidget: () => ApprovedReferralListWidget(),
         onScroll: () => approvedReferralListBloc.getList(),
       ),
       SliverTabConfiguration(
-        title: useLocalizedStrings().referralListExpiredTab,
+        title: LocalizedStrings.referralListExpiredTab,
         globalKey: GlobalKey(),
         tabKey: const Key('referralListExpiredTab'),
         buildWidget: () => ExpiredReferralListWidget(),
@@ -73,8 +73,8 @@ class ReferralListPage extends HookWidget {
       SliverTabBarLayout(
         tabs: tabs,
         title: MainPageTitle(
-          title: useLocalizedStrings().referralListPageTitle,
-          subtitle: useLocalizedStrings().referralListPageDescription,
+          title: LocalizedStrings.referralListPageTitle,
+          subtitle: LocalizedStrings.referralListPageDescription,
         ),
       );
 }

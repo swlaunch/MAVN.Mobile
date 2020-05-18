@@ -11,6 +11,6 @@ class CompletedRequestsWidget extends HookWidget {
   Widget build(BuildContext context) => PaginatedRequestsListWidget(
         key: const Key('completedRequestsList'),
         useBloc: () => usePartnerPaymentsCompletedBloc(),
-        emptyStateText: useLocalizedStrings().transferRequestEmptyCompleted,
+        emptyStateText: LocalizedStrings.transferRequestEmptyCompleted,
       );
 }

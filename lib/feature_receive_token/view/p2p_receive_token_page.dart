@@ -36,8 +36,8 @@ class P2pReceiveTokenPage extends HookWidget {
           Column(
             children: <Widget>[
               PageTitle(
-                title: useLocalizedStrings()
-                    .receiveTokenPageTitle(tokenSymbol.value),
+                title:
+                    LocalizedStrings.receiveTokenPageTitle(tokenSymbol.value),
                 assetIconLeading: SvgAssets.receiveTokens,
               ),
               const SizedBox(height: 16),
@@ -60,10 +60,8 @@ class P2pReceiveTokenPage extends HookWidget {
                                 key: Key('receiveTokenLoadingSpinner')),
                           if (receiveTokenState is ReceiveTokenPageErrorState)
                             GenericErrorIconWidget(
-                              title: receiveTokenState.errorTitle
-                                  .localize(useContext()),
-                              text: receiveTokenState.errorSubtitle
-                                  .localize(useContext()),
+                              title: receiveTokenState.errorTitle,
+                              text: receiveTokenState.errorSubtitle,
                               icon: receiveTokenState.iconAsset,
                               errorKey: const Key('receiveTokenError'),
                               onRetryTap: receiveTokenBloc.getCustomer,
@@ -80,7 +78,7 @@ class P2pReceiveTokenPage extends HookWidget {
   }
 
   Widget _buildDetails() => Text(
-        useLocalizedStrings().receiveTokenPageSubDetails,
+        LocalizedStrings.receiveTokenPageSubDetails,
         style: TextStyles.darkBodyBody1RegularHigh,
       );
 
@@ -98,7 +96,7 @@ class P2pReceiveTokenPage extends HookWidget {
             ),
             const SizedBox(height: 20),
             CopyRowWidget(
-              title: useLocalizedStrings().copyEmail,
+              title: LocalizedStrings.copyEmail,
               copyText: email,
               copyWidgetType: CopyWidgetType.simple,
             )

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/login_errors.dart';
 import 'package:lykke_mobile_mavn/feature_login/bloc/login_bloc.dart';
@@ -55,17 +55,15 @@ void main() {
       givenLoginUseCaseExecuteWillThrow(
           const ServiceException(ServiceExceptionType.invalidEmailFormat));
 
-      when(_mockExceptionToMessageMapper.map(any)).thenReturn(
-          LocalizedStringBuilder.custom(
-              'Your login details are incorrect. Please try again.'));
+      when(_mockExceptionToMessageMapper.map(any))
+          .thenReturn('Your login details are incorrect. Please try again.');
 
       await _subject.login(TestConstants.stubEmail, TestConstants.stubPassword);
 
       _expectedFullBlocOutput.addAll([
         LoginUninitializedState(),
         LoginLoadingState(),
-        LoginErrorState(LocalizedStringBuilder.custom(
-            'Your login details are incorrect. Please try again.')),
+        LoginErrorState('Your login details are incorrect. Please try again.'),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -75,17 +73,15 @@ void main() {
       givenLoginUseCaseExecuteWillThrow(
           const ServiceException(ServiceExceptionType.invalidPasswordFormat));
 
-      when(_mockExceptionToMessageMapper.map(any)).thenReturn(
-          LocalizedStringBuilder.custom(
-              'Your login details are incorrect. Please try again.'));
+      when(_mockExceptionToMessageMapper.map(any))
+          .thenReturn('Your login details are incorrect. Please try again.');
 
       await _subject.login(TestConstants.stubEmail, TestConstants.stubPassword);
 
       _expectedFullBlocOutput.addAll([
         LoginUninitializedState(),
         LoginLoadingState(),
-        LoginErrorState(LocalizedStringBuilder.custom(
-            'Your login details are incorrect. Please try again.')),
+        LoginErrorState('Your login details are incorrect. Please try again.'),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -95,17 +91,15 @@ void main() {
       givenLoginUseCaseExecuteWillThrow(
           const ServiceException(ServiceExceptionType.invalidCredentials));
 
-      when(_mockExceptionToMessageMapper.map(any)).thenReturn(
-          LocalizedStringBuilder.custom(
-              'Your login details are incorrect. Please try again.'));
+      when(_mockExceptionToMessageMapper.map(any))
+          .thenReturn('Your login details are incorrect. Please try again.');
 
       await _subject.login(TestConstants.stubEmail, TestConstants.stubPassword);
 
       _expectedFullBlocOutput.addAll([
         LoginUninitializedState(),
         LoginLoadingState(),
-        LoginErrorState(LocalizedStringBuilder.custom(
-            'Your login details are incorrect. Please try again.')),
+        LoginErrorState('Your login details are incorrect. Please try again.'),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -115,14 +109,14 @@ void main() {
       givenLoginUseCaseExecuteWillThrow(NetworkException());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.networkError);
+          .thenReturn(LocalizedStrings.networkError);
 
       await _subject.login(TestConstants.stubEmail, TestConstants.stubPassword);
 
       _expectedFullBlocOutput.addAll([
         LoginUninitializedState(),
         LoginLoadingState(),
-        LoginErrorState(LazyLocalizedStrings.networkError),
+        LoginErrorState(LocalizedStrings.networkError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -133,14 +127,14 @@ void main() {
           const ServiceException(ServiceExceptionType.loginAlreadyInUse));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.defaultGenericError);
+          .thenReturn(LocalizedStrings.defaultGenericError);
 
       await _subject.login(TestConstants.stubEmail, TestConstants.stubPassword);
 
       _expectedFullBlocOutput.addAll([
         LoginUninitializedState(),
         LoginLoadingState(),
-        LoginErrorState(LazyLocalizedStrings.defaultGenericError),
+        LoginErrorState(LocalizedStrings.defaultGenericError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -150,14 +144,14 @@ void main() {
       givenLoginUseCaseExecuteWillThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(null))
-          .thenReturn(LazyLocalizedStrings.defaultGenericError);
+          .thenReturn(LocalizedStrings.defaultGenericError);
 
       await _subject.login(TestConstants.stubEmail, TestConstants.stubPassword);
 
       _expectedFullBlocOutput.addAll([
         LoginUninitializedState(),
         LoginLoadingState(),
-        LoginErrorState(LazyLocalizedStrings.defaultGenericError),
+        LoginErrorState(LocalizedStrings.defaultGenericError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -185,14 +179,14 @@ void main() {
           retryPeriodInMinutes: 3));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.loginPageTooManyRequestMessage(3));
+          .thenReturn(LocalizedStrings.loginPageTooManyRequestMessage(3));
 
       await _subject.login(TestConstants.stubEmail, TestConstants.stubPassword);
 
       _expectedFullBlocOutput.addAll([
         LoginUninitializedState(),
         LoginLoadingState(),
-        LoginErrorState(LazyLocalizedStrings.loginPageTooManyRequestMessage(3))
+        LoginErrorState(LocalizedStrings.loginPageTooManyRequestMessage(3))
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);

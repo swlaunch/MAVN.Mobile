@@ -65,13 +65,12 @@ class PaymentRequestStatusCard extends HookWidget {
           children: [
             if (paymentRequest.partnerName != null)
               _buildInfoLine(
-                key: useLocalizedStrings()
-                    .transferRequestStatusCardRecipientLabel
+                key: LocalizedStrings.transferRequestStatusCardRecipientLabel
                     .toUpperCase(),
                 value: paymentRequest.partnerName,
               ),
             Text(
-              useLocalizedStrings().transferRequestStatusCardRecipientIdLabel(
+              LocalizedStrings.transferRequestStatusCardRecipientIdLabel(
                   paymentRequest.paymentRequestId),
               style: TextStyles.darkBodyBody3RegularHigh,
             ),
@@ -117,16 +116,14 @@ class PaymentRequestStatusCard extends HookWidget {
   Widget _buildSendingAmount() =>
       paymentRequest.sendingAmountInToken.value != null
           ? _buildInfoLine(
-              key: useLocalizedStrings()
-                  .transferRequestStatusCardSendingAmountLabel
+              key: LocalizedStrings.transferRequestStatusCardSendingAmountLabel
                   .toUpperCase(),
               value: paymentRequest.sendingAmountInToken.value,
             )
           : Container();
 
   Widget _buildTotalBill() => _buildInfoLine(
-        key: useLocalizedStrings()
-            .transferRequestStatusCardTotalBillLabel
+        key: LocalizedStrings.transferRequestStatusCardTotalBillLabel
             .toUpperCase(),
         value: '${paymentRequest.totalInToken.displayValueWithSymbol} '
             // ignore: lines_longer_than_80_chars
@@ -162,18 +159,18 @@ class PaymentRequestStatusCard extends HookWidget {
   static String _toLocalizedStatus(PaymentRequestStatus status) {
     switch (status) {
       case PaymentRequestStatus.pending:
-        return useLocalizedStrings().transferRequestStatusCardStatusPending;
+        return LocalizedStrings.transferRequestStatusCardStatusPending;
       case PaymentRequestStatus.confirmed:
-        return useLocalizedStrings().transferRequestStatusCardStatusConfirmed;
+        return LocalizedStrings.transferRequestStatusCardStatusConfirmed;
       case PaymentRequestStatus.completed:
-        return useLocalizedStrings().transferRequestStatusCardStatusCompleted;
+        return LocalizedStrings.transferRequestStatusCardStatusCompleted;
       case PaymentRequestStatus.cancelled:
-        return useLocalizedStrings().transferRequestStatusCardStatusCancelled;
+        return LocalizedStrings.transferRequestStatusCardStatusCancelled;
       case PaymentRequestStatus.failed:
-        return useLocalizedStrings().transferRequestStatusCardStatusFailed;
+        return LocalizedStrings.transferRequestStatusCardStatusFailed;
       case PaymentRequestStatus.requestExpired:
       case PaymentRequestStatus.paymentExpired:
-        return useLocalizedStrings().transferRequestStatusCardStatusExpired;
+        return LocalizedStrings.transferRequestStatusCardStatusExpired;
     }
   }
 }

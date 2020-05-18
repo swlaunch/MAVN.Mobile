@@ -99,8 +99,8 @@ class PaymentRequestForm extends HookWidget with FormMixin {
           children: <Widget>[
             FieldPadding(
               AmountTextField(
-                label: useLocalizedStrings()
-                    .transferRequestSendingAmountLabel(tokenSymbol.value),
+                label: LocalizedStrings.transferRequestSendingAmountLabel(
+                    tokenSymbol.value),
                 focusNode: amountFocusNode,
                 textEditingController: amountTextEditingController,
                 fieldValidationManager: amountValidationManager,
@@ -112,8 +112,7 @@ class PaymentRequestForm extends HookWidget with FormMixin {
               ),
             ),
             if (paymentRequestState is PaymentRequestInlineErrorState)
-              _buildInlineError(
-                  paymentRequestState.error.localize(useContext())),
+              _buildInlineError(paymentRequestState.error),
             _buildPaymentRequestButtons(
               onSubmitTap: onSubmitButtonTap,
               onCancelTap: onCancelTap,
@@ -154,7 +153,7 @@ class PaymentRequestForm extends HookWidget with FormMixin {
               children: <Widget>[
                 Flexible(
                   child: StyledOutlineButton(
-                    text: useLocalizedStrings().transferRequestRejectButton,
+                    text: LocalizedStrings.transferRequestRejectButton,
                     onTap: onCancelTap,
                     useDarkTheme: true,
                     key: const Key('paymentRequestCancelButton'),
@@ -164,7 +163,7 @@ class PaymentRequestForm extends HookWidget with FormMixin {
                 Flexible(
                   child: PrimaryButton(
                     buttonKey: const Key('paymentRequestSubmitButton'),
-                    text: useLocalizedStrings().sendTokensButton(tokenSymbol),
+                    text: LocalizedStrings.sendTokensButton(tokenSymbol),
                     onTap: onSubmitTap,
                   ),
                 ),

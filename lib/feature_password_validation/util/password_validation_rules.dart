@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_form/field_validators.dart';
 import 'package:lykke_mobile_mavn/library_utils/string_utils.dart';
 
@@ -8,7 +8,7 @@ abstract class PasswordValidationRule {
   bool validate();
 
   ///Returns the text description of the rule
-  LocalizedStringBuilder getDescription();
+  String getDescription();
 }
 
 class PasswordMinLengthValidationRule extends PasswordValidationRule {
@@ -23,8 +23,8 @@ class PasswordMinLengthValidationRule extends PasswordValidationRule {
       FieldValidators.minLength(minCharacters)(password);
 
   @override
-  LocalizedStringBuilder getDescription() =>
-      LazyLocalizedStrings.passwordValidationMinCharacters(minCharacters);
+  String getDescription() =>
+      LocalizedStrings.passwordValidationMinCharacters(minCharacters);
 }
 
 class PasswordMaxLengthValidationRule extends PasswordValidationRule {
@@ -39,8 +39,8 @@ class PasswordMaxLengthValidationRule extends PasswordValidationRule {
       FieldValidators.maxLength(maxCharacters)(password);
 
   @override
-  LocalizedStringBuilder getDescription() =>
-      LazyLocalizedStrings.passwordValidationMinCharacters(maxCharacters);
+  String getDescription() =>
+      LocalizedStrings.passwordValidationMinCharacters(maxCharacters);
 }
 
 class PasswordUpperCaseValidationRule extends PasswordValidationRule {
@@ -58,8 +58,8 @@ class PasswordUpperCaseValidationRule extends PasswordValidationRule {
       FieldValidators.containsUpperCase(minUpperCaseCharacters)(password);
 
   @override
-  LocalizedStringBuilder getDescription() =>
-      LazyLocalizedStrings.passwordValidationMinUpperCaseCharacters(
+  String getDescription() =>
+      LocalizedStrings.passwordValidationMinUpperCaseCharacters(
           minUpperCaseCharacters);
 }
 
@@ -78,8 +78,8 @@ class PasswordLowerCaseValidationRule extends PasswordValidationRule {
       FieldValidators.containsLowerCase(minLowerCaseCharacters)(password);
 
   @override
-  LocalizedStringBuilder getDescription() =>
-      LazyLocalizedStrings.passwordValidationMinLowerCaseCharacters(
+  String getDescription() =>
+      LocalizedStrings.passwordValidationMinLowerCaseCharacters(
           minLowerCaseCharacters);
 }
 
@@ -101,8 +101,8 @@ class PasswordSpecialCharactersValidationRule extends PasswordValidationRule {
           minSpecialCharacters, specialCharacters)(password);
 
   @override
-  LocalizedStringBuilder getDescription() =>
-      LazyLocalizedStrings.passwordValidationMinSpecialCharacters(
+  String getDescription() =>
+      LocalizedStrings.passwordValidationMinSpecialCharacters(
           minSpecialCharacters, specialCharacters);
 }
 
@@ -121,7 +121,7 @@ class PasswordNumbersValidationRule extends PasswordValidationRule {
       FieldValidators.containsNumericCharacters(minNumericCharacters)(password);
 
   @override
-  LocalizedStringBuilder getDescription() =>
-      LazyLocalizedStrings.passwordValidationMinNumericCharacters(
+  String getDescription() =>
+      LocalizedStrings.passwordValidationMinNumericCharacters(
           minNumericCharacters);
 }

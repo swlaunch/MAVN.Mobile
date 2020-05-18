@@ -141,33 +141,31 @@ class EmailVerificationPage extends HookWidget with DynamicLinkManagerMixin {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Heading(useLocalizedStrings().emailVerificationTitle),
+                  Heading(LocalizedStrings.emailVerificationTitle),
                   const SizedBox(height: 32),
                   ..._getDetails(
                       didResendEmail: verificationBlocState
                           is EmailVerificationSuccessState),
                   const SizedBox(height: 16),
                   Text(
-                    useLocalizedStrings().emailVerificationMessage2,
+                    LocalizedStrings.emailVerificationMessage2,
                     style: TextStyles.darkBodyBody2RegularHigh,
                   ),
                   const Spacer(),
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      useLocalizedStrings().emailVerificationResetText,
+                      LocalizedStrings.emailVerificationResetText,
                       style: TextStyles.darkBodyBody3RegularHigh,
                     ),
                   ),
                   const SizedBox(height: 16),
                   if (verificationBlocState is EmailVerificationErrorState)
-                    _buildError(
-                        error:
-                            verificationBlocState.error.localize(useContext())),
+                    _buildError(error: verificationBlocState.error),
                   PrimaryButton(
                     isLoading:
                         verificationBlocState is EmailVerificationLoadingState,
-                    text: useLocalizedStrings().emailVerificationButton,
+                    text: LocalizedStrings.emailVerificationButton,
                     onTap: onResendLinkButtonTapped,
                   ),
                   const SizedBox(height: 8),
@@ -176,7 +174,7 @@ class EmailVerificationPage extends HookWidget with DynamicLinkManagerMixin {
                       padding: const EdgeInsets.all(0),
                       onPressed: onRegisterWithAnotherAccountButtonTapped,
                       child: Text(
-                        useLocalizedStrings().registerWithAnotherAccountButton,
+                        LocalizedStrings.registerWithAnotherAccountButton,
                         style: TextStyles.linksTextLinkBoldHigh,
                       ),
                     ),
@@ -194,13 +192,13 @@ class EmailVerificationPage extends HookWidget with DynamicLinkManagerMixin {
 
   List<Widget> _getDetails({@required bool didResendEmail}) => [
         if (status == VerificationStatus.invalidCode)
-          Text(useLocalizedStrings().emailVerificationLinkExpired(email)),
+          Text(LocalizedStrings.emailVerificationLinkExpired(email)),
         if (status == VerificationStatus.notVerified ||
             status == VerificationStatus.noCode)
           Text(
             didResendEmail
-                ? useLocalizedStrings().emailVerificationMessage1Resent
-                : useLocalizedStrings().emailVerificationMessage1,
+                ? LocalizedStrings.emailVerificationMessage1Resent
+                : LocalizedStrings.emailVerificationMessage1,
             style: TextStyles.darkBodyBody1Bold,
           ),
         Text(email, style: TextStyles.darkBodyBody1Bold),

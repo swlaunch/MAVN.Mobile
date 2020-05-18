@@ -32,7 +32,7 @@ class HotelReferralAcceptedPage extends HookWidget {
       title: _getTitle(referralHotelState),
       details: _getDetails(referralHotelState, tokenSymbol.value),
       isLoading: referralHotelState is AcceptHotelReferralLoadingState,
-      buttonText: useLocalizedStrings().continueButton,
+      buttonText: LocalizedStrings.continueButton,
       onButtonTap: () {
         router.pop();
       },
@@ -53,19 +53,19 @@ class HotelReferralAcceptedPage extends HookWidget {
 
   String _getTitle(AcceptHotelReferralState state) {
     if (state is AcceptHotelReferralSuccessState) {
-      return useLocalizedStrings().referralAcceptedSuccessTitle;
+      return LocalizedStrings.referralAcceptedSuccessTitle;
     }
 
-    return useLocalizedStrings().referralAcceptedTitle;
+    return LocalizedStrings.referralAcceptedTitle;
   }
 
   String _getDetails(AcceptHotelReferralState state, String tokenSymbol) {
     if (state is AcceptHotelReferralErrorState) {
-      return state.error.localize(useContext());
+      return state.error;
     }
 
     if (state is AcceptHotelReferralSuccessState) {
-      return useLocalizedStrings().hotelReferralAcceptedSuccessBody(
+      return LocalizedStrings.hotelReferralAcceptedSuccessBody(
           tokenSymbol, Configuration.appCompany);
     }
 

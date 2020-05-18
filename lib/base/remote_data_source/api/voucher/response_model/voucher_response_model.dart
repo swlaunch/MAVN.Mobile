@@ -1,77 +1,54 @@
-import 'package:flutter/foundation.dart';
-import 'package:lykke_mobile_mavn/library_utils/enum_mapper.dart';
+import 'package:decimal/decimal.dart';
+import 'package:lykke_mobile_mavn/library_models/token_currency.dart';
 
 class VoucherResponseModel {
   VoucherResponseModel({
-    @required this.id,
-    @required this.shortCode,
-    @required this.validationCodeHash,
-    @required this.campaignId,
-    @required this.status,
-    @required this.ownerId,
-    @required this.purchaseDate,
-    @required this.expirationDate,
-    @required this.redemptionDate,
-    @required this.partnerName,
-    @required this.campaignName,
-    @required this.imageUrl,
+    this.code,
+    this.spendRuleName,
+    this.partnerName,
+    this.priceToken,
+    this.priceBaseCurrency,
+    this.purchaseDate,
   });
 
   VoucherResponseModel.fromJson(Map<String, dynamic> json)
-      : id = json['Id'],
-        shortCode = json['ShortCode'],
-        validationCodeHash = json['ValidationCodeHash'],
-        campaignId = json['CampaignId'],
-        status = EnumMapper.mapFromString(
-          json['Status'],
-          enumValues: VoucherStatus.values,
-          defaultValue: null,
-        ),
-        ownerId = json['OwnerId'],
-        purchaseDate = json['PurchaseDate'] != null
-            ? DateTime.tryParse(json['PurchaseDate'])
-            : null,
-        expirationDate = json['ExpirationDate'] != null
-            ? DateTime.tryParse(json['ExpirationDate'])
-            : null,
-        redemptionDate = json['RedemptionDate'] != null
-            ? DateTime.tryParse(json['RedemptionDate'])
-            : null,
+      : code = json['Code'],
+        spendRuleName = json['SpendRuleName'],
         partnerName = json['PartnerName'],
-        campaignName = json['CampaignName'],
-        imageUrl = json['ImageUrl'];
+        priceToken = TokenCurrency(value: json['PriceToken']),
+        priceBaseCurrency =
+            Decimal.tryParse(json['PriceBaseCurrency'].toString()),
+        purchaseDate = DateTime.tryParse(json['PurchaseDate']);
 
   static List<VoucherResponseModel> toListFromJson(List list) => list
       .map((vouchersJson) => VoucherResponseModel.fromJson(vouchersJson))
       .toList();
 
-  final int id;
-  final String shortCode;
-  final String validationCodeHash;
-  final String campaignId;
-  final VoucherStatus status;
-  final String ownerId;
-  final DateTime purchaseDate;
-  final DateTime expirationDate;
-  final DateTime redemptionDate;
+  final String code;
+  final String spendRuleName;
   final String partnerName;
-  final String campaignName;
-  final String imageUrl;
+  final TokenCurrency priceToken;
+  final Decimal priceBaseCurrency;
+  final DateTime purchaseDate;
 }
 
 class VoucherListResponseModel {
   VoucherListResponseModel({
     this.vouchers,
     this.totalCount,
+    this.currentPage,
+    this.pageSize,
   });
 
   VoucherListResponseModel.fromJson(Map<String, dynamic> json)
       : vouchers =
-            VoucherResponseModel.toListFromJson(json['SmartVouchers'] as List),
-        totalCount = json['TotalCount'];
+            VoucherResponseModel.toListFromJson(json['Vouchers'] as List),
+        totalCount = json['TotalCount'],
+        currentPage = json['CurrentPage'],
+        pageSize = json['PageSize'];
 
   final List<VoucherResponseModel> vouchers;
   final int totalCount;
+  final int currentPage;
+  final int pageSize;
 }
-
-enum VoucherStatus { none, inStock, reserved, sold }

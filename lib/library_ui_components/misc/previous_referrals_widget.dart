@@ -37,10 +37,10 @@ class PreviousReferralsWidget extends HookWidget {
     void onContactTap(String email) {
       externalRouter.launchEmail(
         email,
-        subject: useLocalizedStrings().emailSubject,
-        body: useLocalizedStrings().emailBody,
+        subject: LocalizedStrings.emailSubject,
+        body: LocalizedStrings.emailBody,
         onLaunchError: () => ToastMessage.show(
-            useLocalizedStrings().contactUsLaunchContactEmailError, context),
+            LocalizedStrings.contactUsLaunchContactEmailError, context),
       );
     }
 
@@ -98,7 +98,7 @@ class PreviousReferralsWidget extends HookWidget {
             showAsterisk: referral.isApproximate,
           ),
           const SizedBox(width: 3),
-          Text(useLocalizedStrings().previousReferralsCardAward,
+          Text(LocalizedStrings.previousReferralsCardAward,
               style: TextStyles.darkBodyBody3Regular),
           const Spacer()
         ],
@@ -107,20 +107,23 @@ class PreviousReferralsWidget extends HookWidget {
   }
 
   List<Widget> _buildCardType() {
+    if (referral.referralType == ReferralType.realEstate) {
+      return _buildType(
+        SvgAssets.property,
+        LocalizedStrings.previousReferralsCardTypeRealEstate.toUpperCase(),
+      );
+    }
+
     if (referral.referralType == ReferralType.hospitality) {
       return _buildType(
         SvgAssets.hotels,
-        useLocalizedStrings()
-            .previousReferralsCardTypeHospitality
-            .toUpperCase(),
+        LocalizedStrings.previousReferralsCardTypeHospitality.toUpperCase(),
       );
     }
     if (referral.referralType == ReferralType.friend) {
       return _buildType(
         SvgAssets.referrals,
-        useLocalizedStrings()
-            .previousReferralsCardTypeAppReferral
-            .toUpperCase(),
+        LocalizedStrings.previousReferralsCardTypeAppReferral.toUpperCase(),
       );
     }
 
@@ -137,7 +140,7 @@ class PreviousReferralsWidget extends HookWidget {
       ];
 
   Widget _buildNameSection() => NullSafeText(
-        referral.referralName.localize(useContext()),
+        referral.referralName,
         style: TextStyles.darkBodyBody2Bold,
       );
 
@@ -163,13 +166,13 @@ class PreviousReferralsWidget extends HookWidget {
     if (_shouldShowStakingInfo()) {
       return [
         NullSafeText(
-          useLocalizedStrings().previousReferralsCardTimeLeftToAccept,
+          LocalizedStrings.previousReferralsCardTimeLeftToAccept,
           style: TextStyles.darkBodyBody4Regular,
         ),
         const Spacer(),
         NullSafeText(
-          useLocalizedStrings()
-              .expirationFormatDays(referral.stakingInfo.stakingTimeLeft),
+          LocalizedStrings.expirationFormatDays(
+              referral.stakingInfo.stakingTimeLeft),
           style: TextStyles.darkBodyBody4Regular,
         )
       ];
@@ -177,7 +180,7 @@ class PreviousReferralsWidget extends HookWidget {
     if (referral.progressInfo != null) {
       return [
         NullSafeText(
-          useLocalizedStrings().previousReferralsCardRemaining,
+          LocalizedStrings.previousReferralsCardRemaining,
           style: TextStyles.darkBodyBody4Regular,
         ),
         const Spacer(),
@@ -203,7 +206,7 @@ class PreviousReferralsWidget extends HookWidget {
     if (_shouldShowStakingInfo() && referral.referralEmail != null) {
       return [
         NullSafeText(
-          useLocalizedStrings().previousReferralsCardDontLose,
+          LocalizedStrings.previousReferralsCardDontLose,
           style: TextStyles.darkBodyBody4Regular,
         ),
         const SizedBox(width: 3),
@@ -220,7 +223,7 @@ class PreviousReferralsWidget extends HookWidget {
         InkWell(
           onTap: () => onContactTap(referral.referralEmail),
           child: NullSafeText(
-            useLocalizedStrings().previousReferralsCardContact(
+            LocalizedStrings.previousReferralsCardContact(
                 referral.stakingInfo.stakingContact.toString()),
             style: TextStyles.textLinkButton.copyWith(height: 1.2),
           ),

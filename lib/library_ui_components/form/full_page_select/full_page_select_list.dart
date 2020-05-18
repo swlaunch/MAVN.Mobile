@@ -166,8 +166,8 @@ class FullPageSelectList<T> extends HookWidget {
               width: 80,
               height: 80,
             )),
-            title: useLocalizedStrings().listNoResultsTitle,
-            text: useLocalizedStrings().listNoResultsDetails,
+            title: LocalizedStrings.listNoResultsTitle,
+            text: LocalizedStrings.listNoResultsDetails,
           ),
         ),
       );

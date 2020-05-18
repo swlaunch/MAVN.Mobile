@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:lykke_mobile_mavn/app/app.dart';
-import 'package:lykke_mobile_mavn/app/app_localizations_delegate.dart';
+import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc_output.dart';
+import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc.dart';
+import 'package:lykke_mobile_mavn/base/common_blocs/accept_lead_referral_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_list_bloc.dart';
@@ -11,6 +11,7 @@ import 'package:lykke_mobile_mavn/base/common_blocs/customer_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/customer_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/earn_rule_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
+import 'package:lykke_mobile_mavn/base/common_blocs/spend_rule_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/logout_use_case.dart';
 import 'package:lykke_mobile_mavn/base/date/date_time_manager.dart';
@@ -30,6 +31,7 @@ import 'package:lykke_mobile_mavn/base/repository/mapper/referral_to_ui_model_ma
 import 'package:lykke_mobile_mavn/base/repository/notification/notification_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/partner/partner_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/referral/referral_repository.dart';
+import 'package:lykke_mobile_mavn/base/repository/spend/spend_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/token/token_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/user/user_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
@@ -49,6 +51,8 @@ import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_count_b
 import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_count_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_p2p_transactions/bloc/barcode_scanner_manager.dart';
 import 'package:lykke_mobile_mavn/feature_payment_request_list/bloc/pending_payment_requests_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_user_verification/bloc/user_verification_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc_output.dart';
@@ -75,6 +79,7 @@ class TestAppFrame extends StatelessWidget {
     this.mockCountryListBloc,
     this.mockCountryCodeListBloc,
     this.mockBalanceBloc,
+    this.mockSpendRuleListBloc,
     this.mockEarnRuleListBloc,
     this.mockSharedPreferencesManager,
     this.mockPartnerPaymentsPendingBloc,
@@ -83,6 +88,7 @@ class TestAppFrame extends StatelessWidget {
     this.mockLoginBloc,
     this.mockLocalSettingsRepository,
     this.mockHotelReferralBloc,
+    this.mockLeadReferralBloc,
     this.mockLogOutUseCase,
     this.mockGetMobileSettingsUseCase,
     this.mockCustomerBloc,
@@ -96,6 +102,7 @@ class TestAppFrame extends StatelessWidget {
     this.mockQrContentManager,
     this.mockBarcodeScanManager,
     this.mockFirebaseMessagingBloc,
+    this.mockThemeBloc,
   });
 
   final Widget child;
@@ -109,12 +116,14 @@ class TestAppFrame extends StatelessWidget {
   final MockCountryListBloc mockCountryListBloc;
   final MockCountryCodeListBloc mockCountryCodeListBloc;
   final MockBalanceBloc mockBalanceBloc;
+  final MockSpendRuleListBloc mockSpendRuleListBloc;
   final MockEarnRuleListBloc mockEarnRuleListBloc;
   final MockPartnerPaymentsPendingBloc mockPartnerPaymentsPendingBloc;
   final MockBiometricBloc mockBiometricBloc;
   final MockLoginBloc mockLoginBloc;
   final MockLocalSettingsRepository mockLocalSettingsRepository;
   final MockAcceptHotelReferralBloc mockHotelReferralBloc;
+  final MockAcceptLeadReferralBloc mockLeadReferralBloc;
   final MockLogOutUseCase mockLogOutUseCase;
   final MockGetMobileSettingsUseCase mockGetMobileSettingsUseCase;
   final CustomerBloc mockCustomerBloc;
@@ -128,6 +137,7 @@ class TestAppFrame extends StatelessWidget {
   final MockQrContentManager mockQrContentManager;
   final MockBarcodeScannerManager mockBarcodeScanManager;
   final MockFirebaseMessagingBloc mockFirebaseMessagingBloc;
+  final MockThemeBloc mockThemeBloc;
 
   @override
   Widget build(BuildContext context) => ModuleProvider<AppModule>(
@@ -141,12 +151,14 @@ class TestAppFrame extends StatelessWidget {
           mockCountryListBloc: mockCountryListBloc,
           mockCountryCodeListBloc: mockCountryCodeListBloc,
           mockBalanceBloc: mockBalanceBloc,
+          mockSpendRuleListBloc: mockSpendRuleListBloc,
           mockEarnRuleListBloc: mockEarnRuleListBloc,
           mockPartnerPaymentsPendingBloc: mockPartnerPaymentsPendingBloc,
           mockBiometricBloc: mockBiometricBloc,
           mockLoginBloc: mockLoginBloc,
           mockLocalSettingsRepository: mockLocalSettingsRepository,
           mockHotelReferralBloc: mockHotelReferralBloc,
+          mockLeadReferralBloc: mockLeadReferralBloc,
           mockLogOutUseCase: mockLogOutUseCase,
           mockGetMobileSettingsUseCase: mockGetMobileSettingsUseCase,
           mockCustomerBloc: mockCustomerBloc,
@@ -160,19 +172,13 @@ class TestAppFrame extends StatelessWidget {
           mockQrContentManager: mockQrContentManager,
           mockBarcodeScanManager: mockBarcodeScanManager,
           mockFirebaseMessagingBloc: mockFirebaseMessagingBloc,
+          mockThemeBloc: mockThemeBloc,
         ),
         child: MaterialApp(
           home: MaterialApp(
             navigatorKey: navigatorGlobalStateKey,
             title: 'Test widget frame',
             theme: ThemeData(),
-            localizationsDelegates: const [
-              AppLocalizationsDelegate(),
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate
-            ],
-            supportedLocales: appSupportedLocales,
-            localeResolutionCallback: defaultLocaleResolution,
             home: child,
           ),
         ),
@@ -189,6 +195,7 @@ class TestAppModule extends AppModule {
     this.mockCountryListBloc,
     this.mockCountryCodeListBloc,
     this.mockBalanceBloc,
+    this.mockSpendRuleListBloc,
     this.mockEarnRuleListBloc,
     this.mockSharedPreferencesManager,
     this.mockPartnerPaymentsPendingBloc,
@@ -197,6 +204,7 @@ class TestAppModule extends AppModule {
     this.mockLoginBloc,
     this.mockLocalSettingsRepository,
     this.mockHotelReferralBloc,
+    this.mockLeadReferralBloc,
     this.mockLogOutUseCase,
     this.mockGetMobileSettingsUseCase,
     this.mockCustomerBloc,
@@ -210,6 +218,7 @@ class TestAppModule extends AppModule {
     this.mockQrContentManager,
     this.mockBarcodeScanManager,
     this.mockFirebaseMessagingBloc,
+    this.mockThemeBloc,
   });
 
   final RemoteConfigManager mockRemoteConfigManager;
@@ -221,6 +230,7 @@ class TestAppModule extends AppModule {
   final MockCountryListBloc mockCountryListBloc;
   final MockCountryCodeListBloc mockCountryCodeListBloc;
   final MockBalanceBloc mockBalanceBloc;
+  final MockSpendRuleListBloc mockSpendRuleListBloc;
   final MockEarnRuleListBloc mockEarnRuleListBloc;
   final MockPartnerPaymentsPendingBloc mockPartnerPaymentsPendingBloc;
   final MockSplashBloc mockSplashBloc;
@@ -228,6 +238,7 @@ class TestAppModule extends AppModule {
   final MockLoginBloc mockLoginBloc;
   final MockLocalSettingsRepository mockLocalSettingsRepository;
   final MockAcceptHotelReferralBloc mockHotelReferralBloc;
+  final MockAcceptLeadReferralBloc mockLeadReferralBloc;
   final MockLogOutUseCase mockLogOutUseCase;
   final MockGetMobileSettingsUseCase mockGetMobileSettingsUseCase;
   final MockCustomerBloc mockCustomerBloc;
@@ -241,6 +252,7 @@ class TestAppModule extends AppModule {
   final MockQrContentManager mockQrContentManager;
   final MockBarcodeScannerManager mockBarcodeScanManager;
   final MockFirebaseMessagingBloc mockFirebaseMessagingBloc;
+  final MockThemeBloc mockThemeBloc;
 
   @override
   void provideInstances() {
@@ -263,6 +275,9 @@ class TestAppModule extends AppModule {
         () => mockBalanceBloc ?? MockBalanceBloc(BalanceUninitializedState()));
     provideSingleton<WalletBloc>(
         () => mockWalletBloc ?? MockWalletBloc(WalletUninitializedState()));
+    provideSingleton<SpendRuleListBloc>(() =>
+        mockSpendRuleListBloc ??
+        MockSpendRuleListBloc(GenericListUninitializedState()));
     provideSingleton<EarnRuleListBloc>(() =>
         mockEarnRuleListBloc ??
         MockEarnRuleListBloc(GenericListUninitializedState()));
@@ -280,6 +295,10 @@ class TestAppModule extends AppModule {
     provideSingleton<AcceptHotelReferralBloc>(() =>
         mockHotelReferralBloc ??
         MockAcceptHotelReferralBloc(AcceptHotelReferralUninitializedState()));
+
+    provideSingleton<AcceptLeadReferralBloc>(() =>
+        mockLeadReferralBloc ??
+        MockAcceptLeadReferralBloc(AcceptLeadReferralUninitializedState()));
 
     provideSingleton<CustomerBloc>(() =>
         mockCustomerBloc ?? MockCustomerBloc(CustomerUninitializedState()));
@@ -304,9 +323,22 @@ class TestAppModule extends AppModule {
         mockFirebaseMessagingBloc ??
         MockFirebaseMessagingBloc(FirebaseMessagingUninitializedState()));
 
+    provideSingleton<ThemeBloc>(() =>
+        mockThemeBloc ??
+        MockThemeBloc(ThemeSelectedState(theme: LightTheme())));
+
     //////////////////////////
 
     final defaultMockCustomerRepository = MockCustomerRepository();
+    final defaultMockSpendRepository = MockSpendRepository();
+
+    when(defaultMockSpendRepository.getSpendRules()).thenAnswer((_) async {
+      final mockSpendRuleListResponseModel = MockSpendRuleListResponseModel();
+      when(mockSpendRuleListResponseModel.spendRuleList).thenReturn([]);
+      return mockSpendRuleListResponseModel;
+    });
+
+    provideSingleton<SpendRepository>(() => defaultMockSpendRepository);
 
     provideSingleton<CustomerRepository>(() => defaultMockCustomerRepository);
 

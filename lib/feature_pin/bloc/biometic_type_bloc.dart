@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/feature_pin/bloc/biometic_type_output.dart';
 import 'package:lykke_mobile_mavn/feature_pin/di/pin_module.dart';
@@ -33,17 +33,17 @@ class BiometricTypeBloc extends Bloc<BiometricTypeState> {
       case BiometricType.face:
         return _BiometricAssets(
           assetName: SvgAssets.iconFaceId,
-          label: LazyLocalizedStrings.useFaceIDButton,
+          label: LocalizedStrings.useFaceIDButton,
         );
       case BiometricType.fingerprint:
         return _BiometricAssets(
           assetName: SvgAssets.iconFingerPrint,
-          label: LazyLocalizedStrings.useFingerprintButton,
+          label: LocalizedStrings.useFingerprintButton,
         );
       default:
         return _BiometricAssets(
           assetName: SvgAssets.iconBiometrics,
-          label: LazyLocalizedStrings.useBiometricButton,
+          label: LocalizedStrings.useBiometricButton,
         );
     }
   }
@@ -56,7 +56,7 @@ class _BiometricAssets {
   });
 
   final String assetName;
-  final LocalizedStringBuilder label;
+  final String label;
 }
 
 BiometricTypeBloc useBiometricTypeBloc() =>

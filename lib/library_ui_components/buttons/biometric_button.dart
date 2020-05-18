@@ -35,7 +35,7 @@ class BiometricButton extends HookWidget {
                   SvgPicture.asset(biometricTypeState.assetName),
                   const SizedBox(width: 16),
                   Text(
-                    biometricTypeState.label.localize(useContext()),
+                    biometricTypeState.label,
                     style: TextStyles.linksTextLinkBoldHigh,
                   ),
                 ],

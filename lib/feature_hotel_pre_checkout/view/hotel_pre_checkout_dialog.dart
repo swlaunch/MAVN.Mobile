@@ -32,10 +32,10 @@ class HotelPreCheckoutDialog extends HookWidget {
       if (hotelPreCheckoutBlocState is HotelPreCheckoutLoadedState) {
         return HotelMessage(
           partnerName: hotelPreCheckoutBlocState.partnerName,
-          heading: useLocalizedStrings().hotelPreCheckoutDialogHeading,
+          heading: LocalizedStrings.hotelPreCheckoutDialogHeading,
           message: hotelPreCheckoutBlocState.message,
           endContent: PrimaryButton(
-            text: useLocalizedStrings().hotelPreCheckoutDialogViewInvoiceButton,
+            text: LocalizedStrings.hotelPreCheckoutDialogViewInvoiceButton,
             onTap: () {
               Navigator.of(context).pop();
             },
@@ -45,7 +45,7 @@ class HotelPreCheckoutDialog extends HookWidget {
         return Container(
           alignment: Alignment.topCenter,
           child: GenericErrorWidget(
-            text: hotelPreCheckoutBlocState.error.localize(useContext()),
+            text: hotelPreCheckoutBlocState.error,
             onRetryTap: _getPartnerMessage,
           ),
         );

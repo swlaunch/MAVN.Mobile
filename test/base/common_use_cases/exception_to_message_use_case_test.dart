@@ -10,7 +10,6 @@ import '../../mock_classes.dart';
 void main() {
   group('ExceptionToMessageMapper tests', () {
     final _mockLocalSettingsRepository = MockLocalSettingsRepository();
-    final LocalizedStrings localizedStrings = LocalizedStrings();
 
     ExceptionToMessageMapper _subject;
 
@@ -20,46 +19,40 @@ void main() {
     });
 
     test('generic error', () async {
-      final target = _subject.map(Exception()).from(localizedStrings);
+      final target = _subject.map(Exception());
 
-      expect(target, localizedStrings.defaultGenericError);
+      expect(target, LocalizedStrings.defaultGenericError);
     });
 
     test('network error', () async {
-      final target = _subject.map(NetworkException()).from(localizedStrings);
+      final target = _subject.map(NetworkException());
 
-      expect(target, localizedStrings.networkError);
+      expect(target, LocalizedStrings.networkError);
     });
 
     test('server error - email is already verified', () async {
-      final target = _subject
-          .map(const ServiceException(
-              ServiceExceptionType.emailIsAlreadyVerified))
-          .from(localizedStrings);
+      final target = _subject.map(
+          const ServiceException(ServiceExceptionType.emailIsAlreadyVerified));
 
-      expect(target, localizedStrings.emailIsAlreadyVerifiedError);
+      expect(target, LocalizedStrings.emailIsAlreadyVerifiedError);
     });
 
     test('too many requests', () async {
-      final target = _subject
-          .map(const TooManyRequestException(
-              ServiceExceptionType.tooManyLoginRequest,
-              message: 'message',
-              retryPeriodInMinutes: 3))
-          .from(localizedStrings);
+      final target = _subject.map(const TooManyRequestException(
+          ServiceExceptionType.tooManyLoginRequest,
+          message: 'message',
+          retryPeriodInMinutes: 3));
 
-      expect(target, localizedStrings.loginPageTooManyRequestMessage(3));
+      expect(target, LocalizedStrings.loginPageTooManyRequestMessage(3));
     });
 
     test('login attempts warning', () async {
-      final target = _subject
-          .map(const LoginAttemptsWarningException(
-              ServiceExceptionType.loginAttemptsWarning,
-              message: 'message',
-              attemptsLeft: 1))
-          .from(localizedStrings);
+      final target = _subject.map(const LoginAttemptsWarningException(
+          ServiceExceptionType.loginAttemptsWarning,
+          message: 'message',
+          attemptsLeft: 1));
 
-      expect(target, localizedStrings.loginPageLoginAttemptWarningMessage(1));
+      expect(target, LocalizedStrings.loginPageLoginAttemptWarningMessage(1));
     });
   });
 }

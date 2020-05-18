@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_payment_request/bloc/payment_request_bloc.dart';
@@ -78,8 +78,8 @@ void main() {
           PaymentRequestUninitializedState(),
           PaymentRequestLoadingState(),
           PaymentRequestErrorState(
-            errorTitle: LazyLocalizedStrings.somethingIsNotRightError,
-            errorSubtitle: LazyLocalizedStrings.transferRequestGenericError,
+            errorTitle: LocalizedStrings.somethingIsNotRightError,
+            errorSubtitle: LocalizedStrings.transferRequestGenericError,
             iconAsset: SvgAssets.genericError,
           ),
         ]);
@@ -102,8 +102,8 @@ void main() {
           PaymentRequestUninitializedState(),
           PaymentRequestLoadingState(),
           PaymentRequestErrorState(
-            errorTitle: LazyLocalizedStrings.networkErrorTitle,
-            errorSubtitle: LazyLocalizedStrings.networkError,
+            errorTitle: LocalizedStrings.networkErrorTitle,
+            errorSubtitle: LocalizedStrings.networkError,
             iconAsset: SvgAssets.networkError,
           ),
         ]);
@@ -120,8 +120,8 @@ void main() {
                 ServiceExceptionType.customerWalletBlocked,
                 message: TestConstants.stubErrorText));
 
-        when(_mockExceptionToMessageMapper.map(any)).thenReturn(
-            LocalizedStringBuilder.custom(TestConstants.stubErrorText));
+        when(_mockExceptionToMessageMapper.map(any))
+            .thenReturn(TestConstants.stubErrorText);
 
         await _subject.approvePaymentRequest(
             paymentRequestId: TestConstants.stubPaymentRequestId,
@@ -131,9 +131,7 @@ void main() {
           PaymentRequestUninitializedState(),
           PaymentRequestLoadingState(),
           PaymentRequestWalletDisabledEvent(),
-          PaymentRequestInlineErrorState(
-              error:
-                  LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
+          PaymentRequestInlineErrorState(error: TestConstants.stubErrorText),
         ]);
 
         await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -149,7 +147,7 @@ void main() {
                 message: TestConstants.stubErrorText));
 
         when(_mockExceptionToMessageMapper.map(any))
-            .thenReturn(LazyLocalizedStrings.invalidAmountError);
+            .thenReturn(LocalizedStrings.invalidAmountError);
 
         await _subject.approvePaymentRequest(
             paymentRequestId: TestConstants.stubPaymentRequestId,
@@ -159,7 +157,7 @@ void main() {
           PaymentRequestUninitializedState(),
           PaymentRequestLoadingState(),
           PaymentRequestInlineErrorState(
-              error: LazyLocalizedStrings.invalidAmountError),
+              error: LocalizedStrings.invalidAmountError),
         ]);
 
         await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -176,7 +174,7 @@ void main() {
                 message: TestConstants.stubErrorText));
 
         when(_mockExceptionToMessageMapper.map(any))
-            .thenReturn(LazyLocalizedStrings.transferRequestInvalidStateError);
+            .thenReturn(LocalizedStrings.transferRequestInvalidStateError);
 
         await _subject.approvePaymentRequest(
             paymentRequestId: TestConstants.stubPaymentRequestId,
@@ -187,7 +185,7 @@ void main() {
           PaymentRequestLoadingState(),
           PaymentRequestExpiredEvent(),
           PaymentRequestInlineErrorState(
-              error: LazyLocalizedStrings.transferRequestInvalidStateError),
+              error: LocalizedStrings.transferRequestInvalidStateError),
         ]);
 
         await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -202,8 +200,8 @@ void main() {
                 ServiceExceptionType.notEnoughTokens,
                 message: TestConstants.stubErrorText));
 
-        when(_mockExceptionToMessageMapper.map(any)).thenReturn(
-            LazyLocalizedStrings.transferRequestNotEnoughTokensError);
+        when(_mockExceptionToMessageMapper.map(any))
+            .thenReturn(LocalizedStrings.transferRequestNotEnoughTokensError);
 
         await _subject.approvePaymentRequest(
             paymentRequestId: TestConstants.stubPaymentRequestId,
@@ -213,7 +211,7 @@ void main() {
           PaymentRequestUninitializedState(),
           PaymentRequestLoadingState(),
           PaymentRequestInlineErrorState(
-              error: LazyLocalizedStrings.transferRequestNotEnoughTokensError),
+              error: LocalizedStrings.transferRequestNotEnoughTokensError),
         ]);
 
         await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -254,8 +252,8 @@ void main() {
           PaymentRequestUninitializedState(),
           PaymentRequestLoadingState(),
           PaymentRequestErrorState(
-            errorTitle: LazyLocalizedStrings.somethingIsNotRightError,
-            errorSubtitle: LazyLocalizedStrings.transferRequestGenericError,
+            errorTitle: LocalizedStrings.somethingIsNotRightError,
+            errorSubtitle: LocalizedStrings.transferRequestGenericError,
             iconAsset: SvgAssets.genericError,
           ),
         ]);
@@ -275,8 +273,8 @@ void main() {
           PaymentRequestUninitializedState(),
           PaymentRequestLoadingState(),
           PaymentRequestErrorState(
-            errorTitle: LazyLocalizedStrings.networkErrorTitle,
-            errorSubtitle: LazyLocalizedStrings.networkError,
+            errorTitle: LocalizedStrings.networkErrorTitle,
+            errorSubtitle: LocalizedStrings.networkError,
             iconAsset: SvgAssets.networkError,
           ),
         ]);
@@ -291,7 +289,7 @@ void main() {
             message: TestConstants.stubErrorText));
 
         when(_mockExceptionToMessageMapper.map(any))
-            .thenReturn(LazyLocalizedStrings.invalidAmountError);
+            .thenReturn(LocalizedStrings.invalidAmountError);
 
         await _subject.rejectPaymentRequest(
           paymentRequestId: TestConstants.stubPaymentRequestId,
@@ -300,7 +298,7 @@ void main() {
           PaymentRequestUninitializedState(),
           PaymentRequestLoadingState(),
           PaymentRequestInlineErrorState(
-              error: LazyLocalizedStrings.invalidAmountError),
+              error: LocalizedStrings.invalidAmountError),
         ]);
 
         await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);

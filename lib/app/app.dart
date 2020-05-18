@@ -60,8 +60,7 @@ class App extends HookWidget {
                     GlobalMaterialLocalizations.delegate,
                     GlobalWidgetsLocalizations.delegate
                   ],
-                  supportedLocales: appSupportedLocales,
-                  localeResolutionCallback: defaultLocaleResolution,
+                  supportedLocales: const [Locale('en')],
                   navigatorKey: appState.appModule.globalNavigatorStateKey,
                   navigatorObservers: [
                     FirebaseAnalyticsObserver(analytics: FirebaseAnalytics())
@@ -101,9 +100,3 @@ class App extends HookWidget {
     return Configuration.appName;
   }
 }
-
-Locale defaultLocaleResolution(
-        Locale currentLocale, Iterable<Locale> supportedLocales) =>
-    supportedLocales.firstWhere(
-        (locale) => currentLocale.languageCode == locale.languageCode,
-        orElse: () => supportedLocales.first);

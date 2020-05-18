@@ -24,8 +24,7 @@ class StakingDetailsPage extends StatelessWidget {
     return ScaffoldWithAppBar(
       body: Column(
         children: [
-          PageTitle(
-              title: LocalizedStrings.of(context).earnRuleDetailsHowItWorks),
+          PageTitle(title: LocalizedStrings.earnRuleDetailsHowItWorks),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
@@ -34,13 +33,19 @@ class StakingDetailsPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     BulletPointLineWidget(
-                      body: _buildInfoLineOne(context, formattedStakingAmount),
+                      body: _buildInfoLineOne(formattedStakingAmount),
                     ),
+                    if (extendedEarnRule.isRealEstateOffer())
+                      BulletPointLineWidget(
+                        body: Text(
+                          LocalizedStrings.stakingDetailsRealEstatePart5,
+                          style: TextStyles.darkBodyBody2RegularExtraHigh,
+                        ),
+                      ),
                     if (earnRuleCondition.stakingRule != null &&
                         earnRuleCondition.stakingRule > 0)
                       BulletPointLineWidget(
                         body: _buildInfoLineStakingRule(
-                          context,
                           earnRuleCondition.stakingRule,
                         ),
                       ),
@@ -48,19 +53,17 @@ class StakingDetailsPage extends StatelessWidget {
                         earnRuleCondition.burningRule > 0)
                       BulletPointLineWidget(
                         body: _buildInfoLineBurningRule(
-                          context,
                           earnRuleCondition.burningRule,
                           earnRuleCondition.stakingPeriod,
                         ),
                       ),
                     _buildAmountTable(
-                      context,
                       stakedAmount: earnRuleCondition.stakeAmount,
                       award: award,
                       isApproximate: extendedEarnRule.isApproximate,
                     ),
                     if (extendedEarnRule.isApproximate)
-                      _buildIndicativeAmountText(context),
+                      _buildIndicativeAmountText(),
                   ],
                 ),
               ),
@@ -71,76 +74,74 @@ class StakingDetailsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoLineOne(BuildContext context, String stakedAmount) =>
-      RichText(
+  Widget _buildInfoLineOne(String stakedAmount) => RichText(
         textAlign: TextAlign.start,
         text: TextSpan(
           style: TextStyles.darkBodyBody2RegularExtraHigh,
           children: [
-            TextSpan(text: LocalizedStrings.of(context).stakingDetailsPart1),
+            TextSpan(text: LocalizedStrings.stakingDetailsPart1),
             WidgetSpan(child: TokenAmountWithIcon(stakedAmount)),
           ],
         ),
       );
 
-  Widget _buildIndicativeAmountText(BuildContext context) {
+  Widget _buildIndicativeAmountText() {
     String indicativeAmountText =
-        LocalizedStrings.of(context).earnRuleIndicativeAmountInfoGeneric;
+        LocalizedStrings.earnRuleIndicativeAmountInfoGeneric;
 
     if (extendedEarnRule.isHospitalityOffer()) {
       indicativeAmountText =
-          LocalizedStrings.of(context).earnRuleIndicativeAmountInfoHospitality;
+          LocalizedStrings.earnRuleIndicativeAmountInfoHospitality;
     }
 
+    if (extendedEarnRule.isRealEstateOffer()) {
+      indicativeAmountText =
+          LocalizedStrings.earnRuleIndicativeAmountInfoRealEstate;
+    }
     return Text(
       indicativeAmountText,
       style: TextStyles.darkBodyBody2RegularExtraHigh,
     );
   }
 
-  Widget _buildInfoLineStakingRule(BuildContext context, double stakingRule) =>
-      RichText(
+  Widget _buildInfoLineStakingRule(double stakingRule) => RichText(
         textAlign: TextAlign.start,
         text: TextSpan(
           style: TextStyles.darkBodyBody2RegularExtraHigh,
           children: [
             TextSpan(
-                text: LocalizedStrings.of(context)
-                    .stakingDetailsRealEstateStakingRulePart1),
+                text:
+                    LocalizedStrings.stakingDetailsRealEstateStakingRulePart1),
             TextSpan(
                 text: NumberFormatter.toPercentStringFromDouble(stakingRule),
                 style: TextStyles.darkBodyBody2BoldHigh),
             TextSpan(
-                text: LocalizedStrings.of(context)
+                text: LocalizedStrings
                     .stakingDetailsRealEstateStakingRulePart2_100percent),
           ],
         ),
       );
 
-  Widget _buildInfoLineBurningRule(
-          BuildContext context, double burningRule, int stakingPeriod) =>
+  Widget _buildInfoLineBurningRule(double burningRule, int stakingPeriod) =>
       RichText(
         textAlign: TextAlign.start,
         text: TextSpan(
           style: TextStyles.darkBodyBody2RegularExtraHigh,
           children: [
             TextSpan(
-                text: LocalizedStrings.of(context)
-                    .stakingDetailsRealEstateBurningRulePart1(
-                        LocalizedStrings.of(context)
-                            .expirationFormatDays(stakingPeriod))),
+                text: LocalizedStrings.stakingDetailsRealEstateBurningRulePart1(
+                    LocalizedStrings.expirationFormatDays(stakingPeriod))),
             TextSpan(
                 text: NumberFormatter.toPercentStringFromDouble(burningRule),
                 style: TextStyles.darkBodyBody2BoldHigh),
             TextSpan(
-                text: LocalizedStrings.of(context)
-                    .stakingDetailsRealEstateBurningRulePart2),
+                text:
+                    LocalizedStrings.stakingDetailsRealEstateBurningRulePart2),
           ],
         ),
       );
 
-  Widget _buildAmountTable(
-    BuildContext context, {
+  Widget _buildAmountTable({
     TokenCurrency stakedAmount,
     TokenCurrency award,
     bool isApproximate,
@@ -151,10 +152,9 @@ class StakingDetailsPage extends StatelessWidget {
     return Column(
       children: <Widget>[
         const SizedBox(height: 48),
-        _buildTableRow(LocalizedStrings.of(context).stakingDetailsLockedAmount,
+        _buildTableRow(LocalizedStrings.stakingDetailsLockedAmount,
             stakedAmount.displayValueWithoutTrailingZeroes),
-        _buildTableRow(
-            LocalizedStrings.of(context).stakingDetailsReward, formattedAward),
+        _buildTableRow(LocalizedStrings.stakingDetailsReward, formattedAward),
       ],
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
 import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
@@ -13,6 +14,10 @@ import 'package:lykke_mobile_mavn/library_ui_components/list/pagination_error_st
 import 'package:lykke_mobile_mavn/library_ui_components/misc/spinner.dart';
 
 class TransactionHistoryView extends HookWidget {
+  const TransactionHistoryView({@required this.theme});
+
+  final BaseAppTheme theme;
+
   @override
   Widget build(BuildContext context) {
     final transactionHistoryBloc = useTransactionHistoryBloc();
@@ -48,7 +53,7 @@ class TransactionHistoryView extends HookWidget {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: PaginationErrorWidget(
-          errorText: transactionHistoryState.error.localize(useContext()),
+          errorText: transactionHistoryState.error,
           onRetry: transactionHistoryBloc.loadTransactionHistory,
         ),
       );
@@ -64,6 +69,7 @@ class TransactionHistoryView extends HookWidget {
         child: TransactionHistoryViewList(
           transactionList: transactionHistoryState
               .transactionHistoryResponseModel.transactionList,
+          theme: theme,
         ),
       );
     }
@@ -74,6 +80,7 @@ class TransactionHistoryView extends HookWidget {
           TransactionHistoryViewList(
             transactionList: transactionHistoryState
                 .transactionHistoryResponseModel.transactionList,
+            theme: theme,
           ),
           const _LoadingSpinner(),
         ],
@@ -86,11 +93,12 @@ class TransactionHistoryView extends HookWidget {
           TransactionHistoryViewList(
             transactionList: transactionHistoryState
                 .transactionHistoryResponseModel.transactionList,
+            theme: theme,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
             child: PaginationErrorWidget(
-              errorText: transactionHistoryState.error.localize(useContext()),
+              errorText: transactionHistoryState.error,
               onRetry: transactionHistoryBloc.loadTransactionHistory,
             ),
           )
@@ -165,7 +173,7 @@ class TransactionHistoryViewEmpty extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              LocalizedStrings.of(context).walletPageTransactionHistoryEmpty,
+              LocalizedStrings.walletPageTransactionHistoryEmpty,
               style: TextStyles.darkBodyBody1RegularHigh,
             ),
             const SizedBox(height: 16),

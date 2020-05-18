@@ -8,14 +8,14 @@ import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/dialog/custom_dialog.dart';
 
 class EnableBiometricsDialog extends CustomDialog {
-  EnableBiometricsDialog(LocalizedStrings localizedStrings)
+  EnableBiometricsDialog()
       : super(
           title: Platform.isIOS
-              ? localizedStrings.biometricAuthenticationDialogTitleIOS
-              : localizedStrings.biometricAuthenticationDialogTitleAndroid,
-          content: localizedStrings.biometricsGoToSettingsDescription,
-          positiveButtonText: localizedStrings.warningDialogGoToSettings,
-          negativeButtonText: localizedStrings.warningDialogNoButton,
+              ? LocalizedStrings.biometricAuthenticationDialogTitleIOS
+              : LocalizedStrings.biometricAuthenticationDialogTitleAndroid,
+          content: LocalizedStrings.biometricsGoToSettingsDescription,
+          positiveButtonText: LocalizedStrings.warningDialogGoToSettings,
+          negativeButtonText: LocalizedStrings.warningDialogNoButton,
         );
 
   @override

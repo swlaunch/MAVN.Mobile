@@ -1,7 +1,7 @@
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/exception_to_message_mapper.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
@@ -68,14 +68,14 @@ class TransactionFormBloc extends Bloc<TransactionFormState> {
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(BarcodeScanPermissionErrorState(
-            LazyLocalizedStrings.barcodeScanPermissionError));
+            LocalizedStrings.barcodeScanPermissionError));
       } else {
-        setState(BarcodeScanErrorState(LazyLocalizedStrings.barcodeScanError));
+        setState(BarcodeScanErrorState(LocalizedStrings.barcodeScanError));
       }
     } on FormatException {
       // back button case, should be ignored in the flow
     } catch (e) {
-      setState(BarcodeScanErrorState(LazyLocalizedStrings.barcodeScanError));
+      setState(BarcodeScanErrorState(LocalizedStrings.barcodeScanError));
     }
   }
 }

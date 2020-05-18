@@ -29,7 +29,7 @@ class LinkedWalletSendFailedPage extends HookWidget {
 
     useBlocEventListener(linkedWalletSendBloc, (event) {
       if (event is LinkedWalletSendErrorEvent) {
-        ToastMessage.show(event.message.localize(context), context);
+        ToastMessage.show(event.message, context);
         return;
       }
 
@@ -42,11 +42,11 @@ class LinkedWalletSendFailedPage extends HookWidget {
 
     return ResultFeedbackPage(
       widgetKey: const Key('linkedWalletSendFailedWidget'),
-      title: useLocalizedStrings().linkWalletTransferFailedTitle,
-      details: useLocalizedStrings().linkWalletTransferFailedDetails,
+      title: LocalizedStrings.linkWalletTransferFailedTitle,
+      details: LocalizedStrings.linkWalletTransferFailedDetails,
       subDetails: error,
       subDetailsStyle: TextStyles.darkBodyBody1Bold,
-      buttonText: useLocalizedStrings().retryButton,
+      buttonText: LocalizedStrings.retryButton,
       resultFeedbackButtonStyle: ResultFeedbackButtonStyle.styled,
       onButtonTap: () =>
           linkedWalletSendBloc.transferToken(Decimal.tryParse(amount) ?? 0.0),

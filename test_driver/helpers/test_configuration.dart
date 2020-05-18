@@ -3,6 +3,7 @@ import 'package:gherkin/gherkin.dart';
 import 'package:glob/glob.dart';
 
 import '../feature_home/home_steps.dart';
+import '../feature_lead_referral/lead_referral_steps.dart';
 import '../feature_login/login_steps.dart';
 import '../feature_onboarding/onboarding_steps.dart';
 import '../feature_p2p_transactions/p2p_transactions_steps.dart';
@@ -34,6 +35,7 @@ FlutterTestConfiguration getTestConfiguration({
         ...featureLoginSteps,
         ...featureRegisterSteps,
         ...featureHomeSteps,
+        ...featureLeadReferralSteps,
         ...featureReferralListSteps,
         ...featureP2pTransactionSteps,
       ]

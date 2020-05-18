@@ -35,21 +35,21 @@ class CountryListPage extends HookWidget {
         query: query,
       ),
       displayValueSelector: (country) => country.name,
-      pageTitle: pageTitle ?? useLocalizedStrings().countryListPageTitle,
+      pageTitle: pageTitle ?? LocalizedStrings.countryListPageTitle,
       valueKey: const Key('countryList'),
       isLoading: countryListBlocState is CountryListLoadingState,
       list: countryListBlocState is CountryListLoadedState
           ? countryListBlocState.countryList
           : null,
       errorText: countryListBlocState is CountryListErrorState
-          ? countryListBlocState.error.localize(useContext())
+          ? countryListBlocState.error
           : null,
       onRetry: () {
         countryListBloc.loadCountryList();
       },
       groupAlphabetically: true,
       showFilter: true,
-      filterHintText: useLocalizedStrings().countryListFilterHint,
+      filterHintText: LocalizedStrings.countryListFilterHint,
     );
   }
 }

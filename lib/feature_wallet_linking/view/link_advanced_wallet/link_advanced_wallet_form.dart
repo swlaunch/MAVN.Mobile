@@ -89,36 +89,36 @@ class LinkingAdvancedWalletForm extends HookWidget with FormMixin {
             items: [
               if (linkCodeState is! LinkCodeErrorState)
                 _buildCopyRow(
-                    useLocalizedStrings().linkAdvancedWalletInstructionCopyCode,
+                    LocalizedStrings.linkAdvancedWalletInstructionCopyCode,
                     linkCode,
                     linkCodeState is LinkCodeLoadingState),
               if (linkCodeState is LinkCodeErrorState)
                 Expanded(
                   child: GenericErrorIconWidget(
                     onRetryTap: () => linkCodeBloc.generateLinkCode(),
-                    title: useLocalizedStrings().genericErrorShort,
-                    text: linkCodeState.message.localize(useContext()),
+                    title: LocalizedStrings.genericErrorShort,
+                    text: linkCodeState.message,
                     errorKey: const Key('linkingCodeErrorIcon'),
                   ),
                 ),
               _buildListItem(
-                  useLocalizedStrings().linkAdvancedWalletInstructionSwitchApp),
-              _buildListItem(useLocalizedStrings()
-                  .linkAdvancedWalletInstructionSignMessage),
-              _buildListItem(useLocalizedStrings()
-                  .linkAdvancedWalletInstructionCopySignature),
+                  LocalizedStrings.linkAdvancedWalletInstructionSwitchApp),
+              _buildListItem(
+                  LocalizedStrings.linkAdvancedWalletInstructionSignMessage),
+              _buildListItem(
+                  LocalizedStrings.linkAdvancedWalletInstructionCopySignature),
             ],
             numberStyle: TextStyles.darkBodyBody3Regular,
             type: OrderedListType.numbered,
             itemBuilder: (item) => item,
           ),
           _buildCodeSignatureTextField(
-              useLocalizedStrings().linkAdvancedWalletInstructionPasteSignature,
+              LocalizedStrings.linkAdvancedWalletInstructionPasteSignature,
               linkingCodeFocusNode,
               publicAddressFocusNode,
               linkingCodeValidationManager),
           _buildPublicAddressTextField(
-              useLocalizedStrings().linkAdvancedWalletInstructionPublicAddress,
+              LocalizedStrings.linkAdvancedWalletInstructionPublicAddress,
               publicAddressFocusNode,
               publicAddressValidationManager,
               submitFunction),
@@ -159,11 +159,10 @@ class LinkingAdvancedWalletForm extends HookWidget with FormMixin {
           _buildListItem('$fifthElementPlaceholder $instruction'),
           const SizedBox(height: 32),
           CustomTextField(
-            label: useLocalizedStrings()
+            label: LocalizedStrings
                 .linkAdvancedWalletTextFieldCodeSignatureTitle
                 .toUpperCase(),
-            hint: useLocalizedStrings()
-                .linkAdvancedWalletTextFieldCodeSignatureHint,
+            hint: LocalizedStrings.linkAdvancedWalletTextFieldCodeSignatureHint,
             contextGlobalKey: linkingCodeContextGlobalKey,
             valueKey: const Key('linkingCodeTextField'),
             focusNode: linkingCodeFocusNode,
@@ -188,11 +187,11 @@ class LinkingAdvancedWalletForm extends HookWidget with FormMixin {
           _buildListItem('$sixthElementPlaceholder $instruction'),
           const SizedBox(height: 16),
           CustomTextField(
-              label: useLocalizedStrings()
+              label: LocalizedStrings
                   .linkAdvancedWalletTextFieldPublicAddressTitle
                   .toUpperCase(),
-              hint: useLocalizedStrings()
-                  .linkAdvancedWalletTextFieldPublicAddressHint,
+              hint:
+                  LocalizedStrings.linkAdvancedWalletTextFieldPublicAddressHint,
               contextGlobalKey: publicAddressContextGlobalKey,
               valueKey: const Key('publicAddressTextField'),
               focusNode: publicAddressFocusNode,
@@ -207,7 +206,7 @@ class LinkingAdvancedWalletForm extends HookWidget with FormMixin {
   Widget _buildLinkWalletButton(
           {@required VoidCallback onTap, @required bool isLoading}) =>
       PrimaryButton(
-          text: useLocalizedStrings().linkAdvancedWalletButton,
+          text: LocalizedStrings.linkAdvancedWalletButton,
           onTap: onTap,
           isLoading: isLoading);
 }

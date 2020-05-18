@@ -76,8 +76,8 @@ class FriendReferralForm extends HookWidget with FormMixin {
         children: <Widget>[
           FieldPadding(
             CustomTextField(
-              label: useLocalizedStrings().hotelReferralFullNameFieldLabel,
-              hint: useLocalizedStrings().hotelReferralFullNameFieldHint,
+              label: LocalizedStrings.hotelReferralFullNameFieldLabel,
+              hint: LocalizedStrings.hotelReferralFullNameFieldHint,
               contextGlobalKey: fullNameContextGlobalKey,
               focusNode: fullNameFocusNode,
               valueKey: const Key('fullNameTextField'),
@@ -90,8 +90,8 @@ class FriendReferralForm extends HookWidget with FormMixin {
           ),
           FieldPadding(
             CustomTextField(
-              label: useLocalizedStrings().emailRequiredLabel,
-              hint: useLocalizedStrings().emailAddressHint,
+              label: LocalizedStrings.emailRequiredLabel,
+              hint: LocalizedStrings.emailAddressHint,
               contextGlobalKey: emailContextGlobalKey,
               valueKey: const Key('emailTextField'),
               focusNode: emailFocusNode,
@@ -116,7 +116,7 @@ class FriendReferralForm extends HookWidget with FormMixin {
   ) =>
       PrimaryButton(
         buttonKey: const Key('submitButton'),
-        text: useLocalizedStrings().submitButton,
+        text: LocalizedStrings.submitButton,
         onTap: submitFriendReferralFunction,
         isLoading: blocState is FriendReferralSubmissionLoadingState,
       );

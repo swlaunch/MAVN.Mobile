@@ -33,7 +33,7 @@ class ReferralOfferInfoWidget extends HookWidget {
               children: [
                 if (partnerNameState is PartnerNameLoadedState)
                   TextSpan(
-                      text: useLocalizedStrings().hotelReferralPartnerInfo(
+                      text: LocalizedStrings.hotelReferralPartnerInfo(
                           partnerNameState.partnerName)),
                 if (extendedEarnRule.conditions.first.hasStaking)
                   ..._getStakingText(),
@@ -47,7 +47,7 @@ class ReferralOfferInfoWidget extends HookWidget {
   }
 
   List<InlineSpan> _getStakingText() => [
-        TextSpan(text: useLocalizedStrings().hotelReferralStakingInfo),
+        TextSpan(text: LocalizedStrings.hotelReferralStakingInfo),
         WidgetSpan(
             child: TokenAmountWithIcon(extendedEarnRule.conditions.first
                 .stakeAmount.displayValueWithoutTrailingZeroes),

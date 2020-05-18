@@ -14,10 +14,9 @@ class PaymentRequestExpiredPage extends HookWidget {
     final router = useRouter();
     return ResultFeedbackPage(
       widgetKey: const Key('requestExpiredPage'),
-      title: useLocalizedStrings().transferRequestExpiredTitle,
-      details: useLocalizedStrings().transferRequestExpiredDetails,
-      buttonText:
-          useLocalizedStrings().backToTokenWalletButton(tokenSymbol.value),
+      title: LocalizedStrings.transferRequestExpiredTitle,
+      details: LocalizedStrings.transferRequestExpiredDetails,
+      buttonText: LocalizedStrings.backToTokenWalletButton(tokenSymbol.value),
       onButtonTap: () {
         router
           ..popToRoot()

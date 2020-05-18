@@ -1,5 +1,5 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/customer_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
@@ -35,17 +35,16 @@ class P2pReceiveTokenBloc extends Bloc<ReceiveTokenPageState> {
     } on Exception catch (e) {
       if (e is NetworkException) {
         setState(ReceiveTokenPageErrorState(
-          errorTitle: LazyLocalizedStrings.networkErrorTitle,
-          errorSubtitle: LazyLocalizedStrings.networkError,
+          errorTitle: LocalizedStrings.networkErrorTitle,
+          errorSubtitle: LocalizedStrings.networkError,
           iconAsset: SvgAssets.networkError,
         ));
         return;
       }
 
       setState(ReceiveTokenPageErrorState(
-        errorTitle: LazyLocalizedStrings.receiveTokenPageGenericErrorTitle,
-        errorSubtitle:
-            LazyLocalizedStrings.receiveTokenPageGenericErrorSubtitle,
+        errorTitle: LocalizedStrings.receiveTokenPageGenericErrorTitle,
+        errorSubtitle: LocalizedStrings.receiveTokenPageGenericErrorSubtitle,
         iconAsset: SvgAssets.genericError,
       ));
     }

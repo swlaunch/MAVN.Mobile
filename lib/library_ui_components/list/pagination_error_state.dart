@@ -38,7 +38,7 @@ class PaginationErrorWidget extends StatelessWidget {
           const SizedBox(height: 16),
           GestureDetector(
             child: Text(
-              LocalizedStrings.of(context).retryButton.toUpperCase(),
+              LocalizedStrings.retryButton.toUpperCase(),
               style: TextStyles.linksTextLinkBold,
             ),
             onTap: () {

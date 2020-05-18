@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_hotel_referral/bloc/hotel_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_hotel_referral/bloc/hotel_referral_bloc_output.dart';
@@ -74,7 +74,7 @@ void main() {
       )).thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.defaultGenericError);
+          .thenReturn(LocalizedStrings.defaultGenericError);
 
       await _subject.submitHotelReferral(
         fullName: TestConstants.stubFullName,
@@ -88,7 +88,7 @@ void main() {
         HotelReferralUninitializedState(),
         HotelReferralSubmissionLoadingState(),
         HotelReferralSubmissionErrorState(
-            error: LazyLocalizedStrings.defaultGenericError, canRetry: true),
+            error: LocalizedStrings.defaultGenericError, canRetry: true),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -104,7 +104,7 @@ void main() {
       )).thenThrow(NetworkException());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.networkError);
+          .thenReturn(LocalizedStrings.networkError);
 
       await _subject.submitHotelReferral(
         fullName: TestConstants.stubFullName,
@@ -118,7 +118,7 @@ void main() {
         HotelReferralUninitializedState(),
         HotelReferralSubmissionLoadingState(),
         HotelReferralSubmissionErrorState(
-            error: LazyLocalizedStrings.networkError, canRetry: true),
+            error: LocalizedStrings.networkError, canRetry: true),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -136,7 +136,7 @@ void main() {
       ));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.referralAlreadyConfirmedError);
+          .thenReturn(LocalizedStrings.referralAlreadyConfirmedError);
 
       await _subject.submitHotelReferral(
         fullName: TestConstants.stubFullName,
@@ -150,7 +150,7 @@ void main() {
         HotelReferralUninitializedState(),
         HotelReferralSubmissionLoadingState(),
         HotelReferralSubmissionErrorState(
-            error: LazyLocalizedStrings.referralAlreadyConfirmedError,
+            error: LocalizedStrings.referralAlreadyConfirmedError,
             canRetry: false),
       ]);
 
@@ -169,7 +169,7 @@ void main() {
       ));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.referralsLimitExceededError);
+          .thenReturn(LocalizedStrings.referralsLimitExceededError);
 
       await _subject.submitHotelReferral(
         fullName: TestConstants.stubFullName,
@@ -183,7 +183,7 @@ void main() {
         HotelReferralUninitializedState(),
         HotelReferralSubmissionLoadingState(),
         HotelReferralSubmissionErrorState(
-            error: LazyLocalizedStrings.referralsLimitExceededError,
+            error: LocalizedStrings.referralsLimitExceededError,
             canRetry: false),
       ]);
 
@@ -202,7 +202,7 @@ void main() {
       ));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.canNotReferYourselfError);
+          .thenReturn(LocalizedStrings.canNotReferYourselfError);
 
       await _subject.submitHotelReferral(
         fullName: TestConstants.stubFullName,
@@ -216,8 +216,7 @@ void main() {
         HotelReferralUninitializedState(),
         HotelReferralSubmissionLoadingState(),
         HotelReferralSubmissionErrorState(
-            error: LazyLocalizedStrings.canNotReferYourselfError,
-            canRetry: false),
+            error: LocalizedStrings.canNotReferYourselfError, canRetry: false),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -235,7 +234,7 @@ void main() {
       ));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.hotelReferralErrorLeadAlreadyExists);
+          .thenReturn(LocalizedStrings.hotelReferralErrorLeadAlreadyExists);
 
       await _subject.submitHotelReferral(
         fullName: TestConstants.stubFullName,
@@ -249,7 +248,7 @@ void main() {
         HotelReferralUninitializedState(),
         HotelReferralSubmissionLoadingState(),
         HotelReferralSubmissionErrorState(
-            error: LazyLocalizedStrings.hotelReferralErrorLeadAlreadyExists,
+            error: LocalizedStrings.hotelReferralErrorLeadAlreadyExists,
             canRetry: false),
       ]);
 

@@ -1,4 +1,3 @@
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
 import 'package:meta/meta.dart';
 
@@ -17,7 +16,7 @@ class GenericListErrorState<T> extends GenericListState {
     @required this.list,
   });
 
-  final LocalizedStringBuilder error;
+  final String error;
 
   final List<T> list;
   final int currentPage;

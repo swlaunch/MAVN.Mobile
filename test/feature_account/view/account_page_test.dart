@@ -18,7 +18,6 @@ final LocalSettingsRepository _mockLocalSettingsRepository =
     MockLocalSettingsRepository();
 
 final LogOutUseCase _mockLogOutUseCase = MockLogOutUseCase();
-final _localizedStrings = LocalizedStrings();
 
 void main() {
   setUpAll(() {
@@ -46,7 +45,7 @@ void main() {
 
       await whenITapOn(
           find.byKey(
-              Key(_localizedStrings.referralTrackingPersonalDetailsOption)),
+              Key(LocalizedStrings.referralTrackingPersonalDetailsOption)),
           widgetTester);
 
       await thenTheFollowingRouteIsCalled(_mockRouter.pushReferralListPage);
@@ -57,7 +56,7 @@ void main() {
       await _givenIAmOnTheAccountPage(widgetTester);
 
       await whenITapOn(
-          find.byKey(Key(_localizedStrings.contactUsButton)), widgetTester);
+          find.byKey(Key(LocalizedStrings.contactUsButton)), widgetTester);
 
       await thenTheFollowingRouteIsCalled(_mockRouter.pushContactUsPage);
     });
@@ -68,7 +67,7 @@ void main() {
       await _givenIAmOnTheAccountPage(widgetTester);
 
       await whenITapOn(
-          find.byKey(Key(_localizedStrings.termsOfUse)), widgetTester);
+          find.byKey(Key(LocalizedStrings.termsOfUse)), widgetTester);
 
       await thenTheFollowingRouteIsCalled(_mockRouter.pushTermsOfUsePage);
     });
@@ -79,7 +78,7 @@ void main() {
       await _givenIAmOnTheAccountPage(widgetTester);
 
       await whenITapOn(
-          find.byKey(Key(_localizedStrings.accountPageChangePasswordOption)),
+          find.byKey(Key(LocalizedStrings.accountPageChangePasswordOption)),
           widgetTester);
 
       await thenTheFollowingRouteIsCalled(_mockRouter.pushChangePasswordPage);
@@ -91,7 +90,7 @@ void main() {
       await _givenIAmOnTheAccountPage(widgetTester);
 
       await whenITapOn(
-          find.byKey(Key(_localizedStrings.accountPagePersonalDetailsOption)),
+          find.byKey(Key(LocalizedStrings.accountPagePersonalDetailsOption)),
           widgetTester);
 
       await thenTheFollowingRouteIsCalled(_mockRouter.pushPersonalDetailsPage);
@@ -102,7 +101,7 @@ void main() {
       await _givenIAmOnTheAccountPage(widgetTester);
 
       await whenITapOn(
-          find.byKey(Key(_localizedStrings.accountPageLogoutOption)),
+          find.byKey(Key(LocalizedStrings.accountPageLogoutOption)),
           widgetTester);
 
       await thenTheFollowingRouteIsCalled(
@@ -121,7 +120,7 @@ Future whenSettingsValueIsThenIExpect(WidgetTester widgetTester,
 
   await whenITapOn(
       find.byKey(
-          Key(_localizedStrings.accountPageBiometricsSignInOptionAndroid)),
+          Key(LocalizedStrings.accountPageBiometricsSignInOptionAndroid)),
       widgetTester);
 
   final capturedArgs = verify(_mockLocalSettingsRepository

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
@@ -64,13 +63,13 @@ class FriendReferralPage extends HookWidget with FormMixin {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Heading(
-                      useLocalizedStrings().inviteAFriend,
+                      LocalizedStrings.inviteAFriend,
                       icon: SvgAssets.referrals,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 16, bottom: 24),
                       child: Text(
-                        useLocalizedStrings().inviteAFriendPageDetails,
+                        LocalizedStrings.inviteAFriendPageDetails,
                         style: TextStyles.darkBodyBody1RegularHigh,
                       ),
                     ),
@@ -102,7 +101,7 @@ class FriendReferralPage extends HookWidget with FormMixin {
   }
 
   Widget _buildError({
-    LocalizedStringBuilder error,
+    String error,
     bool canRetry,
     VoidCallback onRetryTap,
     VoidCallback onCloseTap,
@@ -111,7 +110,7 @@ class FriendReferralPage extends HookWidget with FormMixin {
           alignment: Alignment.bottomCenter,
           child: GenericErrorWidget(
             valueKey: const Key('friendReferralPageError'),
-            text: error.localize(useContext()),
+            text: error,
             onRetryTap: canRetry ? onRetryTap : null,
             onCloseTap: onCloseTap,
           ));

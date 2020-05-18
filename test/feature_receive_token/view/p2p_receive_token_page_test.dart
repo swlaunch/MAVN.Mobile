@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_receive_token/bloc/p2p_receive_token_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_receive_token/bloc/p2p_receive_token_bloc_output.dart';
@@ -51,10 +50,8 @@ void main() {
     testWidgets('ReceiveTokenPageErrorState', (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(widgetTester,
           receiveTokenPageState: ReceiveTokenPageErrorState(
-              errorTitle:
-                  LocalizedStringBuilder.custom(TestConstants.stubErrorTitle),
-              errorSubtitle: LocalizedStringBuilder.custom(
-                  TestConstants.stubErrorSubtitle),
+              errorTitle: TestConstants.stubErrorTitle,
+              errorSubtitle: TestConstants.stubErrorSubtitle,
               iconAsset: TestConstants.stubErrorIconAsset));
 
       verify(_mockReceiveTokenBloc.getCustomer()).called(1);

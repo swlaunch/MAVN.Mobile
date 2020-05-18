@@ -13,7 +13,7 @@ class TermsOfUsePage extends HookWidget {
         useState<String>(getMobileSettingsUseCase.execute()?.termsOfUseUrl);
     return TitledWebPage(
       url: privacyAndTermsUrl.value,
-      title: useLocalizedStrings().termsOfUse,
+      title: LocalizedStrings.termsOfUse,
       asset: SvgAssets.settingsTerms,
     );
   }

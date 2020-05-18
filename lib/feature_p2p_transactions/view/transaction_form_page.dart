@@ -91,12 +91,12 @@ class TransactionFormPage extends HookWidget with FormMixin {
             Column(
               children: <Widget>[
                 PageTitle(
-                  title: useLocalizedStrings()
-                      .transactionFormPageTitle(tokenSymbol.value),
+                  title: LocalizedStrings.transactionFormPageTitle(
+                      tokenSymbol.value),
                   assetIconLeading: SvgAssets.sendTokens,
                   assetIconTrailing: walletBlocState is WalletErrorState
                       ? SvgAssets.error
-                      : SvgAssets.token,
+                      : SvgAssets.tokenLight,
                   assetIconTrailingAlignedToTitle: true,
                 ),
                 if (walletBlocState is WalletLoadedState)
@@ -139,7 +139,7 @@ class TransactionFormPage extends HookWidget with FormMixin {
                 !isFormSubmissionErrorDismissed.value)
               _buildError(
                 key: 'transactionFormPageError',
-                error: transactionFormState.error.localize(useContext()),
+                error: transactionFormState.error,
                 onRetryTap: onSend,
                 onCloseTap: () {
                   isFormSubmissionErrorDismissed.value = true;
@@ -149,7 +149,7 @@ class TransactionFormPage extends HookWidget with FormMixin {
                 !isFormSubmissionErrorDismissed.value)
               _buildError(
                 key: 'transactionFormBarcodePermissonError',
-                error: transactionFormState.error.localize(useContext()),
+                error: transactionFormState.error,
                 onRetryTap: onScanQrCodeButtonTapped,
                 onCloseTap: () {
                   isFormSubmissionErrorDismissed.value = true;
@@ -159,7 +159,7 @@ class TransactionFormPage extends HookWidget with FormMixin {
                 !isFormSubmissionErrorDismissed.value)
               _buildError(
                 key: 'transactionFormBarcodeError',
-                error: transactionFormState.error.localize(useContext()),
+                error: transactionFormState.error,
                 onRetryTap: onScanQrCodeButtonTapped,
                 onCloseTap: () {
                   isFormSubmissionErrorDismissed.value = true;
@@ -172,7 +172,7 @@ class TransactionFormPage extends HookWidget with FormMixin {
   }
 
   Widget _buildTitle(String tokenSymbol) => Text(
-        useLocalizedStrings().transactionFormPageSubDetails(tokenSymbol),
+        LocalizedStrings.transactionFormPageSubDetails(tokenSymbol),
         style: TextStyles.darkBodyBody1RegularHigh,
       );
 
@@ -183,12 +183,12 @@ class TransactionFormPage extends HookWidget with FormMixin {
           SvgPicture.asset(SvgAssets.qrCode),
           const SizedBox(width: 8),
           Text(
-            useLocalizedStrings().transactionFormScanQRCode,
+            LocalizedStrings.transactionFormScanQRCode,
             style: TextStyles.linksTextLinkBold,
           ),
           const SizedBox(width: 8),
           Text(
-            useLocalizedStrings().transactionFormOr,
+            LocalizedStrings.transactionFormOr,
             style: TextStyles.darkBodyBody2Bold,
           )
         ],

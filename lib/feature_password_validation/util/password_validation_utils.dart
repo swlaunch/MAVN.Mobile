@@ -1,21 +1,21 @@
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_form/field_validation.dart';
 
 class PasswordValidationUtils {
-  static LocalizedStringBuilder buildPasswordValidationMessage<T>(
+  static String buildPasswordValidationMessage<T>(
       List<FieldValidation<T>> failedFieldValidationList) {
     final filteredFailedFieldValidationList =
         failedFieldValidationList.where(_isNonInlineValidation);
 
     if (filteredFailedFieldValidationList.length > 1) {
-      return LazyLocalizedStrings.passwordInvalidError;
+      return LocalizedStrings.passwordInvalidError;
     }
 
     if (failedFieldValidationList.isNotEmpty) {
       return failedFieldValidationList.first.localizedString;
     }
 
-    return LocalizedStringBuilder.empty();
+    return null;
   }
 
   static bool _isNonInlineValidation<T>(FieldValidation<T> fieldValidation) =>

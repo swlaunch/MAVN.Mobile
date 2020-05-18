@@ -12,9 +12,9 @@ class PaymentRequestTimerWidget extends HookWidget {
     final tickerBloc = useTickerBloc();
     final tickerBlocState = useBlocState<TickerState>(tickerBloc);
     return PaymentRequestInfoLine(
-      pairKey: useLocalizedStrings().transferRequestRemainingTimeLabel,
+      pairKey: LocalizedStrings.transferRequestRemainingTimeLabel,
       pairValue: tickerBlocState is TickerTickingState
-          ? tickerBlocState.displayTime.localize(useContext())
+          ? tickerBlocState.displayTime
           : '',
     );
   }

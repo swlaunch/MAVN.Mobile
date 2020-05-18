@@ -25,7 +25,7 @@ class UnlinkWalletInProgressPage extends HookWidget {
 
     useBlocEventListener(unlinkWalletBloc, (event) {
       if (event is UnlinkWalletSubmissionErrorEvent) {
-        ToastMessage.show(event.message.localize(context), context);
+        ToastMessage.show(event.message, context);
         router
           ..popToRoot()
           ..pushLinkedWalletPage();
@@ -42,21 +42,21 @@ class UnlinkWalletInProgressPage extends HookWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Heading(useLocalizedStrings().unlinkWalletInProgressHeader),
+            Heading(LocalizedStrings.unlinkWalletInProgressHeader),
             const SizedBox(height: 64),
-            Text(useLocalizedStrings().unlinkWalletInProgressTitle,
+            Text(LocalizedStrings.unlinkWalletInProgressTitle,
                 textAlign: TextAlign.center,
                 style: TextStyles.darkBodyBody2Regular),
             const SizedBox(height: 56),
             _buildImage(),
             const SizedBox(height: 56),
             Expanded(
-              child: Text(useLocalizedStrings().linkWalletInProgressDescription,
+              child: Text(LocalizedStrings.linkWalletInProgressDescription,
                   textAlign: TextAlign.center,
                   style: TextStyles.darkBodyBody3RegularHigh),
             ),
             PrimaryButton(
-              text: useLocalizedStrings().backToWalletButton,
+              text: LocalizedStrings.backToWalletButton,
               onTap: () {
                 walletBloc.fetchWallet();
                 router.popToRoot();

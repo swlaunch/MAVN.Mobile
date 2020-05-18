@@ -15,14 +15,16 @@ import 'package:lykke_mobile_mavn/library_ui_components/misc/heading.dart';
 import 'package:lykke_mobile_mavn/library_utils/toast_message.dart';
 
 class LinkWalletPage extends HookWidget {
+  LinkWalletPage();
+
+  final _instructions = [
+    LocalizedStrings.linkWalletInstructionSelectWallet,
+    LocalizedStrings.linkWalletInstructionConfirmLinking,
+    LocalizedStrings.linkWalletInstructionFees,
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final _instructions = [
-      useLocalizedStrings().linkWalletInstructionSelectWallet,
-      useLocalizedStrings().linkWalletInstructionConfirmLinking,
-      useLocalizedStrings().linkWalletInstructionFees,
-    ];
-
     final tokenSymbol =
         useState(useGetMobileSettingsUseCase(context).execute()?.tokenSymbol);
 
@@ -31,7 +33,7 @@ class LinkWalletPage extends HookWidget {
 
     useBlocEventListener(linkWalletBloc, (event) {
       if (event is LinkWalletErrorEvent) {
-        ToastMessage.show(event.message.localize(context), context);
+        ToastMessage.show(event.message, context);
       }
 
       if (event is LinkWalletLoadedEvent) {
@@ -46,12 +48,12 @@ class LinkWalletPage extends HookWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Heading(useLocalizedStrings().linkWalletHeader),
+              Heading(LocalizedStrings.linkWalletHeader),
               Padding(
                 padding: const EdgeInsets.only(top: 16, bottom: 24),
                 child: Text(
-                  useLocalizedStrings()
-                      .externalLinkWalletDescription(tokenSymbol.value),
+                  LocalizedStrings.externalLinkWalletDescription(
+                      tokenSymbol.value),
                   style: TextStyles.darkBodyBody1RegularHigh,
                 ),
               ),
@@ -63,20 +65,20 @@ class LinkWalletPage extends HookWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 42, bottom: 28),
                 child: Text(
-                  useLocalizedStrings().linkWalletChooseSupportedWallets,
+                  LocalizedStrings.linkWalletChooseSupportedWallets,
                   style: TextStyles.darkHeadersH3,
                 ),
               ),
               const Divider(),
               _buildWallet(
-                title: useLocalizedStrings().simpleWalletsTitle,
-                description: useLocalizedStrings().simpleWalletsDescription,
+                title: LocalizedStrings.simpleWalletsTitle,
+                description: LocalizedStrings.simpleWalletsDescription,
                 onTap: () => linkWalletBloc.linkByType(LinkWalletType.simple),
               ),
               const Divider(),
               _buildWallet(
-                title: useLocalizedStrings().advancedWalletsTitle,
-                description: useLocalizedStrings().advancedWalletsDescription,
+                title: LocalizedStrings.advancedWalletsTitle,
+                description: LocalizedStrings.advancedWalletsDescription,
                 onTap: () => linkWalletBloc.linkByType(LinkWalletType.advanced),
               ),
               const Divider(),

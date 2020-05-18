@@ -35,7 +35,7 @@ class TokenAmountWithIcon extends StatelessWidget {
                     aspectRatio: 1,
                     child: Container(
                       child: SvgPicture.asset(
-                        SvgAssets.token,
+                        SvgAssets.tokenLight,
                         fit: BoxFit.contain,
                         height: 0,
                         alignment: Alignment.bottomCenter,

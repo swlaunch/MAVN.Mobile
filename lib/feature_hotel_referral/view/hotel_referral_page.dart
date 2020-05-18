@@ -71,7 +71,7 @@ class HotelReferralPage extends HookWidget with FormMixin {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   PageTitle(
-                    title: useLocalizedStrings().hotelReferralPageTitle,
+                    title: LocalizedStrings.hotelReferralPageTitle,
                     assetIconLeading: SvgAssets.hotels,
                   ),
                   Padding(
@@ -98,7 +98,7 @@ class HotelReferralPage extends HookWidget with FormMixin {
             if (blocState is HotelReferralSubmissionErrorState &&
                 !isFormSubmissionErrorDismissed.value)
               _buildError(
-                  error: blocState.error.localize(useContext()),
+                  error: blocState.error,
                   canRetry: blocState.canRetry,
                   onRetryTap: onSubmit,
                   onCloseTap: () {

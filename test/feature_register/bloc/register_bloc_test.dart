@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_register/bloc/register_bloc.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
@@ -76,8 +76,7 @@ void main() {
       )).thenThrow(
           const ServiceException(ServiceExceptionType.invalidEmailFormat));
 
-      when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStringBuilder.custom('Invalid email'));
+      when(_mockExceptionToMessageMapper.map(any)).thenReturn('Invalid email');
 
       await _subject.register(
         email: TestConstants.stubEmail,
@@ -90,7 +89,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         RegisterUninitializedState(),
         RegisterLoadingState(),
-        RegisterErrorState(LocalizedStringBuilder.custom('Invalid email')),
+        RegisterErrorState('Invalid email'),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -107,7 +106,7 @@ void main() {
           const ServiceException(ServiceExceptionType.invalidPasswordFormat));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStringBuilder.custom('Invalid password'));
+          .thenReturn('Invalid password');
 
       await _subject.register(
         email: TestConstants.stubEmail,
@@ -120,7 +119,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         RegisterUninitializedState(),
         RegisterLoadingState(),
-        RegisterErrorState(LocalizedStringBuilder.custom('Invalid password')),
+        RegisterErrorState('Invalid password'),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -137,7 +136,7 @@ void main() {
           const ServiceException(ServiceExceptionType.loginAlreadyInUse));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LocalizedStringBuilder.custom('Login already in use'));
+          .thenReturn('Login already in use');
 
       await _subject.register(
         email: TestConstants.stubEmail,
@@ -150,8 +149,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         RegisterUninitializedState(),
         RegisterLoadingState(),
-        RegisterErrorState(
-            LocalizedStringBuilder.custom('Login already in use')),
+        RegisterErrorState('Login already in use'),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -169,8 +167,7 @@ void main() {
 
       when(_mockExceptionToMessageMapper.map(
               const ServiceException(ServiceExceptionType.emailIsNotAllowed)))
-          .thenReturn(
-              LocalizedStringBuilder.custom(TestConstants.stubErrorText));
+          .thenReturn(TestConstants.stubErrorText);
 
       await _subject.register(
         email: TestConstants.stubEmail,
@@ -183,8 +180,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         RegisterUninitializedState(),
         RegisterLoadingState(),
-        RegisterErrorState(
-            LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
+        RegisterErrorState(TestConstants.stubErrorText),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -200,7 +196,7 @@ void main() {
       )).thenThrow(NetworkException());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.networkError);
+          .thenReturn(LocalizedStrings.networkError);
 
       await _subject.register(
         email: TestConstants.stubEmail,
@@ -213,7 +209,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         RegisterUninitializedState(),
         RegisterLoadingState(),
-        RegisterErrorState(LazyLocalizedStrings.networkError),
+        RegisterErrorState(LocalizedStrings.networkError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -230,7 +226,7 @@ void main() {
           const ServiceException(ServiceExceptionType.invalidCredentials));
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.defaultGenericError);
+          .thenReturn(LocalizedStrings.defaultGenericError);
 
       await _subject.register(
         email: TestConstants.stubEmail,
@@ -243,7 +239,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         RegisterUninitializedState(),
         RegisterLoadingState(),
-        RegisterErrorState(LazyLocalizedStrings.defaultGenericError),
+        RegisterErrorState(LocalizedStrings.defaultGenericError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -259,7 +255,7 @@ void main() {
       )).thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.defaultGenericError);
+          .thenReturn(LocalizedStrings.defaultGenericError);
 
       await _subject.register(
         email: TestConstants.stubEmail,
@@ -272,7 +268,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         RegisterUninitializedState(),
         RegisterLoadingState(),
-        RegisterErrorState(LazyLocalizedStrings.defaultGenericError),
+        RegisterErrorState(LocalizedStrings.defaultGenericError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);

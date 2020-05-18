@@ -166,6 +166,11 @@ void main() {
       );
 
       expect(
+        _subject.getFeatureFromUrlPath('/referrals/lead'),
+        'lead_referral',
+      );
+
+      expect(
         _subject.getFeatureFromUrlPath('unknown/path'),
         null,
       );

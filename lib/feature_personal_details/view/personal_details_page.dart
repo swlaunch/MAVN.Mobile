@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
@@ -14,6 +13,7 @@ import 'package:lykke_mobile_mavn/library_ui_components/error/generic_error_icon
 import 'package:lykke_mobile_mavn/library_ui_components/error/network_error.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/layout/scaffold_with_app_bar.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/heading.dart';
+import 'package:lykke_mobile_mavn/library_ui_components/misc/null_safe_text.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/spinner.dart';
 import 'package:lykke_mobile_mavn/library_utils/string_utils.dart';
 
@@ -39,7 +39,7 @@ class PersonalDetailsPage extends HookWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Heading(
-              useLocalizedStrings().accountPagePersonalDetailsOption,
+              LocalizedStrings.accountPagePersonalDetailsOption,
               icon: SvgAssets.personalDetails,
             ),
             if (personalDetailsBlocState is PersonalDetailsLoadingState)
@@ -58,8 +58,8 @@ class PersonalDetailsPage extends HookWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 24),
                 child: GenericErrorIconWidget(
-                  title: useLocalizedStrings().somethingIsNotRightError,
-                  text: useLocalizedStrings().personalDetailsGenericError,
+                  title: LocalizedStrings.somethingIsNotRightError,
+                  text: LocalizedStrings.personalDetailsGenericError,
                   icon: SvgAssets.genericError,
                   errorKey: const Key('personalDetailsError'),
                   onRetryTap: getCustomerInfo,
@@ -67,8 +67,7 @@ class PersonalDetailsPage extends HookWidget {
               ),
             if (personalDetailsBlocState is PersonalDetailsLoadedState)
               Expanded(
-                  child: _buildBody(
-                      context, personalDetailsBlocState.customer, router)),
+                  child: _buildBody(personalDetailsBlocState.customer, router)),
           ],
         ),
       ),
@@ -76,8 +75,7 @@ class PersonalDetailsPage extends HookWidget {
   }
 }
 
-Widget _buildBody(
-    BuildContext context, CustomerResponseModel customer, Router router) {
+Widget _buildBody(CustomerResponseModel customer, Router router) {
   final list = _getListItems(customer);
   return Column(
     children: <Widget>[
@@ -86,49 +84,48 @@ Widget _buildBody(
           physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(vertical: 32),
           key: const Key('personalDetailsView'),
-          itemBuilder: (context, position) => list[position].build(context),
+          itemBuilder: (context, position) => list[position].build(),
           itemCount: list.length,
         ),
       ),
-      _buildDeleteButton(
-          onTap: () =>
-              router.showDeleteAccountDialog(LocalizedStrings.of(context))),
+      _buildDeleteButton(onTap: router.showDeleteAccountDialog),
     ],
   );
 }
 
 Widget _buildDeleteButton({@required VoidCallback onTap}) => PrimaryButton(
-    text: useLocalizedStrings().personalDetailsDeleteAccountButton,
-    onTap: onTap);
+    text: LocalizedStrings.personalDetailsDeleteAccountButton, onTap: onTap);
 
 class _PersonalDetailItem {
   _PersonalDetailItem(this.title, this.value);
 
-  final LocalizedStringBuilder title;
+  final String title;
   final String value;
 
-  Widget build(BuildContext context) => Column(
+  Widget build() => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(title.localize(context).toUpperCase(),
+          NullSafeText(title.toUpperCase(),
               style: TextStyles.darkInputLabelBold),
           const SizedBox(height: 8),
-          Text(value, style: TextStyles.darkInputTextBold),
+          NullSafeText(value, style: TextStyles.darkInputTextBold),
           const SizedBox(height: 24),
         ],
       );
 }
 
-List<_PersonalDetailItem> _getListItems(CustomerResponseModel customer) => [
-      _PersonalDetailItem(LazyLocalizedStrings.personalDetailsFirstNameTitle,
-          customer.firstName),
+List _getListItems(CustomerResponseModel customer) => [
       _PersonalDetailItem(
-          LazyLocalizedStrings.personalDetailsLastNameTitle, customer.lastName),
+          LocalizedStrings.personalDetailsFirstNameTitle, customer.firstName),
       _PersonalDetailItem(
-          LazyLocalizedStrings.personalDetailsEmailTitle, customer.email),
+          LocalizedStrings.personalDetailsLastNameTitle, customer.lastName),
+      _PersonalDetailItem(
+          LocalizedStrings.personalDetailsEmailTitle, customer.email),
+      _PersonalDetailItem(LocalizedStrings.personalDetailsPhoneNumberTitle,
+          customer.phoneNumber),
       if (!StringUtils.isNullOrEmpty(customer.countryOfNationalityName))
         _PersonalDetailItem(
-          LazyLocalizedStrings.personalDetailsCountryOfNationality,
+          LocalizedStrings.personalDetailsCountryOfNationality,
           customer.countryOfNationalityName,
         ),
     ];

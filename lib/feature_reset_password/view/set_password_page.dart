@@ -56,7 +56,7 @@ class SetPasswordPage extends HookWidget {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Heading(useLocalizedStrings().resetPassword),
+              child: Heading(LocalizedStrings.resetPassword),
             ),
             const SizedBox(height: 16),
             Expanded(
@@ -66,13 +66,13 @@ class SetPasswordPage extends HookWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      useLocalizedStrings().resetPasswordPrompt,
+                      LocalizedStrings.resetPasswordPrompt,
                       style: TextStyles.darkBodyBody1RegularHigh,
                     ),
                     const SizedBox(height: 56),
                     ChangePasswordForm(
                       state: resetPasswordState,
-                      buttonText: useLocalizedStrings().resetPassword,
+                      buttonText: LocalizedStrings.resetPassword,
                       formKey: _formKey,
                       passwordGlobalKey: _passwordGlobalKey,
                       confirmPasswordGlobalKey: _confirmPasswordGlobalKey,

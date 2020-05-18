@@ -96,8 +96,8 @@ class LoginForm extends HookWidget with FormMixin {
             children: <Widget>[
               FieldPadding(
                 CustomTextField(
-                  label: useLocalizedStrings().loginPageEmailLabel,
-                  hint: useLocalizedStrings().emailAddressHint,
+                  label: LocalizedStrings.loginPageEmailLabel,
+                  hint: LocalizedStrings.emailAddressHint,
                   valueKey: const Key('emailTextField'),
                   contextGlobalKey: emailGlobalKey,
                   fieldKey: emailFieldKey,
@@ -112,8 +112,8 @@ class LoginForm extends HookWidget with FormMixin {
                 ),
               ),
               PasswordTextField(
-                label: useLocalizedStrings().loginPagePasswordLabel,
-                hint: useLocalizedStrings().loginPagePasswordHint,
+                label: LocalizedStrings.loginPagePasswordLabel,
+                hint: LocalizedStrings.loginPagePasswordHint,
                 valueKey: const Key('passwordTextField'),
                 contextGlobalKey: passwordGlobalKey,
                 focusNode: passwordFocusNode,
@@ -128,8 +128,7 @@ class LoginForm extends HookWidget with FormMixin {
               _buildForgotPasswordButton(router),
               const SizedBox(height: 32),
               if (loginState is LoginErrorState)
-                _buildErrorMessage(
-                    errorMessage: loginState.error.localize(useContext())),
+                _buildErrorMessage(errorMessage: loginState.error),
               buildLoginButton(
                 onLoginSubmitFunction: onLoginSubmitFunction,
                 loginAnalyticsManager: loginAnalyticsManager,
@@ -147,7 +146,7 @@ class LoginForm extends HookWidget with FormMixin {
         padding: const EdgeInsets.all(0),
         onPressed: router.pushResetPasswordPage,
         child: Text(
-          useLocalizedStrings().loginPageForgottenPasswordButton,
+          LocalizedStrings.loginPageForgottenPasswordButton,
           style: TextStyles.linksTextLinkBold,
         ),
       );
@@ -159,7 +158,7 @@ class LoginForm extends HookWidget with FormMixin {
   }) =>
       PrimaryButton(
           buttonKey: const Key('loginSubmitButton'),
-          text: useLocalizedStrings().loginPageLoginSubmitButton,
+          text: LocalizedStrings.loginPageLoginSubmitButton,
           onTap: () {
             loginAnalyticsManager.submitButtonTapped();
             onLoginSubmitFunction();

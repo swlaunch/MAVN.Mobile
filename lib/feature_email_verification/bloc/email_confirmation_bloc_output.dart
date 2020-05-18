@@ -1,4 +1,3 @@
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 
 abstract class EmailConfirmationState extends BlocState {}
@@ -23,7 +22,7 @@ class EmailConfirmationNetworkErrorState
 class EmailConfirmationErrorState extends EmailConfirmationBaseErrorState {
   EmailConfirmationErrorState({this.error, this.canRetry});
 
-  final LocalizedStringBuilder error;
+  final String error;
   final bool canRetry;
 
   @override

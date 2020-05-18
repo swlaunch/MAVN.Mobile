@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 
 import '../../base/common_blocs/base_bloc_output.dart';
@@ -21,15 +20,15 @@ class PaymentRequestErrorState extends PaymentRequestState
     @required this.iconAsset,
   });
 
-  final LocalizedStringBuilder errorTitle;
-  final LocalizedStringBuilder errorSubtitle;
+  final String errorTitle;
+  final String errorSubtitle;
   final String iconAsset;
 
   @override
-  LocalizedStringBuilder get title => errorTitle;
+  String get title => errorTitle;
 
   @override
-  LocalizedStringBuilder get subtitle => errorSubtitle;
+  String get subtitle => errorSubtitle;
 
   @override
   String get asset => iconAsset;
@@ -42,10 +41,10 @@ class PaymentRequestInlineErrorState extends PaymentRequestState
     with BaseInlineErrorState {
   PaymentRequestInlineErrorState({@required this.error});
 
-  final LocalizedStringBuilder error;
+  final String error;
 
   @override
-  LocalizedStringBuilder get errorMessage => error;
+  String get errorMessage => error;
 }
 
 class PaymentRequestApprovedSuccessEvent extends PaymentRequestEvent {}

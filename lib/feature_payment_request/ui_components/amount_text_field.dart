@@ -47,8 +47,7 @@ class AmountTextField extends HookWidget {
     return Builder(
       key: globalKey,
       builder: (context) => FormField<String>(
-        validator: (value) =>
-            fieldValidationManager?.validator(value)?.localize(context),
+        validator: fieldValidationManager?.validator,
         initialValue: textEditingController?.text,
         autovalidate: autoValidate.value,
         builder: (amountState) => Column(

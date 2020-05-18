@@ -7,6 +7,9 @@ import 'package:lykke_mobile_mavn/feature_account_deactivated/view/account_deact
 import 'package:lykke_mobile_mavn/feature_country_code/view/country_code_list_page.dart';
 import 'package:lykke_mobile_mavn/feature_hotel_referral/view/hotel_referral_page.dart';
 import 'package:lykke_mobile_mavn/feature_hotel_referral/view/hotel_referral_success_page.dart';
+import 'package:lykke_mobile_mavn/feature_lead_referral/di/lead_referral_di.dart';
+import 'package:lykke_mobile_mavn/feature_lead_referral/view/lead_referral_page.dart';
+import 'package:lykke_mobile_mavn/feature_lead_referral/view/lead_referral_success_page.dart';
 import 'package:lykke_mobile_mavn/feature_login/di/login_module.dart';
 import 'package:lykke_mobile_mavn/feature_login/view/login_page.dart';
 import 'package:lykke_mobile_mavn/feature_onboarding/di/onboarding_module.dart';
@@ -16,6 +19,7 @@ import 'package:lykke_mobile_mavn/feature_payment_request_list/di/partner_paymen
 import 'package:lykke_mobile_mavn/feature_payment_request_list/view/payment_request_list_page.dart';
 import 'package:lykke_mobile_mavn/feature_register/di/register_module.dart';
 import 'package:lykke_mobile_mavn/feature_register/view/register_page.dart';
+import 'package:lykke_mobile_mavn/feature_spend/view/spend_offer_details_page.dart';
 import 'package:lykke_mobile_mavn/feature_splash/view/mandatory_app_upgrade_page.dart';
 import 'package:lykke_mobile_mavn/feature_terms_and_policies/view/terms_of_use_page.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_unlinking/di/wallet_unlinking_module.dart';
@@ -80,6 +84,29 @@ void main() {
           [typeOf<ModuleProvider<RegisterModule>>(), RegisterPage]);
     });
 
+    testWidgets('lead referral page', (widgetTester) async {
+      await _testPageIsPresent<LeadReferralPage>(
+          widgetTester: widgetTester,
+          navigationFn: () => _subject.pushLeadReferralPage(
+              TestConstants.stubExtendedEarnRuleWithStayHotelCondition),
+          pageName: 'lead_referral_page');
+
+      _thenWidgetTypesInDescendingOrderInTheWidgetTree(
+          [typeOf<ModuleProvider<LeadReferralModule>>(), LeadReferralPage]);
+    });
+
+    testWidgets('lead referral success page', (widgetTester) async {
+      await _testPageIsPresent<LeadReferralSuccessPage>(
+          widgetTester: widgetTester,
+          navigationFn: () => _subject.replaceWithLeadReferralSuccessPage(
+                refereeFirstName: TestConstants.stubFirstName,
+                refereeLastName: TestConstants.stubLastName,
+                extendedEarnRule:
+                    TestConstants.stubExtendedEarnRuleWithStayHotelCondition,
+              ),
+          pageName: 'lead_referral_success_page');
+    });
+
     testWidgets('hotel referral page', (widgetTester) async {
       await _testPageIsPresent<HotelReferralPage>(
           widgetTester: widgetTester,
@@ -110,6 +137,14 @@ void main() {
           widgetTester: widgetTester,
           navigationFn: _subject.replaceWithTransactionSuccessPage,
           pageName: 'p2p_transaction_success_page');
+    });
+
+    testWidgets('offer details page', (widgetTester) async {
+      await _testPageIsPresent<SpendOfferDetailsPage>(
+          widgetTester: widgetTester,
+          navigationFn: () =>
+              _subject.pushOfferDetailsPage(TestConstants.stubSpendRule),
+          pageName: 'offer_details_page');
     });
 
     testWidgets('account deactivated page', (widgetTester) async {

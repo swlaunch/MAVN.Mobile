@@ -12,14 +12,14 @@ import 'package:lykke_mobile_mavn/library_ui_components/dialog/custom_dialog.dar
 import 'package:lykke_mobile_mavn/library_utils/toast_message.dart';
 
 class DeleteAccountDialog extends CustomDialog {
-  DeleteAccountDialog(LocalizedStrings localizedStrings)
+  DeleteAccountDialog()
       : super(
           titleIcon: SvgPicture.asset(SvgAssets.genericError,
               color: ColorStyles.errorRed),
-          title: localizedStrings.deleteAccountDialogTitle,
-          content: localizedStrings.deleteAccountDialogDetails,
-          positiveButtonText: localizedStrings.deleteAccountDialogDeleteButton,
-          negativeButtonText: localizedStrings.deleteAccountDialogCancelButton,
+          title: LocalizedStrings.deleteAccountDialogTitle,
+          content: LocalizedStrings.deleteAccountDialogDetails,
+          positiveButtonText: LocalizedStrings.deleteAccountDialogDeleteButton,
+          negativeButtonText: LocalizedStrings.deleteAccountDialogCancelButton,
         );
 
   @override
@@ -32,7 +32,7 @@ class DeleteAccountDialog extends CustomDialog {
       await useLogOutUseCase(context: context).execute(serverLogout: false);
       await router.navigateToLandingPage();
     } on CustomException catch (exception) {
-      ToastMessage.show(exception.message.localize(context), context);
+      ToastMessage.show(exception.message, context);
     } finally {
       isLoading.value = false;
     }

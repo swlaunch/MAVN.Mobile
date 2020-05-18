@@ -1,7 +1,7 @@
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_p2p_transactions/bloc/transaction_form_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_p2p_transactions/bloc/transaction_form_bloc_output.dart';
@@ -76,7 +76,7 @@ void main() {
           .thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.defaultGenericError);
+          .thenReturn(LocalizedStrings.defaultGenericError);
 
       await _subject.postTransaction(
           walletAddress: TestConstants.stubEmail,
@@ -87,7 +87,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         TransactionFormUninitializedState(),
         TransactionFormLoadingState(),
-        TransactionFormErrorState(LazyLocalizedStrings.defaultGenericError),
+        TransactionFormErrorState(LocalizedStrings.defaultGenericError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -100,7 +100,7 @@ void main() {
           .thenThrow(NetworkException());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.networkError);
+          .thenReturn(LocalizedStrings.networkError);
 
       await _subject.postTransaction(
           walletAddress: TestConstants.stubEmail,
@@ -111,7 +111,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         TransactionFormUninitializedState(),
         TransactionFormLoadingState(),
-        TransactionFormErrorState(LazyLocalizedStrings.networkError),
+        TransactionFormErrorState(LocalizedStrings.networkError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -125,8 +125,8 @@ void main() {
               ServiceExceptionType.invalidReceiver,
               message: 'The Receiver does not exist'));
 
-      when(_mockExceptionToMessageMapper.map(any)).thenReturn(
-          LocalizedStringBuilder.custom('The Receiver does not exist'));
+      when(_mockExceptionToMessageMapper.map(any))
+          .thenReturn('The Receiver does not exist');
 
       await _subject.postTransaction(
           walletAddress: TestConstants.stubEmail,
@@ -137,8 +137,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         TransactionFormUninitializedState(),
         TransactionFormLoadingState(),
-        TransactionFormInlineErrorState(
-            LocalizedStringBuilder.custom('The Receiver does not exist')),
+        TransactionFormInlineErrorState('The Receiver does not exist'),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -153,8 +152,8 @@ void main() {
         message: TestConstants.stubErrorText,
       ));
 
-      when(_mockExceptionToMessageMapper.map(any)).thenReturn(
-          LocalizedStringBuilder.custom(TestConstants.stubErrorText));
+      when(_mockExceptionToMessageMapper.map(any))
+          .thenReturn(TestConstants.stubErrorText);
 
       await _subject.postTransaction(
           walletAddress: TestConstants.stubEmail,
@@ -166,8 +165,7 @@ void main() {
         TransactionFormUninitializedState(),
         TransactionFormLoadingState(),
         TransactionFormWalletDisabledEvent(),
-        TransactionFormInlineErrorState(
-            LocalizedStringBuilder.custom(TestConstants.stubErrorText))
+        TransactionFormInlineErrorState(TestConstants.stubErrorText)
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -202,7 +200,7 @@ void main() {
         TransactionFormUninitializedState(),
         BarcodeUninitializedState(),
         BarcodeScanPermissionErrorState(
-            LazyLocalizedStrings.barcodeScanPermissionError),
+            LocalizedStrings.barcodeScanPermissionError),
       ]);
 
       await _blocTester.assertFullBlocOutputInAnyOrder(_expectedFullBlocOutput);
@@ -219,7 +217,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         TransactionFormUninitializedState(),
         BarcodeUninitializedState(),
-        BarcodeScanErrorState(LazyLocalizedStrings.barcodeScanError),
+        BarcodeScanErrorState(LocalizedStrings.barcodeScanError),
       ]);
 
       await _blocTester.assertFullBlocOutputInAnyOrder(_expectedFullBlocOutput);
@@ -235,7 +233,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         TransactionFormUninitializedState(),
         BarcodeUninitializedState(),
-        BarcodeScanErrorState(LazyLocalizedStrings.barcodeScanError),
+        BarcodeScanErrorState(LocalizedStrings.barcodeScanError),
       ]);
 
       await _blocTester.assertFullBlocOutputInAnyOrder(_expectedFullBlocOutput);

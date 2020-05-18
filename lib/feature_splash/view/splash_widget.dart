@@ -13,11 +13,7 @@ class SplashWidget extends HookWidget {
       child: Column(
         children: [
           const Spacer(flex: 1),
-          SvgPicture.asset(
-            SvgAssets.splashLogo,
-            height: 288,
-            width: 288,
-          ),
+          SvgPicture.asset(SvgAssets.splashLogo),
           const Spacer(flex: 2),
         ],
       ));

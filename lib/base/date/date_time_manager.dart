@@ -1,6 +1,6 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:intl/intl.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
 import 'package:lykke_mobile_mavn/library_dependency_injection/core.dart';
 
@@ -40,18 +40,18 @@ class DateTimeManager {
 
   ///Calculates how long ago a certain DateTime was and returns relevant string
   ///for example, 1 minute ago, 3 hours ago, 5 days ago
-  LocalizedStringBuilder getTimeAgo(DateTime date) {
+  String getTimeAgo(DateTime date) {
     final dateDifference = now.difference(date);
     final dateDifferenceInHours = dateDifference.inHours;
 
     if (dateDifferenceInHours == 0) {
-      return LazyLocalizedStrings.minutesAgo(dateDifference.inMinutes);
+      return LocalizedStrings.minutesAgo(dateDifference.inMinutes);
     }
     if (dateDifferenceInHours < _hoursInADay) {
-      return LazyLocalizedStrings.hoursAgo(dateDifferenceInHours);
+      return LocalizedStrings.hoursAgo(dateDifferenceInHours);
     }
 
-    return LazyLocalizedStrings.daysAgo(dateDifference.inDays);
+    return LocalizedStrings.daysAgo(dateDifference.inDays);
   }
 }
 

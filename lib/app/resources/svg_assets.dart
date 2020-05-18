@@ -23,6 +23,7 @@ class SvgAssets {
   static const String earn = 'assets/svg/earn.svg';
   static const String appDarkLogo = 'assets/svg/app_dark_logo.svg';
   static const String appReferral = 'assets/svg/app_referral.svg';
+  static const String appWhiteLogo = 'assets/svg/app_white_logo.svg';
   static const String email = 'assets/svg/email.svg';
   static const String emptySearch = 'assets/svg/empty_search.svg';
   static const String error = 'assets/svg/error.svg';
@@ -83,10 +84,11 @@ class SvgAssets {
   static const String settingsPrivacy = 'assets/svg/privacy.svg';
   static const String socialIcon = 'assets/svg/social_icon.svg';
   static const String spend = 'assets/svg/spend_icon.svg';
-  static const String splashLogo = 'assets/svg/mavn_logo.svg';
+  static const String splashLogo = 'assets/svg/icons_splash_logo.svg';
   static const String success = 'assets/svg/success.svg';
   static const String settingsTerms = 'assets/svg/terms.svg';
   static const String token = 'assets/svg/token_icon.svg';
+  static const String tokenLight = 'assets/svg/token_icon_light.svg';
   static const String transfer = 'assets/svg/transfer.svg';
   static const String transferRequestIcon =
       'assets/svg/transfer_request_icon.svg';

@@ -72,6 +72,7 @@ class EarnRuleCondition {
 
 enum EarnRuleConditionType {
   signUp,
+  estateLeadReferral,
   propertyPurchaseCommissionOne,
   propertyPurchaseCommissionTwo,
   hotelStayReferral,

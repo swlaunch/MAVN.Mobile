@@ -4,5 +4,4 @@ class DynamicLinkRoutes {
   static const hotelReferralAcceptRoute = '/refer-hotel';
   static const leadReferralAcceptRoute = '/lead-confirmation';
   static const appReferralRoute = '/app-referral';
-  static const voucherPurchaseRoute = '/transaction-status';
 }

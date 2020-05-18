@@ -1,12 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_form/field_validation.dart';
 import 'package:lykke_mobile_mavn/library_form/field_validation_manager.dart';
 
 FieldValidationManager<T> useFieldValidationManager<T>(
   List<FieldValidation<T>> fieldValidationList, {
-  LocalizedStringBuilder multipleErrorsMessage,
+  String multipleErrorsMessage,
   BuildValidationMessageFunction<T> buildMessage,
 }) =>
     Hook.use(_FieldValidationManagerHook<T>(
@@ -23,7 +22,7 @@ class _FieldValidationManagerHook<T> extends Hook<FieldValidationManager<T>> {
   });
 
   final List<FieldValidation<T>> fieldValidationList;
-  final LocalizedStringBuilder multipleErrorsMessage;
+  final String multipleErrorsMessage;
   final BuildValidationMessageFunction<T> buildMessage;
 
   @override

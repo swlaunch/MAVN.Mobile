@@ -24,21 +24,21 @@ class LinkWalletInProgressPage extends HookWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Heading(useLocalizedStrings().linkWalletInProgressHeader),
+            Heading(LocalizedStrings.linkWalletInProgressHeader),
             const SizedBox(height: 64),
-            Text(useLocalizedStrings().linkWalletInProgressTitle,
+            Text(LocalizedStrings.linkWalletInProgressTitle,
                 textAlign: TextAlign.center,
                 style: TextStyles.darkBodyBody2Regular),
             const SizedBox(height: 54),
             _buildImage(),
             const SizedBox(height: 54),
             Expanded(
-              child: Text(useLocalizedStrings().linkWalletInProgressDescription,
+              child: Text(LocalizedStrings.linkWalletInProgressDescription,
                   textAlign: TextAlign.center,
                   style: TextStyles.darkBodyBody3RegularHigh),
             ),
             PrimaryButton(
-              text: useLocalizedStrings().backToWalletButton,
+              text: LocalizedStrings.backToWalletButton,
               onTap: () {
                 walletBloc.fetchWallet();
                 router.popToRoot();

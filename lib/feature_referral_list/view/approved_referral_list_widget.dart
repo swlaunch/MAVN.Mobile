@@ -8,6 +8,6 @@ class ApprovedReferralListWidget extends HookWidget {
   @override
   Widget build(BuildContext context) => ReferralListWidget(
         useBloc: () => useCompletedReferralListBloc(),
-        emptyStateText: useLocalizedStrings().approvedReferralListEmptyState,
+        emptyStateText: LocalizedStrings.approvedReferralListEmptyState,
       );
 }

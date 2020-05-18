@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/common/offer_type.dart';
@@ -46,8 +45,6 @@ const Key _submitButton = Key('paymentRequestSubmitButton');
 
 const Key _cancelButton = Key('paymentRequestCancelButton');
 
-final _localizedStrings = LocalizedStrings();
-
 final _defaultPaymentRequestDetailsState = PaymentRequestDetailsLoadedState(
   payment: TestConstants.stubPaymentRequest,
 );
@@ -92,8 +89,7 @@ void main() {
     testWidgets('PaymentRequestInlineErrorState', (widgetTester) async {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
-        PaymentRequestInlineErrorState(
-            error: LocalizedStringBuilder.custom(TestConstants.stubErrorText)),
+        PaymentRequestInlineErrorState(error: TestConstants.stubErrorText),
       );
 
       expect(find.byType(InlineErrorWidget), findsOneWidget);
@@ -106,10 +102,8 @@ void main() {
         widgetTester,
         PaymentRequestUninitializedState(),
         PaymentRequestDetailsErrorState(
-          errorTitle:
-              LocalizedStringBuilder.custom(TestConstants.stubErrorText),
-          errorSubtitle:
-              LocalizedStringBuilder.custom(TestConstants.stubErrorText),
+          errorTitle: TestConstants.stubErrorText,
+          errorSubtitle: TestConstants.stubErrorText,
           iconAsset: SvgAssets.genericError,
         ),
       );
@@ -123,10 +117,8 @@ void main() {
       await _givenSubjectWidgetWithInitialBlocState(
         widgetTester,
         PaymentRequestErrorState(
-          errorTitle:
-              LocalizedStringBuilder.custom(TestConstants.stubErrorText),
-          errorSubtitle:
-              LocalizedStringBuilder.custom(TestConstants.stubErrorText),
+          errorTitle: TestConstants.stubErrorText,
+          errorSubtitle: TestConstants.stubErrorText,
           iconAsset: SvgAssets.genericError,
         ),
       );
@@ -184,10 +176,8 @@ void main() {
           widgetTester,
           PaymentRequestUninitializedState(),
           PaymentRequestDetailsErrorState(
-              errorTitle:
-                  LocalizedStringBuilder.custom(TestConstants.stubEmpty),
-              errorSubtitle:
-                  LocalizedStringBuilder.custom(TestConstants.stubEmpty),
+              errorTitle: TestConstants.stubEmpty,
+              errorSubtitle: TestConstants.stubEmpty,
               iconAsset: SvgAssets.error));
 
       expect(find.byType(GenericErrorIconWidget), findsOneWidget);
@@ -210,7 +200,7 @@ void main() {
       await _formHelper.whenButtonTapped(_submitButton);
 
       _formHelper.thenValidationErrorIsPresent(
-          _localizedStrings.transactionAmountRequiredError);
+          LocalizedStrings.transactionAmountRequiredError);
       _thenBlocNotCalled();
     });
 
@@ -228,7 +218,7 @@ void main() {
       await _formHelper.whenButtonTapped(_submitButton);
 
       _formHelper.thenValidationErrorIsPresent(
-          _localizedStrings.transactionAmountInvalidError);
+          LocalizedStrings.transactionAmountInvalidError);
       _thenBlocNotCalled();
     });
 
@@ -248,7 +238,7 @@ void main() {
       await _formHelper.whenButtonTapped(_submitButton);
 
       _formHelper.thenValidationErrorIsPresent(
-          _localizedStrings.transactionAmountGreaterThanBalanceError);
+          LocalizedStrings.transactionAmountGreaterThanBalanceError);
       _thenBlocNotCalled();
     });
 
@@ -265,10 +255,11 @@ void main() {
       );
       await _formHelper.whenButtonTapped(_submitButton);
 
-      _formHelper.thenValidationErrorIsPresent(_localizedStrings
-          .transferRequestAmountExceedsRequestedError(TestConstants
-              .stubPaymentRequest.requestedAmountInTokens.decimalValue
-              .toString()));
+      _formHelper.thenValidationErrorIsPresent(
+          LocalizedStrings.transferRequestAmountExceedsRequestedError(
+              TestConstants
+                  .stubPaymentRequest.requestedAmountInTokens.decimalValue
+                  .toString()));
       _thenBlocNotCalled();
     });
 
@@ -288,10 +279,10 @@ void main() {
       await _formHelper.whenButtonTapped(_submitButton);
 
       _formHelper.thenValidationErrorsAreNotPresent([
-        _localizedStrings.transactionAmountRequiredError,
-        _localizedStrings.transactionAmountInvalidError,
-        _localizedStrings.transactionAmountGreaterThanBalanceError,
-        _localizedStrings.transferRequestAmountExceedsRequestedError(
+        LocalizedStrings.transactionAmountRequiredError,
+        LocalizedStrings.transactionAmountInvalidError,
+        LocalizedStrings.transactionAmountGreaterThanBalanceError,
+        LocalizedStrings.transferRequestAmountExceedsRequestedError(
             TestConstants
                 .stubPaymentRequest.requestedAmountInTokens.decimalValue
                 .toString()),
@@ -335,10 +326,10 @@ void main() {
       await widgetTester.tap(find.byKey(_cancelButton));
 
       verify(_mockRouter.showCustomDialog(
-              title: _localizedStrings.warningDialogLeavingPageTitle,
-              content: _localizedStrings.transferRequestRejectDialogText,
-              positiveButtonText: _localizedStrings.warningDialogYesButton,
-              negativeButtonText: _localizedStrings.warningDialogNoButton))
+              title: LocalizedStrings.warningDialogLeavingPageTitle,
+              content: LocalizedStrings.transferRequestRejectDialogText,
+              positiveButtonText: LocalizedStrings.warningDialogYesButton,
+              negativeButtonText: LocalizedStrings.warningDialogNoButton))
           .called(1);
       await widgetTester.pumpAndSettle();
       verifyNever(_mockRouter.pop());
@@ -363,10 +354,10 @@ void main() {
       await widgetTester.tap(find.byKey(_cancelButton));
 
       verify(_mockRouter.showCustomDialog(
-              title: _localizedStrings.warningDialogLeavingPageTitle,
-              content: _localizedStrings.transferRequestRejectDialogText,
-              positiveButtonText: _localizedStrings.warningDialogYesButton,
-              negativeButtonText: _localizedStrings.warningDialogNoButton))
+              title: LocalizedStrings.warningDialogLeavingPageTitle,
+              content: LocalizedStrings.transferRequestRejectDialogText,
+              positiveButtonText: LocalizedStrings.warningDialogYesButton,
+              negativeButtonText: LocalizedStrings.warningDialogNoButton))
           .called(1);
 
       _thenBlocForRejectionCalled();

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/referral_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/request_model/friend_referral_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/request_model/hotel_referral_model.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/request_model/lead_referral_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/request_model/referral_confirm_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/response_model/referral_list_response_model.dart';
 
@@ -11,6 +12,25 @@ class ReferralRepository {
   final ReferralApi _referralApi;
 
   static const itemsPerPage = 30;
+
+  Future<void> submitLeadReferral({
+    @required String firstName,
+    @required String lastName,
+    @required int countryCodeId,
+    @required String phone,
+    @required String email,
+    @required String note,
+    @required String earnRuleId,
+  }) =>
+      _referralApi.submitLeadReferral(LeadReferralRequestModel(
+        firstName: firstName,
+        lastName: lastName,
+        countryCodeId: countryCodeId,
+        phoneNumber: phone,
+        email: email,
+        note: note,
+        earnRuleId: earnRuleId,
+      ));
 
   Future<ReferralsListResponseModel> getPendingReferrals({
     int currentPage,
@@ -52,6 +72,9 @@ class ReferralRepository {
 
   Future<void> hotelReferralConfirm({@required String code}) => _referralApi
       .hotelReferralConfirm(ReferralConfirmRequestModel(code: code));
+
+  Future<void> leadReferralConfirm({@required String code}) =>
+      _referralApi.leadReferralConfirm(ReferralConfirmRequestModel(code: code));
 
   Future<void> submitFriendReferral({
     @required String fullName,

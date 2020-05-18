@@ -32,8 +32,8 @@ class EarnRuleHowItWorksSection extends HookWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           SectionTitle(
-            title: useLocalizedStrings().earnRuleDetailsHowItWorks,
-            leadingWidget: const StandardSizedSvg(SvgAssets.token),
+            title: LocalizedStrings.earnRuleDetailsHowItWorks,
+            leadingWidget: const StandardSizedSvg(SvgAssets.tokenLight),
           ),
           BulletPointLineWidget(
             body: _buildEarnAmountInfo(
@@ -77,8 +77,7 @@ class EarnRuleHowItWorksSection extends HookWidget {
         text: TextSpan(
           style: TextStyles.darkBodyBody1RegularHigh,
           children: [
-            TextSpan(
-                text: useLocalizedStrings().earnRuleDetailsEarnUponCompletion),
+            TextSpan(text: LocalizedStrings.earnRuleDetailsEarnUponCompletion),
             WidgetSpan(
               child: TokenAmountWithIcon(
                 amount,
@@ -87,7 +86,7 @@ class EarnRuleHowItWorksSection extends HookWidget {
             ),
             if (isConversionRate)
               TextSpan(
-                  text: useLocalizedStrings()
+                  text: LocalizedStrings
                       .earnRuleDetailsEarnUponCompletionConversionRate),
           ],
         ),
@@ -97,11 +96,9 @@ class EarnRuleHowItWorksSection extends HookWidget {
         text: TextSpan(
           style: TextStyles.darkBodyBody1RegularHigh,
           children: [
-            TextSpan(
-                text: useLocalizedStrings().earnRuleDetailsStakingAmountPart1),
+            TextSpan(text: LocalizedStrings.earnRuleDetailsStakingAmountPart1),
             WidgetSpan(child: TokenAmountWithIcon(stakingAmount)),
-            TextSpan(
-                text: useLocalizedStrings().earnRuleDetailsStakingAmountPart2),
+            TextSpan(text: LocalizedStrings.earnRuleDetailsStakingAmountPart2),
           ],
         ),
       );
@@ -114,10 +111,10 @@ class EarnRuleHowItWorksSection extends HookWidget {
     final hasUnlimitedParticipation = participationLimit == 0;
 
     final participationCountText = hasUnlimitedParticipation
-        ? useLocalizedStrings().earnRuleDetailsUnlimitedParticipation
-        : useLocalizedStrings().earnRuleDetailsParticipationLimit +
-            useLocalizedStrings()
-                .earnRuleDetailsParticipationCount(participationLimit);
+        ? LocalizedStrings.earnRuleDetailsUnlimitedParticipation
+        : LocalizedStrings.earnRuleDetailsParticipationLimit +
+            LocalizedStrings.earnRuleDetailsParticipationCount(
+                participationLimit);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,19 +126,19 @@ class EarnRuleHowItWorksSection extends HookWidget {
             style: TextStyles.darkBodyBody1RegularHigh,
             children: [
               TextSpan(
-                text: useLocalizedStrings()
-                        .earnRuleDetailsPreviousParticipationPart1 +
-                    useLocalizedStrings().earnRuleDetailsParticipationCount(
-                        customerParticipationCount),
+                text:
+                    LocalizedStrings.earnRuleDetailsPreviousParticipationPart1 +
+                        LocalizedStrings.earnRuleDetailsParticipationCount(
+                            customerParticipationCount),
               ),
               TextSpan(
-                  text: useLocalizedStrings()
+                  text: LocalizedStrings
                       .earnRuleDetailsPreviousParticipationPart2),
               WidgetSpan(
                   child:
                       TokenAmountWithIcon(customerEarnedSoFar ?? 0.toString())),
               TextSpan(
-                  text: useLocalizedStrings()
+                  text: LocalizedStrings
                       .earnRuleDetailsPreviousParticipationPart3),
             ],
           ),
@@ -152,11 +149,16 @@ class EarnRuleHowItWorksSection extends HookWidget {
 
   Widget _buildIndicativeAmountText() {
     String indicativeAmountText =
-        useLocalizedStrings().earnRuleIndicativeAmountInfoGeneric;
+        LocalizedStrings.earnRuleIndicativeAmountInfoGeneric;
 
     if (extendedEarnRule.isHospitalityOffer()) {
       indicativeAmountText =
-          useLocalizedStrings().earnRuleIndicativeAmountInfoHospitality;
+          LocalizedStrings.earnRuleIndicativeAmountInfoHospitality;
+    }
+
+    if (extendedEarnRule.isRealEstateOffer()) {
+      indicativeAmountText =
+          LocalizedStrings.earnRuleIndicativeAmountInfoRealEstate;
     }
 
     return Text(
@@ -177,7 +179,7 @@ class EarnRuleHowItWorksSection extends HookWidget {
             router.pushStakingDetailsPage(extendedEarnRule);
           },
           child: Text(
-            useLocalizedStrings().earnRuleDetailsReadMoreButton,
+            LocalizedStrings.earnRuleDetailsReadMoreButton,
             style: TextStyles.linksTextLinkBold,
           ),
         ),

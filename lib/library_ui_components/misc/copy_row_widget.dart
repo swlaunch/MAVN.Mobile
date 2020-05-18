@@ -34,7 +34,7 @@ class CopyRowWidget extends StatelessWidget {
     void copyCodeToClipBoard() {
       ClipboardManager.copyToClipBoard(copyText);
       ToastMessage.show(
-        toastMessage ?? LocalizedStrings.of(context).copiedToClipboard,
+        toastMessage ?? LocalizedStrings.copiedToClipboard,
         context,
         position: styledToastPosition,
       );

@@ -123,8 +123,7 @@ Widget _getSubjectWidget() {
 
   when(mockBottomBarModule.homePage).thenReturn(const Text('Home page'));
   when(mockBottomBarModule.offersPage).thenReturn(const Text('Offers page'));
-  when(mockBottomBarModule.voucherWalletPage)
-      .thenReturn(const Text('Wallet page'));
+  when(mockBottomBarModule.walletPage).thenReturn(const Text('Wallet page'));
   when(mockBottomBarModule.socialPage).thenReturn(const Text('Social page'));
   when(mockBottomBarModule.bottomBarPageBloc)
       .thenReturn(_mockBottomBarPageBloc);

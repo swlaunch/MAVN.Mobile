@@ -25,44 +25,49 @@ class AccountPage extends HookWidget {
 
     useBlocEventListener(biometricBloc, (event) async {
       if (event is BiometricAuthenticationDisabledEvent) {
-        await router.showEnableBiometricsDialog(LocalizedStrings.of(context));
+        await router.showEnableBiometricsDialog();
       }
     });
 
     final settings = [
       _AccountSettingWithTrailingIcon(
-        title: useLocalizedStrings().referralTrackingPersonalDetailsOption,
+        title: LocalizedStrings.referralTrackingPersonalDetailsOption,
         asset: SvgAssets.referralTracking,
         onSelected: router.pushReferralListPage,
       ),
       _AccountSettingWithTrailingIcon(
-          title: useLocalizedStrings().accountPagePersonalDetailsOption,
+        title: LocalizedStrings.vouchersOption,
+        asset: SvgAssets.voucher,
+        onSelected: router.pushVoucherListPage,
+      ),
+      _AccountSettingWithTrailingIcon(
+          title: LocalizedStrings.accountPagePersonalDetailsOption,
           asset: SvgAssets.settingsPersonalDetails,
           onSelected: router.pushPersonalDetailsPage),
       _AccountSettingWithTrailingIcon(
-        title: useLocalizedStrings().accountPageChangePasswordOption,
+        title: LocalizedStrings.accountPageChangePasswordOption,
         asset: SvgAssets.settingsChangePassword,
         onSelected: router.pushChangePasswordPage,
       ),
       _AccountSettingWithTrailingIcon(
-        title: useLocalizedStrings().contactUsButton,
+        title: LocalizedStrings.contactUsButton,
         asset: SvgAssets.settingsContactUs,
         onSelected: router.pushContactUsPage,
       ),
       _AccountSettingWithTrailingIcon(
-        title: useLocalizedStrings().termsOfUse,
+        title: LocalizedStrings.termsOfUse,
         asset: SvgAssets.settingsTerms,
         onSelected: router.pushTermsOfUsePage,
       ),
       _AccountSettingWithTrailingIcon(
-        title: useLocalizedStrings().privacyPolicy,
+        title: LocalizedStrings.privacyPolicy,
         asset: SvgAssets.settingsPrivacy,
         onSelected: router.pushPrivacyPolicyPage,
       ),
       AccountSettingWithSwitch(
         title: Platform.isIOS
-            ? useLocalizedStrings().accountPageBiometricsSignInOptionIOS
-            : useLocalizedStrings().accountPageBiometricsSignInOptionAndroid,
+            ? LocalizedStrings.accountPageBiometricsSignInOptionIOS
+            : LocalizedStrings.accountPageBiometricsSignInOptionAndroid,
         initialSelectedState: biometricBloc.isBiometricEnabled,
         onBeforeChange: (currentValue) =>
             biometricBloc.toggleBiometrics(enable: !currentValue),
@@ -75,7 +80,7 @@ class AccountPage extends HookWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               PageTitle(
-                title: useLocalizedStrings().accountPageTitle,
+                title: LocalizedStrings.accountPageTitle,
               ),
               const SizedBox(height: 56),
               ListView.separated(
@@ -88,8 +93,7 @@ class AccountPage extends HookWidget {
               StandardDivider(),
               _AppVersionWidget(),
               _LogoutButton(
-                onTap: () => router
-                    .showLogOutConfirmationDialog(LocalizedStrings.of(context)),
+                onTap: router.showLogOutConfirmationDialog,
               ),
             ]),
       ),
@@ -104,14 +108,14 @@ class _LogoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SelectListItem(
-        valueKey: Key(LocalizedStrings.of(context).accountPageLogoutOption),
+        valueKey: Key(LocalizedStrings.accountPageLogoutOption),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const StandardSizedSvg(SvgAssets.settingsLogout),
             const SizedBox(width: 16),
-            Text(LocalizedStrings.of(context).accountPageLogoutOption,
+            Text(LocalizedStrings.accountPageLogoutOption,
                 style: TextStyles.darkBodyBody1RegularHigh),
           ],
         ),
@@ -187,7 +191,7 @@ class _AppVersionWidget extends HookWidget {
             padding:
                 const EdgeInsets.only(left: 24, right: 24, top: 12, bottom: 24),
             child: Text(
-              LocalizedStrings.of(context).accountAppVersion(snapshot.data),
+              LocalizedStrings.accountAppVersion(snapshot.data),
               style: TextStyles.darkBodyBody3RegularHigh,
             ),
           );

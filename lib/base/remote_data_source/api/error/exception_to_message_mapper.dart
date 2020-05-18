@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/login_errors.dart';
@@ -12,223 +12,228 @@ class ExceptionToMessageMapper {
 
   final LocalSettingsRepository _localSettingsRepository;
 
-  LocalizedStringBuilder map(Exception exception) {
+  String map(Exception exception) {
     if (exception is ServiceException) {
       return _getServiceError(exception);
     }
 
     if (exception is NetworkException) {
-      return LazyLocalizedStrings.networkError;
+      return LocalizedStrings.networkError;
     }
 
     return _getGenericError();
   }
 
-  LocalizedStringBuilder _getGenericError() {
+  String _getGenericError() {
     final String serviceNumber =
         _localSettingsRepository.getMobileSettings()?.supportPhoneNumber;
 
     return StringUtils.isNullOrEmpty(serviceNumber)
-        ? LazyLocalizedStrings.defaultGenericError
-        : LazyLocalizedStrings.genericError(serviceNumber);
+        ? LocalizedStrings.defaultGenericError
+        : LocalizedStrings.genericError(serviceNumber);
   }
 
-  LocalizedStringBuilder _getServiceError(ServiceException exception) {
+  String _getServiceError(ServiceException exception) {
     final type = exception.exceptionType;
     final exceptionMessage = exception.message;
 
     switch (type) {
       case ServiceExceptionType.canNotReferYourself:
-        return LazyLocalizedStrings.canNotReferYourselfError;
+        return LocalizedStrings.canNotReferYourselfError;
         break;
       case ServiceExceptionType.conversionRateNotFound:
         return _getGenericError();
         break;
       case ServiceExceptionType.customerBlocked:
-        return LazyLocalizedStrings.customerBlockedError;
+        return LocalizedStrings.customerBlockedError;
         break;
       case ServiceExceptionType.customerDoesNotExist:
-        return LazyLocalizedStrings.customerDoesNotExistError;
+        return LocalizedStrings.customerDoesNotExistError;
         break;
       case ServiceExceptionType.customerPhoneIsMissing:
-        return LazyLocalizedStrings.customerPhoneIsMissingError;
+        return LocalizedStrings.customerPhoneIsMissingError;
         break;
       case ServiceExceptionType.customerProfileDoesNotExist:
-        return LazyLocalizedStrings.customerProfileDoesNotExistError;
+        return LocalizedStrings.customerProfileDoesNotExistError;
         break;
       case ServiceExceptionType.customerWalletBlocked:
-        return LazyLocalizedStrings.customerWalletBlockedError;
+        return LocalizedStrings.customerWalletBlockedError;
         break;
       case ServiceExceptionType.customerWalletMissing:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.emailIsAlreadyVerified:
-        return LazyLocalizedStrings.emailIsAlreadyVerifiedError;
+        return LocalizedStrings.emailIsAlreadyVerifiedError;
         break;
       case ServiceExceptionType.emailIsNotAllowed:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.identifierMismatch:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.imageUploadError:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.invalidAmount:
-        return LazyLocalizedStrings.invalidAmountError;
+        return LocalizedStrings.invalidAmountError;
         break;
       case ServiceExceptionType.invalidCredentials:
-        return LazyLocalizedStrings.invalidCredentialsError;
+        return LocalizedStrings.invalidCredentialsError;
         break;
       case ServiceExceptionType.invalidCustomerId:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.invalidEmailFormat:
-        return LazyLocalizedStrings.invalidEmailFormatError;
+        return LocalizedStrings.invalidEmailFormatError;
         break;
       case ServiceExceptionType.invalidPasswordFormat:
-        return LazyLocalizedStrings.invalidPasswordFormatError;
+        return LocalizedStrings.invalidPasswordFormatError;
         break;
       case ServiceExceptionType.invalidPrivateAddress:
-        return LazyLocalizedStrings.invalidPrivateAddressError;
+        return LocalizedStrings.invalidPrivateAddressError;
         break;
       case ServiceExceptionType.invalidPublicAddress:
-        return LazyLocalizedStrings.invalidPublicAddressError;
+        return LocalizedStrings.invalidPublicAddressError;
         break;
       case ServiceExceptionType.invalidReceiver:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.invalidSignature:
-        return LazyLocalizedStrings.invalidSignatureError;
+        return LocalizedStrings.invalidSignatureError;
         break;
       case ServiceExceptionType.invalidPriceInSpendRule:
         return _getGenericError();
         break;
       case ServiceExceptionType.invalidWalletLinkSignature:
-        return LazyLocalizedStrings.invalidWalletLinkSignatureError;
+        return LocalizedStrings.invalidWalletLinkSignatureError;
         break;
       case ServiceExceptionType.invalidVerticalInSpendRule:
         return _getGenericError();
         break;
       case ServiceExceptionType.linkingRequestAlreadyApproved:
-        return LazyLocalizedStrings.linkingRequestAlreadyApprovedError;
+        return LocalizedStrings.linkingRequestAlreadyApprovedError;
         break;
       case ServiceExceptionType.linkingRequestAlreadyExists:
-        return LazyLocalizedStrings.linkingRequestAlreadyExistsError;
+        return LocalizedStrings.linkingRequestAlreadyExistsError;
         break;
       case ServiceExceptionType.linkingRequestDoesNotExist:
-        return LazyLocalizedStrings.linkingRequestDoesNotExistError;
+        return LocalizedStrings.linkingRequestDoesNotExistError;
         break;
       case ServiceExceptionType.loginAlreadyInUse:
-        return LazyLocalizedStrings.loginAlreadyInUseError;
+        return LocalizedStrings.loginAlreadyInUseError;
         break;
       case ServiceExceptionType.loginAttemptsWarning:
         return exception is LoginAttemptsWarningException
-            ? LazyLocalizedStrings.loginPageLoginAttemptWarningMessage(
+            ? LocalizedStrings.loginPageLoginAttemptWarningMessage(
                 exception.attemptsLeft)
-            : LocalizedStringBuilder.custom(exceptionMessage);
+            : exceptionMessage;
         break;
       case ServiceExceptionType.noCustomerWithSuchEmail:
-        return LazyLocalizedStrings.noCustomerWithSuchEmailError;
+        return LocalizedStrings.noCustomerWithSuchEmailError;
         break;
       case ServiceExceptionType.notEnoughTokens:
-        return LazyLocalizedStrings.notEnoughTokensError(
+        return LocalizedStrings.notEnoughTokensError(
             _localSettingsRepository.getMobileSettings()?.tokenSymbol);
         break;
       case ServiceExceptionType.noVouchersInStock:
-        return LazyLocalizedStrings.noVouchersInStockError;
+        return LocalizedStrings.noVouchersInStockError;
         break;
       case ServiceExceptionType.paymentDoesNotExist:
-        return LazyLocalizedStrings.paymentDoesNotExistError;
+        return LocalizedStrings.paymentDoesNotExistError;
         break;
       case ServiceExceptionType.paymentIsNotInACorrectStatusToBeUpdated:
-        return LazyLocalizedStrings
-            .paymentIsNotInACorrectStatusToBeUpdatedError;
+        return LocalizedStrings.paymentIsNotInACorrectStatusToBeUpdatedError;
         break;
       case ServiceExceptionType.paymentRequestsIsForAnotherCustomer:
-        return LazyLocalizedStrings.paymentRequestsIsForAnotherCustomerError;
+        return LocalizedStrings.paymentRequestsIsForAnotherCustomerError;
+        break;
+      case ServiceExceptionType.phoneAlreadyExists:
+        return LocalizedStrings.phoneAlreadyExistsError;
+        break;
+      case ServiceExceptionType.phoneIsAlreadyVerified:
+        return LocalizedStrings.phoneIsAlreadyVerifiedError;
         break;
       case ServiceExceptionType.providedIdentifierHasExpired:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.reachedMaximumRequestForPeriod:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.referralAlreadyConfirmed:
-        return LazyLocalizedStrings.referralAlreadyConfirmedError;
+        return LocalizedStrings.referralAlreadyConfirmedError;
         break;
       case ServiceExceptionType.referralAlreadyExist:
-        return LazyLocalizedStrings.referralAlreadyExistError;
+        return LocalizedStrings.referralAlreadyExistError;
         break;
       case ServiceExceptionType.referralLeadAlreadyConfirmed:
-        return LazyLocalizedStrings.referralLeadAlreadyConfirmedError;
+        return LocalizedStrings.referralLeadAlreadyConfirmedError;
         break;
       case ServiceExceptionType.referralLeadAlreadyExist:
-        return LazyLocalizedStrings.referralLeadAlreadyExistError;
+        return LocalizedStrings.referralLeadAlreadyExistError;
         break;
       case ServiceExceptionType.referralLeadCustomerIdInvalid:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.referralLeadNotProcessed:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.referralNotFound:
-        return LazyLocalizedStrings.referralNotFoundError;
+        return LocalizedStrings.referralNotFoundError;
         break;
       case ServiceExceptionType.referralsLimitExceeded:
-        return LazyLocalizedStrings.referralsLimitExceededError;
+        return LocalizedStrings.referralsLimitExceededError;
         break;
       case ServiceExceptionType.senderCustomerNotEnoughBalance:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.senderCustomerNotFound:
-        return LazyLocalizedStrings.senderCustomerNotFoundError;
+        return LocalizedStrings.senderCustomerNotFoundError;
         break;
       case ServiceExceptionType.sfAccountAlreadyExisting:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.spendRuleNotFound:
         return _getGenericError();
         break;
       case ServiceExceptionType.targetCustomerNotFound:
-        return LazyLocalizedStrings.targetCustomerNotFoundError;
+        return LocalizedStrings.targetCustomerNotFoundError;
         break;
       case ServiceExceptionType.thereIsNoIdentifierForThisCustomer:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
         break;
       case ServiceExceptionType.tooManyLoginRequest:
         return exception is TooManyRequestException
-            ? LazyLocalizedStrings.loginPageTooManyRequestMessage(
+            ? LocalizedStrings.loginPageTooManyRequestMessage(
                 exception.retryPeriodInMinutes)
-            : LazyLocalizedStrings.tooManyLoginRequestError;
+            : LocalizedStrings.tooManyLoginRequestError;
         break;
       case ServiceExceptionType.transferSourceAndTargetMustBeDifferent:
-        return LazyLocalizedStrings.transferSourceAndTargetMustBeDifferentError;
+        return LocalizedStrings.transferSourceAndTargetMustBeDifferentError;
         break;
       case ServiceExceptionType.transferSourceCustomerWalletBlocked:
-        return LazyLocalizedStrings.transferSourceCustomerWalletBlockedError;
+        return LocalizedStrings.transferSourceCustomerWalletBlockedError;
         break;
       case ServiceExceptionType.transferTargetCustomerWalletBlocked:
-        return LazyLocalizedStrings.transferTargetCustomerWalletBlockedError;
+        return LocalizedStrings.transferTargetCustomerWalletBlockedError;
         break;
       case ServiceExceptionType.verificationCodeDoesNotExist:
-        return LazyLocalizedStrings.verificationCodeDoesNotExistError;
+        return LocalizedStrings.verificationCodeDoesNotExistError;
         break;
       case ServiceExceptionType.verificationCodeExpired:
-        return LazyLocalizedStrings.verificationCodeExpiredError;
+        return LocalizedStrings.verificationCodeExpiredError;
         break;
       case ServiceExceptionType.verificationCodeMismatch:
-        return LazyLocalizedStrings.verificationCodeMismatchError;
+        return LocalizedStrings.verificationCodeMismatchError;
         break;
       case ServiceExceptionType.pinIsNotSet:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
       case ServiceExceptionType.pinCodeMismatch:
-        return LazyLocalizedStrings.pinErrorIncorrectPassCode;
+        return LocalizedStrings.pinErrorIncorrectPassCode;
       case ServiceExceptionType.pinAlreadySet:
-        return LocalizedStringBuilder.custom(exceptionMessage);
+        return exceptionMessage;
     }
 
-    return LocalizedStringBuilder.custom(exceptionMessage);
+    return exceptionMessage;
   }
 }
 

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
+import 'package:lykke_mobile_mavn/app/resources/app_theme.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
@@ -18,6 +18,8 @@ import 'package:lykke_mobile_mavn/feature_home/view/earn_token_section.dart';
 import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_count_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_mark_as_read_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_notification/ui_components/notification_icon_widget.dart';
+import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc_output.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_custom_hooks/throttling_hook.dart';
 import 'package:lykke_mobile_mavn/library_fcm/bloc/firebase_messaging_bloc.dart';
@@ -30,6 +32,8 @@ import 'package:lykke_mobile_mavn/library_ui_components/misc/standard_sized_svg.
 class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    final themeBloc = useThemeBloc();
+    final themeBlocState = useBlocState(themeBloc);
     final balanceBloc = useBalanceBloc();
     final earnRuleListBloc = useEarnRuleListBloc();
     final earnRuleListState = useBlocState<GenericListState>(earnRuleListBloc);
@@ -94,54 +98,62 @@ class HomePage extends HookWidget {
       earnRuleListState,
     ].every((state) => state is BaseLoadingState);
 
-    return Scaffold(
-        backgroundColor: ColorStyles.alabaster,
-        appBar: AppBar(
-          title: SvgPicture.asset(SvgAssets.appDarkLogo),
-          backgroundColor: ColorStyles.alabaster,
-          elevation: 0,
-          actions: <Widget>[
-            IconButton(
-              key: const Key('homePageAccountButton'),
-              tooltip: useLocalizedStrings().accountPageTitle,
-              icon: StandardSizedSvg(
-                SvgAssets.user,
-                color: ColorStyles.boulder,
+    if (themeBlocState is ThemeUninitializedState) {
+      return Container();
+    }
+    if (themeBlocState is ThemeSelectedState) {
+      final theme = themeBlocState.theme;
+      return Scaffold(
+          backgroundColor: theme.appBackground,
+          appBar: AppBar(
+            title: SvgPicture.asset(SvgAssets.appDarkLogo),
+            backgroundColor: theme.appBarBackground,
+            elevation: 0,
+            actions: <Widget>[
+              IconButton(
+                key: const Key('homePageAccountButton'),
+                tooltip: LocalizedStrings.accountPageTitle,
+                icon: StandardSizedSvg(
+                  SvgAssets.user,
+                  color: theme.appBarIcon,
+                ),
+                onPressed: router.pushAccountPage,
               ),
-              onPressed: router.pushAccountPage,
-            ),
-            IconButton(
-              tooltip: useLocalizedStrings().notifications,
-              icon: NotificationIconWidget(
-                color: ColorStyles.boulder,
+              IconButton(
+                tooltip: LocalizedStrings.notifications,
+                icon: NotificationIconWidget(
+                  color: theme.appBarIcon,
+                  bubbleColor: theme.appBarBubble,
+                ),
+                onPressed: () {
+                  router.pushNotificationListPage();
+                  notificationCountBloc.markAsSeen();
+                },
               ),
-              onPressed: () {
-                router.pushNotificationListPage();
-                notificationCountBloc.markAsSeen();
-              },
-            ),
-          ],
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              if (!isLoading)
-                Padding(
-                  padding: const EdgeInsets.only(top: 24),
-                  child: _buildBody(
-                    router,
-                    isNetworkError,
-                    isGenericError,
-                    onErrorRetry,
-                    earnRuleListState,
-                  ),
-                )
-              else
-                Container(),
-              if (isLoading) _buildLoading(),
             ],
           ),
-        ));
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                if (!isLoading)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 24),
+                    child: _buildBody(
+                      router,
+                      isNetworkError,
+                      isGenericError,
+                      onErrorRetry,
+                      earnRuleListState,
+                      theme,
+                    ),
+                  )
+                else
+                  Container(),
+                if (isLoading) _buildLoading(),
+              ],
+            ),
+          ));
+    }
   }
 
   Widget _buildBody(
@@ -150,6 +162,7 @@ class HomePage extends HookWidget {
     bool isGenericError,
     VoidCallback onErrorRetry,
     GenericListState earnRuleListState,
+    BaseAppTheme theme,
   ) {
     if (isNetworkError) {
       return _buildNetworkError(onErrorRetry);
@@ -163,6 +176,7 @@ class HomePage extends HookWidget {
       router,
       earnRuleListState,
       onErrorRetry,
+      theme,
     );
   }
 
@@ -170,6 +184,7 @@ class HomePage extends HookWidget {
     Router router,
     GenericListState earnRuleListState,
     VoidCallback onErrorRetry,
+    BaseAppTheme theme,
   ) =>
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,6 +192,7 @@ class HomePage extends HookWidget {
           HomeShortcutCarouselWidget(earnRuleListState: earnRuleListState),
           const SizedBox(height: 24),
           EarnTokenSection(
+            theme: theme,
             earnRuleListState: earnRuleListState,
             router: router,
             onRetryTap: onErrorRetry,

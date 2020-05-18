@@ -61,8 +61,8 @@ class ResetPasswordForm extends HookWidget with FormMixin {
           children: <Widget>[
             FieldPadding(
               CustomTextField(
-                label: useLocalizedStrings().emailRequiredLabel,
-                hint: useLocalizedStrings().emailAddressHint,
+                label: LocalizedStrings.emailRequiredLabel,
+                hint: LocalizedStrings.emailAddressHint,
                 valueKey: const Key('emailTextField'),
                 contextGlobalKey: emailGlobalKey,
                 focusNode: emailFocusNode,
@@ -75,9 +75,7 @@ class ResetPasswordForm extends HookWidget with FormMixin {
             ),
             const SizedBox(height: 32),
             if (resetPasswordState is ResetPasswordErrorState)
-              _buildErrorMessage(
-                  errorMessage:
-                      resetPasswordState.errorMessage.localize(useContext())),
+              _buildErrorMessage(errorMessage: resetPasswordState.errorMessage),
             _buildButton(
               onLoginSubmitFunction: onSubmitFunction,
               isLoading: resetPasswordState is ResetPasswordLoadingState,
@@ -95,7 +93,7 @@ class ResetPasswordForm extends HookWidget with FormMixin {
   }) =>
       PrimaryButton(
           buttonKey: const Key('resetPasswordSubmitButton'),
-          text: useLocalizedStrings().submitButton,
+          text: LocalizedStrings.submitButton,
           onTap: onLoginSubmitFunction,
           isLoading: isLoading);
 

@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/library_utils/enum_mapper.dart';
 
 class NetworkException implements Exception {}
@@ -40,6 +39,8 @@ enum ServiceExceptionType {
   paymentDoesNotExist,
   paymentIsNotInACorrectStatusToBeUpdated,
   paymentRequestsIsForAnotherCustomer,
+  phoneAlreadyExists,
+  phoneIsAlreadyVerified,
   providedIdentifierHasExpired,
   pinIsNotSet,
   pinCodeMismatch,
@@ -88,7 +89,7 @@ class ServiceException extends Equatable implements Exception {
 class CustomException extends Equatable implements Exception {
   const CustomException(this.message);
 
-  final LocalizedStringBuilder message;
+  final String message;
 
   @override
   List<Object> get props => [message];

@@ -1,6 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter/widgets.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/constants/field_constants.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/countries_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/country_codes_response_model.dart';
@@ -15,7 +15,7 @@ class FieldValidation<T> {
 
   final VoidCallback onValidationError;
   final FieldValidatorFn<T> validate;
-  final LocalizedStringBuilder localizedString;
+  final String localizedString;
 
   ValueNotifier<bool> isValid = ValueNotifier(true);
 
@@ -24,46 +24,45 @@ class FieldValidation<T> {
 
 class FirstNameRequiredFieldValidation extends FieldValidation<String> {
   FirstNameRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.requiredText,
           localizedString:
-              LazyLocalizedStrings.emptyFirstNameClientSideValidationError,
+              LocalizedStrings.emptyFirstNameClientSideValidationError,
           onValidationError: onValidationError,
         );
 }
 
 class LastNameRequiredFieldValidation extends FieldValidation<String> {
   LastNameRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.requiredText,
           localizedString:
-              LazyLocalizedStrings.emptyLastNameClientSideValidationError,
+              LocalizedStrings.emptyLastNameClientSideValidationError,
           onValidationError: onValidationError,
         );
 }
 
 class FullNameRequiredFieldValidation extends FieldValidation<String> {
   FullNameRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.requiredText,
           localizedString:
-              LazyLocalizedStrings.emptyFullNameClientSideValidationError,
+              LocalizedStrings.emptyFullNameClientSideValidationError,
           onValidationError: onValidationError,
         );
 }
 
 class MinStringLengthFieldValidation extends FieldValidation<String> {
   MinStringLengthFieldValidation({
-    @required int minLength,
-    VoidCallback onValidationError,
+    @required minLength,
+    onValidationError,
   }) : super(
           validate: FieldValidators.minLength(minLength),
           localizedString:
-              LazyLocalizedStrings.minLengthClientSideValidationError(
-                  minLength),
+              LocalizedStrings.minLengthClientSideValidationError(minLength),
           onValidationError: onValidationError,
         );
 }
@@ -71,16 +70,17 @@ class MinStringLengthFieldValidation extends FieldValidation<String> {
 class MinPhoneNumberStringLengthFieldValidation
     extends FieldValidation<String> {
   MinPhoneNumberStringLengthFieldValidation({
-    @required ValueNotifier<CountryCode> countryCodeValueNotifier,
+    @required countryCodeValueNotifier,
     minLength = FieldConstants.minPhoneNumberLength,
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.minPhoneNumberLength(
             minLength,
             countryCodeValueNotifier,
           ),
-          localizedString: LazyLocalizedStrings
-              .minPhoneNumberLengthClientSideValidationError(minLength),
+          localizedString:
+              LocalizedStrings.minPhoneNumberLengthClientSideValidationError(
+                  minLength),
           onValidationError: onValidationError,
         );
 }
@@ -88,60 +88,60 @@ class MinPhoneNumberStringLengthFieldValidation
 class MaxPhoneNumberStringLengthFieldValidation
     extends FieldValidation<String> {
   MaxPhoneNumberStringLengthFieldValidation({
-    @required ValueNotifier<CountryCode> countryCodeValueNotifier,
+    @required countryCodeValueNotifier,
     maxLength = FieldConstants.maxPhoneNumberLength,
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.maxPhoneNumberLength(
             maxLength,
             countryCodeValueNotifier,
           ),
-          localizedString: LazyLocalizedStrings
-              .maxPhoneNumberLengthClientSideValidationError(maxLength),
+          localizedString:
+              LocalizedStrings.maxPhoneNumberLengthClientSideValidationError(
+                  maxLength),
           onValidationError: onValidationError,
         );
 }
 
 class NameInvalidFieldValidation extends FieldValidation<String> {
   NameInvalidFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.nameFormat,
           localizedString:
-              LazyLocalizedStrings.invalidCharactersClientSideValidationError,
+              LocalizedStrings.invalidCharactersClientSideValidationError,
           onValidationError: onValidationError,
         );
 }
 
 class EmailRequiredFieldValidation extends FieldValidation<String> {
   EmailRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.requiredText,
-          localizedString:
-              LazyLocalizedStrings.emptyEmailClientSideValidationError,
+          localizedString: LocalizedStrings.emptyEmailClientSideValidationError,
           onValidationError: onValidationError,
         );
 }
 
 class EmailInvalidFieldValidation extends FieldValidation<String> {
   EmailInvalidFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.emailFormat,
           localizedString:
-              LazyLocalizedStrings.invalidEmailClientSideValidationError,
+              LocalizedStrings.invalidEmailClientSideValidationError,
           onValidationError: onValidationError,
         );
 }
 
 class PasswordRequiredFieldValidation extends FieldValidation<String> {
   PasswordRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.requiredText,
           localizedString:
-              LazyLocalizedStrings.emptyPasswordClientSideValidationError,
+              LocalizedStrings.emptyPasswordClientSideValidationError,
           onValidationError: onValidationError,
         );
 }
@@ -150,11 +150,11 @@ class PasswordOnlyContainsValidCharactersValidation
     extends FieldValidation<String> {
   PasswordOnlyContainsValidCharactersValidation({
     @required String specialCharacters,
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate:
               FieldValidators.passwordHasNoInvalidCharacters(specialCharacters),
-          localizedString: LazyLocalizedStrings
+          localizedString: LocalizedStrings
               .passwordInvalidCharactersClientSideValidationError,
           onValidationError: onValidationError,
         );
@@ -163,13 +163,13 @@ class PasswordOnlyContainsValidCharactersValidation
 class PasswordsDoNotMatchFieldValidation extends FieldValidation<String> {
   PasswordsDoNotMatchFieldValidation({
     @required this.otherPasswordTextEditingController,
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.textMatches(
             otherPasswordTextEditingController,
           ),
           localizedString:
-              LazyLocalizedStrings.passwordsDoNotMatchClientSideValidationError,
+              LocalizedStrings.passwordsDoNotMatchClientSideValidationError,
           onValidationError: onValidationError,
         );
 
@@ -179,85 +179,83 @@ class PasswordsDoNotMatchFieldValidation extends FieldValidation<String> {
 class PasswordNoWhiteSpaceFieldValidation extends FieldValidation<String> {
   PasswordNoWhiteSpaceFieldValidation({
     @required bool allowWhiteSpace,
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate:
               FieldValidators.whiteSpace(allowWhiteSpace: allowWhiteSpace),
-          localizedString:
-              LazyLocalizedStrings.passwordValidationDoNotAllowSpaces,
+          localizedString: LocalizedStrings.passwordValidationDoNotAllowSpaces,
           onValidationError: onValidationError,
         );
 }
 
 class PasswordMinLengthFieldValidation extends FieldValidation<String> {
   PasswordMinLengthFieldValidation({
-    @required int minLength,
-    VoidCallback onValidationError,
+    @required minLength,
+    onValidationError,
   }) : super(
           validate: FieldValidators.minLength(minLength),
-          localizedString:
-              LazyLocalizedStrings.passwordTooShortError(minLength),
+          localizedString: LocalizedStrings.passwordTooShortError(minLength),
           onValidationError: onValidationError,
         );
 }
 
 class PasswordMaxLengthFieldValidation extends FieldValidation<String> {
   PasswordMaxLengthFieldValidation({
-    @required int maxLength,
-    VoidCallback onValidationError,
+    @required maxLength,
+    onValidationError,
   }) : super(
           validate: FieldValidators.maxLength(maxLength),
-          localizedString: LazyLocalizedStrings.passwordTooLongError(maxLength),
+          localizedString: LocalizedStrings.passwordTooLongError(maxLength),
           onValidationError: onValidationError,
         );
 }
 
 class PasswordContainsUpperCaseFieldValidation extends FieldValidation<String> {
   PasswordContainsUpperCaseFieldValidation({
-    @required int minUppercaseCharacters,
-    VoidCallback onValidationError,
+    @required minUppercaseCharacters,
+    onValidationError,
   }) : super(
           validate: FieldValidators.containsUpperCase(minUppercaseCharacters),
-          localizedString: LazyLocalizedStrings.passwordUpperCaseError(
-              minUppercaseCharacters),
+          localizedString:
+              LocalizedStrings.passwordUpperCaseError(minUppercaseCharacters),
           onValidationError: onValidationError,
         );
 }
 
 class PasswordContainsLowerCaseFieldValidation extends FieldValidation<String> {
   PasswordContainsLowerCaseFieldValidation({
-    @required int minLowercaseCharacters,
-    VoidCallback onValidationError,
+    @required minLowercaseCharacters,
+    onValidationError,
   }) : super(
           validate: FieldValidators.containsLowerCase(minLowercaseCharacters),
-          localizedString: LazyLocalizedStrings.passwordLowerCaseError(
-              minLowercaseCharacters),
+          localizedString:
+              LocalizedStrings.passwordLowerCaseError(minLowercaseCharacters),
           onValidationError: onValidationError,
         );
 }
 
 class PasswordContainsNumberValidation extends FieldValidation<String> {
   PasswordContainsNumberValidation({
-    @required int minNumericCharacters,
-    VoidCallback onValidationError,
+    @required minNumericCharacters,
+    onValidationError,
   }) : super(
           validate:
               FieldValidators.containsNumericCharacters(minNumericCharacters),
           localizedString:
-              LazyLocalizedStrings.passwordNumberError(minNumericCharacters),
+              LocalizedStrings.passwordNumberError(minNumericCharacters),
           onValidationError: onValidationError,
         );
 }
 
 class PasswordContainsSpecialSymbolValidation extends FieldValidation<String> {
   PasswordContainsSpecialSymbolValidation({
-    @required int minSpecialCharacters,
+    @required minSpecialCharacters,
     @required String specialCharacters,
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.passwordContainsSpecialCharacters(
               minSpecialCharacters, specialCharacters),
-          localizedString: LazyLocalizedStrings.passwordSpecialCharactersError(
+          localizedString: LocalizedStrings.passwordSpecialCharactersError(
               minSpecialCharacters, specialCharacters),
           onValidationError: onValidationError,
         );
@@ -265,96 +263,109 @@ class PasswordContainsSpecialSymbolValidation extends FieldValidation<String> {
 
 class CountryCodeRequiredFieldValidation extends FieldValidation<CountryCode> {
   CountryCodeRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.countryCodeNotNullNotEmpty,
           localizedString:
-              LazyLocalizedStrings.emptyCountryCodeClientSideValidationError,
+              LocalizedStrings.emptyCountryCodeClientSideValidationError,
           onValidationError: onValidationError,
         );
 }
 
 class PhoneNumberRequiredFieldValidation extends FieldValidation<String> {
   PhoneNumberRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.requiredText,
           localizedString:
-              LazyLocalizedStrings.emptyPhoneNumberClientSideValidationError,
+              LocalizedStrings.emptyPhoneNumberClientSideValidationError,
           onValidationError: onValidationError,
         );
 }
 
 class PhoneNumberInvalidFieldValidation extends FieldValidation<String> {
   PhoneNumberInvalidFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.phoneFormat,
           localizedString:
-              LazyLocalizedStrings.invalidPhoneNumberClientSideValidationError,
+              LocalizedStrings.invalidPhoneNumberClientSideValidationError,
           onValidationError: onValidationError,
         );
 }
 
 class CountryFieldValidation extends FieldValidation<Country> {
   CountryFieldValidation({
-    VoidCallback onValidationError,
-    LocalizedStringBuilder errorMessage,
+    onValidationError,
+    errorMessage,
   }) : super(
           validate: FieldValidators.notRequired,
-          localizedString: errorMessage,
+          localizedString: errorMessage ?? '',
+          onValidationError: onValidationError,
+        );
+}
+
+class CountryRequiredFieldValidation extends FieldValidation<Country> {
+  CountryRequiredFieldValidation({
+    onValidationError,
+    errorMessage,
+  }) : super(
+          validate: FieldValidators.countryNotNullNotEmpty,
+          localizedString: errorMessage ??
+              LocalizedStrings
+                  .requiredCountryOfResidenceClientSideValidationError,
           onValidationError: onValidationError,
         );
 }
 
 class MaximumDecimalPlacesFieldValidation extends FieldValidation<String> {
   MaximumDecimalPlacesFieldValidation({
-    @required int precision,
-    VoidCallback onValidationError,
+    @required precision,
+    onValidationError,
   }) : super(
           validate: FieldValidators.maximumDecimalPlaces(precision),
           localizedString:
-              LazyLocalizedStrings.maximumDecimalPlacesError(precision),
+              LocalizedStrings.maximumDecimalPlacesError(precision),
           onValidationError: onValidationError,
         );
 }
 
 class WalletAddressRequiredFieldValidation extends FieldValidation<String> {
   WalletAddressRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.requiredText,
-          localizedString: LazyLocalizedStrings.transactionEmptyAddressError,
+          localizedString: LocalizedStrings.transactionEmptyAddressError,
           onValidationError: onValidationError,
         );
 }
 
 class WalletAddressInvalidFieldValidation extends FieldValidation<String> {
   WalletAddressInvalidFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.emailFormat,
-          localizedString: LazyLocalizedStrings.transactionInvalidAddressError,
+          localizedString: LocalizedStrings.transactionInvalidAddressError,
           onValidationError: onValidationError,
         );
 }
 
 class TransferAmountRequiredFieldValidation extends FieldValidation<String> {
   TransferAmountRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.requiredText,
-          localizedString: LazyLocalizedStrings.transactionAmountRequiredError,
+          localizedString: LocalizedStrings.transactionAmountRequiredError,
           onValidationError: onValidationError,
         );
 }
 
 class TransferAmountInvalidFieldValidation extends FieldValidation<String> {
   TransferAmountInvalidFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.validDouble,
-          localizedString: LazyLocalizedStrings.transactionAmountInvalidError,
+          localizedString: LocalizedStrings.transactionAmountInvalidError,
           onValidationError: onValidationError,
         );
 }
@@ -362,11 +373,11 @@ class TransferAmountInvalidFieldValidation extends FieldValidation<String> {
 class InsufficientBalanceFieldValidation extends FieldValidation<String> {
   InsufficientBalanceFieldValidation({
     @required this.balance,
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.lessThanOrEqualTo(balance),
           localizedString:
-              LazyLocalizedStrings.transactionAmountGreaterThanBalanceError,
+              LocalizedStrings.transactionAmountGreaterThanBalanceError,
           onValidationError: onValidationError,
         );
 
@@ -375,32 +386,46 @@ class InsufficientBalanceFieldValidation extends FieldValidation<String> {
 
 class PaymentAmountRequiredFieldValidation extends FieldValidation<String> {
   PaymentAmountRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.requiredText,
-          localizedString: LazyLocalizedStrings.paymentAmountRequiredError,
+          localizedString: LocalizedStrings.paymentAmountRequiredError,
           onValidationError: onValidationError,
         );
 }
 
 class PaymentAmountInvalidFieldValidation extends FieldValidation<String> {
   PaymentAmountInvalidFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.validDouble,
-          localizedString: LazyLocalizedStrings.paymentAmountInvalidError,
+          localizedString: LocalizedStrings.paymentAmountInvalidError,
           onValidationError: onValidationError,
         );
+}
+
+class AmountSmallerOrEqualToInstalment extends FieldValidation<String> {
+  AmountSmallerOrEqualToInstalment({
+    @required this.instalmentAmount,
+    onValidationError,
+  }) : super(
+          validate: FieldValidators.lessThanOrEqualTo(instalmentAmount),
+          localizedString:
+              LocalizedStrings.propertyPaymentAmountExceedsInstalment,
+          onValidationError: onValidationError,
+        );
+
+  final Decimal instalmentAmount;
 }
 
 class AmountSmallerOrEqualToBill extends FieldValidation<String> {
   AmountSmallerOrEqualToBill({
     @required this.totalBill,
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.lessThanOrEqualTo(totalBill),
           localizedString:
-              LazyLocalizedStrings.transferRequestAmountExceedsRequestedError(
+              LocalizedStrings.transferRequestAmountExceedsRequestedError(
                   totalBill.toString()),
           onValidationError: onValidationError,
         );
@@ -410,19 +435,18 @@ class AmountSmallerOrEqualToBill extends FieldValidation<String> {
 
 class AmountBiggerThanZero extends FieldValidation<String> {
   AmountBiggerThanZero({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.biggerThanZero,
-          localizedString:
-              LazyLocalizedStrings.transferRequestAmountIsZeroError,
+          localizedString: LocalizedStrings.transferRequestAmountIsZeroError,
           onValidationError: onValidationError,
         );
 }
 
 class CheckboxShouldBeChecked extends FieldValidation<bool> {
   CheckboxShouldBeChecked({
-    LocalizedStringBuilder localizedString,
-    VoidCallback onValidationError,
+    localizedString,
+    onValidationError,
   }) : super(
           validate: (value) => value,
           localizedString: localizedString,
@@ -432,10 +456,10 @@ class CheckboxShouldBeChecked extends FieldValidation<bool> {
 
 class LinkingCodeRequiredFieldValidation extends FieldValidation<String> {
   LinkingCodeRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.requiredText,
-          localizedString: LazyLocalizedStrings
+          localizedString: LocalizedStrings
               .emptyLinkAdvancedWalletTextFieldCodeSignatureError,
           onValidationError: onValidationError,
         );
@@ -443,10 +467,10 @@ class LinkingCodeRequiredFieldValidation extends FieldValidation<String> {
 
 class PublicAddressRequiredFieldValidation extends FieldValidation<String> {
   PublicAddressRequiredFieldValidation({
-    VoidCallback onValidationError,
+    onValidationError,
   }) : super(
           validate: FieldValidators.requiredText,
-          localizedString: LazyLocalizedStrings
+          localizedString: LocalizedStrings
               .emptyLinkAdvancedWalletTextFieldPublicAddressError,
           onValidationError: onValidationError,
         );

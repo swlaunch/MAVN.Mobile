@@ -7,6 +7,7 @@ import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_splash/bloc/splash_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_splash/bloc/splash_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_splash/view/splash_widget.dart';
+import 'package:lykke_mobile_mavn/feature_theme/bloc/theme_bloc.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/error/generic_error_widget.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/error/network_error.dart';
@@ -14,6 +15,7 @@ import 'package:lykke_mobile_mavn/library_ui_components/error/network_error.dart
 class SplashPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    final themeBloc = useThemeBloc();
     final splashBloc = useSplashBloc();
     final splashBlocState = useBlocState<SplashState>(splashBloc);
     final router = useRouter();
@@ -31,7 +33,10 @@ class SplashPage extends HookWidget {
       initialize();
     }, [splashBloc]);
 
-    _precachePlaceHolderImage(context);
+    useEffect(() {
+      themeBloc.getTheme();
+    });
+    _precacheWelcomeImage(context);
 
     return Material(
       type: MaterialType.transparency,
@@ -67,8 +72,9 @@ class SplashPage extends HookWidget {
     }
   }
 
-  Future<void> _precachePlaceHolderImage(BuildContext context) async {
-    await precacheImage(const AssetImage(ImageAssets.placeholder), context);
+  Future<void> _precacheWelcomeImage(BuildContext context) async {
+    await precacheImage(
+        const AssetImage(ImageAssets.welcomePageImage), context);
   }
 
   Future<void> _precacheOnboardingBackgroundImages(BuildContext context) async {

@@ -42,8 +42,7 @@ class PreviousReferralsSection extends HookWidget {
         padding: const EdgeInsets.all(16),
         color: ColorStyles.white,
         child: PaginationErrorWidget(
-          errorText:
-              earnRuleReferralsBlocState.errorSubtitle.localize(useContext()),
+          errorText: earnRuleReferralsBlocState.errorSubtitle,
           onRetry: fetchReferrals,
         ),
       );

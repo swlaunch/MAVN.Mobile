@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/request_model/hotel_referral_model.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/request_model/lead_referral_model.dart';
 import 'package:lykke_mobile_mavn/base/repository/referral/referral_repository.dart';
 import 'package:mockito/mockito.dart';
 
@@ -13,6 +14,34 @@ void main() {
 
     setUp(() {
       reset(_mockReferralApi);
+    });
+
+    test('submit lead referral', () async {
+      await _subject.submitLeadReferral(
+        firstName: TestConstants.stubFirstName,
+        lastName: TestConstants.stubLastName,
+        countryCodeId: TestConstants.stubCountryCodeId,
+        phone: TestConstants.stubPhoneNumber,
+        email: TestConstants.stubEmail,
+        note: TestConstants.stubNote,
+        earnRuleId: TestConstants.stubEarnRuleId,
+      );
+
+      final LeadReferralRequestModel capturedLeadReferralRequestModel =
+          verify(_mockReferralApi.submitLeadReferral(captureAny)).captured[0];
+
+      expect(capturedLeadReferralRequestModel.firstName,
+          TestConstants.stubFirstName);
+      expect(capturedLeadReferralRequestModel.lastName,
+          TestConstants.stubLastName);
+      expect(capturedLeadReferralRequestModel.countryCodeId,
+          TestConstants.stubCountryCodeId);
+      expect(
+        capturedLeadReferralRequestModel.phoneNumber,
+        TestConstants.stubPhoneNumber,
+      );
+      expect(capturedLeadReferralRequestModel.email, TestConstants.stubEmail);
+      expect(capturedLeadReferralRequestModel.note, TestConstants.stubNote);
     });
 
     test('submit hotel referral', () async {

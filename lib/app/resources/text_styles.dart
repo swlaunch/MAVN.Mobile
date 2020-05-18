@@ -4,7 +4,7 @@ import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 class TextStyles {
   TextStyles._();
 
-  static const String commonFontFamily = 'NunitoSans';
+  static const String commonFontFamily = 'Quicksand';
 
   static const TextStyle h1PageHeader = TextStyle(
     color: ColorStyles.primaryDark,
@@ -179,14 +179,6 @@ class TextStyles {
     fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w700,
-  );
-
-  static const darkBodyBody2Black = TextStyle(
-    color: ColorStyles.charcoalGrey,
-    fontFamily: commonFontFamily,
-    fontSize: 16,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.w900,
   );
 
   static const darkBodyBody2BoldHigh = TextStyle(
@@ -430,20 +422,5 @@ class TextStyles {
     fontSize: 12,
     fontWeight: FontWeight.w400,
     letterSpacing: 0,
-  );
-
-  ///from design
-  static const voucherPartnerName = TextStyle(
-    color: ColorStyles.white,
-    fontFamily: commonFontFamily,
-    fontSize: 28,
-    fontWeight: FontWeight.w400,
-  );
-
-  static const body3Light = TextStyle(
-    color: ColorStyles.white,
-    fontFamily: commonFontFamily,
-    fontSize: 14,
-    fontWeight: FontWeight.w600,
   );
 }

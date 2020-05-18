@@ -89,4 +89,16 @@ class ExtendedEarnRule {
     return type == EarnRuleConditionType.hotelStayReferral ||
         type == EarnRuleConditionType.hotelStay;
   }
+
+  bool isRealEstateOffer() {
+    final type = conditions?.first?.type;
+
+    if (conditions?.first?.type == null) {
+      return false;
+    }
+
+    return type == EarnRuleConditionType.estateLeadReferral ||
+        type == EarnRuleConditionType.propertyPurchaseCommissionOne ||
+        type == EarnRuleConditionType.propertyPurchaseCommissionTwo;
+  }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_hotel_pre_checkout/bloc/hotel_pre_checkout_bloc.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
@@ -68,7 +68,7 @@ void main() {
       )).thenThrow(Exception());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.defaultGenericError);
+          .thenReturn(LocalizedStrings.defaultGenericError);
 
       await _subject.getHotelPreCheckoutDetails(
         TestConstants.stubPaymentRequestId,
@@ -77,7 +77,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         HotelPreCheckoutUninitializedState(),
         HotelPreCheckoutLoadingState(),
-        HotelPreCheckoutErrorState(LazyLocalizedStrings.defaultGenericError),
+        HotelPreCheckoutErrorState(LocalizedStrings.defaultGenericError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
@@ -89,7 +89,7 @@ void main() {
       )).thenThrow(NetworkException());
 
       when(_mockExceptionToMessageMapper.map(any))
-          .thenReturn(LazyLocalizedStrings.networkError);
+          .thenReturn(LocalizedStrings.networkError);
 
       await _subject.getHotelPreCheckoutDetails(
         TestConstants.stubPaymentRequestId,
@@ -98,7 +98,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         HotelPreCheckoutUninitializedState(),
         HotelPreCheckoutLoadingState(),
-        HotelPreCheckoutErrorState(LazyLocalizedStrings.networkError),
+        HotelPreCheckoutErrorState(LocalizedStrings.networkError),
       ]);
 
       await _blocTester.assertFullBlocOutputInOrder(_expectedFullBlocOutput);
