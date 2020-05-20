@@ -15,9 +15,12 @@ import 'package:lykke_mobile_mavn/feature_campaign_list/ui_components/campaign_w
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_custom_hooks/throttling_hook.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/list/infinite_list_view.dart';
+import 'package:lykke_mobile_mavn/library_ui_components/misc/material_hero.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/spinner.dart';
 
 class CampaignListPage extends HookWidget {
+  static const campaignHeroTag = 'campaign_';
+
   @override
   Widget build(BuildContext context) {
     final router = useRouter();
@@ -93,8 +96,8 @@ class CampaignListPage extends HookWidget {
                       itemBuilder: (campaign, _, itemContext) => InkWell(
                         onTap: () =>
                             router.pushCampaignDetailsPage(campaign: campaign),
-                        child: Hero(
-                          tag: 'campaign_${campaign.id}',
+                        child: MaterialHero(
+                          tag: '$campaignHeroTag${campaign.id}',
                           child: CampaignWidget(
                             title: campaign.name,
                             imageUrl: campaign.getImageUrl(),

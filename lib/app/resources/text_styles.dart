@@ -21,10 +21,11 @@ class TextStyles {
   );
 
   static const TextStyle imageButtonCardCallToAction = TextStyle(
-    color: ColorStyles.primaryBlue,
+    color: ColorStyles.resolutionBlue,
     fontFamily: commonFontFamily,
     fontSize: 16,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w700,
+    decoration: TextDecoration.underline,
   );
 
   static const TextStyle body1BoldDarkHigh = TextStyle(
@@ -445,5 +446,13 @@ class TextStyles {
     fontFamily: commonFontFamily,
     fontSize: 14,
     fontWeight: FontWeight.w600,
+  );
+
+  static const partnerNameTopSection = TextStyle(
+    color: Colors.black,
+    fontFamily: commonFontFamily,
+    fontSize: 24,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w900,
   );
 }

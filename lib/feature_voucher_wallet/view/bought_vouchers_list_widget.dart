@@ -10,9 +10,12 @@ import 'package:lykke_mobile_mavn/feature_voucher_wallet/bloc/voucher_list_bloc.
 import 'package:lykke_mobile_mavn/feature_voucher_wallet/ui_components/voucher_card_widget.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/list/infinite_list_view.dart';
+import 'package:lykke_mobile_mavn/library_ui_components/misc/material_hero.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/spinner.dart';
 
 class BoughtVouchersList extends HookWidget {
+  static const voucherHeroTag = 'voucher_';
+
   final voucherTintColors = [
     ColorStyles.piper,
     ColorStyles.jakarta,
@@ -81,17 +84,21 @@ class BoughtVouchersList extends HookWidget {
                         data.value.indexOf(voucher) == 0) {
                       tintColorIndex = 0;
                     }
+                    final voucherTintColor = voucherTintColors[tintColorIndex];
                     return InkWell(
-                      onTap: () =>
-                          router.pushVoucherDetailsPage(voucher: voucher),
-                      child: Hero(
-                        tag: 'voucher_${voucher.id}',
+                      onTap: () => router.pushVoucherDetailsPage(
+                        voucher: voucher,
+                        voucherColor: voucherTintColor,
+                      ),
+                      child: MaterialHero(
+                        tag: '$voucherHeroTag${voucher.id}',
                         child: VoucherCardWidget(
                           imageUrl: voucher.imageUrl,
-                          color: voucherTintColors[tintColorIndex],
+                          color: voucherTintColor,
                           partnerName: voucher.partnerName,
                           voucherName: voucher.campaignName,
                           expirationDate: voucher.expirationDate,
+                          voucherStatus: voucher.status,
                         ),
                       ),
                     );

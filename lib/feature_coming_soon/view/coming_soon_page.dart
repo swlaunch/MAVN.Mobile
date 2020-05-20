@@ -6,11 +6,13 @@ import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/image_assets.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
+import 'package:lykke_mobile_mavn/library_ui_components/buttons/custom_back_button.dart';
 
 class ComingSoonPage extends HookWidget {
-  const ComingSoonPage({this.title});
+  const ComingSoonPage({this.title, this.hasBackButton = false});
 
   final String title;
+  final bool hasBackButton;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -24,6 +26,7 @@ class ComingSoonPage extends HookWidget {
               : Container(),
           backgroundColor: ColorStyles.alabaster,
           elevation: 0,
+          leading: hasBackButton ? const CustomBackButton() : null,
         ),
         body: _buildContent(),
       );

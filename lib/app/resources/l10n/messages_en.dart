@@ -349,6 +349,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "•\tPlace fully in the frame, not cut off\n•\tAvoid glare so that all info is visible\n•\tHold steady to avoid a blurry scan"),
         "canNotReferYourselfError": MessageLookupByLibrary.simpleMessage(
             "Self-referral is not possible. Your referral cannot be submitted."),
+        "cancelVoucher": MessageLookupByLibrary.simpleMessage("Cancel Voucher"),
         "cannotGetOffersError": MessageLookupByLibrary.simpleMessage(
             "Sorry, we are unable to show any offers at this moment, please try again"),
         "changePassword":
@@ -563,6 +564,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Phone number is required"),
         "enterAmountHint": MessageLookupByLibrary.simpleMessage("Enter amount"),
         "expirationFormatDays": m19,
+        "expired": MessageLookupByLibrary.simpleMessage("Expired"),
         "expiredReferralListEmptyState": MessageLookupByLibrary.simpleMessage(
             "You have no expired referrals at the moment"),
         "externalLinkWalletDescription": m20,
@@ -895,6 +897,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Sorry, we couldn\'t find this transfer request"),
         "paymentSuccessDetails": MessageLookupByLibrary.simpleMessage(
             "Great! Your transfer has been submitted. We\'ll notify you as soon as it\'s approved"),
+        "pending": MessageLookupByLibrary.simpleMessage("Pending"),
         "pendingReferralListEmptyState": MessageLookupByLibrary.simpleMessage(
             "You have no pending referrals at the moment"),
         "personalDetailsCountryOfNationality":
@@ -979,7 +982,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Share this code with the sender, you\'ll receive points quicker than you thought"),
         "receiveTokenPageTitle": m68,
         "redeem": MessageLookupByLibrary.simpleMessage("Redeem"),
-        "redeemOffer": MessageLookupByLibrary.simpleMessage("Redeem Offer"),
+        "redeemOffer": MessageLookupByLibrary.simpleMessage("Buy voucher"),
         "redeemVoucherButton":
             MessageLookupByLibrary.simpleMessage("Redeem voucher"),
         "redeemVoucherInsufficientFunds": MessageLookupByLibrary.simpleMessage(
@@ -1083,6 +1086,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendToExternalWalletButton":
             MessageLookupByLibrary.simpleMessage("Transfer to external wallet"),
         "sendToExternalWalletButtonSubtitle": m70,
+        "sendToFriend":
+            MessageLookupByLibrary.simpleMessage("Send to a friend"),
         "sendTokensButton": m71,
         "senderCustomerNotFoundError": MessageLookupByLibrary.simpleMessage(
             "Sorry, we couldn\'t find this account. Transfer canceled"),
@@ -1268,6 +1273,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Error. The verification code has expired"),
         "verificationCodeMismatchError": MessageLookupByLibrary.simpleMessage(
             "Error. The verification code is invalid"),
+        "viewOffer": MessageLookupByLibrary.simpleMessage("View Offer"),
+        "viewPartner": MessageLookupByLibrary.simpleMessage("View the shop"),
         "viewPartnerDetailsButtonTitle":
             MessageLookupByLibrary.simpleMessage("View partner details"),
         "viewVoucher": MessageLookupByLibrary.simpleMessage("View Voucher"),

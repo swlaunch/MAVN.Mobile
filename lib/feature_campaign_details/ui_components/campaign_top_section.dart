@@ -1,66 +1,54 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:intl/intl.dart';
 import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
+import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_transaction_history/view/initials_widget.dart';
-import 'package:lykke_mobile_mavn/library_ui_components/misc/circular_widget.dart';
-import 'package:lykke_mobile_mavn/library_ui_components/misc/null_safe_text.dart';
+import 'package:lykke_mobile_mavn/library_ui_components/misc/call_to_action.dart';
 
 class VoucherTopSection extends HookWidget {
-  VoucherTopSection({
-    @required this.vendor,
-    @required this.offerName,
-    @required this.expirationDate,
-  });
+  const VoucherTopSection({@required this.partner});
 
-  final String vendor;
-  final String offerName;
-  final DateTime expirationDate;
-  final DateFormat _dateFormatCurrentYear = DateFormat('dd-MM-yyyy');
+  final String partner;
 
   @override
   Widget build(BuildContext context) {
     final localizedStrings = useLocalizedStrings();
-    final expirationDateText = expirationDate != null
-        ? localizedStrings
-            .offerExpiresOn(_dateFormatCurrentYear.format(expirationDate))
-        : localizedStrings.offerNoExpirationDate;
+    final router = useRouter();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12),
-          child: NullSafeText(
-            localizedStrings.availableAt(vendor),
-            style: TextStyles.darkBodyBody2Black
-                .copyWith(color: ColorStyles.shamrock),
-          ),
-        ),
         Row(
           children: <Widget>[
-            CircularWidget(
-              size: 60,
-              child: InitialsWidget(
-                initialsText: vendor,
-                color: ColorStyles.resolutionBlue,
-                textColor: ColorStyles.white,
-                fontSize: 20,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(25),
+              child: Container(
+                height: 76,
+                width: 76,
+                child: InitialsWidget(
+                  initialsText: partner,
+                  color: ColorStyles.resolutionBlue,
+                  textColor: ColorStyles.white,
+                  fontSize: 20,
+                ),
               ),
             ),
             const SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                NullSafeText(
-                  offerName,
-                  style: TextStyles.darkHeadersH3,
+                AutoSizeText(
+                  partner,
+                  style: TextStyles.partnerNameTopSection,
+                  maxLines: 1,
                 ),
-                const SizedBox(height: 8),
-                NullSafeText(
-                  expirationDateText,
-                  style: TextStyles.darkBodyBody3Regular,
+                const SizedBox(height: 4),
+                CallToAction(
+                  text: localizedStrings.viewPartner,
+                  onTap: router.pushComingSoonPage,
                 ),
               ],
             ),

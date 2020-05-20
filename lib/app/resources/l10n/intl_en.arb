@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-05-15T15:31:36.382639",
+  "@@last_modified": "2020-05-20T12:06:29.335353",
   "networkErrorTitle": "Internet connection problem",
   "@networkErrorTitle": {
     "type": "text",
@@ -3135,6 +3135,11 @@
     "type": "text",
     "placeholders": {}
   },
+  "viewOffer": "View Offer",
+  "@viewOffer": {
+    "type": "text",
+    "placeholders": {}
+  },
   "about": "About",
   "@about": {
     "type": "text",
@@ -3159,8 +3164,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "redeemOffer": "Redeem Offer",
+  "redeemOffer": "Buy voucher",
   "@redeemOffer": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "viewPartner": "View the shop",
+  "@viewPartner": {
     "type": "text",
     "placeholders": {}
   },
@@ -3181,6 +3191,26 @@
   },
   "viewVoucher": "View Voucher",
   "@viewVoucher": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sendToFriend": "Send to a friend",
+  "@sendToFriend": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancelVoucher": "Cancel Voucher",
+  "@cancelVoucher": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pending": "Pending",
+  "@pending": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "expired": "Expired",
+  "@expired": {
     "type": "text",
     "placeholders": {}
   },

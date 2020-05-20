@@ -41,14 +41,16 @@ class StyledOutlineButton extends StatelessWidget {
             text,
             textAlign: TextAlign.center,
             style: useDarkTheme
-                ? TextStyles.darkButtonExtraBold
+                ? TextStyles.darkButtonExtraBold.copyWith(
+                    color: ColorStyles.shark,
+                  )
                 : TextStyles.lightButtonExtraBold,
           ),
           onPressed: _getOnTapFunction(),
           borderSide: BorderSide(
-              color: useDarkTheme ? ColorStyles.primaryDark : ColorStyles.white,
+              color: useDarkTheme ? ColorStyles.shark : ColorStyles.white,
               width: 2),
-          highlightedBorderColor: ColorStyles.primaryDark,
+          highlightedBorderColor: ColorStyles.shark,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24),
           ),

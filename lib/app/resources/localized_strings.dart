@@ -3045,6 +3045,11 @@ class LocalizedStrings {
 
 //region Campaign Details
 
+  String get viewOffer => Intl.message(
+        'View Offer',
+        name: 'viewOffer',
+      );
+
   String get about => Intl.message(
         'About',
         name: 'about',
@@ -3068,8 +3073,13 @@ class LocalizedStrings {
       );
 
   String get redeemOffer => Intl.message(
-        'Redeem Offer',
+        'Buy voucher',
         name: 'redeemOffer',
+      );
+
+  String get viewPartner => Intl.message(
+        'View the shop',
+        name: 'viewPartner',
       );
 
 //endregion Campaign Details
@@ -3098,6 +3108,26 @@ class LocalizedStrings {
   String get viewVoucher => Intl.message(
         'View Voucher',
         name: 'viewVoucher',
+      );
+
+  String get sendToFriend => Intl.message(
+        'Send to a friend',
+        name: 'sendToFriend',
+      );
+
+  String get cancelVoucher => Intl.message(
+        'Cancel Voucher',
+        name: 'cancelVoucher',
+      );
+
+  String get pending => Intl.message(
+        'Pending',
+        name: 'pending',
+      );
+
+  String get expired => Intl.message(
+        'Expired',
+        name: 'expired',
       );
 
 // endregion Voucher Details

@@ -767,9 +767,13 @@ class Router extends BaseRouter {
 
   Future<void> pushVoucherDetailsPage({
     @required VoucherResponseModel voucher,
+    Color voucherColor,
   }) async {
     await pushPage(
-      RouterPageFactory.getVoucherDetailsPage(voucher: voucher),
+      RouterPageFactory.getVoucherDetailsPage(
+        voucher: voucher,
+        voucherColor: voucherColor,
+      ),
       pageName: RouterPageName.voucherDetailsPage,
     );
   }
@@ -799,9 +803,15 @@ class Router extends BaseRouter {
 
 //region Misc
 
-  Future<void> pushComingSoonPage({String title}) async {
+  Future<void> pushComingSoonPage({
+    String title,
+    bool hasBackButton = false,
+  }) async {
     await pushPage(
-      RouterPageFactory.getComingSoonPage(title: title),
+      RouterPageFactory.getComingSoonPage(
+        title: title,
+        hasBackButton: hasBackButton,
+      ),
       pageName: RouterPageName.comingSoonPage,
     );
   }

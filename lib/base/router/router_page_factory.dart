@@ -14,6 +14,7 @@ import 'package:lykke_mobile_mavn/feature_app_referral/view/friend_referral_succ
 import 'package:lykke_mobile_mavn/feature_biometrics/view/biometric_agreement_page.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/di/bottom_bar_module.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/view/bottom_bar_page.dart';
+import 'package:lykke_mobile_mavn/feature_campaign_details/di/campaign_details_module.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_details/view/campaign_details_page.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_list/di/campaign_list_module.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_list/view/campaign_list_page.dart';
@@ -72,7 +73,6 @@ import 'package:lykke_mobile_mavn/feature_pin/view/pin_created_success_page.dart
 import 'package:lykke_mobile_mavn/feature_pin/view/pin_forgot_page.dart';
 import 'package:lykke_mobile_mavn/feature_pin/view/pin_sign_in_page.dart';
 import 'package:lykke_mobile_mavn/feature_pin/view/pin_verification_page.dart';
-
 import 'package:lykke_mobile_mavn/feature_receive_token/di/p2p_receive_token_module.dart';
 import 'package:lykke_mobile_mavn/feature_receive_token/view/p2p_receive_token_page.dart';
 import 'package:lykke_mobile_mavn/feature_referral_list/di/referral_list_module.dart';
@@ -91,6 +91,7 @@ import 'package:lykke_mobile_mavn/feature_splash/view/splash_page.dart';
 import 'package:lykke_mobile_mavn/feature_terms_and_policies/view/privacy_policy_page.dart';
 import 'package:lykke_mobile_mavn/feature_terms_and_policies/view/terms_of_use_page.dart';
 import 'package:lykke_mobile_mavn/feature_ticker/di/ticker_module.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_details/di/voucher_details_module.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_details/view/voucher_details_page.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_purchase/di/voucher_purchase_module.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_wallet/di/voucher_wallet_page_module.dart';
@@ -498,8 +499,17 @@ class RouterPageFactory {
         child: VoucherWalletPage(),
       );
 
-  static Widget getVoucherDetailsPage({VoucherResponseModel voucher}) =>
-      VoucherDetailsPage(voucher: voucher);
+  static Widget getVoucherDetailsPage({
+    VoucherResponseModel voucher,
+    Color voucherColor,
+  }) =>
+      MultiProvider(
+        providers: [
+          ModuleProvider(module: CampaignDetailsModule()),
+          ModuleProvider(module: VoucherDetailsModule()),
+        ],
+        child: VoucherDetailsPage(voucher: voucher, voucherColor: voucherColor),
+      );
 
   //endregion Vouchers
 
@@ -510,8 +520,10 @@ class RouterPageFactory {
   static Widget getMandatoryAppUpgradePage() => const MandatoryAppUpgradePage();
 
   //region Misc
-  static Widget getComingSoonPage({String title}) => ComingSoonPage(
+  static Widget getComingSoonPage({String title, bool hasBackButton}) =>
+      ComingSoonPage(
         title: title,
+        hasBackButton: hasBackButton,
       );
 
 //endregion Misc
