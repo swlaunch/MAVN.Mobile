@@ -45,7 +45,7 @@ class CampaignDetailsPage extends HookWidget {
       heroWidget: CampaignWidget(
         title: campaign.name,
         price: campaign.price,
-        imageUrl: campaign.getImageUrl(),
+        imageUrl: campaign.imageUrl,
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: CampaignWidget.cardHeight / 4),
