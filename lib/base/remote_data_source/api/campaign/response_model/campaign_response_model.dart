@@ -2,8 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:lykke_mobile_mavn/library_models/fiat_currency.dart';
 import 'package:lykke_mobile_mavn/library_utils/enum_mapper.dart';
 
-import 'localized_details_response_model.dart';
-
 class CampaignResponseModel {
   CampaignResponseModel({
     @required this.id,
@@ -19,7 +17,7 @@ class CampaignResponseModel {
     @required this.creationDate,
     @required this.createdBy,
     @required this.vertical,
-    @required this.localizedDetails,
+    @required this.imageUrl,
   });
 
   CampaignResponseModel.fromJson(Map<String, dynamic> json)
@@ -48,8 +46,7 @@ class CampaignResponseModel {
           enumValues: Vertical.values,
           defaultValue: null,
         ),
-        localizedDetails =
-            LocalizedCampaignDetails.toListFromJson(json['LocalizedContents']);
+        imageUrl = json['ImageUrl'];
 
   static List<CampaignResponseModel> toListFromJson(List list) => list
       .map((vouchersJson) => CampaignResponseModel.fromJson(vouchersJson))
@@ -68,18 +65,7 @@ class CampaignResponseModel {
   final DateTime creationDate;
   final String createdBy;
   final Vertical vertical;
-  final List<LocalizedCampaignDetails> localizedDetails;
-
-  ////TODO move this to localization manager ASAP
-  String getImageUrl() {
-    final images = localizedDetails
-        .where((detail) => detail.contentType == LocalizedContentType.imageUrl);
-    if (images.isEmpty) return null;
-    final i = images.firstWhere(
-        (element) => element?.localization == Localization.en,
-        orElse: () => null);
-    return (i ?? images?.first).image?.blobUrl;
-  }
+  final String imageUrl;
 }
 
 class CampaignListResponseModel {

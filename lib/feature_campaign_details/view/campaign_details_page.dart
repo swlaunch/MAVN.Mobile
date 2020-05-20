@@ -148,7 +148,7 @@ class CampaignDetailsPage extends HookWidget {
             child: CampaignWidget(
               title: campaign.name,
               price: campaign.price,
-              imageUrl: campaign.getImageUrl(),
+              imageUrl: campaign.imageUrl,
             ),
           ),
         ),
