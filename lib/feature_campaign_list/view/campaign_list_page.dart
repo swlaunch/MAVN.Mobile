@@ -97,7 +97,7 @@ class CampaignListPage extends HookWidget {
                           tag: 'campaign_${campaign.id}',
                           child: CampaignWidget(
                             title: campaign.name,
-                            imageUrl: campaign.getImageUrl(),
+                            imageUrl: campaign.imageUrl,
                             price: campaign.price,
                           ),
                         ),
