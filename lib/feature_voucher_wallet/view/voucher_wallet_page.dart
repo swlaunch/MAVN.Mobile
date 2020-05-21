@@ -12,8 +12,8 @@ import 'package:lykke_mobile_mavn/feature_transaction_history/view/transaction_h
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_custom_hooks/on_dispose_hook.dart';
 import 'package:lykke_mobile_mavn/library_custom_hooks/throttling_hook.dart';
-import 'package:lykke_mobile_mavn/library_ui_components/tab/wallet_sliver_tab_layout.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/tab/sliver_tab_layout.dart';
+import 'package:lykke_mobile_mavn/library_ui_components/tab/wallet_sliver_tab_layout.dart';
 
 import 'bought_vouchers_list_widget.dart';
 
@@ -44,18 +44,10 @@ class VoucherWalletPage extends HookWidget {
 
     final tabs = [
       SliverTabConfiguration(
-        title: localizedStrings.dashboard,
-        globalKey: GlobalKey(),
-        tabKey: const Key('vouchersTab'),
-        buildWidget: () => const ComingSoonPage(),
-        onScroll: () => {},
-      ),
-      SliverTabConfiguration(
         title: localizedStrings.vouchers,
         globalKey: GlobalKey(),
         tabKey: const Key('vouchersTab'),
         buildWidget: () => BoughtVouchersList(),
-        onScroll: () => {},
       ),
       SliverTabConfiguration(
         title: localizedStrings.transactions,
@@ -73,7 +65,12 @@ class VoucherWalletPage extends HookWidget {
           },
           child: TransactionHistoryView(),
         ),
-        onScroll: () => {},
+      ),
+      SliverTabConfiguration(
+        title: localizedStrings.dashboard,
+        globalKey: GlobalKey(),
+        tabKey: const Key('dashboardTab'),
+        buildWidget: () => const ComingSoonPage(),
       ),
     ];
     return HomeSliverTabLayout(

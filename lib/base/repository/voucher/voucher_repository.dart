@@ -9,7 +9,7 @@ class VoucherRepository {
 
   final VoucherApi _voucherApi;
 
-  static const itemsPerPage = 500;
+  static const itemsPerPage = 5;
 
   Future<VoucherListResponseModel> getVouchers({int currentPage}) =>
       _voucherApi.getVouchers(itemsPerPage, currentPage);
