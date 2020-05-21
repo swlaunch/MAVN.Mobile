@@ -18,6 +18,9 @@
         android:label="lykke_mobile_mavn"
         android:roundIcon="@mipmap/ic_launcher_round">
 
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAtlLrG571iDEemcFigotegbDF7-7ROJE4"/>
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_notification_icon" />

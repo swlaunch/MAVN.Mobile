@@ -732,10 +732,17 @@ class Router extends BaseRouter {
 //endregion Static pages from Account
 
   //region Vouchers
-  Future<void> pushVoucherListPage() async {
+  Future<void> pushCampaignListPage() async {
     await pushPage(
       RouterPageFactory.getCampaignListPage(),
       pageName: RouterPageName.campaignListPage,
+    );
+  }
+
+  Future<void> pushCampaignMapPage() async {
+    await pushPage(
+      RouterPageFactory.getCampaignMapPage(),
+      pageName: RouterPageName.campaignMapPage,
     );
   }
 

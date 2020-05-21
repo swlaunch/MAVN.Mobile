@@ -17,6 +17,7 @@ import 'package:lykke_mobile_mavn/library_custom_hooks/throttling_hook.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/list/infinite_list_view.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/material_hero.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/spinner.dart';
+import 'package:lykke_mobile_mavn/library_ui_components/misc/standard_sized_svg.dart';
 
 class CampaignListPage extends HookWidget {
   static const campaignHeroTag = 'campaign_';
@@ -66,6 +67,17 @@ class CampaignListPage extends HookWidget {
         ),
         backgroundColor: ColorStyles.alabaster,
         elevation: 0,
+        actions: <Widget>[
+          IconButton(
+            key: const Key('campaignListMapButton'),
+            tooltip: useLocalizedStrings().accountPageTitle,
+            icon: StandardSizedSvg(
+              SvgAssets.location,
+              color: ColorStyles.primaryDark,
+            ),
+            onPressed: router.pushCampaignMapPage,
+          ),
+        ],
       ),
       body: SafeArea(
         child: Stack(

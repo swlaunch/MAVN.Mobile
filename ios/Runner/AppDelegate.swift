@@ -1,5 +1,6 @@
 import UIKit
 import Flutter
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: FlutterAppDelegate {
@@ -12,6 +13,8 @@ class AppDelegate: FlutterAppDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
+    
+    GMSServices.provideAPIKey("AIzaSyBM_AC_HyKaVw7nmZaroNr6Yu5EOeUFo3w")
     
     guard let controller = window?.rootViewController as? FlutterViewController else {
         fatalError("rootViewController is not type FlutterViewController")

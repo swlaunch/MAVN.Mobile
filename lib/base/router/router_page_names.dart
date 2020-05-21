@@ -136,6 +136,7 @@ class RouterPageName {
 
   //region Campaigns
   static const String campaignListPage = 'campaign_list_page';
+  static const String campaignMapPage = 'campaign_map_page';
   static const String campaignDetailsPage = 'campaign_details_page';
 
   //endregion Campaigns
