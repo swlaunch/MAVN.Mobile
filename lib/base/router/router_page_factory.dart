@@ -14,7 +14,6 @@ import 'package:lykke_mobile_mavn/feature_app_referral/view/friend_referral_succ
 import 'package:lykke_mobile_mavn/feature_biometrics/view/biometric_agreement_page.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/di/bottom_bar_module.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/view/bottom_bar_page.dart';
-import 'package:lykke_mobile_mavn/feature_campaign_details/di/campaign_details_module.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_details/view/campaign_details_page.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_list/di/campaign_list_module.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_list/view/campaign_list_page.dart';
@@ -503,11 +502,8 @@ class RouterPageFactory {
     VoucherResponseModel voucher,
     Color voucherColor,
   }) =>
-      MultiProvider(
-        providers: [
-          ModuleProvider(module: CampaignDetailsModule()),
-          ModuleProvider(module: VoucherDetailsModule()),
-        ],
+      ModuleProvider(
+        module: VoucherDetailsModule(),
         child: VoucherDetailsPage(voucher: voucher, voucherColor: voucherColor),
       );
 

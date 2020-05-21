@@ -25,4 +25,5 @@ class GenericDetailsErrorState extends GenericDetailsState {
   List get props => super.props..addAll([error]);
 }
 
-class GenericDetailsNetworkErrorState extends GenericDetailsState {}
+class GenericDetailsNetworkErrorState extends GenericDetailsState
+    with BaseNetworkErrorState {}

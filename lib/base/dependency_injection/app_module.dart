@@ -20,6 +20,7 @@ import 'package:lykke_mobile_mavn/base/date/date_time_manager.dart';
 import 'package:lykke_mobile_mavn/base/local_data_source/secure_store/secure_store.dart';
 import 'package:lykke_mobile_mavn/base/local_data_source/shared_preferences_manager/shared_preferences_manager.dart';
 import 'package:lykke_mobile_mavn/base/local_data_source/sim_info/sim_card_info_manager.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/campaign_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/conversion/conversion_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/country_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/customer_api.dart';
@@ -36,13 +37,13 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/mobile/mobile_sett
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/partner_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/phone/phone_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/referral_api.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/campaign_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/voucher_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/wallet/wallet_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/notification/notification_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/remote_config_manager/remote_config_keys.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/remote_config_manager/remote_config_manager.dart';
 import 'package:lykke_mobile_mavn/base/repository/balance_repository/balance_repository.dart';
+import 'package:lykke_mobile_mavn/base/repository/campaign/campaign_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/conversion/conversion_respository.dart';
 import 'package:lykke_mobile_mavn/base/repository/country/country_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/customer/customer_repository.dart';
@@ -58,7 +59,6 @@ import 'package:lykke_mobile_mavn/base/repository/pin/pin_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/referral/referral_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/token/token_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/user/user_repository.dart';
-import 'package:lykke_mobile_mavn/base/repository/campaign/campaign_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/voucher/voucher_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
 import 'package:lykke_mobile_mavn/base/router/external_router.dart';
@@ -76,6 +76,7 @@ import 'package:lykke_mobile_mavn/feature_notification/router/notification_route
 import 'package:lykke_mobile_mavn/feature_payment_request_list/bloc/pending_payment_requests_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_personal_details/bloc/delete_account_use_case.dart';
 import 'package:lykke_mobile_mavn/feature_user_verification/bloc/user_verification_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_details/bloc/cancel_voucher_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_purchase/bloc/voucher_purchase_success_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/dynamic_link_manager.dart';
@@ -202,6 +203,8 @@ class AppModule extends Module {
   FirebaseMessagingBloc get firebaseMessagingBloc => get();
 
   VoucherPurchaseSuccessBloc get voucherPurchaseSuccessBloc => get();
+
+  CancelVoucherBloc get cancelVoucherBloc => get();
 
   @override
   void provideInstances() {
@@ -363,6 +366,8 @@ class AppModule extends Module {
         () => UserVerificationBloc(get(), get(), get(), get(), get()));
 
     provideSingleton(() => VoucherPurchaseSuccessBloc(get()));
+
+    provideSingleton(() => CancelVoucherBloc(get(), get()));
 
     // Dynamic Link Manager
     provideSingleton(

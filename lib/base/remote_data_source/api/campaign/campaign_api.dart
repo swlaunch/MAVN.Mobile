@@ -1,6 +1,6 @@
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/request_model/voucher_purchase_request_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/response_model/voucher_purchase_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/response_model/campaign_response_model.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/response_model/voucher_purchase_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/http_client.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/base_api.dart';
 

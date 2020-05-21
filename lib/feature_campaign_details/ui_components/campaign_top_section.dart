@@ -36,21 +36,23 @@ class VoucherTopSection extends HookWidget {
               ),
             ),
             const SizedBox(width: 16),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                AutoSizeText(
-                  partner,
-                  style: TextStyles.partnerNameTopSection,
-                  maxLines: 1,
-                ),
-                const SizedBox(height: 4),
-                CallToAction(
-                  text: localizedStrings.viewPartner,
-                  onTap: router.pushComingSoonPage,
-                ),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  AutoSizeText(
+                    partner,
+                    style: TextStyles.partnerNameTopSection,
+                    maxLines: 1,
+                  ),
+                  const SizedBox(height: 4),
+                  CallToAction(
+                    text: localizedStrings.viewPartner,
+                    onTap: router.pushComingSoonPage,
+                  ),
+                ],
+              ),
             ),
           ],
         ),

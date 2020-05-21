@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:lykke_mobile_mavn/library_models/fiat_currency.dart';
 import 'package:lykke_mobile_mavn/library_utils/enum_mapper.dart';
 
 class VoucherResponseModel {
@@ -15,6 +16,8 @@ class VoucherResponseModel {
     @required this.partnerName,
     @required this.campaignName,
     @required this.imageUrl,
+    @required this.description,
+    @required this.price,
   });
 
   VoucherResponseModel.fromJson(Map<String, dynamic> json)
@@ -39,7 +42,12 @@ class VoucherResponseModel {
             : null,
         partnerName = json['PartnerName'],
         campaignName = json['CampaignName'],
-        imageUrl = json['ImageUrl'];
+        imageUrl = json['ImageUrl'],
+        description = json['Description'],
+        price = FiatCurrency(
+          value: json['Price'],
+          assetSymbol: json['Currency'],
+        );
 
   static List<VoucherResponseModel> toListFromJson(List list) => list
       .map((vouchersJson) => VoucherResponseModel.fromJson(vouchersJson))
@@ -57,6 +65,8 @@ class VoucherResponseModel {
   final String partnerName;
   final String campaignName;
   final String imageUrl;
+  final String description;
+  final FiatCurrency price;
 }
 
 class VoucherListResponseModel {

@@ -6,6 +6,7 @@ import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_details/bloc/cancel_voucher_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_wallet/bloc/voucher_list_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_wallet/ui_components/voucher_card_widget.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
@@ -30,17 +31,23 @@ class BoughtVouchersList extends HookWidget {
     final voucherListBloc = useVoucherListBloc();
     final voucherListBlocState = useBlocState(voucherListBloc);
 
+    final cancelVoucherBloc = useCancelVoucherBloc();
+
     final data = useState(<VoucherResponseModel>[]);
     final isErrorDismissed = useState(false);
-
-    void loadData() {
-      isErrorDismissed.value = false;
-      voucherListBloc.getList();
-    }
 
     void loadInitialData() {
       isErrorDismissed.value = false;
       voucherListBloc.updateGenericList();
+    }
+
+    useBlocEventListener(cancelVoucherBloc, (event) {
+      loadInitialData();
+    });
+
+    void loadData() {
+      isErrorDismissed.value = false;
+      voucherListBloc.getList();
     }
 
     useEffect(() {
@@ -93,13 +100,13 @@ class BoughtVouchersList extends HookWidget {
                       child: MaterialHero(
                         tag: '$voucherHeroTag${voucher.id}',
                         child: VoucherCardWidget(
-                          imageUrl: voucher.imageUrl,
-                          color: voucherTintColor,
-                          partnerName: voucher.partnerName,
-                          voucherName: voucher.campaignName,
-                          expirationDate: voucher.expirationDate,
-                          voucherStatus: voucher.status,
-                        ),
+                            imageUrl: voucher.imageUrl,
+                            color: voucherTintColor,
+                            partnerName: voucher.partnerName,
+                            voucherName: voucher.campaignName,
+                            expirationDate: voucher.expirationDate,
+                            voucherStatus: voucher.status,
+                            price: voucher.price),
                       ),
                     );
                   },

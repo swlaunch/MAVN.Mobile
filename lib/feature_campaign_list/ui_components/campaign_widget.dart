@@ -3,6 +3,7 @@ import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/library_models/fiat_currency.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/network_image_with_placeholder.dart';
+import 'package:lykke_mobile_mavn/library_ui_components/misc/price_tag.dart';
 
 class CampaignWidget extends StatelessWidget {
   const CampaignWidget({
@@ -57,21 +58,7 @@ class CampaignWidget extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(right: 0, top: 16, child: _buildPriceTag()),
+          Positioned(right: 0, top: 16, child: PriceTag(price: price)),
         ],
-      );
-
-//TODO maybe extract string for amounts sine it's different in countries
-  Widget _buildPriceTag() => Container(
-        decoration: BoxDecoration(
-          color: ColorStyles.resolutionBlue,
-          borderRadius: const BorderRadius.all(Radius.circular(4)),
-        ),
-        padding: const EdgeInsets.all(4),
-        width: 70,
-        child: Text(
-          '${price.assetSymbol} ${price.displayValueWithoutTrailingZeroes}',
-          style: TextStyles.lightBodyBody3Regular,
-        ),
       );
 }

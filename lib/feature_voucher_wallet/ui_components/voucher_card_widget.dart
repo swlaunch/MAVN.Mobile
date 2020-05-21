@@ -7,6 +7,8 @@ import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_wallet/ui_components/tinted_container.dart';
+import 'package:lykke_mobile_mavn/library_models/fiat_currency.dart';
+import 'package:lykke_mobile_mavn/library_ui_components/misc/price_tag.dart';
 
 class VoucherCardWidget extends HookWidget {
   VoucherCardWidget({
@@ -16,6 +18,7 @@ class VoucherCardWidget extends HookWidget {
     this.voucherName,
     this.expirationDate,
     this.voucherStatus,
+    this.price,
   });
 
   final String imageUrl;
@@ -24,11 +27,14 @@ class VoucherCardWidget extends HookWidget {
   final String voucherName;
   final DateTime expirationDate;
   final VoucherStatus voucherStatus;
+  final FiatCurrency price;
 
   static const double _cardBorderRadius = 20;
   static const double cardHeight = 200;
   static const double _cardInsetSize = 16;
   static const double _topSectionRatio = 0.61;
+  static const double _horizontalPadding = 16;
+  static const double _verticalPadding = 8;
 
   final DateFormat _dateFormatCurrentYear = DateFormat('dd-MM-yyyy');
 
@@ -42,83 +48,99 @@ class VoucherCardWidget extends HookWidget {
 
     const topHeight = cardHeight * _topSectionRatio;
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(_cardBorderRadius),
-        child: Stack(
-          children: <Widget>[
-            Container(
-              width: double.infinity,
-              height: cardHeight,
-              child: Column(
-                children: <Widget>[
-                  //TOP SECTION
-                  Container(
-                    height: topHeight,
-                    width: double.infinity,
-                    child: Stack(
-                      children: <Widget>[
-                        TintedContainer(
-                          color: color,
-                          imageUrl: imageUrl,
-                          child: Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                AutoSizeText(
-                                  partnerName,
-                                  style: TextStyles.voucherPartnerName,
-                                  maxLines: 2,
+    return Stack(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: _horizontalPadding,
+            vertical: _verticalPadding,
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(_cardBorderRadius),
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  width: double.infinity,
+                  height: cardHeight,
+                  child: Column(
+                    children: <Widget>[
+                      //TOP SECTION
+                      Container(
+                        height: topHeight,
+                        width: double.infinity,
+                        child: Stack(
+                          children: <Widget>[
+                            TintedContainer(
+                              color: color,
+                              imageUrl: imageUrl,
+                              child: Padding(
+                                padding: const EdgeInsets.all(12),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: AutoSizeText(
+                                        partnerName,
+                                        style: TextStyles.voucherPartnerName,
+                                        maxLines: 2,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    _buildTag(localizedStrings),
+                                  ],
                                 ),
-                                const SizedBox(width: 8),
-                                _buildTag(localizedStrings)
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                  //BOTTOM SECTION
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    width: double.infinity,
-                    height: cardHeight - topHeight,
-                    color: color,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          voucherName,
-                          style: TextStyles.lightHeadersH3,
+                      ),
+                      //BOTTOM SECTION
+                      Container(
+                        padding: const EdgeInsets.all(12),
+                        width: double.infinity,
+                        height: cardHeight - topHeight,
+                        color: color,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              voucherName,
+                              style: TextStyles.lightHeadersH3,
+                            ),
+                            Text(
+                              expirationDateText,
+                              style: TextStyles.body3Light,
+                            )
+                          ],
                         ),
-                        Text(
-                          expirationDateText,
-                          style: TextStyles.body3Light,
-                        )
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
+                ),
 
-            ///THESE HAVE TO STAY ON TOP OF THE STACK
-            Positioned(
-              right: 0,
-              top: topHeight - (_cardInsetSize / 2),
-              child: _buildInset(),
+                ///THESE HAVE TO STAY ON TOP OF THE STACK
+                Positioned(
+                  right: 0,
+                  top: topHeight - (_cardInsetSize / 2),
+                  child: _buildInset(),
+                ),
+                Positioned(
+                  left: 0,
+                  top: topHeight - (_cardInsetSize / 2),
+                  child: _buildInset(),
+                ),
+              ],
             ),
-            Positioned(
-              left: 0,
-              top: topHeight - (_cardInsetSize / 2),
-              child: _buildInset(),
-            ),
-          ],
+          ),
         ),
-      ),
+        Positioned(
+          right: 8,
+          top: 16,
+          child: PriceTag(price: price),
+        ),
+      ],
     );
   }
 
