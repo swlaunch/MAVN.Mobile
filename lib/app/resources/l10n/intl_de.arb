@@ -3218,7 +3218,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "redeemOffer": "Angebot einlösen",
+  "redeemOffer": "Gutschein kaufen",
   "@redeemOffer": {
     "type": "text",
     "placeholders": {}

@@ -982,7 +982,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Share this code with the sender, you\'ll receive points quicker than you thought"),
         "receiveTokenPageTitle": m68,
         "redeem": MessageLookupByLibrary.simpleMessage("Redeem"),
-        "redeemOffer": MessageLookupByLibrary.simpleMessage("Buy voucher"),
+        "redeemOffer": MessageLookupByLibrary.simpleMessage("Purchase voucher"),
         "redeemVoucherButton":
             MessageLookupByLibrary.simpleMessage("Redeem voucher"),
         "redeemVoucherInsufficientFunds": MessageLookupByLibrary.simpleMessage(

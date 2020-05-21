@@ -3073,7 +3073,7 @@ class LocalizedStrings {
       );
 
   String get redeemOffer => Intl.message(
-        'Buy voucher',
+        'Purchase voucher',
         name: 'redeemOffer',
       );
 
