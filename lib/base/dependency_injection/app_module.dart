@@ -6,6 +6,7 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:location/location.dart';
 import 'package:lykke_mobile_mavn/app/app.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc.dart';
@@ -69,6 +70,7 @@ import 'package:lykke_mobile_mavn/feature_biometrics/bloc/biometric_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_debug_menu/bloc/debug_menu_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_email_verification/analytics/email_verification_analytics_manager.dart';
 import 'package:lykke_mobile_mavn/feature_email_verification/bloc/email_confirmation_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_location/bloc/user_location_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_login/bloc/login_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_login/use_case/login_use_case.dart';
 import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_count_bloc.dart';
@@ -103,6 +105,8 @@ class AppModule extends Module {
   RouterPageFactory get routerPageFactory => get();
 
   NotificationRouter get notificationRouter => get();
+
+  Location get location => get();
 
   GlobalKey<NavigatorState> get globalNavigatorStateKey => get();
 
@@ -206,6 +210,8 @@ class AppModule extends Module {
 
   CancelVoucherBloc get cancelVoucherBloc => get();
 
+  UserLocationBloc get userLocationBloc => get();
+
   @override
   void provideInstances() {
     // Global navigator state key
@@ -224,6 +230,10 @@ class AppModule extends Module {
     provideSingleton(() => ExternalRouter(get()));
 
     provideSingleton(() => NotificationRouter(get()));
+
+    //Location
+
+    provideSingleton(() => Location());
 
     // Analytics
     provideSingleton(() => FirebaseAnalytics());
@@ -368,6 +378,8 @@ class AppModule extends Module {
     provideSingleton(() => VoucherPurchaseSuccessBloc(get()));
 
     provideSingleton(() => CancelVoucherBloc(get(), get()));
+
+    provideSingleton(() => UserLocationBloc(get()));
 
     // Dynamic Link Manager
     provideSingleton(
