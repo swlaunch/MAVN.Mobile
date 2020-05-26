@@ -99,6 +99,7 @@ class HomePage extends HookWidget {
         appBar: AppBar(
           title: SvgPicture.asset(SvgAssets.appDarkLogo),
           backgroundColor: ColorStyles.alabaster,
+          brightness: Brightness.light,
           elevation: 0,
           actions: <Widget>[
             IconButton(

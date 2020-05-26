@@ -59,6 +59,7 @@ class _HomeSliverTabLayoutState extends State<HomeSliverTabLayout>
                   widget.title,
                   style: TextStyles.lightHeadersH1,
                 ),
+                brightness: Brightness.dark,
                 centerTitle: true,
                 automaticallyImplyLeading: false,
                 backgroundColor: ColorStyles.white,

@@ -65,6 +65,7 @@ class CampaignListPage extends HookWidget {
           useLocalizedStrings().offers,
           style: TextStyles.h1PageHeader,
         ),
+        brightness: Brightness.light,
         backgroundColor: ColorStyles.alabaster,
         elevation: 0,
         actions: <Widget>[

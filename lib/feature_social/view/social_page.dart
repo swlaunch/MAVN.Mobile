@@ -16,6 +16,7 @@ class SocialPage extends HookWidget {
             useLocalizedStrings().socialPageTitle,
             style: TextStyles.h1PageHeader,
           ),
+          brightness: Brightness.light,
           backgroundColor: ColorStyles.alabaster,
           elevation: 0,
         ),

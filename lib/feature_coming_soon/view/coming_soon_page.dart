@@ -24,6 +24,7 @@ class ComingSoonPage extends HookWidget {
                   style: TextStyles.h1PageHeader,
                 )
               : Container(),
+          brightness: Brightness.light,
           backgroundColor: ColorStyles.alabaster,
           elevation: 0,
           leading: hasBackButton ? const CustomBackButton() : null,
