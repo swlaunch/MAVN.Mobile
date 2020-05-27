@@ -41,7 +41,7 @@ class GenericErrorWidget extends StatelessWidget {
                 onPressed: onCloseTap,
               ),
             Expanded(
-              child: Text(text ?? genericError,
+              child: Text(text ?? genericError.localize(context),
                   key: const Key('errorWidgetDetails'),
                   style: TextStyles.lightBody4Bold),
             ),
