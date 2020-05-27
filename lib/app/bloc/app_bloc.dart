@@ -7,7 +7,6 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/remote_config_manager/
 import 'package:lykke_mobile_mavn/base/router/router_page_factory.dart';
 import 'package:lykke_mobile_mavn/base/router/router_page_names.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
-import 'package:pedantic/pedantic.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,7 +22,7 @@ class AppBloc extends Bloc<AppState> {
     @required Environment environment,
     @required BuildContext context,
   }) async {
-    final appModule = await _initAppModule(environment);
+    final appModule = await _initAppModule(environment, context);
 
     await _setupRemoteConfigManager(appModule.remoteConfigManager);
 
@@ -34,11 +33,13 @@ class AppBloc extends Bloc<AppState> {
     ));
   }
 
-  Future<AppModule> _initAppModule(Environment environment) async {
+  Future<AppModule> _initAppModule(
+      Environment environment, BuildContext context) async {
     final results =
         await Future.wait([_getSharedPreferences(), _getRemoteConfig()]);
 
     return AppModule(
+      context: context,
       sharedPreferences: results[0],
       remoteConfig: results[1],
     );
@@ -54,11 +55,7 @@ class AppBloc extends Bloc<AppState> {
     // init() blocks App start
     await remoteConfigManager.init();
 
-    // fetchNewRemoteConfig() does NOT block App start, but give it a small
-    // amount of time to complete before starting the app, maybe the internet
-    // is fast enough
-    unawaited(remoteConfigManager.fetchNewRemoteConfig());
-    await Future.delayed(const Duration(seconds: 1));
+    await remoteConfigManager.fetchNewRemoteConfig();
   }
 }
 

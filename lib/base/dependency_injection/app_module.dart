@@ -8,6 +8,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:location/location.dart';
 import 'package:lykke_mobile_mavn/app/app.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_list_bloc.dart';
@@ -92,10 +93,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AppModule extends Module {
   AppModule({
+    @required this.context,
     @required this.sharedPreferences,
     @required this.remoteConfig,
   });
 
+  final BuildContext context;
   final SharedPreferences sharedPreferences;
   final RemoteConfig remoteConfig;
 
@@ -255,7 +258,8 @@ class AppModule extends Module {
 
     provideSingleton(
       () => HttpClient(
-        remoteConfig.getString(RemoteConfigKeys.customerApiBaseRestUrl),
+        remoteConfig.getString(RemoteConfigKeys.customerApiBaseRestUrl) ??
+            'https://customer-api.mavn.ch/api',
         interceptors: [
           get<LogInterceptor>(),
           get<TokenInterceptor>(),
@@ -275,8 +279,9 @@ class AppModule extends Module {
 
     // Web socket WAMP client
     provideSingleton(() => WampClient(
-          url:
-              remoteConfig.getString(RemoteConfigKeys.customerApiBaseSocketUrl),
+          url: remoteConfig
+                  .getString(RemoteConfigKeys.customerApiBaseSocketUrl) ??
+              'wss://customer-api-ws.mavn.ch/ws',
           realm: walletSocketRealm,
         ));
 
@@ -362,7 +367,8 @@ class AppModule extends Module {
     provideSingleton<PendingPartnerPaymentsBloc>(
         () => PendingPartnerPaymentsBloc(get()));
 
-    provideSingleton(() => BiometricBloc(get(), get(), get(), get()));
+    provideSingleton(() => BiometricBloc(
+        get(), get(), get(), get(), LocalizedStrings.of(context)));
 
     provideSingleton(() => LoginBloc(get(), get()));
 
