@@ -17,7 +17,7 @@ const countMaxBiometricsRejections = 3;
 
 class BiometricBloc extends Bloc<BiometricState> {
   BiometricBloc(this._localSettingsRepository, this._localAuthentication,
-      this._userRepository, this._loginBloc);
+      this._userRepository, this._loginBloc, this.localizedStrings);
 
   final LocalSettingsRepository _localSettingsRepository;
   final LocalAuthentication _localAuthentication;
@@ -25,7 +25,7 @@ class BiometricBloc extends Bloc<BiometricState> {
   final LoginBloc _loginBloc;
 
   // Need provide manually
-  LocalizedStrings localizedStrings;
+  final LocalizedStrings localizedStrings;
 
   @override
   BiometricState initialState() => BiometricUninitializedState();
@@ -257,5 +257,4 @@ class BiometricBloc extends Bloc<BiometricState> {
 }
 
 BiometricBloc useBiometricBloc() =>
-    ModuleProvider.of<AppModule>(useContext()).biometricBloc
-      ..localizedStrings = useLocalizedStrings();
+    ModuleProvider.of<AppModule>(useContext()).biometricBloc;

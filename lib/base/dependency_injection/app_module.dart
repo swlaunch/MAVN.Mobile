@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:lykke_mobile_mavn/app/app.dart';
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/accept_hotel_referral_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_code_list_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/country_list_bloc.dart';
@@ -20,6 +21,7 @@ import 'package:lykke_mobile_mavn/base/date/date_time_manager.dart';
 import 'package:lykke_mobile_mavn/base/local_data_source/secure_store/secure_store.dart';
 import 'package:lykke_mobile_mavn/base/local_data_source/shared_preferences_manager/shared_preferences_manager.dart';
 import 'package:lykke_mobile_mavn/base/local_data_source/sim_info/sim_card_info_manager.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/campaign_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/conversion/conversion_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/country_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/customer_api.dart';
@@ -36,13 +38,13 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/mobile/mobile_sett
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/partner_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/phone/phone_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/referral_api.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/campaign_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/voucher_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/wallet/wallet_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/notification/notification_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/remote_config_manager/remote_config_keys.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/remote_config_manager/remote_config_manager.dart';
 import 'package:lykke_mobile_mavn/base/repository/balance_repository/balance_repository.dart';
+import 'package:lykke_mobile_mavn/base/repository/campaign/campaign_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/conversion/conversion_respository.dart';
 import 'package:lykke_mobile_mavn/base/repository/country/country_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/customer/customer_repository.dart';
@@ -58,7 +60,6 @@ import 'package:lykke_mobile_mavn/base/repository/pin/pin_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/referral/referral_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/token/token_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/user/user_repository.dart';
-import 'package:lykke_mobile_mavn/base/repository/campaign/campaign_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/voucher/voucher_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart';
 import 'package:lykke_mobile_mavn/base/router/external_router.dart';
@@ -89,10 +90,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AppModule extends Module {
   AppModule({
+    @required this.context,
     @required this.sharedPreferences,
     @required this.remoteConfig,
   });
 
+  final BuildContext context;
   final SharedPreferences sharedPreferences;
   final RemoteConfig remoteConfig;
 
@@ -242,7 +245,8 @@ class AppModule extends Module {
 
     provideSingleton(
       () => HttpClient(
-        remoteConfig.getString(RemoteConfigKeys.customerApiBaseRestUrl),
+        remoteConfig.getString(RemoteConfigKeys.customerApiBaseRestUrl) ??
+            'https://customer-api.mavn.ch/api',
         interceptors: [
           get<LogInterceptor>(),
           get<TokenInterceptor>(),
@@ -262,8 +266,9 @@ class AppModule extends Module {
 
     // Web socket WAMP client
     provideSingleton(() => WampClient(
-          url:
-              remoteConfig.getString(RemoteConfigKeys.customerApiBaseSocketUrl),
+          url: remoteConfig
+                  .getString(RemoteConfigKeys.customerApiBaseSocketUrl) ??
+              'wss://customer-api-ws.mavn.ch/ws',
           realm: walletSocketRealm,
         ));
 
@@ -349,7 +354,8 @@ class AppModule extends Module {
     provideSingleton<PendingPartnerPaymentsBloc>(
         () => PendingPartnerPaymentsBloc(get()));
 
-    provideSingleton(() => BiometricBloc(get(), get(), get(), get()));
+    provideSingleton(() => BiometricBloc(
+        get(), get(), get(), get(), LocalizedStrings.of(context)));
 
     provideSingleton(() => LoginBloc(get(), get()));
 

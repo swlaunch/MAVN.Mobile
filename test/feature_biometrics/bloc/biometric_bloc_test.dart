@@ -389,5 +389,5 @@ BiometricBloc _getSubjectWidget({MockLoginBloc mockLoginBloc}) => BiometricBloc(
     _mockLocalSettingsRepository,
     _mockLocalAuthentication,
     _mockUserRepository,
-    mockLoginBloc ?? MockLoginBloc(LoginUninitializedState()))
-  ..localizedStrings = _localizedStrings;
+    mockLoginBloc ?? MockLoginBloc(LoginUninitializedState()),
+    _localizedStrings);

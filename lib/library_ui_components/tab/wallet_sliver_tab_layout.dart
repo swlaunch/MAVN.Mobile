@@ -32,46 +32,12 @@ class _HomeSliverTabLayoutState extends State<HomeSliverTabLayout>
     with TickerProviderStateMixin {
   TabController _controller;
 
-  AnimationController _animationControllerOn;
-
-  AnimationController _animationControllerOff;
-
-  int _currentIndex = 0;
-  int _previousControllerIndex = 0;
-
-  double _animationValue = 0;
-  double _previousAnimationValue = 0;
-
-  final _scrollController = ScrollController();
   final _nestedScrollController = ScrollController();
-
-  bool _buttonTaped = false;
 
   @override
   void initState() {
     super.initState();
     _controller = TabController(vsync: this, length: widget.tabs.length);
-    _controller.animation.addListener(_handleTabAnimation);
-    _controller.addListener(_handleTabChange);
-
-    _animationControllerOff = AnimationController(
-        vsync: this,
-        duration: const Duration(milliseconds: animationDurationOff))
-      ..value = 1;
-
-    _animationControllerOn = AnimationController(
-        vsync: this,
-        duration: const Duration(milliseconds: animationDurationOn))
-      ..value = 1;
-
-    _nestedScrollController.addListener(() {
-      final isEnd = _nestedScrollController.offset ==
-          _nestedScrollController.position.maxScrollExtent;
-
-      if (isEnd) {
-        widget.tabs[_currentIndex].onScroll();
-      }
-    });
   }
 
   @override
@@ -93,6 +59,7 @@ class _HomeSliverTabLayoutState extends State<HomeSliverTabLayout>
                   widget.title,
                   style: TextStyles.lightHeadersH1,
                 ),
+                brightness: Brightness.dark,
                 centerTitle: true,
                 automaticallyImplyLeading: false,
                 backgroundColor: ColorStyles.white,
@@ -138,73 +105,4 @@ class _HomeSliverTabLayoutState extends State<HomeSliverTabLayout>
           ),
         ),
       );
-
-  void _handleTabAnimation() {
-    _animationValue = _controller.animation.value;
-
-    if (!_buttonTaped &&
-        (_animationValue - _previousAnimationValue).abs() < 1) {
-      _setCurrentIndex(_animationValue.round());
-    }
-    _previousAnimationValue = _animationValue;
-  }
-
-  void _handleTabChange() {
-    if (_buttonTaped) _setCurrentIndex(_controller.index);
-
-    if ((_controller.index == _previousControllerIndex) ||
-        (_controller.index == _animationValue.round())) _buttonTaped = false;
-
-    _previousControllerIndex = _controller.index;
-  }
-
-  void _setCurrentIndex(int index) {
-    if (index != _currentIndex) {
-      setState(() {
-        _currentIndex = index;
-      });
-
-      _triggerAnimation();
-      _scrollTo(index);
-    }
-  }
-
-  void _triggerAnimation() {
-    _animationControllerOn.reset();
-    _animationControllerOff.reset();
-
-    _animationControllerOn.forward();
-    _animationControllerOff.forward();
-  }
-
-  void _scrollTo(int index) {
-    double screenWidth = MediaQuery.of(context).size.width;
-
-    RenderBox renderBox =
-        widget.tabs[index].globalKey.currentContext.findRenderObject();
-    double size = renderBox.size.width;
-    double position = renderBox.localToGlobal(Offset.zero).dx;
-
-    double offset = (position + size / 2) - screenWidth / 2;
-
-    if (offset < 0) {
-      renderBox = widget.tabs.first.globalKey.currentContext.findRenderObject();
-      position = renderBox.localToGlobal(Offset.zero).dx;
-
-      if (position > offset) offset = position;
-    } else {
-      renderBox = widget.tabs.last.globalKey.currentContext.findRenderObject();
-      position = renderBox.localToGlobal(Offset.zero).dx;
-      size = renderBox.size.width;
-
-      if (position + size < screenWidth) screenWidth = position + size;
-
-      if (position + size - offset < screenWidth) {
-        offset = position + size - screenWidth;
-      }
-    }
-    _scrollController.animateTo(offset + _scrollController.offset,
-        duration: const Duration(milliseconds: animationDurationOn),
-        curve: Curves.easeInOut);
-  }
 }
