@@ -63,22 +63,22 @@
 	<string>This app may be required to access the microphone at a later date.</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>This app would like to use biometrics to help you login faster.</string>
-	 <key>NSLocationWhenInUseUsageDescription</key>
-    <string>This app needs access to location when open.</string>
-     <key>NSLocationAlwaysUsageDescription</key>
-    <string>This app needs access to location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to location when open.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app needs access to location.</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>whatsapp</string>
 	</array>
-	<key>URL types</key>
+	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>Document Role</key>
+			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
-			<key>URL identifier</key>
+			<key>CFBundleURLName</key>
 			<string>com.lykke.mavn</string>
-			<key>URL Schemes</key>
+			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.lykke.mavn</string>
 			</array>

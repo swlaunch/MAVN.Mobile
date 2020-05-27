@@ -17,6 +17,7 @@ class ContactUsPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizedStrings = useLocalizedStrings();
     final externalRouter = useExternalRouter();
     final errorMessageState = useState<String>();
     final getMobileSettingsUseCase = useGetMobileSettingsUseCase(context);
@@ -28,26 +29,26 @@ class ContactUsPage extends HookWidget {
     void onPhoneTap() {
       externalRouter.launchPhone(contactPhoneNumberState.value,
           onLaunchError: () => errorMessageState.value =
-              useLocalizedStrings().contactUsLaunchContactNumberError);
+              localizedStrings.contactUsLaunchContactNumberError);
     }
 
     void onEmailTap() {
       externalRouter.launchEmail(contactEmailState.value,
           onLaunchError: () => errorMessageState.value =
-              useLocalizedStrings().contactUsLaunchContactEmailError);
+              localizedStrings.contactUsLaunchContactEmailError);
     }
 
     Future<void> onWhatsAppTap() async {
       await externalRouter.pushWhatsApp(
           phone: contactPhoneNumberState.value,
-          message: useLocalizedStrings().contactUsWhatsAppStartingMessage);
+          message: localizedStrings.contactUsWhatsAppStartingMessage);
     }
 
     return ScaffoldWithAppBar(
       body: Column(
         children: [
           PageTitle(
-            title: useLocalizedStrings().contactUsButton,
+            title: localizedStrings.contactUsButton,
             assetIconLeading: SvgAssets.settingsContactUs,
           ),
           Expanded(
@@ -63,6 +64,7 @@ class ContactUsPage extends HookWidget {
                     onPhoneTap: onPhoneTap,
                     onEmailTap: onEmailTap,
                     onWhatsAppTap: onWhatsAppTap,
+                    localizedStrings: localizedStrings,
                   ),
                   const Spacer(),
                   if (errorMessageState.value != null)
@@ -85,18 +87,19 @@ class ContactUsPage extends HookWidget {
     VoidCallback onPhoneTap,
     VoidCallback onEmailTap,
     VoidCallback onWhatsAppTap,
+    LocalizedStrings localizedStrings,
   }) =>
       Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Text(useLocalizedStrings().contactUsPageDetail,
+          Text(localizedStrings.contactUsPageDetail,
               style: TextStyles.darkBodyBody1RegularHigh),
           const SizedBox(height: 32),
           if (contactNumber != null)
             _ContactOptionRow(
                 contactButtonThrottleInterval: contactButtonThrottleInterval,
                 icon: SvgAssets.phone,
-                title: useLocalizedStrings().contactUsPhoneNumber,
+                title: localizedStrings.contactUsPhoneNumber,
                 text: contactNumber,
                 onTap: onPhoneTap),
           const SizedBox(height: 32),
@@ -104,7 +107,7 @@ class ContactUsPage extends HookWidget {
             _ContactOptionRow(
                 contactButtonThrottleInterval: contactButtonThrottleInterval,
                 icon: SvgAssets.email,
-                title: useLocalizedStrings().contactUsEmail,
+                title: localizedStrings.contactUsEmail,
                 text: email,
                 onTap: onEmailTap),
           const SizedBox(height: 32),
@@ -112,7 +115,7 @@ class ContactUsPage extends HookWidget {
             _ContactOptionRow(
                 contactButtonThrottleInterval: contactButtonThrottleInterval,
                 icon: SvgAssets.whatsAppIcon,
-                title: useLocalizedStrings().contactUsWhatsApp,
+                title: localizedStrings.contactUsWhatsApp,
                 text: contactNumber,
                 onTap: onWhatsAppTap),
         ],

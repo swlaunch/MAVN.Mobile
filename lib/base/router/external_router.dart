@@ -47,6 +47,21 @@ class ExternalRouter {
     }
   }
 
+  Future<bool> launchWebsite(String urlString,
+      {VoidCallback onLaunchError}) async {
+    if (await canLaunchUrl(urlString)) {
+      await launch(
+        urlString,
+        forceSafariVC: false,
+      );
+      // The delay to prevent instances where invocation is so quick,
+      // throttling does not occur.
+      await Future.delayed(const Duration(milliseconds: 100));
+    } else {
+      if (onLaunchError != null) onLaunchError();
+    }
+  }
+
   Future<bool> launchEmail(
     String email, {
     String subject,
