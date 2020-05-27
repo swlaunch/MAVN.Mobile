@@ -4,6 +4,11 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>de</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>$(APP_DISPLAY_NAME)</string>
 	<key>CFBundleExecutable</key>
@@ -72,7 +77,7 @@
 			<key>Document Role</key>
 			<string>Editor</string>
 			<key>URL identifier</key>
-	        <string>com.lykke.mavn</string>
+			<string>com.lykke.mavn</string>
 			<key>URL Schemes</key>
 			<array>
 				<string>com.lykke.mavn</string>
