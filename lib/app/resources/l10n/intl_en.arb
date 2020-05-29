@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-05-21T12:40:29.249091",
+  "@@last_modified": "2020-05-29T13:58:54.820381",
   "networkErrorTitle": "Internet connection problem",
   "@networkErrorTitle": {
     "type": "text",
@@ -3272,6 +3272,16 @@
   },
   "emailBody": "Content",
   "@emailBody": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "locationDialogTitle": "Please turn on Location Services",
+  "@locationDialogTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "locationDialogDescription": "Location Services are not enabled on your device. Please enable them and try again.",
+  "@locationDialogDescription": {
     "type": "text",
     "placeholders": {}
   }

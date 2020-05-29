@@ -11,8 +11,19 @@ class CampaignRepository {
 
   static const itemsPerPage = 30;
 
-  Future<CampaignListResponseModel> getCampaigns({int currentPage}) =>
-      _campaignApi.getVouchers(itemsPerPage, currentPage);
+  Future<CampaignListResponseModel> getCampaigns({
+    int currentPage,
+    double long,
+    double lat,
+    double radius,
+  }) =>
+      _campaignApi.getCampaigns(
+        pageSize: itemsPerPage,
+        currentPage: currentPage,
+        long: long,
+        lat: lat,
+        radius: radius,
+      );
 
   Future<CampaignResponseModel> getCampaignDetails({
     @required String id,

@@ -3194,4 +3194,18 @@ class LocalizedStrings {
       );
 
 //endregion Email prefilling
+
+//region Location dialog
+
+  String get locationDialogTitle => Intl.message(
+        'Please turn on Location Services',
+        name: 'locationDialogTitle',
+      );
+
+  String get locationDialogDescription => Intl.message(
+      // ignore: lines_longer_than_80_chars
+      'Location Services are not enabled on your device. Please enable them and try again.',
+      name: 'locationDialogDescription');
+
+//endregion Location dialog
 }

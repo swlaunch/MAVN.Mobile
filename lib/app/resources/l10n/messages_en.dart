@@ -763,6 +763,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "We can’t find any item matching your search"),
         "listNoResultsTitle":
             MessageLookupByLibrary.simpleMessage("No results found"),
+        "locationDialogDescription": MessageLookupByLibrary.simpleMessage(
+            "Location Services are not enabled on your device. Please enable them and try again."),
+        "locationDialogTitle": MessageLookupByLibrary.simpleMessage(
+            "Please turn on Location Services"),
         "loginAlreadyInUseError": MessageLookupByLibrary.simpleMessage(
             "An account with this email already exists"),
         "loginPageEmailLabel": MessageLookupByLibrary.simpleMessage("Email"),

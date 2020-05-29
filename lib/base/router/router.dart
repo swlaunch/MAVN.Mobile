@@ -23,6 +23,7 @@ import 'package:lykke_mobile_mavn/library_qr_actions/actions/qr_base_action.dart
 import 'package:lykke_mobile_mavn/library_ui_components/dialog/custom_dialog.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/dialog/delete_account_dialog.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/dialog/enable_biometrics_dialog.dart';
+import 'package:lykke_mobile_mavn/library_ui_components/dialog/enable_location_dialog.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/dialog/log_out_confirmation_dialog.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/error/wallet_disabled_dialog.dart';
 import 'package:store_redirect/store_redirect.dart';
@@ -794,6 +795,9 @@ class Router extends BaseRouter {
       showDialog(
         child: ScannedInfoDialog(localizedStrings, action: action),
       );
+
+  Future<bool> showEnableLocationsDialog(LocalizedStrings localizedStrings) =>
+      showDialog(child: EnableLocationDialog(localizedStrings));
 
   //endregion Misc
 

@@ -1,3 +1,4 @@
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
@@ -12,12 +13,16 @@ import 'package:lykke_mobile_mavn/feature_bottom_bar/bloc/bottom_bar_page_bloc.d
 import 'package:lykke_mobile_mavn/feature_bottom_bar/bloc/bottom_bar_refresh_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_list/bloc/campaign_list_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_list/ui_components/campaign_widget.dart';
+import 'package:lykke_mobile_mavn/feature_location/bloc/user_location_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_location/bloc/user_location_bloc_state.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
+import 'package:lykke_mobile_mavn/library_custom_hooks/app_lifecycle_hook.dart';
 import 'package:lykke_mobile_mavn/library_custom_hooks/throttling_hook.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/list/infinite_list_view.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/material_hero.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/spinner.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/standard_sized_svg.dart';
+import 'package:pedantic/pedantic.dart';
 
 class CampaignListPage extends HookWidget {
   static const campaignHeroTag = 'campaign_';
@@ -25,13 +30,19 @@ class CampaignListPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final router = useRouter();
+    final localizedStrings = useLocalizedStrings();
+
     final campaignListBloc = useCampaignListBloc();
     final campaignListBlocState = useBlocState(campaignListBloc);
+
+    final userLocationBloc = useUserLocationBloc();
+
     final bottomBarPageBloc = useBottomBarPageBloc();
     final throttler = useThrottling(duration: const Duration(seconds: 30));
 
     final data = useState(<CampaignResponseModel>[]);
     final isErrorDismissed = useState(false);
+    final isReturningFromSettings = useState(false);
 
     void loadData() {
       isErrorDismissed.value = false;
@@ -40,17 +51,53 @@ class CampaignListPage extends HookWidget {
 
     void loadInitialData() {
       isErrorDismissed.value = false;
-      campaignListBloc.updateGenericList();
+      userLocationBloc.getUserLocation();
     }
 
-    useEffect(() {
-      loadInitialData();
-    }, [campaignListBloc]);
+    useBlocEventListener(userLocationBloc, (event) async {
+      ///if we have received location, load campaigns
+      if (event is UserLocationFetchedLocationEvent) {
+        isErrorDismissed.value = false;
+        unawaited(campaignListBloc.getCampaignsForUserLocation(
+            currentPosition: event.userPosition));
+        return;
+      }
+
+      ///if location is disabled, show prompt
+      else if (event is UserLocationServiceDisabledEvent) {
+        final result = await router.showEnableLocationsDialog(localizedStrings);
+
+        ///if user won't enable location
+        ///do not prompt them again
+        if (result) {
+          isReturningFromSettings.value = true;
+          await AppSettings.openLocationSettings();
+        } else {
+          userLocationBloc.stopUsingLocation();
+        }
+      }
+
+      ///in case we don't have location
+      ///just load all offers
+      unawaited(campaignListBloc.updateGenericList());
+    });
 
     useBlocEventListener(bottomBarPageBloc, (event) {
       if (event is BottomBarRefreshEvent &&
           event.index == BottomBarNavigationConstants.offersPageIndex) {
         throttler.throttle(loadInitialData);
+      }
+    });
+
+    useAppLifecycle((appLifecycleState) {
+      ///if the user comes back to the app and
+      ///it's from settings
+      if (appLifecycleState == AppLifecycleState.resumed &&
+          isReturningFromSettings.value) {
+        isReturningFromSettings.value = false;
+
+        ///try to get location again
+        loadInitialData();
       }
     });
 

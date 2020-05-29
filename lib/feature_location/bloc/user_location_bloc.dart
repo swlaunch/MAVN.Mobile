@@ -15,6 +15,17 @@ class UserLocationBloc extends Bloc<UserLocationState> {
   UserLocationState initialState() => UserLocationUninitializedState();
 
   Future<void> getUserLocation() async {
+    ///if user has not enabled location
+    ///or has denied permission
+    ///in this run of the app
+    ///do not attempt to get location again
+    if (currentState is UserLocationPermissionDeniedState ||
+        currentState is UserLocationDoNotUseLocationState) {
+      ///let the caller know that no location will be provided
+      sendEvent(UserLocationDoNotUseLocationEvent());
+      return;
+    }
+
     final serviceEnabled = await _checkServiceEnabled();
 
     ///If service is disabled, [_checkServiceEnabled] has already set the state,
@@ -40,6 +51,12 @@ class UserLocationBloc extends Bloc<UserLocationState> {
     ));
   }
 
+  ///set a state that will stop any further location usage
+  ///on this run
+  void stopUsingLocation() {
+    setState(UserLocationDoNotUseLocationState());
+  }
+
   Future<bool> _checkServiceEnabled() async {
     final serviceEnabled = await _location.serviceEnabled();
     if (!serviceEnabled) {
@@ -56,7 +73,9 @@ class UserLocationBloc extends Bloc<UserLocationState> {
     setState(hasPermission
         ? UserLocationPermissionGrantedState()
         : UserLocationPermissionDeniedState());
-
+    if (!hasPermission) {
+      sendEvent(UserLocationPermissionDeniedEvent());
+    }
     return hasPermission;
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/request_model/voucher_purchase_request_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/response_model/campaign_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/response_model/voucher_purchase_response_model.dart';
@@ -16,16 +17,25 @@ class CampaignApi extends BaseApi {
   static const String queryParamCurrentPage = 'CurrentPage';
   static const String queryParamPageSize = 'PageSize';
   static const String queryParamId = 'id';
+  static const String queryParamLong = 'Longitude';
+  static const String queryParamLat = 'Latitude';
+  static const String queryParamRadius = 'RadiusInKm';
 
-  Future<CampaignListResponseModel> getVouchers(
-    int pageSize,
-    int currentPage,
-  ) =>
+  Future<CampaignListResponseModel> getCampaigns({
+    @required int pageSize,
+    @required int currentPage,
+    double long,
+    double lat,
+    double radius,
+  }) =>
       exceptionHandledHttpClientRequest(() async {
         final response = await httpClient
             .get<Map<String, dynamic>>(vouchersPath, queryParameters: {
           queryParamCurrentPage: currentPage,
           queryParamPageSize: pageSize,
+          if (long != null) queryParamLong: long,
+          if (lat != null) queryParamLat: lat,
+          if (radius != null) queryParamRadius: radius,
         });
         return CampaignListResponseModel.fromJson(response.data);
       });

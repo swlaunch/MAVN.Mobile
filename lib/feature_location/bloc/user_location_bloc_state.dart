@@ -14,6 +14,8 @@ class UserLocationPermissionDeniedState extends UserLocationState {}
 
 class UserLocationServiceDisabledState extends UserLocationState {}
 
+class UserLocationDoNotUseLocationState extends UserLocationState {}
+
 class UserLocationLoadedState extends UserLocationState {
   UserLocationLoadedState({@required this.userPosition});
 
@@ -24,6 +26,10 @@ class UserLocationLoadedState extends UserLocationState {
 }
 
 class UserLocationServiceDisabledEvent extends UserLocationEvent {}
+
+class UserLocationPermissionDeniedEvent extends UserLocationEvent {}
+
+class UserLocationDoNotUseLocationEvent extends UserLocationEvent {}
 
 class UserLocationFetchedLocationEvent extends UserLocationEvent {
   UserLocationFetchedLocationEvent({@required this.userPosition});

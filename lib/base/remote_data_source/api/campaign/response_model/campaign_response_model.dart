@@ -18,6 +18,7 @@ class CampaignResponseModel {
     @required this.createdBy,
     @required this.vertical,
     @required this.imageUrl,
+    @required this.locations,
   });
 
   CampaignResponseModel.fromJson(Map<String, dynamic> json)
@@ -46,7 +47,8 @@ class CampaignResponseModel {
           enumValues: Vertical.values,
           defaultValue: null,
         ),
-        imageUrl = json['ImageUrl'];
+        imageUrl = json['ImageUrl'],
+        locations = Geolocation.toListFromJson(json['Geolocations']);
 
   static List<CampaignResponseModel> toListFromJson(List list) => list
       .map((vouchersJson) => CampaignResponseModel.fromJson(vouchersJson))
@@ -66,6 +68,7 @@ class CampaignResponseModel {
   final String createdBy;
   final Vertical vertical;
   final String imageUrl;
+  List<Geolocation> locations;
 }
 
 class CampaignListResponseModel {
@@ -84,3 +87,17 @@ class CampaignListResponseModel {
 }
 
 enum Vertical { hospitality, realEstate, retail }
+
+class Geolocation {
+  Geolocation({@required this.long, @required this.lat});
+
+  Geolocation.fromJson(Map<String, dynamic> json)
+      : long = json['Longitude'],
+        lat = json['Latitude'];
+
+  static List<Geolocation> toListFromJson(List list) =>
+      list.map((json) => Geolocation.fromJson(json)).toList();
+
+  final double long;
+  final double lat;
+}
