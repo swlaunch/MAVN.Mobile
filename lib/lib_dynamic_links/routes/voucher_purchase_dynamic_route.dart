@@ -21,8 +21,7 @@ class VoucherPurchaseDynamicRoute extends DynamicLinkRouteBase {
 
   @override
   Future<bool> routePendingRequest(BlocEvent fromEvent) async {
-    if ((fromEvent is VoucherPurchaseSuccessStoredKey &&
-            !router.isBoughtVouchersCurrentRoute) ||
+    if ((fromEvent is VoucherPurchaseSuccessStoredKey) ||
         (fromEvent == null && _voucherPurchaseSuccessBloc.hasBoughtVoucher())) {
       await _voucherPurchaseSuccessBloc.seeVoucher();
       router.pushBoughtVoucherSuccessPage();

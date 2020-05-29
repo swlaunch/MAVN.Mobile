@@ -31,7 +31,7 @@ class CampaignDetailsPage extends HookWidget {
 
     useBlocEventListener(voucherPurchaseBloc, (event) {
       if (event is VoucherPurchaseSuccessEvent) {
-        externalRouter.launchUrl(event.paymentUrl);
+        externalRouter.launchWebsite(event.paymentUrl);
       }
     });
 

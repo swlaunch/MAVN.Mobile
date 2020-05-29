@@ -755,22 +755,9 @@ class Router extends BaseRouter {
     );
   }
 
-  //TODO: Remove _isBoughtVouchersCurrentRoute custom implementation once
-  //we have ModalRoute.of(_navigatorKey.currentContext) working as expected.
-  bool get isBoughtVouchersCurrentRoute => _isBoughtVouchersCurrentRoute;
-
-  bool _isBoughtVouchersCurrentRoute = false;
-
   void pushBoughtVoucherSuccessPage() {
-    _isBoughtVouchersCurrentRoute = true;
-
-    //TODO open the bought vouchers tab when it's implemented
     popToRoot();
     switchToWalletTab();
-  }
-
-  void markAsClosedBoughtVouchersPage() {
-    _isBoughtVouchersCurrentRoute = false;
   }
 
   Future<void> pushVoucherDetailsPage({
@@ -828,6 +815,7 @@ class Router extends BaseRouter {
   }
 
 //endregion Misc
+
 }
 
 Router useRouter() => ModuleProvider.of<AppModule>(useContext()).router;
