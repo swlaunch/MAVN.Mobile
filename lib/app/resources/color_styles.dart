@@ -88,4 +88,5 @@ class ColorStyles {
   static const Color manatee = Color(0xff979DA3);
   static const Color manatee50 = Color(0x80979DA3);
   static const Color wildSand = Color(0xFFF4F4F4);
+  static const Color froly = Color(0xffF87B73);
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:lykke_mobile_mavn/feature_campaign_list/ui_components/pop_back_button.dart';
 
 class CampaignMapPage extends StatefulWidget {
   @override
@@ -19,12 +20,21 @@ class _CampaignMapPageState extends State<CampaignMapPage> {
   Widget build(BuildContext context) => Scaffold(
         body: SafeArea(
           top: false,
-          child: GoogleMap(
-            onMapCreated: _onMapCreated,
-            initialCameraPosition: CameraPosition(
-              target: _center,
-              zoom: 11.0,
-            ),
+          child: Stack(
+            children: <Widget>[
+              GoogleMap(
+                onMapCreated: _onMapCreated,
+                initialCameraPosition: CameraPosition(
+                  target: _center,
+                  zoom: 11.0,
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
+                child: FloatingBackButton(),
+              ),
+            ],
           ),
         ),
       );
