@@ -17,6 +17,7 @@ class VoucherCardWidget extends HookWidget {
     this.partnerName,
     this.voucherName,
     this.expirationDate,
+    this.purchaseDate,
     this.voucherStatus,
     this.price,
   });
@@ -26,16 +27,16 @@ class VoucherCardWidget extends HookWidget {
   final String partnerName;
   final String voucherName;
   final DateTime expirationDate;
+  final DateTime purchaseDate;
   final VoucherStatus voucherStatus;
   final FiatCurrency price;
 
   static const double _cardBorderRadius = 20;
-  static const double cardHeight = 200;
+  static const double cardHeight = 210;
   static const double _cardInsetSize = 16;
-  static const double _topSectionRatio = 0.61;
+  static const double _topSectionRatio = 0.60;
   static const double _horizontalPadding = 16;
   static const double _verticalPadding = 8;
-
   final DateFormat _dateFormatCurrentYear = DateFormat('dd-MM-yyyy');
 
   @override
@@ -43,8 +44,10 @@ class VoucherCardWidget extends HookWidget {
     final localizedStrings = useLocalizedStrings();
     final expirationDateText = expirationDate != null
         ? localizedStrings
-            .offerExpiresOn(_dateFormatCurrentYear.format(expirationDate))
+            .expirationDate(_dateFormatCurrentYear.format(expirationDate))
         : localizedStrings.offerNoExpirationDate;
+    final purchaseDateText = localizedStrings
+        .dateOfPurchase(_dateFormatCurrentYear.format(purchaseDate));
 
     const topHeight = cardHeight * _topSectionRatio;
 
@@ -98,20 +101,37 @@ class VoucherCardWidget extends HookWidget {
                       ),
                       //BOTTOM SECTION
                       Container(
-                        padding: const EdgeInsets.all(12),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 2),
                         width: double.infinity,
                         height: cardHeight - topHeight,
                         color: color,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(
+                            AutoSizeText(
                               voucherName,
+                              maxLines: 1,
                               style: TextStyles.lightHeadersH3,
                             ),
-                            Text(
-                              expirationDateText,
-                              style: TextStyles.body3Light,
+                            Row(
+                              children: <Widget>[
+                                Flexible(
+                                  child: AutoSizeText(
+                                    expirationDateText,
+                                    maxLines: 2,
+                                    style: TextStyles.body3Light,
+                                  ),
+                                ),
+                                Flexible(
+                                  child: AutoSizeText(
+                                    purchaseDateText,
+                                    maxLines: 2,
+                                    style: TextStyles.body3Light,
+                                  ),
+                                ),
+                              ],
                             )
                           ],
                         ),

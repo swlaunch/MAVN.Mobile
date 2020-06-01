@@ -3062,7 +3062,7 @@ class LocalizedStrings {
       );
 
   String offerExpiresOn(String expirationDate) => Intl.message(
-        'This offer expires on $expirationDate',
+        'This offer expires on: $expirationDate',
         name: 'offerExpiresOn',
         args: [expirationDate],
       );
@@ -3128,6 +3128,18 @@ class LocalizedStrings {
   String get expired => Intl.message(
         'Expired',
         name: 'expired',
+      );
+
+  String dateOfPurchase(String purchaseDate) => Intl.message(
+        'Date of purchase: $purchaseDate',
+        args: [purchaseDate],
+        name: 'dateOfPurchase',
+      );
+
+  String expirationDate(String expirationDate) => Intl.message(
+        'Expiration Date: $expirationDate',
+        args: [expirationDate],
+        name: 'expirationDate',
       );
 
 // endregion Voucher Details

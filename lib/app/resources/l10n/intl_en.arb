@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-05-29T13:58:54.820381",
+  "@@last_modified": "2020-05-29T17:29:09.178014",
   "networkErrorTitle": "Internet connection problem",
   "@networkErrorTitle": {
     "type": "text",
@@ -3152,7 +3152,7 @@
       "vendorName": {}
     }
   },
-  "offerExpiresOn": "This offer expires on {expirationDate}",
+  "offerExpiresOn": "This offer expires on: {expirationDate}",
   "@offerExpiresOn": {
     "type": "text",
     "placeholders": {
@@ -3213,6 +3213,20 @@
   "@expired": {
     "type": "text",
     "placeholders": {}
+  },
+  "dateOfPurchase": "Date of purchase: {purchaseDate}",
+  "@dateOfPurchase": {
+    "type": "text",
+    "placeholders": {
+      "purchaseDate": {}
+    }
+  },
+  "expirationDate": "Expiration Date: {expirationDate}",
+  "@expirationDate": {
+    "type": "text",
+    "placeholders": {
+      "expirationDate": {}
+    }
   },
   "notifications": "Notifications",
   "@notifications": {

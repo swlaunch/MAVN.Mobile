@@ -13,12 +13,16 @@ class ScaffoldWithSliverHero extends HookWidget {
     @required this.body,
     @required this.heroTag,
     @required this.heroWidget,
+    @required this.bottom,
+    @required this.error,
   });
 
   final String title;
   final Widget body;
   final String heroTag;
   final Widget heroWidget;
+  final Widget bottom;
+  final Widget error;
 
   static const double _sliverImageSize = 200;
 
@@ -55,12 +59,18 @@ class ScaffoldWithSliverHero extends HookWidget {
                       ),
                     ),
                   ),
-                  leading: CustomBackButton(color: ColorStyles.white),
+                  leading: const CustomBackButton(color: ColorStyles.white),
                 ),
-                SliverFillRemaining(child: body),
+                SliverToBoxAdapter(child: body),
               ],
             ),
             _buildHero(context, scrollController),
+            bottom,
+            if (error != null)
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: error,
+              )
           ],
         ),
       ),

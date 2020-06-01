@@ -30,6 +30,7 @@ class VoucherPurchaseSuccessBloc extends Bloc<VoucherPurchaseSuccessState> {
       await _localSettingsRepository.removeBoughtVouchersFlag();
 
       setState(VoucherPurchaseSuccessSuccessState());
+      sendEvent(VoucherPurchaseSuccessSuccessEvent());
     } on Exception {
       setState(VoucherPurchaseSuccessErrorState(
           error: LazyLocalizedStrings.somethingIsNotRightError));

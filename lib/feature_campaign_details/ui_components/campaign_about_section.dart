@@ -24,7 +24,10 @@ class CampaignAboutSection extends HookWidget {
             about,
             style: TextStyles.darkBodyBody2Black
                 .copyWith(color: ColorStyles.silverChalice),
-          )
+          ),
+
+          ///offset the bottom buttons
+          const SizedBox(height: 100)
         ],
       );
 }

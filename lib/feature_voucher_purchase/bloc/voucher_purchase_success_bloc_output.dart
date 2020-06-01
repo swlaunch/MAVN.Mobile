@@ -18,3 +18,5 @@ class VoucherPurchaseSuccessErrorState extends VoucherPurchaseSuccessState {
 }
 
 class VoucherPurchaseSuccessStoredKey extends BlocEvent {}
+
+class VoucherPurchaseSuccessSuccessEvent extends BlocEvent {}

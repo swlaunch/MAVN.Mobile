@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';

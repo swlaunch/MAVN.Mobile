@@ -47,54 +47,49 @@ class CampaignDetailsPage extends HookWidget {
         price: campaign.price,
         imageUrl: campaign.imageUrl,
       ),
+      bottom: BottomPrimaryButton(
+        text: localizedStrings.redeemOffer,
+        isLoading: voucherPurchaseState is VoucherPurchaseLoadingState,
+        onTap: reserveVoucher,
+      ),
+      error: _getErrorFromState(
+        context: context,
+        voucherPurchaseState: voucherPurchaseState,
+        onRetryTap: reserveVoucher,
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: CampaignWidget.cardHeight / 4),
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Stack(
-                children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 32, horizontal: 24),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        VoucherTopSection(partner: campaign.partnerName),
-                        const SizedBox(height: 32),
-                        CampaignAboutSection(about: campaign.description),
-                      ],
-                    ),
-                  ),
-                  BottomPrimaryButton(
-                    text: localizedStrings.redeemOffer,
-                    isLoading:
-                        voucherPurchaseState is VoucherPurchaseLoadingState,
-                    onTap: reserveVoucher,
-                  ),
-                  if (voucherPurchaseState is VoucherPurchaseNetworkErrorState)
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: _buildNetworkError(onRetryTap: reserveVoucher),
-                    ),
-                  if (voucherPurchaseState is VoucherPurchaseErrorState)
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: GenericErrorWidget(
-                          onRetryTap: reserveVoucher,
-                          text: voucherPurchaseState.error.localize(context)),
-                    )
-                ],
-              ),
-            ),
-          ],
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              VoucherTopSection(partner: campaign.partnerName),
+              const SizedBox(height: 32),
+              CampaignAboutSection(about: campaign.description),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildNetworkError({VoidCallback onRetryTap}) => Padding(
+  Widget _getErrorFromState({
+    BuildContext context,
+    VoucherPurchaseState voucherPurchaseState,
+    VoidCallback onRetryTap,
+  }) {
+    if (voucherPurchaseState is VoucherPurchaseNetworkErrorState) {
+      return Padding(
         padding: const EdgeInsets.all(24),
         child: NetworkErrorWidget(onRetry: onRetryTap),
       );
+    }
+    if (voucherPurchaseState is VoucherPurchaseErrorState) {
+      return GenericErrorWidget(
+          onRetryTap: onRetryTap,
+          text: voucherPurchaseState.error.localize(context));
+    }
+    return Container();
+  }
 }

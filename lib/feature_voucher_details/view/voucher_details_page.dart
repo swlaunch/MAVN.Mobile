@@ -6,11 +6,14 @@ import 'package:lykke_mobile_mavn/base/common_blocs/base_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_details_bloc_state.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_details_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
+import 'package:lykke_mobile_mavn/base/router/external_router.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_details/ui_components/campaign_about_section.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_details/ui_components/campaign_top_section.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_details/bloc/cancel_voucher_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_details/bloc/cancel_voucher_bloc_state.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_details/bloc/payment_url_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_details/bloc/payment_url_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_details/bloc/voucher_details_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_details/view/voucher_qr_widget.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_wallet/ui_components/voucher_card_widget.dart';
@@ -32,6 +35,7 @@ class VoucherDetailsPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final router = useRouter();
+    final externalRouter = useExternalRouter();
     final localizedStrings = useLocalizedStrings();
 
     final voucherDetailsBloc = useVoucherDetailsBloc();
@@ -40,9 +44,18 @@ class VoucherDetailsPage extends HookWidget {
     final cancelVoucherBloc = useCancelVoucherBloc();
     final cancelVoucherBlocState = useBlocState(cancelVoucherBloc);
 
+    final paymentUrlBloc = usePaymentUrlBloc();
+    final paymentUrlBlocState = useBlocState(paymentUrlBloc);
+
     useBlocEventListener(cancelVoucherBloc, (event) {
       if (event is CancelVoucherSuccessEvent) {
         router.pop();
+      }
+    });
+
+    useBlocEventListener(paymentUrlBloc, (event) {
+      if (event is PaymentUrlSuccessEvent) {
+        externalRouter.launchWebsite(event.paymentUrl);
       }
     });
 
@@ -65,11 +78,8 @@ class VoucherDetailsPage extends HookWidget {
       );
     }
 
-    void onBuyTap() {
-      router.pushComingSoonPage(
-        title: localizedStrings.redeemOffer,
-        hasBackButton: true,
-      );
+    void getPaymentUrl() {
+      paymentUrlBloc.getPaymentUrl(shortCode: voucher.shortCode);
     }
 
     final isLoading = [
@@ -88,9 +98,31 @@ class VoucherDetailsPage extends HookWidget {
           partnerName: voucher.partnerName,
           voucherName: voucher.campaignName,
           expirationDate: voucher.expirationDate,
+          purchaseDate: voucher.purchaseDate,
           voucherStatus: voucher.status,
           price: voucher.price,
         ),
+      ),
+      bottom: voucherDetailsBlocState is GenericDetailsLoadedState
+          ? _buildButtonBar(
+              voucherDetails: voucherDetailsBlocState.details,
+              localizedStrings: localizedStrings,
+              onSendToFriendTap: onSendToFriendTap,
+              onCancelTap: cancelVoucher,
+              onBuyTap: getPaymentUrl,
+              isCancelLoading: cancelVoucherBlocState is BaseLoadingState,
+              isPurchaseLoading: paymentUrlBlocState is PaymentUrlLoadingState,
+            )
+          : Container(),
+      error: _getErrorFromState(
+        localizedStrings: localizedStrings,
+        context: context,
+        voucherDetailsBlocState: voucherDetailsBlocState,
+        onLoadRetry: loadData,
+        cancelVoucherBlocState: cancelVoucherBlocState,
+        onCancelRetry: cancelVoucher,
+        paymentUrlState: paymentUrlBlocState,
+        onGetPaymentUrlRetry: getPaymentUrl,
       ),
       body: Stack(
         children: <Widget>[
@@ -106,41 +138,54 @@ class VoucherDetailsPage extends HookWidget {
               ],
             ),
           ),
-          if (voucherDetailsBlocState is GenericDetailsLoadedState)
-            _buildButtonBar(
-              voucherDetails: voucherDetailsBlocState.details,
-              localizedStrings: localizedStrings,
-              onSendToFriendTap: onSendToFriendTap,
-              onCancelTap: cancelVoucher,
-              onBuyTap: onBuyTap,
-              isCancelLoading: cancelVoucherBlocState is BaseLoadingState,
-            ),
           if (isLoading) const Center(child: Spinner()),
-          if (voucherDetailsBlocState is BaseNetworkErrorState)
-            _buildNetworkError(loadData),
-          if (voucherDetailsBlocState is GenericDetailsErrorState)
-            _buildGenericError(
-              onRetryTap: loadData,
-              text: localizedStrings.somethingIsNotRightError,
-            ),
-          if (cancelVoucherBlocState is BaseNetworkErrorState)
-            _buildNetworkError(cancelVoucher),
-          if (cancelVoucherBlocState is CancelVoucherErrorState)
-            _buildGenericError(
-              onRetryTap: cancelVoucher,
-              text: cancelVoucherBlocState.error.localize(context),
-            ),
         ],
       ),
     );
   }
 
-  Widget _buildNetworkError(VoidCallback onRetry) => Align(
-        alignment: Alignment.bottomCenter,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          child: NetworkErrorWidget(onRetry: onRetry),
-        ),
+  Widget _getErrorFromState({
+    @required LocalizedStrings localizedStrings,
+    @required BuildContext context,
+    @required GenericDetailsState voucherDetailsBlocState,
+    @required VoidCallback onLoadRetry,
+    @required CancelVoucherState cancelVoucherBlocState,
+    @required VoidCallback onCancelRetry,
+    @required PaymentUrlState paymentUrlState,
+    @required VoidCallback onGetPaymentUrlRetry,
+  }) {
+    if (voucherDetailsBlocState is BaseNetworkErrorState) {
+      return _buildNetworkError(onLoadRetry);
+    }
+    if (voucherDetailsBlocState is GenericDetailsErrorState) {
+      return _buildGenericError(
+        onRetryTap: onLoadRetry,
+        text: localizedStrings.somethingIsNotRightError,
+      );
+    }
+    if (cancelVoucherBlocState is BaseNetworkErrorState) {
+      return _buildNetworkError(onCancelRetry);
+    }
+    if (cancelVoucherBlocState is CancelVoucherErrorState) {
+      return _buildGenericError(
+        onRetryTap: onCancelRetry,
+        text: cancelVoucherBlocState.error.localize(context),
+      );
+    }
+    if (paymentUrlState is BaseNetworkErrorState) {
+      return _buildNetworkError(onGetPaymentUrlRetry);
+    }
+    if (paymentUrlState is PaymentUrlErrorState) {
+      return _buildGenericError(
+        onRetryTap: onGetPaymentUrlRetry,
+        text: paymentUrlState.error.localize(context),
+      );
+    }
+  }
+
+  Widget _buildNetworkError(VoidCallback onRetry) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        child: NetworkErrorWidget(onRetry: onRetry),
       );
 
   bool _voucherIsExpired() =>
@@ -224,11 +269,9 @@ class VoucherDetailsPage extends HookWidget {
     );
   }
 
-  Widget _buildGenericError({VoidCallback onRetryTap, String text}) => Align(
-        alignment: Alignment.bottomCenter,
-        child: GenericErrorWidget(
-          onRetryTap: onRetryTap,
-          text: text,
-        ),
+  Widget _buildGenericError({VoidCallback onRetryTap, String text}) =>
+      GenericErrorWidget(
+        onRetryTap: onRetryTap,
+        text: text,
       );
 }

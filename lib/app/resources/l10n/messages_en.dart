@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static m9(amountInToken, token, amountInCurrency, currency) =>
       "${amountInToken} ${token} = ${amountInCurrency} ${currency}";
 
+  static m97(purchaseDate) => "Date of purchase: ${purchaseDate}";
+
   static m10(days) =>
       "${Intl.plural(days, one: '${days} day ago', other: '${days} days ago')}";
 
@@ -63,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m18(email) =>
       "This link has expired, we’ve sent a new one to ${email}, please check your email and use the new link";
+
+  static m98(expirationDate) => "Expiration Date: ${expirationDate}";
 
   static m19(days) =>
       "${Intl.plural(days, one: '${days} day', other: '${days} days')}";
@@ -138,7 +142,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static m45(token) =>
       "Sorry, you do not have sufficient ${token} points for this activity";
 
-  static m46(expirationDate) => "This offer expires on ${expirationDate}";
+  static m46(expirationDate) => "This offer expires on: ${expirationDate}";
 
   static m47(appName) => "Welcome to ${appName}";
 
@@ -418,6 +422,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dapBrowserHint": MessageLookupByLibrary.simpleMessage(
             "You can also copy the linking url to open in a dApp Browser"),
         "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
+        "dateOfPurchase": m97,
         "dateTimeToday": MessageLookupByLibrary.simpleMessage("Today"),
         "dateTimeYesterday": MessageLookupByLibrary.simpleMessage("Yesterday"),
         "daysAgo": m10,
@@ -563,6 +568,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emptyPhoneNumberClientSideValidationError":
             MessageLookupByLibrary.simpleMessage("Phone number is required"),
         "enterAmountHint": MessageLookupByLibrary.simpleMessage("Enter amount"),
+        "expirationDate": m98,
         "expirationFormatDays": m19,
         "expired": MessageLookupByLibrary.simpleMessage("Expired"),
         "expiredReferralListEmptyState": MessageLookupByLibrary.simpleMessage(
