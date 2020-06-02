@@ -5,12 +5,13 @@ class TextStyles {
   TextStyles._();
 
   static const String commonFontFamily = 'NunitoSans';
+  static const String secondaryFontFamily = 'PlayFairDisplay';
 
   static const TextStyle h1PageHeader = TextStyle(
     color: ColorStyles.primaryDark,
-    fontFamily: commonFontFamily,
-    fontSize: 24,
-    fontWeight: FontWeight.w800,
+    fontFamily: secondaryFontFamily,
+    fontSize: 35,
+    fontWeight: FontWeight.w900,
   );
 
   static const TextStyle h1PageHeaderLight = TextStyle(
