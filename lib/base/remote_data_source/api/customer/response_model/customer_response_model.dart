@@ -15,6 +15,7 @@ class CustomerResponseModel {
     @required this.countryOfNationalityId,
     @required this.countryOfNationalityName,
     @required this.hasPin,
+    @required this.linkedPartnerId,
   });
 
   CustomerResponseModel.fromJson(Map<String, dynamic> json)
@@ -31,7 +32,8 @@ class CustomerResponseModel {
         isAccountBlocked = json['IsAccountBlocked'],
         countryOfNationalityId = json['CountryOfNationalityId'],
         countryOfNationalityName = json['CountryOfNationalityName'],
-        hasPin = json['HasPin'];
+        hasPin = json['HasPin'],
+        linkedPartnerId = json['LinkedPartnerId'];
 
   String get phoneNumberWithCode =>
       StringUtils.concatenate([phoneCountryCode, phoneNumber]);
@@ -48,4 +50,5 @@ class CustomerResponseModel {
   final int countryOfNationalityId;
   final String countryOfNationalityName;
   final bool hasPin;
+  final String linkedPartnerId;
 }

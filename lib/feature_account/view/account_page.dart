@@ -59,6 +59,11 @@ class AccountPage extends HookWidget {
         asset: SvgAssets.settingsPrivacy,
         onSelected: router.pushPrivacyPolicyPage,
       ),
+      _AccountSettingWithTrailingIcon(
+        title: useLocalizedStrings().linkBusinessAccount,
+        asset: SvgAssets.linkBusiness,
+        onSelected: router.pushSmeLinkingPage,
+      ),
       AccountSettingWithSwitch(
         title: Platform.isIOS
             ? useLocalizedStrings().accountPageBiometricsSignInOptionIOS

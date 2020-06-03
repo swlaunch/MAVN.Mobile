@@ -3220,4 +3220,84 @@ class LocalizedStrings {
       name: 'locationDialogDescription');
 
 //endregion Location dialog
+
+//region SME linking
+
+  String get linkBusinessAccount => Intl.message(
+        'Link business account',
+        name: 'linkBusinessAccount',
+      );
+
+  String get linkBusinessAccountDescription => Intl.message(
+        'Enter the details of the account you\'d like to link',
+        name: 'linkBusinessAccountDescription',
+      );
+
+  String get partnerCode => Intl.message(
+        'Partner Code',
+        name: 'partnerCode',
+      );
+
+  String get partnerCodeHint => Intl.message(
+        'Please enter your Partner Code',
+        name: 'partnerCodeHint',
+      );
+
+  String get linkingCode => Intl.message(
+        'Linking Code',
+        name: 'linkingCode',
+      );
+
+  String get linkingCodeHint => Intl.message(
+        'Please enter your Linking Code',
+        name: 'linkingCodeHint',
+      );
+
+  String get partnerCodeRequired => Intl.message(
+        'Partner code is required',
+        name: 'partnerCodeRequired',
+      );
+
+  String partnerCodeInvalid(int count) =>
+      Intl.message('Partner code must be $count characters long',
+          name: 'partnerCodeInvalid',
+          args: [count],
+          examples: const {'count': 8});
+
+  String get partnerLinkingCodeRequired => Intl.message(
+        'Partner code is required',
+        name: 'partnerLinkingCodeRequired',
+      );
+
+  String partnerLinkingCodeInvalidLength(int count) =>
+      Intl.message('Linking code must be $count characters long',
+          name: 'partnerLinkingCodeInvalidLength',
+          args: [count],
+          examples: const {'count': 8});
+
+  String get partnerLinkingCodeInvalid => Intl.message(
+        'Linking code must contain only alphanumeric characters',
+        name: 'partnerLinkingCodeInvalid',
+      );
+
+  String get smeLinkingSuccessPageTitle =>
+      Intl.message('Accounts Linked', name: 'smeLinkingSuccessPageTitle');
+
+  String get smeLinkingSuccessDetails => Intl.message(
+        // ignore: lines_longer_than_80_chars
+        'You have successfully linked your accounts. You can now scan vouchers.',
+        name: 'smeLinkingSuccessDetails',
+      );
+
+  String get smeLinkingAlreadyLinkedError => Intl.message(
+        'Your account is already linked to business.',
+        name: 'smeLinkingAlreadyLinkedError',
+      );
+
+  String get smeLinkingCredentialsError => Intl.message(
+        'Please check credentials and try again',
+        name: 'smeLinkingCredentialsError',
+      );
+
+//endregion SME linking
 }

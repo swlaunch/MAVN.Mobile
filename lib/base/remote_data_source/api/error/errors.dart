@@ -66,6 +66,9 @@ enum ServiceExceptionType {
   verificationCodeDoesNotExist,
   verificationCodeExpired,
   verificationCodeMismatch,
+  customerAlreadyLinkedToAPartner,
+  partnerLinkingInfoDoesNotExist,
+  partnerLinkingInfoDoesNotMatch,
 }
 
 class ServiceException extends Equatable implements Exception {

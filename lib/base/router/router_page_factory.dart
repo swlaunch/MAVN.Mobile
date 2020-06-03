@@ -11,6 +11,7 @@ import 'package:lykke_mobile_mavn/feature_account_deactivated/view/account_deact
 import 'package:lykke_mobile_mavn/feature_app_referral/di/friend_referral_module.dart';
 import 'package:lykke_mobile_mavn/feature_app_referral/view/friend_referral_page.dart';
 import 'package:lykke_mobile_mavn/feature_app_referral/view/friend_referral_success_page.dart';
+import 'package:lykke_mobile_mavn/feature_barcode_scan/di/barcode_scan_module.dart';
 import 'package:lykke_mobile_mavn/feature_biometrics/view/biometric_agreement_page.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/di/bottom_bar_module.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/view/bottom_bar_page.dart';
@@ -44,6 +45,9 @@ import 'package:lykke_mobile_mavn/feature_hotel_welcome/di/hotel_welcome_di.dart
 import 'package:lykke_mobile_mavn/feature_hotel_welcome/view/hotel_welcome_dialog.dart';
 import 'package:lykke_mobile_mavn/feature_landing/di/landing_di.dart';
 import 'package:lykke_mobile_mavn/feature_landing/view/landing_page.dart';
+import 'package:lykke_mobile_mavn/feature_link_sme_account/di/sme_linking_module.dart';
+import 'package:lykke_mobile_mavn/feature_link_sme_account/view/sme_linking_page.dart';
+import 'package:lykke_mobile_mavn/feature_link_sme_account/view/sme_linking_success_page.dart';
 import 'package:lykke_mobile_mavn/feature_login/di/login_module.dart';
 import 'package:lykke_mobile_mavn/feature_login/view/login_page.dart';
 import 'package:lykke_mobile_mavn/feature_maintenance/di/maintenance_module.dart';
@@ -519,9 +523,24 @@ class RouterPageFactory {
   static Widget getSocialPage() => SocialPage();
 
   //endregion Social
-  static Widget getMandatoryAppUpgradePage() => const MandatoryAppUpgradePage();
+
+  //region SME linking
+
+  static Widget getSmeLinkingPage() => MultiProvider(
+        providers: [
+          ModuleProvider(module: SmeLinkingModule()),
+          ModuleProvider(module: BarcodeScanModule()),
+        ],
+        child: SmeLinkingPage(),
+      );
+
+  static Widget getSmeLinkingSuccessPage() => SmeLinkingSuccessPage();
+
+  //endregion SME linking
 
   //region Misc
+  static Widget getMandatoryAppUpgradePage() => const MandatoryAppUpgradePage();
+
   static Widget getComingSoonPage({String title, bool hasBackButton}) =>
       ComingSoonPage(
         title: title,

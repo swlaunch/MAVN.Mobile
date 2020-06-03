@@ -451,3 +451,59 @@ class PublicAddressRequiredFieldValidation extends FieldValidation<String> {
           onValidationError: onValidationError,
         );
 }
+
+class PartnerCodeRequiredFieldValidation extends FieldValidation<String> {
+  PartnerCodeRequiredFieldValidation({
+    VoidCallback onValidationError,
+  }) : super(
+          validate: FieldValidators.requiredText,
+          localizedString: LazyLocalizedStrings.partnerCodeRequired,
+          onValidationError: onValidationError,
+        );
+}
+
+class PartnerCodeInvalidFieldValidation extends FieldValidation<String> {
+  PartnerCodeInvalidFieldValidation({
+    VoidCallback onValidationError,
+  }) : super(
+          validate:
+              FieldValidators.matchesLength(FieldConstants.partnerCodeLength),
+          localizedString: LazyLocalizedStrings.partnerCodeInvalid(
+              FieldConstants.partnerCodeLength),
+          onValidationError: onValidationError,
+        );
+}
+
+class PartnerLinkingCodeRequiredFieldValidation
+    extends FieldValidation<String> {
+  PartnerLinkingCodeRequiredFieldValidation({
+    VoidCallback onValidationError,
+  }) : super(
+          validate: FieldValidators.requiredText,
+          localizedString: LazyLocalizedStrings.partnerCodeRequired,
+          onValidationError: onValidationError,
+        );
+}
+
+class PartnerLinkingCodeInvalidLengthFieldValidation
+    extends FieldValidation<String> {
+  PartnerLinkingCodeInvalidLengthFieldValidation({
+    VoidCallback onValidationError,
+  }) : super(
+          validate:
+              FieldValidators.matchesLength(FieldConstants.linkingCodeLength),
+          localizedString: LazyLocalizedStrings.partnerLinkingCodeInvalidLength(
+              FieldConstants.partnerCodeLength),
+          onValidationError: onValidationError,
+        );
+}
+
+class PartnerLinkingCodeInvalidFieldValidation extends FieldValidation<String> {
+  PartnerLinkingCodeInvalidFieldValidation({
+    VoidCallback onValidationError,
+  }) : super(
+          validate: FieldValidators.alphaNumeric,
+          localizedString: LazyLocalizedStrings.paymentAmountInvalidError,
+          onValidationError: onValidationError,
+        );
+}

@@ -12,11 +12,11 @@ import 'package:lykke_mobile_mavn/base/constants/bottom_bar_navigation_constants
 import 'package:lykke_mobile_mavn/base/dependency_injection/app_module.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_balance/bloc/balance/balance_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_barcode_scan/bloc/barcode_scanner_manager.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/analytics/bottom_bar_analytics_manager.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/bloc/bottom_bar_page_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/di/bottom_bar_module.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/view/floating_action_button_location.dart';
-import 'package:lykke_mobile_mavn/feature_p2p_transactions/bloc/barcode_scanner_manager.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_purchase/bloc/voucher_purchase_success_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/lib_dynamic_links/dynamic_link_manager.dart';

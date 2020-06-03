@@ -226,6 +226,12 @@ class ExceptionToMessageMapper {
         return LazyLocalizedStrings.pinErrorIncorrectPassCode;
       case ServiceExceptionType.pinAlreadySet:
         return LocalizedStringBuilder.custom(exceptionMessage);
+      case ServiceExceptionType.customerAlreadyLinkedToAPartner:
+        return LazyLocalizedStrings.smeLinkingAlreadyLinkedError;
+      case ServiceExceptionType.partnerLinkingInfoDoesNotExist:
+        return LazyLocalizedStrings.smeLinkingCredentialsError;
+      case ServiceExceptionType.partnerLinkingInfoDoesNotMatch:
+        return LazyLocalizedStrings.smeLinkingCredentialsError;
     }
 
     return LocalizedStringBuilder.custom(exceptionMessage);

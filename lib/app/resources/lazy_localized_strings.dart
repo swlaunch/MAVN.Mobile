@@ -2376,4 +2376,29 @@ class LazyLocalizedStrings {
       _builder((_) => _.emailBody, 'emailBody');
 
 //endregion Email prefilling
+
+//region SME linking
+
+  static LocalizedStringBuilder get partnerCodeRequired =>
+      _builder((_) => _.partnerCodeRequired, 'partnerCodeRequired');
+
+  static LocalizedStringBuilder partnerCodeInvalid(int count) => _builder(
+      (_) => _.partnerCodeInvalid(count), 'partnerCodeInvalid($count)');
+
+  static LocalizedStringBuilder get partnerLinkingCodeRequired => _builder(
+      (_) => _.partnerLinkingCodeRequired, 'partnerLinkingCodeRequired');
+
+  static LocalizedStringBuilder partnerLinkingCodeInvalidLength(int count) =>
+      _builder((_) => _.partnerLinkingCodeInvalidLength(count),
+          'partnerLinkingCodeInvalidLength($count)');
+
+  static LocalizedStringBuilder get partnerLinkingCodeInvalid =>
+      _builder((_) => _.partnerLinkingCodeInvalid, 'partnerLinkingCodeInvalid');
+
+  static LocalizedStringBuilder get smeLinkingAlreadyLinkedError => _builder(
+      (_) => _.smeLinkingAlreadyLinkedError, 'smeLinkingAlreadyLinkedError');
+
+  static LocalizedStringBuilder get smeLinkingCredentialsError => _builder(
+      (_) => _.smeLinkingCredentialsError, 'smeLinkingCredentialsError');
+//endregion SME linking
 }

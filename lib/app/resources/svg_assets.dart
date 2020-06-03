@@ -46,6 +46,7 @@ class SvgAssets {
   static const String idDocument = 'assets/svg/id_document.svg';
   static const String infinity = 'assets/svg/infinity.svg';
   static const String leadReferral = 'assets/svg/lead_referral.svg';
+  static const String linkBusiness = 'assets/svg/link_business.svg';
   static const String linking = 'assets/svg/linking.svg';
   static const String linkingIcon = 'assets/svg/linking_icon.svg';
   static const String location = 'assets/svg/location.svg';
