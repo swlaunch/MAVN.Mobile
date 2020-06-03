@@ -102,36 +102,38 @@ class VoucherCardWidget extends HookWidget {
                       //BOTTOM SECTION
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 2),
+                            horizontal: 12, vertical: 4),
                         width: double.infinity,
                         height: cardHeight - topHeight,
                         color: color,
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            AutoSizeText(
-                              voucherName,
-                              maxLines: 1,
-                              style: TextStyles.lightHeadersH3,
+                            Flexible(
+                              flex: 2,
+                              child: AutoSizeText(
+                                voucherName,
+                                maxLines: 1,
+                                style: TextStyles.lightHeadersH3,
+                              ),
                             ),
-                            Row(
-                              children: <Widget>[
-                                Flexible(
-                                  child: AutoSizeText(
-                                    expirationDateText,
-                                    maxLines: 2,
-                                    style: TextStyles.body3Light,
-                                  ),
-                                ),
-                                Flexible(
-                                  child: AutoSizeText(
-                                    purchaseDateText,
-                                    maxLines: 2,
-                                    style: TextStyles.body3Light,
-                                  ),
-                                ),
-                              ],
+                            Flexible(
+                              flex: 1,
+                              child: AutoSizeText(
+                                expirationDateText,
+                                maxLines: 1,
+                                style: TextStyles.body3Light,
+                              ),
+                            ),
+                            Flexible(
+                              flex: 1,
+                              child: AutoSizeText(
+                                purchaseDateText,
+                                maxLines: 1,
+                                style: TextStyles.body3Light,
+                              ),
                             )
                           ],
                         ),

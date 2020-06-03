@@ -3142,6 +3142,10 @@ class LocalizedStrings {
         name: 'expirationDate',
       );
 
+  String get voucherNoExpirationDate => Intl.message(
+        'This offer has no expiration date',
+        name: 'voucherNoExpirationDate',
+      );
 // endregion Voucher Details
 
 //region Notifications
