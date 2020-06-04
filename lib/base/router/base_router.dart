@@ -79,7 +79,10 @@ class BaseRouter {
     _navigatorKey.currentState.popUntil((r) => r.isFirst);
   }
 
-  bool pop<T>([T result]) => _navigatorKey.currentState.pop<T>(result);
+  bool pop<T>([T result]) {
+    _navigatorKey.currentState.pop<T>(result);
+    return true;
+  }
 
   Future<bool> maybePop<T>([T result]) =>
       _navigatorKey.currentState.maybePop<T>(result);
@@ -93,7 +96,8 @@ class BaseRouter {
 
   bool popDialog<T>([T result]) {
     if (!ModalRoute.of(_navigatorKey.currentContext).isCurrent) {
-      return Navigator.of(_navigatorKey.currentContext).pop<T>(result);
+      Navigator.of(_navigatorKey.currentContext).pop<T>(result);
+      return true;
     }
 
     return false;

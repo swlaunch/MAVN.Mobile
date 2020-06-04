@@ -9,7 +9,7 @@ class ThenTextIsPresent
   @override
   Future<void> executeStep(String input) async {
     expect(
-      await FlutterDriverUtils.isPresent(find.text(input), world.driver),
+      await FlutterDriverUtils.isPresent(world.driver, find.text(input)),
       true,
     );
   }

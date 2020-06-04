@@ -9,8 +9,8 @@ class GivenIAmOnThePage extends Given1WithWorld<String, FlutterWorld> {
 
     expect(
         await FlutterDriverUtils.isPresent(
-          locator,
           world.driver,
+          locator,
           timeout: const Duration(seconds: 3),
         ),
         true);
