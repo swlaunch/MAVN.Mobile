@@ -201,7 +201,9 @@ class VoucherDetailsPage extends HookWidget {
             if (voucherDetails.voucher.status == VoucherStatus.sold &&
                 !_voucherIsExpired())
               VoucherQRWidget(
-                voucherCode: voucherDetails.validationCode,
+                partnerId: voucher.partnerId,
+                voucherCode: voucherDetails.voucher.shortCode,
+                validationCode: voucherDetails.validationCode,
               ),
           ],
         ),

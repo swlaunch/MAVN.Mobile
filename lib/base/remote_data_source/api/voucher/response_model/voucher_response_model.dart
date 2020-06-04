@@ -8,6 +8,7 @@ class VoucherResponseModel {
     @required this.shortCode,
     @required this.validationCodeHash,
     @required this.campaignId,
+    @required this.partnerId,
     @required this.status,
     @required this.ownerId,
     @required this.purchaseDate,
@@ -25,6 +26,7 @@ class VoucherResponseModel {
         shortCode = json['ShortCode'],
         validationCodeHash = json['ValidationCodeHash'],
         campaignId = json['CampaignId'],
+        partnerId = json['PartnerId'],
         status = EnumMapper.mapFromString(
           json['Status'],
           enumValues: VoucherStatus.values,
@@ -57,6 +59,7 @@ class VoucherResponseModel {
   final String shortCode;
   final String validationCodeHash;
   final String campaignId;
+  final String partnerId;
   final VoucherStatus status;
   final String ownerId;
   final DateTime purchaseDate;
@@ -77,7 +80,7 @@ class VoucherListResponseModel {
 
   VoucherListResponseModel.fromJson(Map<String, dynamic> json)
       : vouchers =
-            VoucherResponseModel.toListFromJson(json['SmartVouchers'] as List),
+  VoucherResponseModel.toListFromJson(json['SmartVouchers'] as List),
         totalCount = json['TotalCount'];
 
   final List<VoucherResponseModel> vouchers;
