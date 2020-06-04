@@ -41,19 +41,17 @@ class InfiniteListWidget<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _scrollController =
-        ScrollController(initialScrollOffset: 0, keepScrollOffset: true);
-
-    _scrollController.addListener(() {
-      final isEnd = _scrollController.offset ==
-          _scrollController.position.maxScrollExtent;
-      if (isEnd && loadData != null && !showError) loadData();
-    });
-
     if (isEmpty) {
       return _buildEmptyState();
     } else {
-      return _buildNonEmptyState(_scrollController);
+      return NotificationListener<ScrollNotification>(
+          onNotification: (scrollNotification) {
+            final isEnd = scrollNotification is ScrollUpdateNotification &&
+                scrollNotification.metrics.maxScrollExtent ==
+                    scrollNotification.metrics.pixels;
+            if (isEnd && loadData != null && !showError) loadData();
+          },
+          child: _buildNonEmptyState());
     }
   }
 
@@ -69,7 +67,7 @@ class InfiniteListWidget<T> extends StatelessWidget {
         ),
       );
 
-  Widget _buildNonEmptyState(ScrollController _scrollController) => Container(
+  Widget _buildNonEmptyState() => Container(
         color: backgroundColor,
         child: Stack(children: [
           Column(
@@ -81,7 +79,6 @@ class InfiniteListWidget<T> extends StatelessWidget {
                     padding: padding,
                     shrinkWrap: true,
                     itemCount: data.length,
-                    controller: _scrollController,
                     itemBuilder: (context, index) =>
                         itemBuilder(data[index], onItemTap, context),
                     separatorBuilder: (context, position) =>

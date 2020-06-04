@@ -39,6 +39,7 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/mobile/mobile_sett
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/partner/partner_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/phone/phone_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/referral/referral_api.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/sme/sme_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/voucher_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/wallet/wallet_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/notification/notification_api.dart';
@@ -59,6 +60,7 @@ import 'package:lykke_mobile_mavn/base/repository/partner/partner_repository.dar
 import 'package:lykke_mobile_mavn/base/repository/phone/phone_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/pin/pin_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/referral/referral_repository.dart';
+import 'package:lykke_mobile_mavn/base/repository/sme/sme_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/token/token_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/user/user_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/voucher/voucher_repository.dart';
@@ -151,6 +153,8 @@ class AppModule extends Module {
   VoucherRepository get voucherRepository => get();
 
   NotificationRepository get notificationRepository => get();
+
+  SmeRepository get smeRepository => get();
 
   NotificationCountBloc get notificationCountBloc => get();
 
@@ -315,6 +319,8 @@ class AppModule extends Module {
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
     provideSingleton(() => NotificationApi(
         get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
+    provideSingleton(() =>
+        SmeApi(get<HttpClient>(qualifierName: customerApiHttpClientQualifier)));
 
     provideSingleton(() => RemoteConfigManager(
           remoteConfig: remoteConfig,
@@ -349,6 +355,7 @@ class AppModule extends Module {
     provideSingleton(() => CampaignRepository(get()));
     provideSingleton(() => VoucherRepository(get()));
     provideSingleton(() => NotificationRepository(get()));
+    provideSingleton(() => SmeRepository(get()));
     provideSingleton(() => NotificationCountBloc(get()));
 
     // Bloc

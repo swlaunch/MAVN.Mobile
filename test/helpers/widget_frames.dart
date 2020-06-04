@@ -36,6 +36,7 @@ import 'package:lykke_mobile_mavn/base/repository/wallet/wallet_repository.dart'
 import 'package:lykke_mobile_mavn/base/router/external_router.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_balance/bloc/balance/balance_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_barcode_scan/bloc/barcode_scanner_manager.dart';
 import 'package:lykke_mobile_mavn/feature_biometrics/bloc/biometric_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_biometrics/bloc/biometric_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_debug_menu/bloc/debug_menu_bloc.dart';
@@ -47,7 +48,6 @@ import 'package:lykke_mobile_mavn/feature_login/bloc/login_form_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_login/bloc/login_form_state.dart';
 import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_count_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_count_bloc_output.dart';
-import 'package:lykke_mobile_mavn/feature_p2p_transactions/bloc/barcode_scanner_manager.dart';
 import 'package:lykke_mobile_mavn/feature_payment_request_list/bloc/pending_payment_requests_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_user_verification/bloc/user_verification_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc.dart';

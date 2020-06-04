@@ -215,4 +215,17 @@ class FieldValidators {
     }
     return double.tryParse(value.trim()) > 0;
   }
+
+  static FieldValidatorFn<String> matchesLength(int length) =>
+      (value) => value.length == length;
+
+  static bool alphaNumeric(String value) {
+    if (StringUtils.isNullOrWhitespace(value)) {
+      return true;
+    }
+
+    const pattern = r'^[a-zA-Z0-9]+$';
+    final regExp = RegExp(pattern, caseSensitive: false);
+    return regExp.hasMatch(value);
+  }
 }

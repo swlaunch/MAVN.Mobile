@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-05-29T17:29:09.178014",
+  "@@last_modified": "2020-06-03T12:51:33.653973",
   "networkErrorTitle": "Internet connection problem",
   "@networkErrorTitle": {
     "type": "text",
@@ -3228,6 +3228,11 @@
       "expirationDate": {}
     }
   },
+  "voucherNoExpirationDate": "This offer has no expiration date",
+  "@voucherNoExpirationDate": {
+    "type": "text",
+    "placeholders": {}
+  },
   "notifications": "Notifications",
   "@notifications": {
     "type": "text",
@@ -3296,6 +3301,89 @@
   },
   "locationDialogDescription": "Location Services are not enabled on your device. Please enable them and try again.",
   "@locationDialogDescription": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "linkBusinessAccount": "Link business account",
+  "@linkBusinessAccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "linkBusinessAccountDescription": "Enter the details of the account you'd like to link",
+  "@linkBusinessAccountDescription": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "partnerCode": "Partner Code",
+  "@partnerCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "partnerCodeHint": "Please enter your Partner Code",
+  "@partnerCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "linkingCode": "Linking Code",
+  "@linkingCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "linkingCodeHint": "Please enter your Linking Code",
+  "@linkingCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "partnerCodeRequired": "Partner code is required",
+  "@partnerCodeRequired": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "partnerCodeInvalid": "Partner code must be {count} characters long",
+  "@partnerCodeInvalid": {
+    "type": "text",
+    "placeholders": {
+      "count": {
+        "example": 8
+      }
+    }
+  },
+  "partnerLinkingCodeRequired": "Partner code is required",
+  "@partnerLinkingCodeRequired": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "partnerLinkingCodeInvalidLength": "Linking code must be {count} characters long",
+  "@partnerLinkingCodeInvalidLength": {
+    "type": "text",
+    "placeholders": {
+      "count": {
+        "example": 8
+      }
+    }
+  },
+  "partnerLinkingCodeInvalid": "Linking code must contain only alphanumeric characters",
+  "@partnerLinkingCodeInvalid": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smeLinkingSuccessPageTitle": "Accounts Linked",
+  "@smeLinkingSuccessPageTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smeLinkingSuccessDetails": "You have successfully linked your accounts. You can now scan vouchers.",
+  "@smeLinkingSuccessDetails": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smeLinkingAlreadyLinkedError": "Your account is already linked to business.",
+  "@smeLinkingAlreadyLinkedError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smeLinkingCredentialsError": "Please check credentials and try again",
+  "@smeLinkingCredentialsError": {
     "type": "text",
     "placeholders": {}
   }

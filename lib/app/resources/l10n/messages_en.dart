@@ -156,6 +156,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m51(token) => "Use ${token} points easily";
 
+  static m99(count) => "Partner code must be ${count} characters long";
+
+  static m100(count) => "Linking code must be ${count} characters long";
+
   static m52(count) =>
       "${Intl.plural(count, one: 'Make sure your password contains at least one lower case character', other: 'Make sure your password contains at least ${count} lower case characters')}";
 
@@ -704,6 +708,10 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Enter public account address"),
         "linkAdvancedWalletTextFieldPublicAddressTitle":
             MessageLookupByLibrary.simpleMessage("Public account address"),
+        "linkBusinessAccount":
+            MessageLookupByLibrary.simpleMessage("Link business account"),
+        "linkBusinessAccountDescription": MessageLookupByLibrary.simpleMessage(
+            "Enter the details of the account you\'d like to link"),
         "linkSimpleWalletDescription": MessageLookupByLibrary.simpleMessage(
             "To link to a simple wallet, copy the linking url and paste in your external wallet"),
         "linkSimpleWalletHeader":
@@ -755,6 +763,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Your external wallet"),
         "linkedWalletSendHint": m33,
         "linkedWalletSendTitle": m34,
+        "linkingCode": MessageLookupByLibrary.simpleMessage("Linking Code"),
+        "linkingCodeHint": MessageLookupByLibrary.simpleMessage(
+            "Please enter your Linking Code"),
         "linkingRequestAlreadyApprovedError":
             MessageLookupByLibrary.simpleMessage(
                 "Error. This linking request has already been approved"),
@@ -864,8 +875,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboardingSkipButton": MessageLookupByLibrary.simpleMessage("Skip"),
         "outOfStockDescription": MessageLookupByLibrary.simpleMessage(
             "The vouchers in this offer are currently sold out."),
+        "partnerCode": MessageLookupByLibrary.simpleMessage("Partner Code"),
+        "partnerCodeHint": MessageLookupByLibrary.simpleMessage(
+            "Please enter your Partner Code"),
+        "partnerCodeInvalid": m99,
+        "partnerCodeRequired":
+            MessageLookupByLibrary.simpleMessage("Partner code is required"),
         "partnerDetailsPageTitle":
             MessageLookupByLibrary.simpleMessage("Partner Details"),
+        "partnerLinkingCodeInvalid": MessageLookupByLibrary.simpleMessage(
+            "Linking code must contain only alphanumeric characters"),
+        "partnerLinkingCodeInvalidLength": m100,
+        "partnerLinkingCodeRequired":
+            MessageLookupByLibrary.simpleMessage("Partner code is required"),
         "passwordGuide": MessageLookupByLibrary.simpleMessage(
             "We care about your security, please make sure your password has at least:"),
         "passwordHint": MessageLookupByLibrary.simpleMessage("Enter password"),
@@ -1111,6 +1133,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Metamask, Coinbase, Trust wallet, ..."),
         "simpleWalletsTitle":
             MessageLookupByLibrary.simpleMessage("Simple wallets"),
+        "smeLinkingAlreadyLinkedError": MessageLookupByLibrary.simpleMessage(
+            "Your account is already linked to business."),
+        "smeLinkingCredentialsError": MessageLookupByLibrary.simpleMessage(
+            "Please check credentials and try again"),
+        "smeLinkingSuccessDetails": MessageLookupByLibrary.simpleMessage(
+            "You have successfully linked your accounts. You can now scan vouchers."),
+        "smeLinkingSuccessPageTitle":
+            MessageLookupByLibrary.simpleMessage("Accounts Linked"),
         "socialPageComingSoon":
             MessageLookupByLibrary.simpleMessage("Coming Soon"),
         "socialPageTitle": MessageLookupByLibrary.simpleMessage("Community"),
@@ -1295,6 +1325,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Available balance"),
         "voucherListEmpty": MessageLookupByLibrary.simpleMessage(
             "There are no vouchers available at the moment"),
+        "voucherNoExpirationDate": MessageLookupByLibrary.simpleMessage(
+            "This offer has no expiration date"),
         "voucherSoldCountInfo": m87,
         "voucherStockCount": m88,
         "vouchers": MessageLookupByLibrary.simpleMessage("Vouchers"),

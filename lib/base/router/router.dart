@@ -799,6 +799,24 @@ class Router extends BaseRouter {
 
 //endregion Notifications
 
+//region SME linking
+
+  Future<void> pushSmeLinkingPage() async {
+    await pushPage(
+      RouterPageFactory.getSmeLinkingPage(),
+      pageName: RouterPageName.smeLinkingPage,
+    );
+  }
+
+  Future<void> replaceWithSmeLinkingSuccessPage() async {
+    await replacePage(
+      RouterPageFactory.getSmeLinkingSuccessPage(),
+      pageName: RouterPageName.smeLinkingSuccessPage,
+    );
+  }
+
+//endregion SME linking
+
 //region Misc
 
   Future<void> pushComingSoonPage({
