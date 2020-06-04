@@ -17,7 +17,7 @@ class MainPageTitle extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(title, style: TextStyles.darkHeadersH2),
+            Text(title, style: TextStyles.darkHeaderTitle),
             if (subtitle != null)
               Text(subtitle, style: TextStyles.darkBodyBody1Regular),
             const SizedBox(height: 16),

@@ -117,7 +117,7 @@ class CampaignListPage extends HookWidget {
                 SliverAppBar(
                   title: Text(
                     localizedStrings.offers,
-                    style: TextStyles.lightHeadersH2,
+                    style: TextStyles.lightHeaderTitle,
                   ),
                   brightness: Brightness.dark,
                   centerTitle: true,

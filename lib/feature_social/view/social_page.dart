@@ -14,7 +14,7 @@ class SocialPage extends HookWidget {
         appBar: AppBar(
           title: Text(
             useLocalizedStrings().socialPageTitle,
-            style: TextStyles.h1PageHeader,
+            style: TextStyles.darkHeaderTitle,
           ),
           brightness: Brightness.light,
           backgroundColor: ColorStyles.alabaster,

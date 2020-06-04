@@ -125,3 +125,7 @@ flutter:
           weight: 800
         - asset: assets/fonts/nunito-sans/NunitoSans-Black.ttf
           weight: 900
+    - family: PlayfairDisplay
+      fonts:
+        - asset: assets/fonts/playfair-display/PlayfairDisplay-Black.ttf
+          weight: 900

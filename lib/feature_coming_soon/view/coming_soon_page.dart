@@ -21,7 +21,7 @@ class ComingSoonPage extends HookWidget {
           title: title != null
               ? Text(
                   title,
-                  style: TextStyles.h1PageHeader,
+                  style: TextStyles.darkHeaderTitle,
                 )
               : Container(),
           brightness: Brightness.light,
