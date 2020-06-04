@@ -2,9 +2,9 @@ import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
+import 'package:lykke_mobile_mavn/app/resources/image_assets.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
-import 'package:lykke_mobile_mavn/app/resources/image_assets.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/constants/bottom_bar_navigation_constants.dart';
@@ -112,11 +112,11 @@ class CampaignListPage extends HookWidget {
         top: false,
         child: Stack(
           children: [
-            CustomScrollView(
-              slivers: <Widget>[
+            NestedScrollView(
+              headerSliverBuilder: (context, isScrolling) => [
                 SliverAppBar(
                   title: Text(
-                    useLocalizedStrings().offers,
+                    localizedStrings.offers,
                     style: TextStyles.lightHeadersH2,
                   ),
                   brightness: Brightness.dark,
@@ -130,10 +130,10 @@ class CampaignListPage extends HookWidget {
                   actions: <Widget>[
                     IconButton(
                       key: const Key('campaignListMapButton'),
-                      tooltip: useLocalizedStrings().accountPageTitle,
+                      tooltip: localizedStrings.accountPageTitle,
                       icon: StandardSizedSvg(
                         SvgAssets.location,
-                        color: ColorStyles.primaryDark,
+                        color: ColorStyles.white,
                       ),
                       onPressed: router.pushCampaignMapPage,
                     ),
@@ -148,54 +148,50 @@ class CampaignListPage extends HookWidget {
                     ),
                   ),
                 ),
-                SliverFillRemaining(
-                  child: RefreshIndicator(
-                    color: ColorStyles.gold1,
-                    onRefresh: () async =>
-                        campaignListBloc.updateGenericList(refresh: true),
-                    child: Column(
-                      children: <Widget>[
-                        Expanded(
-                          child: InfiniteListWidget(
-                            data: data.value,
-                            padding: const EdgeInsets.symmetric(horizontal: 24),
-                            errorPadding: const EdgeInsets.all(16),
-                            backgroundColor: ColorStyles.offWhite,
-                            isLoading: campaignListBlocState
-                                is GenericListPaginationLoadingState,
-                            isEmpty:
-                                campaignListBlocState is GenericListEmptyState,
-                            emptyText: useLocalizedStrings().voucherListEmpty,
-                            emptyIcon: SvgAssets.voucher,
-                            retryOnError: loadData,
-                            loadData: loadData,
-                            showError:
-                                campaignListBlocState is GenericListErrorState,
-                            errorText:
-                                campaignListBlocState is GenericListErrorState
-                                    ? campaignListBlocState.error
-                                        .localize(useContext())
-                                    : null,
-                            itemBuilder: (campaign, _, itemContext) => InkWell(
-                              onTap: () => router.pushCampaignDetailsPage(
-                                  campaign: campaign),
-                              child: MaterialHero(
-                                tag: '$campaignHeroTag${campaign.id}',
-                                child: CampaignWidget(
-                                  title: campaign.name,
-                                  imageUrl: campaign.imageUrl,
-                                  price: campaign.price,
-                                ),
-                              ),
+              ],
+              body: RefreshIndicator(
+                color: ColorStyles.gold1,
+                onRefresh: () async =>
+                    campaignListBloc.updateGenericList(refresh: true),
+                child: Column(
+                  children: <Widget>[
+                    Expanded(
+                      child: InfiniteListWidget(
+                        data: data.value,
+                        padding: const EdgeInsets.symmetric(horizontal: 24),
+                        errorPadding: const EdgeInsets.all(16),
+                        backgroundColor: ColorStyles.offWhite,
+                        isLoading: campaignListBlocState
+                            is GenericListPaginationLoadingState,
+                        isEmpty: campaignListBlocState is GenericListEmptyState,
+                        emptyText: localizedStrings.voucherListEmpty,
+                        emptyIcon: SvgAssets.voucher,
+                        retryOnError: loadData,
+                        loadData: loadData,
+                        showError:
+                            campaignListBlocState is GenericListErrorState,
+                        errorText: campaignListBlocState
+                                is GenericListErrorState
+                            ? campaignListBlocState.error.localize(useContext())
+                            : null,
+                        itemBuilder: (campaign, _, itemContext) => InkWell(
+                          onTap: () => router.pushCampaignDetailsPage(
+                              campaign: campaign),
+                          child: MaterialHero(
+                            tag: '$campaignHeroTag${campaign.id}',
+                            child: CampaignWidget(
+                              title: campaign.name,
+                              imageUrl: campaign.imageUrl,
+                              price: campaign.price,
                             ),
-                            separatorBuilder: (position) => Container(),
                           ),
                         ),
-                      ],
+                        separatorBuilder: (position) => Container(),
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  ],
+                ),
+              ),
             ),
             if (campaignListBlocState is GenericListLoadingState)
               const Center(child: Spinner())
