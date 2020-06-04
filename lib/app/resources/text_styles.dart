@@ -5,13 +5,29 @@ class TextStyles {
   TextStyles._();
 
   static const String commonFontFamily = 'NunitoSans';
-  static const String secondaryFontFamily = 'PlayFairDisplay';
+  static const String headerTitleFontFamily = 'PlayFairDisplay';
+
+  static const TextStyle darkHeaderTitle = TextStyle(
+    color: ColorStyles.primaryDark,
+    fontFamily: headerTitleFontFamily,
+    fontStyle: FontStyle.normal,
+    fontSize: 35,
+    fontWeight: FontWeight.w900,
+  );
+
+  static const TextStyle lightHeaderTitle = TextStyle(
+    color: ColorStyles.white,
+    fontFamily: headerTitleFontFamily,
+    fontStyle: FontStyle.normal,
+    fontSize: 35,
+    fontWeight: FontWeight.w900,
+  );
 
   static const TextStyle h1PageHeader = TextStyle(
     color: ColorStyles.primaryDark,
-    fontFamily: secondaryFontFamily,
-    fontSize: 35,
-    fontWeight: FontWeight.w900,
+    fontFamily: commonFontFamily,
+    fontSize: 24,
+    fontWeight: FontWeight.w800,
   );
 
   static const TextStyle h1PageHeaderLight = TextStyle(

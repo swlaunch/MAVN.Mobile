@@ -57,7 +57,7 @@ class _HomeSliverTabLayoutState extends State<HomeSliverTabLayout>
               SliverAppBar(
                 title: Text(
                   widget.title,
-                  style: TextStyles.lightHeadersH1,
+                  style: TextStyles.lightHeaderTitle,
                 ),
                 brightness: Brightness.dark,
                 centerTitle: true,

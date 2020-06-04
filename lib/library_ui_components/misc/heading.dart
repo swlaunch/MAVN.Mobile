@@ -84,8 +84,9 @@ class Heading extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Text(
             text,
-            style:
-                invert ? TextStyles.lightHeadersH2 : TextStyles.darkHeadersH2,
+            style: invert
+                ? TextStyles.lightHeaderTitle
+                : TextStyles.darkHeaderTitle,
             textAlign: TextAlign.left,
           ),
         ),

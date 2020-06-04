@@ -110,7 +110,7 @@ class CampaignListPage extends HookWidget {
       appBar: AppBar(
         title: Text(
           useLocalizedStrings().offers,
-          style: TextStyles.h1PageHeader,
+          style: TextStyles.darkHeaderTitle,
         ),
         brightness: Brightness.light,
         backgroundColor: ColorStyles.alabaster,
