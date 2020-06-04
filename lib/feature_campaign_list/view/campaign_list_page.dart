@@ -115,10 +115,8 @@ class CampaignListPage extends HookWidget {
             NestedScrollView(
               headerSliverBuilder: (context, isScrolling) => [
                 SliverAppBar(
-                  title: Text(
-                    localizedStrings.offers,
-                    style: TextStyles.lightHeaderTitle
-                  ),
+                  title: Text(localizedStrings.offers,
+                      style: TextStyles.lightHeaderTitle),
                   brightness: Brightness.dark,
                   centerTitle: true,
                   automaticallyImplyLeading: false,
