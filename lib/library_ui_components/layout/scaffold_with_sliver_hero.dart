@@ -41,7 +41,7 @@ class ScaffoldWithSliverHero extends HookWidget {
                 SliverAppBar(
                   title: Text(
                     title,
-                    style: TextStyles.h1PageHeaderLight,
+                    style: TextStyles.lightHeaderTitle,
                   ),
                   centerTitle: true,
                   automaticallyImplyLeading: false,

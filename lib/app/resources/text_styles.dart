@@ -11,7 +11,7 @@ class TextStyles {
     color: ColorStyles.primaryDark,
     fontFamily: headerTitleFontFamily,
     fontStyle: FontStyle.normal,
-    fontSize: 35,
+    fontSize: 26,
     fontWeight: FontWeight.w900,
   );
 
@@ -19,7 +19,7 @@ class TextStyles {
     color: ColorStyles.white,
     fontFamily: headerTitleFontFamily,
     fontStyle: FontStyle.normal,
-    fontSize: 35,
+    fontSize: 26,
     fontWeight: FontWeight.w900,
   );
 
