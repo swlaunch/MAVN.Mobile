@@ -7,8 +7,8 @@ import '../../../mock_classes.dart';
 void main() {
   group('SharedPreferencesManager tests', () {
     final mockSharedPreferences = MockSharedPreferences();
-    const String stubKey = 'stubKey';
-    const String stubValue = '123';
+    const stubKey = 'stubKey';
+    const stubValue = '123';
 
     test('read', () async {
       when(mockSharedPreferences.getString('stubKey')).thenReturn(stubValue);

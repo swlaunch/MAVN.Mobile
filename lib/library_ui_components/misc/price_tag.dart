@@ -10,9 +10,9 @@ class PriceTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: ColorStyles.resolutionBlue,
-          borderRadius: const BorderRadius.all(Radius.circular(4)),
+          borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
         padding: const EdgeInsets.all(4),
         width: 70,

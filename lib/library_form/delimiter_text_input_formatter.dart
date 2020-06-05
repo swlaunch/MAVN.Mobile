@@ -10,7 +10,7 @@ class DelimiterTextInputFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
       TextEditingValue oldValue, TextEditingValue newValue) {
-    String truncated = newValue.text;
+    var truncated = newValue.text;
     final newSelection = newValue.selection;
 
     if (newValue.text.contains(_commaSeparator)) {

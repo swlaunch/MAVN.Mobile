@@ -20,10 +20,10 @@ class MockHttpHeaders extends Mock implements HttpHeaders {}
 // Returns a mock HTTP client that responds with an image to all requests.
 MockHttpClient _createMockImageHttpClient(
     SecurityContext _, List<int> imageBytes) {
-  final MockHttpClient client = MockHttpClient();
-  final MockHttpClientRequest request = MockHttpClientRequest();
-  final MockHttpClientResponse response = MockHttpClientResponse();
-  final MockHttpHeaders headers = MockHttpHeaders();
+  final client = MockHttpClient();
+  final request = MockHttpClientRequest();
+  final response = MockHttpClientResponse();
+  final headers = MockHttpHeaders();
 
   when(client.getUrl(any))
       .thenAnswer((_) => Future<HttpClientRequest>.value(request));

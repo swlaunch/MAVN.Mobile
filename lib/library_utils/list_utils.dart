@@ -1,4 +1,4 @@
-typedef Comparable<U> _ComparableSelector<T, U>(T item);
+typedef _ComparableSelector<T, U> = Comparable<U> Function(T item);
 
 class ListUtils {
   static bool isNullOrEmpty(List list) => list == null || list.isEmpty;

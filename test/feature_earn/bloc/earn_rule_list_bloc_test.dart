@@ -34,8 +34,7 @@ void main() {
     });
 
     test('loadEarnRules success', () async {
-      final EarnRuleListResponseModel earnRuleListResponseModel =
-          EarnRuleListResponseModel(
+      final earnRuleListResponseModel = EarnRuleListResponseModel(
         earnRuleList: TestConstants.stubEarnRuleList,
         totalCount: TestConstants.stubEarnRuleList.length,
         currentPage: TestConstants.stubCurrentPage,

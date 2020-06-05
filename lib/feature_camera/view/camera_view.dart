@@ -129,7 +129,7 @@ class CameraView extends HookWidget {
               builder: (context, constraints) {
                 final picturePreviewRectWidth = constraints.maxWidth * 0.85;
                 final picturePreviewRectHeight = picturePreviewRectWidth * 0.7;
-                final double verticalMargin = max(
+                final verticalMargin = max(
                   0,
                   (constraints.maxHeight - picturePreviewRectHeight) / 2,
                 );

@@ -151,7 +151,7 @@ class EarnRuleHowItWorksSection extends HookWidget {
   }
 
   Widget _buildIndicativeAmountText() {
-    String indicativeAmountText =
+    var indicativeAmountText =
         useLocalizedStrings().earnRuleIndicativeAmountInfoGeneric;
 
     if (extendedEarnRule.isHospitalityOffer()) {

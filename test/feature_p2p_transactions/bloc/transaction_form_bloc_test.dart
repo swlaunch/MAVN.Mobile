@@ -174,8 +174,8 @@ void main() {
     });
 
     test('startScan success', () async {
-      when(_mockBarcodeScanManager.startScan())
-          .thenAnswer((_) => Future<String>.value(TestConstants.stubBarcode));
+      when(_mockBarcodeScanManager.startScan()).thenAnswer(
+          (_) => Future<ScanResult>.value(TestConstants.stubBarcodeScanResult));
 
       await _subject.startScan();
 
@@ -184,7 +184,7 @@ void main() {
       _expectedFullBlocOutput.addAll([
         TransactionFormUninitializedState(),
         BarcodeUninitializedState(),
-        BarcodeScanSuccessEvent(TestConstants.stubBarcode),
+        BarcodeScanSuccessEvent(TestConstants.stubBarcodeScanResult.rawContent),
       ]);
 
       await _blocTester.assertFullBlocOutputInAnyOrder(_expectedFullBlocOutput);
@@ -192,7 +192,7 @@ void main() {
 
     test('startScan permission error', () async {
       when(_mockBarcodeScanManager.startScan()).thenThrow(
-          PlatformException(code: BarcodeScanner.CameraAccessDenied));
+          PlatformException(code: BarcodeScanner.cameraAccessDenied));
 
       await _subject.startScan();
 

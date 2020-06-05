@@ -1,7 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-typedef void AppLifecycleCallback(AppLifecycleState appLifecycleState);
+typedef AppLifecycleCallback = void Function(
+    AppLifecycleState appLifecycleState);
 
 void useAppLifecycle(AppLifecycleCallback appLifecycleCallback) =>
     Hook.use(_AppLifecycleHook(appLifecycleCallback));

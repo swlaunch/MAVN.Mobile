@@ -153,8 +153,8 @@ class FormHelper {
   }
 
   String _generateNumberOfCharacters(int count) {
-    final StringBuffer buffer = StringBuffer();
-    for (int i = 0; i < count; i++) {
+    final buffer = StringBuffer();
+    for (var i = 0; i < count; i++) {
       buffer.write('i');
     }
     return buffer.toString();

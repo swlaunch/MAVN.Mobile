@@ -190,52 +190,51 @@ class RegisterFormStep2 extends HookWidget with FormMixin {
     final passwordStrength =
         getMobileSettingsUseCase.execute()?.passwordStrength;
 
-    final List<FieldValidation<String>> passwordValidationList =
-        passwordStrength != null
-            ? [
-                PasswordNoWhiteSpaceFieldValidation(
-                  allowWhiteSpace: passwordStrength.canUseSpaces,
-                  onValidationError: registerAnalyticsManager
-                      .passwordInvalidClientValidationError,
-                ),
-                PasswordMaxLengthFieldValidation(
-                  maxLength: passwordStrength.maxLength,
-                  onValidationError: registerAnalyticsManager
-                      .passwordInvalidClientValidationError,
-                ),
-                PasswordMinLengthFieldValidation(
-                  minLength: passwordStrength.minLength,
-                  onValidationError: registerAnalyticsManager
-                      .passwordInvalidClientValidationError,
-                ),
-                PasswordContainsUpperCaseFieldValidation(
-                  minUppercaseCharacters: passwordStrength.minUpperCase,
-                  onValidationError: registerAnalyticsManager
-                      .passwordInvalidClientValidationError,
-                ),
-                PasswordContainsLowerCaseFieldValidation(
-                  minLowercaseCharacters: passwordStrength.minLowerCase,
-                  onValidationError: registerAnalyticsManager
-                      .passwordInvalidClientValidationError,
-                ),
-                PasswordContainsNumberValidation(
-                  minNumericCharacters: passwordStrength.minNumbers,
-                  onValidationError: registerAnalyticsManager
-                      .passwordInvalidClientValidationError,
-                ),
-                PasswordContainsSpecialSymbolValidation(
-                  onValidationError: registerAnalyticsManager
-                      .passwordInvalidClientValidationError,
-                  minSpecialCharacters: passwordStrength.minSpecialSymbols,
-                  specialCharacters: passwordStrength.specialCharacters,
-                ),
-                PasswordOnlyContainsValidCharactersValidation(
-                  onValidationError: registerAnalyticsManager
-                      .passwordInvalidClientValidationError,
-                  specialCharacters: passwordStrength.specialCharacters,
-                ),
-              ]
-            : [];
+    final passwordValidationList = passwordStrength != null
+        ? [
+            PasswordNoWhiteSpaceFieldValidation(
+              allowWhiteSpace: passwordStrength.canUseSpaces,
+              onValidationError:
+                  registerAnalyticsManager.passwordInvalidClientValidationError,
+            ),
+            PasswordMaxLengthFieldValidation(
+              maxLength: passwordStrength.maxLength,
+              onValidationError:
+                  registerAnalyticsManager.passwordInvalidClientValidationError,
+            ),
+            PasswordMinLengthFieldValidation(
+              minLength: passwordStrength.minLength,
+              onValidationError:
+                  registerAnalyticsManager.passwordInvalidClientValidationError,
+            ),
+            PasswordContainsUpperCaseFieldValidation(
+              minUppercaseCharacters: passwordStrength.minUpperCase,
+              onValidationError:
+                  registerAnalyticsManager.passwordInvalidClientValidationError,
+            ),
+            PasswordContainsLowerCaseFieldValidation(
+              minLowercaseCharacters: passwordStrength.minLowerCase,
+              onValidationError:
+                  registerAnalyticsManager.passwordInvalidClientValidationError,
+            ),
+            PasswordContainsNumberValidation(
+              minNumericCharacters: passwordStrength.minNumbers,
+              onValidationError:
+                  registerAnalyticsManager.passwordInvalidClientValidationError,
+            ),
+            PasswordContainsSpecialSymbolValidation(
+              onValidationError:
+                  registerAnalyticsManager.passwordInvalidClientValidationError,
+              minSpecialCharacters: passwordStrength.minSpecialSymbols,
+              specialCharacters: passwordStrength.specialCharacters,
+            ),
+            PasswordOnlyContainsValidCharactersValidation(
+              onValidationError:
+                  registerAnalyticsManager.passwordInvalidClientValidationError,
+              specialCharacters: passwordStrength.specialCharacters,
+            ),
+          ]
+        : [];
 
     final passwordValidationManager = useFieldValidationManager(
       [
@@ -243,7 +242,7 @@ class RegisterFormStep2 extends HookWidget with FormMixin {
           onValidationError:
               registerAnalyticsManager.passwordEmptyClientValidationError,
         ),
-        ...passwordValidationList,
+        ...passwordValidationList as List<FieldValidation<String>>,
       ],
       buildMessage: PasswordValidationUtils.buildPasswordValidationMessage,
     );

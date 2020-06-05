@@ -14,7 +14,7 @@ class TokenInterceptor extends CustomInterceptor {
       return requestOptions;
     }
 
-    final String token = await _tokenRepository.getLoginToken();
+    final token = await _tokenRepository.getLoginToken();
 
     requestOptions.headers.addAll({'authorization': 'Bearer $token'});
 

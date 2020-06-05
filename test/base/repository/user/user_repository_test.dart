@@ -9,7 +9,7 @@ import '../../../mock_classes.dart';
 void main() {
   group('UserRepository tests', () {
     final SecureStore mockSecureStore = MockSecureStore();
-    const String stubEmail = 'stubEmail';
+    const stubEmail = 'stubEmail';
 
     setUp(() {
       reset(mockSecureStore);

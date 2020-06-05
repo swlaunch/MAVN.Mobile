@@ -12,8 +12,8 @@ import 'package:lykke_mobile_mavn/library_ui_components/error/inline_error_widge
 import 'package:lykke_mobile_mavn/library_ui_components/form/form_field_label.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/form/read_only_text_field.dart';
 
-typedef String _DisplayValueSelector<T>(T selectedValue);
-typedef Future<T> _RouterFn<T>(Router router);
+typedef _DisplayValueSelector<T> = String Function(T selectedValue);
+typedef _RouterFn<T> = Future<T> Function(Router router);
 
 class FullPageSelectField<T> extends HookWidget with FormMixin {
   const FullPageSelectField({

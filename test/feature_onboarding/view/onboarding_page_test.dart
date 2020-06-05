@@ -83,7 +83,7 @@ void main() {
 }
 
 Future<void> goToLastPage(WidgetTester widgetTester) async {
-  for (int i = 1; i < pageCount; i++) {
+  for (var i = 1; i < pageCount; i++) {
     await widgetTester.tap(find.byKey(nextButtonKey));
     await widgetTester.pumpAndSettle();
   }

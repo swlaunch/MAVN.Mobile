@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:lykke_mobile_mavn/library_utils/string_utils.dart';
 
-typedef String _DisplayValueSelector<T>(T selectedValue);
+typedef _DisplayValueSelector<T> = String Function(T selectedValue);
 
 class ListFormatter {
   static List<dynamic> sortAndGroupAlphabetically<T>(

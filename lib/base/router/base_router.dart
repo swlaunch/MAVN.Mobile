@@ -79,7 +79,7 @@ class BaseRouter {
     _navigatorKey.currentState.popUntil((r) => r.isFirst);
   }
 
-  bool pop<T>([T result]) => _navigatorKey.currentState.pop<T>(result);
+  void pop<T>([T result]) => _navigatorKey.currentState.pop<T>(result);
 
   Future<bool> maybePop<T>([T result]) =>
       _navigatorKey.currentState.maybePop<T>(result);
@@ -91,12 +91,10 @@ class BaseRouter {
         builder: (_) => _DialogFrame(child: child),
       );
 
-  bool popDialog<T>([T result]) {
+  void popDialog<T>([T result]) {
     if (!ModalRoute.of(_navigatorKey.currentContext).isCurrent) {
-      return Navigator.of(_navigatorKey.currentContext).pop<T>(result);
+      Navigator.of(_navigatorKey.currentContext).pop<T>(result);
     }
-
-    return false;
   }
 
   void switchToTabAtIndex(int index) {

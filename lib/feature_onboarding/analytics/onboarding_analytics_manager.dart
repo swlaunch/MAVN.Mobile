@@ -48,7 +48,7 @@ class OnboardingAnalyticsManager {
   void _reset() {
     _stopwatch.reset();
     onboardingPagesViewTimesMillis = {};
-    for (int i = 0; i < OnboardingPage.pageDataLength; i++) {
+    for (var i = 0; i < OnboardingPage.pageDataLength; i++) {
       onboardingPagesViewTimesMillis.addAll({_entryKey(i + 1): 0});
     }
   }

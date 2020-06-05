@@ -1,3 +1,4 @@
+import 'package:barcode_scan/barcode_scan.dart';
 import 'package:dio/dio.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/common/offer_type.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/conversion/response_model/currency_converter_response_model.dart';
@@ -107,7 +108,8 @@ class TestConstants {
   static const stubUserIso2CodeUppercase = 'US';
   static const stubUserIso2CodeLowercase = 'us';
   static const stubUserIso3Code = 'USA';
-  static const stubBarcode = 'stubBarcode';
+  static final ScanResult stubBarcodeScanResult =
+      ScanResult(rawContent: 'stubBarcode');
 
   static const stubTermsUrl = 'stubTermsUrl';
 
@@ -638,6 +640,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
 // endregion Hotel Welcome
@@ -656,6 +659,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
   static final nonVerifiedCustomer = CustomerResponseModel(
@@ -671,6 +675,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
   static final nonVerifiedPhoneCustomer = CustomerResponseModel(
@@ -686,6 +691,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
   static final verifiedEmailNonVerifiedPhoneCustomer = CustomerResponseModel(
@@ -701,6 +707,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
   static final emailVerifiedCustomer = CustomerResponseModel(
@@ -716,6 +723,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
 //endregion Customer

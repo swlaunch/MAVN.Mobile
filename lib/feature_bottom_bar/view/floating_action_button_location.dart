@@ -11,7 +11,7 @@ class CenterDockedFloatingActionButtonLocation
 
   @override
   Offset getOffset(ScaffoldPrelayoutGeometry scaffoldGeometry) {
-    final double fabX = (scaffoldGeometry.scaffoldSize.width -
+    final fabX = (scaffoldGeometry.scaffoldSize.width -
             scaffoldGeometry.floatingActionButtonSize.width) /
         2.0;
     return Offset(fabX, getDockedY(scaffoldGeometry));
@@ -31,12 +31,12 @@ abstract class _DockedFloatingActionButtonLocation
   // where it docks to the [BottomAppBar].
   @protected
   double getDockedY(ScaffoldPrelayoutGeometry scaffoldGeometry) {
-    final double contentBottom = scaffoldGeometry.contentBottom;
-    final double bottomSheetHeight = scaffoldGeometry.bottomSheetSize.height;
-    final double fabHeight = scaffoldGeometry.floatingActionButtonSize.height;
-    final double snackBarHeight = scaffoldGeometry.snackBarSize.height;
+    final contentBottom = scaffoldGeometry.contentBottom;
+    final bottomSheetHeight = scaffoldGeometry.bottomSheetSize.height;
+    final fabHeight = scaffoldGeometry.floatingActionButtonSize.height;
+    final snackBarHeight = scaffoldGeometry.snackBarSize.height;
 
-    double fabY = contentBottom - fabHeight / 6.0;
+    var fabY = contentBottom - fabHeight / 6.0;
     // The FAB should sit with a margin between it and the snack bar.
     if (snackBarHeight > 0.0) {
       fabY = min(
@@ -51,7 +51,7 @@ abstract class _DockedFloatingActionButtonLocation
     if (bottomSheetHeight > 0.0) {
       fabY = min(fabY, contentBottom - bottomSheetHeight - fabHeight / 2.0);
     }
-    final double maxFabY = scaffoldGeometry.scaffoldSize.height - fabHeight;
+    final maxFabY = scaffoldGeometry.scaffoldSize.height - fabHeight;
     return min(maxFabY, fabY);
   }
 }

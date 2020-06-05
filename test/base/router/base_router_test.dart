@@ -63,7 +63,7 @@ void main() {
     });
 
     testWidgets('pop with value', (widgetTester) async {
-      const String stubPopValue = 'popValue';
+      const stubPopValue = 'popValue';
 
       await givenPage1IsInflated(widgetTester);
 
@@ -76,12 +76,11 @@ void main() {
 
       thenPagesAreInTheWidgetTree(page1: false, page2: true, page3: false);
 
-      final didPop = _subject.pop(stubPopValue);
+      _subject.pop(stubPopValue);
       await widgetTester.pumpAndSettle();
 
       thenPagesAreInTheWidgetTree(page1: true, page2: false, page3: false);
 
-      expect(didPop, true);
       expect(resultValue, stubPopValue);
     });
 
@@ -100,7 +99,7 @@ void main() {
     });
 
     testWidgets('popDialog with value', (widgetTester) async {
-      const String stubPopValue = 'popValue';
+      const stubPopValue = 'popValue';
 
       await givenPage1IsInflated(widgetTester);
 
@@ -114,13 +113,12 @@ void main() {
       expect(find.byType(Page1), findsOneWidget);
       expect(find.byType(Page2), findsOneWidget);
 
-      final didPop = _subject.popDialog(stubPopValue);
+      _subject.popDialog(stubPopValue);
       await widgetTester.pumpAndSettle();
 
       expect(find.byType(Page1), findsOneWidget);
       expect(find.byType(Page2), findsNothing);
 
-      expect(didPop, true);
       expect(resultValue, stubPopValue);
     });
 
@@ -128,10 +126,8 @@ void main() {
         (widgetTester) async {
       await givenPage1IsInflated(widgetTester);
 
-      final didPop = _subject.popDialog();
+      _subject.popDialog();
       await widgetTester.pumpAndSettle();
-
-      expect(didPop, false);
 
       thenPagesAreInTheWidgetTree(page1: true, page2: false, page3: false);
     });

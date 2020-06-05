@@ -38,7 +38,7 @@ void main() {
     });
 
     test('loadCountryCodeList success', () async {
-      final CountryCodeListResponseModel mockResponseModel =
+      final mockResponseModel =
           CountryCodeListResponseModel(countryCodeList: stubCodesCountryList);
 
       when(mockCountryRepository.getCountryCodeList())

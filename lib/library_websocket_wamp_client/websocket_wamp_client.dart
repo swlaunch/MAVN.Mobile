@@ -87,7 +87,7 @@ class WampArgs {
 }
 
 /// WAMP RPC procedure type.
-typedef WampArgs WampProcedure(WampArgs args);
+typedef WampProcedure = WampArgs Function(WampArgs args);
 
 /// WAMP event.
 class WampEvent {
@@ -130,9 +130,9 @@ class TicketAuth {
 }
 
 /// onConnect handler type.
-typedef void WampOnConnect(WampClient client);
-typedef void WampOnDisconnect(WampClient client);
-typedef void WampOnError(Exception error, WampClient client);
+typedef WampOnConnect = void Function(WampClient client);
+typedef WampOnDisconnect = void Function(WampClient client);
+typedef WampOnError = void Function(Exception error, WampClient client);
 
 /// WAMP Client.
 ///
@@ -692,7 +692,7 @@ class WampClient {
   }
 
   int _flightCode(StreamController<dynamic> val) {
-    int code = 0;
+    var code = 0;
     do {
       code = _random.nextInt(1000000000);
     } while (_inFlights.containsKey(code));

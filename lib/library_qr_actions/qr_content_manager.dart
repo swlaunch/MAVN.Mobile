@@ -28,7 +28,7 @@ class QrContentManager {
   final GetMobileSettingsUseCase getMobileSettingsUseCase;
 
   Future<QrBaseAction> getQrAction(String content) async {
-    for (final QrBaseAction action in actions) {
+    for (final action in actions) {
       if (await action.match(content)) return action;
     }
 

@@ -18,11 +18,10 @@ void main() {
     final TokenRepository mockTokenRepository = MockTokenRepository();
     final UserRepository mockUserRepository = MockUserRepository();
 
-    const String stubToken = '123';
-    final LoginResponseModel stubLoginResponse =
-        LoginResponseModel(token: stubToken);
-    const String stubEmail = 'test@example.com';
-    const String stubPassword = 'password';
+    const stubToken = '123';
+    final stubLoginResponse = LoginResponseModel(token: stubToken);
+    const stubEmail = 'test@example.com';
+    const stubPassword = 'password';
 
     test('execute', () async {
       when(mockCustomerRepository.login(any, any))

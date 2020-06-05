@@ -7,8 +7,8 @@ import '../../../mock_classes.dart';
 void main() {
   group('SecureStore tests', () {
     final mockFlutterSecureStorage = MockFlutterSecureStorage();
-    const String stubKey = 'stubKey';
-    const String stubValue = '123';
+    const stubKey = 'stubKey';
+    const stubValue = '123';
 
     setUp(() {
       reset(mockFlutterSecureStorage);

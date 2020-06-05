@@ -33,7 +33,7 @@ class HotelMessage extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Html(
                   data: message,
-                  customTextStyle: HtmlStyles.defaultStyles,
+                  style: HtmlStyles.defaultStyles,
                 ),
               ),
             ),

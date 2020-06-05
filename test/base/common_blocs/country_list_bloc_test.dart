@@ -38,7 +38,7 @@ void main() {
     });
 
     test('loadCountryList success, uppercase ISO code', () async {
-      final CountryListResponseModel mockResponseModel =
+      final mockResponseModel =
           CountryListResponseModel(countryList: stubCountryList);
 
       when(mockCountryRepository.getCountryList())
@@ -59,7 +59,7 @@ void main() {
     });
 
     test('loadCountryList success, lowercase ISO code', () async {
-      final CountryListResponseModel mockResponseModel =
+      final mockResponseModel =
           CountryListResponseModel(countryList: stubCountryList);
 
       when(mockCountryRepository.getCountryList())
@@ -110,7 +110,7 @@ void main() {
     test(
         'when user ISO does not exist in list, '
         'no event is dispatched', () async {
-      final CountryListResponseModel mockResponseModel =
+      final mockResponseModel =
           CountryListResponseModel(countryList: stubCountryList);
 
       when(mockCountryRepository.getCountryList())
@@ -132,7 +132,7 @@ void main() {
     test(
         'when user ISO cannot be obtained, '
         'no event is dispatched', () async {
-      final CountryListResponseModel mockResponseModel =
+      final mockResponseModel =
           CountryListResponseModel(countryList: stubCountryList);
 
       when(mockCountryRepository.getCountryList())
@@ -154,7 +154,7 @@ void main() {
     test(
         'when trying to get user ISO throws exception,'
         'no event is dispatched', () async {
-      final CountryListResponseModel mockResponseModel =
+      final mockResponseModel =
           CountryListResponseModel(countryList: stubCountryList);
 
       when(mockCountryRepository.getCountryList())

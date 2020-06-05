@@ -227,7 +227,7 @@ void _thenPageOfTypeIsPresentWithPageName<T>({pageName}) {
 
 void _thenWidgetTypesInDescendingOrderInTheWidgetTree(
     List<Type> widgetTypesInOrder) {
-  for (int i = 0; i < widgetTypesInOrder.length - 1; i++) {
+  for (var i = 0; i < widgetTypesInOrder.length - 1; i++) {
     expect(
         find.descendant(
             of: find.byType(widgetTypesInOrder[i]),

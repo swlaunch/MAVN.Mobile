@@ -66,7 +66,7 @@ class BoughtVouchersList extends HookWidget {
     if (voucherListBlocState is GenericListLoadedState) {
       data.value = voucherListBlocState.list;
     }
-    int tintColorIndex = 0;
+    var tintColorIndex = 0;
 
     return Stack(
       children: [

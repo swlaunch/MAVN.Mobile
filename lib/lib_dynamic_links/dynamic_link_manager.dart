@@ -48,8 +48,7 @@ class DynamicLinkManager {
 
     _isListen = true;
 
-    final PendingDynamicLinkData data =
-        await firebaseDynamicLinks.getInitialLink();
+    final data = await firebaseDynamicLinks.getInitialLink();
     handleDeepLink(data?.link);
 
     firebaseDynamicLinks.onLink(onSuccess: (dynamicLink) async {

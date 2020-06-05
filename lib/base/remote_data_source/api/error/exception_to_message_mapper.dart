@@ -25,7 +25,7 @@ class ExceptionToMessageMapper {
   }
 
   LocalizedStringBuilder _getGenericError() {
-    final String serviceNumber =
+    final serviceNumber =
         _localSettingsRepository.getMobileSettings()?.supportPhoneNumber;
 
     return StringUtils.isNullOrEmpty(serviceNumber)

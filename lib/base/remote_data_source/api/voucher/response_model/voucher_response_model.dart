@@ -80,7 +80,7 @@ class VoucherListResponseModel {
 
   VoucherListResponseModel.fromJson(Map<String, dynamic> json)
       : vouchers =
-  VoucherResponseModel.toListFromJson(json['SmartVouchers'] as List),
+            VoucherResponseModel.toListFromJson(json['SmartVouchers'] as List),
         totalCount = json['TotalCount'];
 
   final List<VoucherResponseModel> vouchers;

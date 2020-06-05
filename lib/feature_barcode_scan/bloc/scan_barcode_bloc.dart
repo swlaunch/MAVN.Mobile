@@ -20,10 +20,13 @@ class BarcodeScanBloc extends Bloc<BarcodeScanState> {
   Future<void> startScan() async {
     setState(BarcodeScanUninitializedState());
     try {
-      final String barcode = await _barcodeScanManager.startScan();
-      sendEvent(BarcodeScanSuccessEvent(QrContent(barcode)));
+      final scanResult = await _barcodeScanManager.startScan();
+      if (scanResult.type == ResultType.Barcode) {
+        final barcode = scanResult.rawContent;
+        sendEvent(BarcodeScanSuccessEvent(QrContent(barcode)));
+      }
     } on PlatformException catch (e) {
-      if (e.code == BarcodeScanner.CameraAccessDenied) {
+      if (e.code == BarcodeScanner.cameraAccessDenied) {
         setState(BarcodeScanPermissionErrorState(
             LazyLocalizedStrings.barcodeScanPermissionError));
       } else {

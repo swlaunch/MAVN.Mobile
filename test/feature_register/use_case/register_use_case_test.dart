@@ -24,7 +24,7 @@ void main() {
       reset(_mockUserRepository);
     });
 
-    final LoginResponseModel stubLoginResponse =
+    final stubLoginResponse =
         LoginResponseModel(token: TestConstants.stubLoginToken);
 
     test('execute', () async {

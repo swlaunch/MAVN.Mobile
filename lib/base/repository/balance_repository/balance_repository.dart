@@ -50,9 +50,9 @@ class WalletRealTimeRepository {
       ..init(
         ticketAuth: TicketAuth(authId: token),
         onConnect: (wampClient) async {
-          final Stream<WampEvent> walletBalanceTopicStream =
+          final walletBalanceTopicStream =
               await wampClient.subscribe(walletBalanceTopic);
-          final Stream<WampEvent> walletStatusTopicStream =
+          final walletStatusTopicStream =
               await wampClient.subscribe(walletStatusTopic);
 
           await cancelSubscriptions();

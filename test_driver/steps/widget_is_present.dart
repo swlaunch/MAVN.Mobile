@@ -9,7 +9,7 @@ class ThenWidgetIsPresent
   @override
   Future<void> executeStep(String input) async {
     expect(
-      await FlutterDriverUtils.isPresent(find.byValueKey(input), world.driver),
+      await FlutterDriverUtils.isPresent(world.driver, find.byValueKey(input)),
       true,
     );
   }
