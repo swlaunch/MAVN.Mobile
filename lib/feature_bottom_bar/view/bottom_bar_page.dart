@@ -70,8 +70,8 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
     ];
 
     List<Widget> offStagePageList(List<Widget> pageList, int tabIndex) {
-      int index = 0;
-      final List<Widget> newPageList = [];
+      var index = 0;
+      final newPageList = <Widget>[];
       pageList.forEach((page) {
         newPageList.add(
           TickerMode(

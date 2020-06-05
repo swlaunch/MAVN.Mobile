@@ -84,7 +84,7 @@ class StakingDetailsPage extends StatelessWidget {
       );
 
   Widget _buildIndicativeAmountText(BuildContext context) {
-    String indicativeAmountText =
+    var indicativeAmountText =
         LocalizedStrings.of(context).earnRuleIndicativeAmountInfoGeneric;
 
     if (extendedEarnRule.isHospitalityOffer()) {

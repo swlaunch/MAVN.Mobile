@@ -65,7 +65,7 @@ void main() {
       });
 
       test('InvalidEmailFormat DioErrorType.RESPONSE', () {
-        Exception exception = _getDioErrorWithResponseFromFile(
+        var exception = _getDioErrorWithResponseFromFile(
             'test_resources/mock_data/common_error_responses/'
             '/400_invalid_email_format.json');
 
@@ -81,7 +81,7 @@ void main() {
       });
 
       test('InvalidPasswordFormat DioErrorType.RESPONSE', () {
-        Exception exception = _getDioErrorWithResponseFromFile(
+        var exception = _getDioErrorWithResponseFromFile(
             'test_resources/mock_data/common_error_responses/'
             '/400_invalid_password_format.json');
 
@@ -97,7 +97,7 @@ void main() {
       });
 
       test('InvalidCredentials DioErrorType.RESPONSE', () {
-        Exception exception = _getDioErrorWithResponseFromFile(
+        var exception = _getDioErrorWithResponseFromFile(
             'test_resources/mock_data/login/response'
             '/400_invalid_credentials.json');
 
@@ -113,7 +113,7 @@ void main() {
       });
 
       test('LoginAlreadyInUse DioErrorType.RESPONSE', () {
-        Exception exception = _getDioErrorWithResponseFromFile(
+        var exception = _getDioErrorWithResponseFromFile(
             'test_resources/mock_data/register/response'
             '/400_login_already_in_use.json');
 
@@ -129,7 +129,7 @@ void main() {
       });
 
       test('ReferralAlreadyConfirmed DioErrorType.RESPONSE', () {
-        Exception exception = _getDioErrorWithResponseFromFile(
+        var exception = _getDioErrorWithResponseFromFile(
             'test_resources/mock_data/referrals/hotels/response'
             '/400_referral_already_confirmed.json');
 
@@ -145,7 +145,7 @@ void main() {
       });
 
       test('ReferralLimitExceeded DioErrorType.RESPONSE', () {
-        Exception exception = _getDioErrorWithResponseFromFile(
+        var exception = _getDioErrorWithResponseFromFile(
             'test_resources/mock_data/referrals/hotels/response'
             '/400_referrals_limit_exceeded.json');
 
@@ -161,7 +161,7 @@ void main() {
       });
 
       test('CustomerBlocked DioErrorType.RESPONSE', () {
-        Exception exception = _getDioErrorWithResponseFromFile(
+        var exception = _getDioErrorWithResponseFromFile(
             'test_resources/mock_data/login/response'
             '/400_customer_is_blocked.json');
 

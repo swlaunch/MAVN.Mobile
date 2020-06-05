@@ -154,12 +154,12 @@ class EarnRuleDetailPage extends HookWidget {
     final defaultTopMargin =
         _sliverImageSize + MediaQuery.of(context).padding.top - 20.0;
     //pixels from top where opacity change should start
-    final double opacityChangeStart = defaultTopMargin / 2;
+    final opacityChangeStart = defaultTopMargin / 2;
     //pixels from top where opacity change should end
-    final double opacityChangeEnd = opacityChangeStart / 2;
+    final opacityChangeEnd = opacityChangeStart / 2;
 
-    double top = defaultTopMargin;
-    double opacity = 1;
+    var top = defaultTopMargin;
+    var opacity = 1.0;
     if (scrollController.hasClients) {
       final offset = scrollController.offset;
       top -= offset;

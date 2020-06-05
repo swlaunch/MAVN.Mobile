@@ -2,7 +2,8 @@ import 'package:flutter/widgets.dart';
 
 import 'localized_strings.dart';
 
-typedef String LocalizedStringSelector(LocalizedStrings localizedStrings);
+typedef LocalizedStringSelector = String Function(
+    LocalizedStrings localizedStrings);
 
 class LocalizedStringBuilder {
   LocalizedStringBuilder(this._stringSelector, this._stringName);

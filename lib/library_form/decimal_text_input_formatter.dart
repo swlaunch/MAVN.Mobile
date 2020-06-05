@@ -1,6 +1,7 @@
 import 'dart:math' as math;
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
 class DecimalTextInputFormatter extends TextInputFormatter {
   DecimalTextInputFormatter({@required this.decimalRange})
@@ -16,8 +17,8 @@ class DecimalTextInputFormatter extends TextInputFormatter {
     TextEditingValue oldValue,
     TextEditingValue newValue,
   ) {
-    TextSelection newSelection = newValue.selection;
-    String truncated = newValue.text;
+    var newSelection = newValue.selection;
+    var truncated = newValue.text;
 
     if (decimalRange != null) {
       final value = newValue.text;

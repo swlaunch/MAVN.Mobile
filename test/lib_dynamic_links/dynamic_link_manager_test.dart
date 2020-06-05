@@ -30,6 +30,7 @@ void main() {
         hotelReferralBloc: _mockAcceptHotelReferralBloc,
         emailConfirmationBloc: _mockEmailConfirmationBloc,
         sharedPreferencesManager: _mockSharedPreferencesManager,
+        voucherPurchaseSuccessBloc: null,
       );
     });
 

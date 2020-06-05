@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-typedef void OnDispose();
+typedef OnDispose = void Function();
 
 void useOnDispose(OnDispose onDisposeCallback) =>
     Hook.use(_OnDisposeHook(onDisposeCallback));

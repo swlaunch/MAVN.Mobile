@@ -74,9 +74,9 @@ class TickerBloc extends Bloc<TickerState> {
         timeUnits < 10 ? '0$timeUnits' : '$timeUnits';
 
     final durationInHours = duration.inHours;
-    final String hours = durationInHours > 0 ? format(durationInHours) : null;
-    final String twoDigitMinutes = format(duration.inMinutes.remainder(60));
-    final String twoDigitSeconds = format(duration.inSeconds.remainder(60));
+    final hours = durationInHours > 0 ? format(durationInHours) : null;
+    final twoDigitMinutes = format(duration.inMinutes.remainder(60));
+    final twoDigitSeconds = format(duration.inSeconds.remainder(60));
     return StringUtils.concatenate([hours, twoDigitMinutes, twoDigitSeconds],
         separator: ':');
   }

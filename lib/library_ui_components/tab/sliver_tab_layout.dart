@@ -257,14 +257,14 @@ class _SliverTabBarLayoutState extends State<SliverTabBarLayout>
   }
 
   void _scrollTo(int index) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    var screenWidth = MediaQuery.of(context).size.width;
 
     RenderBox renderBox =
         widget.tabs[index].globalKey.currentContext.findRenderObject();
-    double size = renderBox.size.width;
-    double position = renderBox.localToGlobal(Offset.zero).dx;
+    var size = renderBox.size.width;
+    var position = renderBox.localToGlobal(Offset.zero).dx;
 
-    double offset = (position + size / 2) - screenWidth / 2;
+    var offset = (position + size / 2) - screenWidth / 2;
 
     if (offset < 0) {
       renderBox = widget.tabs.first.globalKey.currentContext.findRenderObject();

@@ -17,9 +17,9 @@ import 'package:lykke_mobile_mavn/library_ui_components/misc/icon_oval.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/standard_sized_svg.dart';
 import 'package:lykke_mobile_mavn/library_utils/list_utils.dart';
 
-typedef Widget _HeadingBuilder<String>(String headingItem);
-typedef Widget _ListItemBuilder<T>(T listItem, String query);
-typedef String _DisplayValueSelector<T>(T listItem);
+typedef _HeadingBuilder<String> = Widget Function(String headingItem);
+typedef _ListItemBuilder<T> = Widget Function(T listItem, String query);
+typedef _DisplayValueSelector<T> = String Function(T listItem);
 
 class FullPageSelectList<T> extends HookWidget {
   const FullPageSelectList({

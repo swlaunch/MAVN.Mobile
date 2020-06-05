@@ -640,6 +640,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
 // endregion Hotel Welcome
@@ -658,6 +659,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
   static final nonVerifiedCustomer = CustomerResponseModel(
@@ -673,6 +675,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
   static final nonVerifiedPhoneCustomer = CustomerResponseModel(
@@ -688,6 +691,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
   static final verifiedEmailNonVerifiedPhoneCustomer = CustomerResponseModel(
@@ -703,6 +707,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
   static final emailVerifiedCustomer = CustomerResponseModel(
@@ -718,6 +723,7 @@ class TestConstants {
     countryOfNationalityId: TestConstants.stubCountryId,
     countryOfNationalityName: TestConstants.stubCountryName,
     hasPin: true,
+    linkedPartnerId: null,
   );
 
 //endregion Customer

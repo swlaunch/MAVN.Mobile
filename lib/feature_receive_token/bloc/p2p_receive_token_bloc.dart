@@ -1,7 +1,6 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/customer_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/repository/customer/customer_repository.dart';
 import 'package:lykke_mobile_mavn/base/repository/user/user_repository.dart';
@@ -26,8 +25,7 @@ class P2pReceiveTokenBloc extends Bloc<ReceiveTokenPageState> {
     try {
       final email = await _userRepository.getCustomerEmail();
       if (email == null) {
-        final CustomerResponseModel customer =
-            await _customerRepository.getCustomer();
+        final customer = await _customerRepository.getCustomer();
         setState(ReceiveTokenPageSuccess(customer.email));
       } else {
         setState(ReceiveTokenPageSuccess(email));

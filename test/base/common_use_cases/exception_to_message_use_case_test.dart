@@ -10,7 +10,7 @@ import '../../mock_classes.dart';
 void main() {
   group('ExceptionToMessageMapper tests', () {
     final _mockLocalSettingsRepository = MockLocalSettingsRepository();
-    final LocalizedStrings localizedStrings = LocalizedStrings();
+    final localizedStrings = LocalizedStrings();
 
     ExceptionToMessageMapper _subject;
 

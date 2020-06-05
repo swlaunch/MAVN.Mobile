@@ -21,12 +21,12 @@ class TextHighlighter extends StatelessWidget {
       );
     }
 
-    String highlightedText = '';
-    String textAfter = '';
+    var highlightedText = '';
+    var textAfter = '';
 
     final textCharacters = text.split('');
 
-    const int highlightStartIndex = 0;
+    const highlightStartIndex = 0;
     final highlightEndIndex = highlightStartIndex + textToHighlight.length;
 
     highlightedText =

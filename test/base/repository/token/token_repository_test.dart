@@ -9,7 +9,7 @@ import '../../../mock_classes.dart';
 void main() {
   group('TokenRepository tests', () {
     final SecureStore mockSecureStore = MockSecureStore();
-    const String stubToken = '123';
+    const stubToken = '123';
 
     setUp(() {
       reset(mockSecureStore);

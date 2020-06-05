@@ -9,7 +9,7 @@ Future<ByteData> getFontByteData(String fontPath) async =>
     ByteData.view(Uint8List.fromList(getBytesFromFile(fontPath)).buffer);
 
 List<int> getBytesFromFile(String fileName) {
-  String updatedFilename = fileName;
+  var updatedFilename = fileName;
   // Fix for: The current working directory changes when running 'flutter test'
   // from terminal ('projectFolder/test/') compared to running the tests
   // through IntelliJ UI ('projectFolder/'), and File('/x') is relative to the
@@ -23,7 +23,7 @@ List<int> getBytesFromFile(String fileName) {
 }
 
 String getStringFromFile(String fileName) {
-  String updatedFilename = fileName;
+  var updatedFilename = fileName;
   // Fix for: The current working directory changes when running 'flutter test'
   // from terminal ('projectFolder/test/') compared to running the tests
   // through IntelliJ UI ('projectFolder/'), and File('/x') is relative to the

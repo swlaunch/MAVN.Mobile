@@ -27,7 +27,7 @@ class ExternalRouter {
     @required String phone,
     @required String message,
   }) async {
-    final String url = '{$whatsAppUrl}send?phone=$phone&text=$message';
+    final url = '{$whatsAppUrl}send?phone=$phone&text=$message';
     await canLaunchUrl(url)
         ? await launch(url)
         : await router.redirectToCustomAppStore(

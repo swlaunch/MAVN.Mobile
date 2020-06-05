@@ -109,7 +109,7 @@ class CameraBloc extends Bloc<CameraState> {
         ? cameraController.value.aspectRatio
         : 1 / cameraController.value.aspectRatio;
 
-    int degrees = 0;
+    var degrees = 0;
     switch (pictureCaptureOrientation) {
       case NativeDeviceOrientation.landscapeLeft:
         degrees = 90;
@@ -133,9 +133,9 @@ class CameraBloc extends Bloc<CameraState> {
     final imageWidth = decodedImage.width;
     final imageHeight = decodedImage.height;
 
-    double extraX = 0;
-    double extraY = 0;
-    double cameraPreviewToImageFileRatio = 0;
+    var extraX = 0.0;
+    var extraY = 0.0;
+    var cameraPreviewToImageFileRatio = 0.0;
 
     if (size.width / cameraAspectRatio < size.height) {
       // preview fits height, rest of width goes outside of the screen

@@ -13,8 +13,8 @@ void main() {
     final CustomerRepository mockCustomerRepository = MockCustomerRepository();
     final TokenRepository mockTokenRepository = MockTokenRepository();
 
-    const String stubToken = '123';
-    final ChangePasswordResponseModel stubChangePasswordResponse =
+    const stubToken = '123';
+    final stubChangePasswordResponse =
         ChangePasswordResponseModel(token: stubToken);
 
     test('execute', () async {

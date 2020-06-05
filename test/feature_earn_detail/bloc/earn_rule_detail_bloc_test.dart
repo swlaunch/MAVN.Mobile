@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/extended_earn_rule_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/feature_earn_detail/bloc/earn_rule_detail_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_earn_detail/bloc/earn_rule_detail_bloc_output.dart';
@@ -33,7 +32,7 @@ void main() {
     });
 
     test('loadEarnRule success', () async {
-      final ExtendedEarnRule responseModel =
+      final responseModel =
           TestConstants.stubExtendedEarnRuleWithStayHotelCondition;
 
       when(mockEarnRepository.getExtendedEarnRule(

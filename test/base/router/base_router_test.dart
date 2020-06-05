@@ -63,7 +63,7 @@ void main() {
     });
 
     testWidgets('pop with value', (widgetTester) async {
-      const String stubPopValue = 'popValue';
+      const stubPopValue = 'popValue';
 
       await givenPage1IsInflated(widgetTester);
 
@@ -99,7 +99,7 @@ void main() {
     });
 
     testWidgets('popDialog with value', (widgetTester) async {
-      const String stubPopValue = 'popValue';
+      const stubPopValue = 'popValue';
 
       await givenPage1IsInflated(widgetTester);
 

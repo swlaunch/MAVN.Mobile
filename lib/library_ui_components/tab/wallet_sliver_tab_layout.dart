@@ -77,7 +77,7 @@ class _HomeSliverTabLayoutState extends State<HomeSliverTabLayout>
                   ),
                 ),
                 bottom: ColoredTabBar(
-                  color: ColorStyles.salmon,
+                  tabColor: ColorStyles.salmon,
                   tabBar: TabBar(
                     tabs: widget.tabs
                         .map(

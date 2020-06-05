@@ -30,7 +30,7 @@ class OnboardingPage extends HookWidget with DynamicLinkManagerMixin {
 
     final currentPage = useState<int>(0);
 
-    final List<_OnboardingPageData> pageData = [
+    final pageData = [
       _OnboardingPageData(
           title:
               useLocalizedStrings().onboardingPage1Title(Configuration.appName),

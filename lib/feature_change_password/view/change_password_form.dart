@@ -149,40 +149,39 @@ class ChangePasswordForm extends HookWidget with FormMixin {
     final passwordStrength =
         getMobileSettingsUseCase.execute()?.passwordStrength;
 
-    final List<FieldValidation<String>> passwordValidationList =
-        passwordStrength != null
-            ? [
-                PasswordNoWhiteSpaceFieldValidation(
-                    allowWhiteSpace: passwordStrength.canUseSpaces),
-                PasswordMaxLengthFieldValidation(
-                  maxLength: passwordStrength.maxLength,
-                ),
-                PasswordMinLengthFieldValidation(
-                  minLength: passwordStrength.minLength,
-                ),
-                PasswordContainsUpperCaseFieldValidation(
-                  minUppercaseCharacters: passwordStrength.minUpperCase,
-                ),
-                PasswordContainsLowerCaseFieldValidation(
-                  minLowercaseCharacters: passwordStrength.minLowerCase,
-                ),
-                PasswordContainsNumberValidation(
-                  minNumericCharacters: passwordStrength.minNumbers,
-                ),
-                PasswordContainsSpecialSymbolValidation(
-                  minSpecialCharacters: passwordStrength.minSpecialSymbols,
-                  specialCharacters: passwordStrength.specialCharacters,
-                ),
-                PasswordOnlyContainsValidCharactersValidation(
-                  specialCharacters: passwordStrength.specialCharacters,
-                ),
-              ]
-            : [];
+    final passwordValidationList = passwordStrength != null
+        ? [
+            PasswordNoWhiteSpaceFieldValidation(
+                allowWhiteSpace: passwordStrength.canUseSpaces),
+            PasswordMaxLengthFieldValidation(
+              maxLength: passwordStrength.maxLength,
+            ),
+            PasswordMinLengthFieldValidation(
+              minLength: passwordStrength.minLength,
+            ),
+            PasswordContainsUpperCaseFieldValidation(
+              minUppercaseCharacters: passwordStrength.minUpperCase,
+            ),
+            PasswordContainsLowerCaseFieldValidation(
+              minLowercaseCharacters: passwordStrength.minLowerCase,
+            ),
+            PasswordContainsNumberValidation(
+              minNumericCharacters: passwordStrength.minNumbers,
+            ),
+            PasswordContainsSpecialSymbolValidation(
+              minSpecialCharacters: passwordStrength.minSpecialSymbols,
+              specialCharacters: passwordStrength.specialCharacters,
+            ),
+            PasswordOnlyContainsValidCharactersValidation(
+              specialCharacters: passwordStrength.specialCharacters,
+            ),
+          ]
+        : [];
 
     final passwordValidationManager = useFieldValidationManager(
       [
         PasswordRequiredFieldValidation(),
-        ...passwordValidationList,
+        ...passwordValidationList as List<FieldValidation<String>>,
       ],
       buildMessage: PasswordValidationUtils.buildPasswordValidationMessage,
     );

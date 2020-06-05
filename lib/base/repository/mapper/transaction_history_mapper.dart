@@ -43,7 +43,7 @@ class TransactionHistoryMapper {
   ) {
     DateTime groupDate;
     final mappedTransactions = <TransactionItem>[];
-    for (int i = 0; i < transactions.length; i++) {
+    for (var i = 0; i < transactions.length; i++) {
       final transaction = transactions[i];
 
       if (transaction.type == null) {

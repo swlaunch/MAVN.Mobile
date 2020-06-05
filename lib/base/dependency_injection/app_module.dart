@@ -279,7 +279,7 @@ class AppModule extends Module {
       qualifierName: customerApiHttpClientQualifier,
     );
 
-    const String walletSocketRealm = 'prices';
+    const walletSocketRealm = 'prices';
 
     // Web socket WAMP client
     provideSingleton(() => WampClient(

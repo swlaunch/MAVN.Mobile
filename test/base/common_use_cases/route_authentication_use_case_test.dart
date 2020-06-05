@@ -77,7 +77,7 @@ void main() {
 
       expect(
           target,
-          RouteAuthenticationTarget(
+          const RouteAuthenticationTarget(
             RouteAuthenticationPage.verifyEmail,
             data: stubEmail,
           ));

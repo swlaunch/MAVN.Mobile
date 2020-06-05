@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 
-typedef Widget _ListItemBuilder<T>(T listItem);
+typedef _ListItemBuilder<T> = Widget Function(T listItem);
 
 class PullToRefreshListView<T> extends StatelessWidget {
   const PullToRefreshListView({

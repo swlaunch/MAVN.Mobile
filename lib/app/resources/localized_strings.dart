@@ -72,9 +72,9 @@ LocalizedStrings useLocalizedStrings() => LocalizedStrings.of(useContext());
 
 class LocalizedStrings {
   static Future<LocalizedStrings> load(Locale locale) {
-    final String name =
+    final name =
         locale.countryCode == null ? locale.languageCode : locale.toString();
-    final String localeName = Intl.canonicalizedLocale(name);
+    final localeName = Intl.canonicalizedLocale(name);
 
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;

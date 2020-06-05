@@ -7,7 +7,7 @@ class TestInterceptor extends CustomInterceptor {}
 void main() {
   group('HttpClient tests', () {
     test('constructor test', () {
-      const String stubBaseUrl = 'www.test.com';
+      const stubBaseUrl = 'www.test.com';
       final stubInterceptor = TestInterceptor();
       final subject = HttpClient(
         stubBaseUrl,

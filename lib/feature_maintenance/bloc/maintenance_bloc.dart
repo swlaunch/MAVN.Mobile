@@ -51,7 +51,7 @@ class MaintenanceBloc extends Bloc<MaintenanceState> {
         return;
       }
 
-      final int expectedRemainingDuration =
+      final expectedRemainingDuration =
           MaintenanceResponseModel.fromError(dioException)
               .expectedRemainingDurationInMinutes;
 
