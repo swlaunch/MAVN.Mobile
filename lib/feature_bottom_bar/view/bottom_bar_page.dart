@@ -305,7 +305,7 @@ class BottomBarPage extends HookWidget with DynamicLinkManagerMixin {
     QrContentManager qrContentManager,
   ) async {
     final scannedInfo = await BarcodeScanManager().startScan();
-    final action = await qrContentManager.getQrAction(scannedInfo);
+    final action = await qrContentManager.getQrAction(scannedInfo.rawContent);
 
     await router.showScannedInfoDialog(localizedStrings, action);
   }
