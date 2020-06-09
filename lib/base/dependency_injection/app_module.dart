@@ -374,7 +374,8 @@ class AppModule extends Module {
     provideSingleton<PendingPartnerPaymentsBloc>(
         () => PendingPartnerPaymentsBloc(get()));
 
-    provideSingleton(() => BiometricBloc(get(), get(), get(), get()));
+    provideSingleton(() => BiometricBloc(
+        get(), get(), get(), get(), LocalizedStrings.of(context)));
 
     provideSingleton(() => LoginBloc(get(), get()));
 
