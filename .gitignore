@@ -73,6 +73,7 @@
 **/ios/Runner/Info.plist
 **/ios/fastlane/report.xml
 **/ios/Flutter/flutter_export_environment.sh
+**/ios/build/
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
