@@ -69,7 +69,6 @@
 **/ios/Flutter/flutter_assets/
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
-**/ios/Runner/GoogleService-Info.plist
 **/ios/Runner/Info.plist
 **/ios/fastlane/report.xml
 **/ios/Flutter/flutter_export_environment.sh
