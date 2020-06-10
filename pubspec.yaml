@@ -67,6 +67,7 @@ dependencies:
   local_auth: ^0.6.1+3
   google_maps_flutter: ^0.5.27+2
   location: ^3.0.0
+  latlong: ^0.6.1
 
 dev_dependencies:
   flutter_test:

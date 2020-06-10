@@ -102,9 +102,18 @@ class CampaignMapPage extends HookWidget {
     }
 
     Future<void> onCameraIdle() async {
-      final x = await _mapController.getVisibleRegion();
-      final c = _mapController.
+      final bounds = await _mapController.getVisibleRegion();
+      final centerLat =
+          (bounds.northeast.latitude + bounds.southwest.latitude) / 2.0;
+      final centerLng =
+          (bounds.northeast.longitude + bounds.southwest.longitude) / 2.0;
+      final radius = campaignMapBloc.getRadiusFromRegion(bounds);
+
+      unawaited(campaignMapBloc.loadCampaignsForLocation(
+          userPosition: UserPosition(lat: centerLat, long: centerLng),
+          radius: radius));
     }
+
     return Scaffold(
       body: SafeArea(
         top: false,
