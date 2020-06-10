@@ -31,6 +31,7 @@ class LoginPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final router = useRouter();
+    final localizedStrings = useLocalizedStrings();
 
     final biometricBloc = useBiometricBloc();
     final loginBloc = useLoginBloc();
@@ -68,7 +69,7 @@ class LoginPage extends HookWidget {
     });
 
     useEffect(() {
-      checkUnauthorizedRedirection(biometricBloc);
+      checkUnauthorizedRedirection(biometricBloc, localizedStrings);
     }, [_scaffoldKey]);
 
     useEffect(() {
@@ -90,7 +91,7 @@ class LoginPage extends HookWidget {
           children: <Widget>[
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Heading(useLocalizedStrings().loginPageHeader)),
+                child: Heading(localizedStrings.loginPageHeader)),
             const SizedBox(height: 12),
             Expanded(
               child: LoginForm(
@@ -107,7 +108,8 @@ class LoginPage extends HookWidget {
         ));
   }
 
-  void checkUnauthorizedRedirection(BiometricBloc biometricBloc) {
+  void checkUnauthorizedRedirection(
+      BiometricBloc biometricBloc, LocalizedStrings localizedStrings) {
     if (!unauthorizedInterceptorRedirection) {
       return;
     }
@@ -116,7 +118,7 @@ class LoginPage extends HookWidget {
       biometricBloc.clear();
       _scaffoldKey.currentState.showSnackBar(SnackBar(
         content: Text(
-          useLocalizedStrings().loginPageUnauthorizedRedirectionMessage,
+          localizedStrings.loginPageUnauthorizedRedirectionMessage,
           key: const Key('unauthorizedRedirectionMessage'),
         ),
       ));

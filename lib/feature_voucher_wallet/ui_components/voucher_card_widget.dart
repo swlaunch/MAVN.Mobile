@@ -12,15 +12,22 @@ import 'package:lykke_mobile_mavn/library_ui_components/misc/price_tag.dart';
 
 class VoucherCardWidget extends HookWidget {
   VoucherCardWidget({
-    this.imageUrl,
-    this.color,
-    this.partnerName,
-    this.voucherName,
-    this.expirationDate,
-    this.purchaseDate,
-    this.voucherStatus,
-    this.price,
+    @required this.imageUrl,
+    @required this.partnerName,
+    @required this.voucherName,
+    @required this.expirationDate,
+    @required this.purchaseDate,
+    @required this.voucherStatus,
+    @required this.price,
+    this.color = ColorStyles.piper,
   });
+
+  static const voucherTintColors = [
+    ColorStyles.piper,
+    ColorStyles.jakarta,
+    ColorStyles.blueStone,
+    ColorStyles.eminence,
+  ];
 
   final String imageUrl;
   final Color color;

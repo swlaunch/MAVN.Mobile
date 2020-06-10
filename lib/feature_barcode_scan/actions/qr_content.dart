@@ -1,40 +1,14 @@
-import 'package:lykke_mobile_mavn/library_utils/string_utils.dart';
+import 'package:tuple/tuple.dart';
 
-class QrContent {
+abstract class QrContent {
   QrContent(this.data);
 
+  static const separator = '&';
+  static const valueStart = '=';
+
   final String data;
-}
 
-extension SmeLinkingValues on QrContent {
-  List<String> parseCodes() {
-    try {
-      if (StringUtils.isNullOrEmpty(data)) {
-        return [];
-      }
-      const codeStart = '=';
-      const splitCharacter = '&';
-
-      final parts = data.split(splitCharacter);
-
-      if (parts.isEmpty || parts.length < 2) {
-        return [];
-      }
-      final startIndexPartnerCode = parts[0]?.indexOf(codeStart);
-      final partnerCode = parts?.first?.substring(
-          startIndexPartnerCode + codeStart.length, parts?.first?.length);
-
-      final startIndexLinkCode = parts[1]?.indexOf(codeStart);
-      final endIndexLinkCode = parts[1].length;
-
-      final linkingCode = parts[1]
-          .substring(startIndexLinkCode + codeStart.length, endIndexLinkCode);
-      return [
-        partnerCode,
-        linkingCode,
-      ];
-    } on Exception catch (_) {
-      return [];
-    }
-  }
+  ///Convert [data] into a [List<Tuple2>] with the relevant
+  ///key value pairs
+  List<Tuple2> decode();
 }

@@ -2,7 +2,6 @@ import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
-import 'package:lykke_mobile_mavn/feature_barcode_scan/actions/qr_content.dart';
 import 'package:lykke_mobile_mavn/feature_barcode_scan/bloc/barcode_scanner_manager.dart';
 import 'package:lykke_mobile_mavn/feature_barcode_scan/bloc/scan_barcode_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_barcode_scan/di/barcode_scan_module.dart';
@@ -21,12 +20,10 @@ class BarcodeScanBloc extends Bloc<BarcodeScanState> {
     setState(BarcodeScanUninitializedState());
     try {
       final scanResult = await _barcodeScanManager.startScan();
-      if (scanResult.type == ResultType.Barcode) {
-        final barcode = scanResult.rawContent;
-        sendEvent(BarcodeScanSuccessEvent(QrContent(barcode)));
-      }
+      final barcode = scanResult;
+      sendEvent(BarcodeScanSuccessEvent(barcode));
     } on PlatformException catch (e) {
-      if (e.code == BarcodeScanner.cameraAccessDenied) {
+      if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(BarcodeScanPermissionErrorState(
             LazyLocalizedStrings.barcodeScanPermissionError));
       } else {

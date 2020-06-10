@@ -357,6 +357,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "•\tPlace fully in the frame, not cut off\n•\tAvoid glare so that all info is visible\n•\tHold steady to avoid a blurry scan"),
         "canNotReferYourselfError": MessageLookupByLibrary.simpleMessage(
             "Self-referral is not possible. Your referral cannot be submitted."),
+        "cancelButton": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cancelVoucher": MessageLookupByLibrary.simpleMessage("Cancel Voucher"),
         "cannotGetOffersError": MessageLookupByLibrary.simpleMessage(
             "Sorry, we are unable to show any offers at this moment, please try again"),
@@ -416,6 +417,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "This account is currently blocked"),
         "customerDoesNotExistError": MessageLookupByLibrary.simpleMessage(
             "Sorry, the customer could not be found"),
+        "customerHaveAnotherReservedVoucherError":
+            MessageLookupByLibrary.simpleMessage(
+                "You have another voucher purchase in progress. Please finalize it and try again."),
         "customerPhoneIsMissingError": MessageLookupByLibrary.simpleMessage(
             "Error. User\'s phone number could not be retrieved"),
         "customerProfileDoesNotExistError":
@@ -572,6 +576,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emptyPhoneNumberClientSideValidationError":
             MessageLookupByLibrary.simpleMessage("Phone number is required"),
         "enterAmountHint": MessageLookupByLibrary.simpleMessage("Enter amount"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "expirationDate": m98,
         "expirationFormatDays": m19,
         "expired": MessageLookupByLibrary.simpleMessage("Expired"),
@@ -596,6 +601,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "genericErrorShort":
             MessageLookupByLibrary.simpleMessage("Please try again."),
         "getStartedButton": MessageLookupByLibrary.simpleMessage("Get started"),
+        "goBack": MessageLookupByLibrary.simpleMessage("Go back"),
         "goToWallet": MessageLookupByLibrary.simpleMessage("Go to Wallet"),
         "homePageCountdownSubtitle": MessageLookupByLibrary.simpleMessage(
             "are waiting for you, hurry up"),
@@ -661,6 +667,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "This is not a valid signature. Please amend and retry"),
         "invalidWalletLinkSignatureError": MessageLookupByLibrary.simpleMessage(
             "This is not a valid signature. Please amend and retry"),
+        "invalidateVoucher":
+            MessageLookupByLibrary.simpleMessage("Invalidate Voucher"),
         "inviteAFriend":
             MessageLookupByLibrary.simpleMessage("Invite a Friend"),
         "inviteAFriendPageDetails": MessageLookupByLibrary.simpleMessage(
@@ -839,6 +847,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Internet connection problem"),
         "newHeader": MessageLookupByLibrary.simpleMessage("New"),
         "nextPageButton": MessageLookupByLibrary.simpleMessage("Next"),
+        "noAvailableVouchersError": MessageLookupByLibrary.simpleMessage(
+            "Smart voucher campaign does not have available vouchers"),
         "noCustomerWithSuchEmailError": MessageLookupByLibrary.simpleMessage(
             "This customer does not exist"),
         "noTokensConversionRateText": m44,
@@ -924,6 +934,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "paymentIsNotInACorrectStatusToBeUpdatedError":
             MessageLookupByLibrary.simpleMessage(
                 "The request seems to be already completed or canceled."),
+        "paymentProviderError": MessageLookupByLibrary.simpleMessage(
+            "There\'s a problem with payment provider"),
         "paymentRequestsIsForAnotherCustomerError":
             MessageLookupByLibrary.simpleMessage(
                 "Sorry, we couldn\'t find this transfer request"),
@@ -1114,6 +1126,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Open in browser"),
         "scannedInfoDialogTitle":
             MessageLookupByLibrary.simpleMessage("Scanned Info"),
+        "scannedInfoDialogVoucherError": MessageLookupByLibrary.simpleMessage(
+            "This voucher cannot be invalidated by your account."),
+        "scannedInfoDialogVoucherPositiveButton":
+            MessageLookupByLibrary.simpleMessage("Invalidate Voucher"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "sendToExternalWalletButton":
             MessageLookupByLibrary.simpleMessage("Transfer to external wallet"),
@@ -1133,6 +1149,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Metamask, Coinbase, Trust wallet, ..."),
         "simpleWalletsTitle":
             MessageLookupByLibrary.simpleMessage("Simple wallets"),
+        "smeInvalidateVoucherSuccessDetails":
+            MessageLookupByLibrary.simpleMessage(
+                "You have successfully redeemed this voucher."),
+        "smeInvalidateVoucherSuccessPageTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Voucher successfully redeemed"),
         "smeLinkingAlreadyLinkedError": MessageLookupByLibrary.simpleMessage(
             "Your account is already linked to business."),
         "smeLinkingCredentialsError": MessageLookupByLibrary.simpleMessage(

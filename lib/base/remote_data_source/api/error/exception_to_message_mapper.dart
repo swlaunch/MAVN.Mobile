@@ -232,6 +232,26 @@ class ExceptionToMessageMapper {
         return LazyLocalizedStrings.smeLinkingCredentialsError;
       case ServiceExceptionType.partnerLinkingInfoDoesNotMatch:
         return LazyLocalizedStrings.smeLinkingCredentialsError;
+      case ServiceExceptionType.smartVoucherNotFound:
+        return _getGenericError();
+      case ServiceExceptionType.smartVoucherCampaignNotFound:
+        return _getGenericError();
+      case ServiceExceptionType.smartVoucherCampaignNotActive:
+        return _getGenericError();
+      case ServiceExceptionType.wrongSmartVoucherValidationCode:
+        return _getGenericError();
+      case ServiceExceptionType.sellerCustomerIsNotALinkedPartner:
+        return _getGenericError();
+      case ServiceExceptionType.sellerCustomerIsNotTheVoucherIssuer:
+        return _getGenericError();
+      case ServiceExceptionType.voucherIsNotInCorrectStatusToBeRedeemed:
+        return _getGenericError();
+      case ServiceExceptionType.noAvailableVouchers:
+        return LazyLocalizedStrings.noAvailableVouchersError;
+      case ServiceExceptionType.customerHaveAnotherReservedVoucher:
+        return LazyLocalizedStrings.customerHaveAnotherReservedVoucherError;
+      case ServiceExceptionType.paymentProviderError:
+        return LazyLocalizedStrings.paymentProviderError;
     }
 
     return LocalizedStringBuilder.custom(exceptionMessage);

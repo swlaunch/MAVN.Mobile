@@ -16,6 +16,7 @@ import 'package:lykke_mobile_mavn/base/router/base_router.dart';
 import 'package:lykke_mobile_mavn/base/router/router_page_factory.dart';
 import 'package:lykke_mobile_mavn/base/router/router_page_names.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/view/scanned_info_dialog.dart';
+import 'package:lykke_mobile_mavn/feature_bottom_bar/view/scanned_info_error_dialog.dart';
 import 'package:lykke_mobile_mavn/feature_email_verification/view/email_verification_page.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/bloc/link_wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/library_dependency_injection/core.dart';
@@ -783,6 +784,12 @@ class Router extends BaseRouter {
         child: ScannedInfoDialog(localizedStrings, action: action),
       );
 
+  Future<bool> showScannedInfoErrorDialog(
+          LocalizedStrings localizedStrings, QrBaseAction action) =>
+      showDialog(
+        child: ScannedInfoErrorDialog(localizedStrings, action: action),
+      );
+
   Future<bool> showEnableLocationsDialog(LocalizedStrings localizedStrings) =>
       showDialog(child: EnableLocationDialog(localizedStrings));
 
@@ -812,6 +819,24 @@ class Router extends BaseRouter {
     await replacePage(
       RouterPageFactory.getSmeLinkingSuccessPage(),
       pageName: RouterPageName.smeLinkingSuccessPage,
+    );
+  }
+
+  Future<void> pushSmeInvalidateVoucherPage({
+    @required String voucherShortCode,
+  }) async {
+    await pushPage(
+      RouterPageFactory.getSmeInvalidateVoucherPage(
+        voucherShortCode: voucherShortCode,
+      ),
+      pageName: RouterPageName.smeInvalidateVoucherPage,
+    );
+  }
+
+  Future<void> replaceWithSmeInvalidateSuccessPage() async {
+    await replacePage(
+      RouterPageFactory.getSmeInvalidateVoucherSuccessPage(),
+      pageName: RouterPageName.smeInvalidateSuccessPage,
     );
   }
 

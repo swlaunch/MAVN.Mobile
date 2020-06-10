@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/base/common_blocs/customer_bloc.dart';
 import 'package:lykke_mobile_mavn/base/common_use_cases/get_mobile_settings_use_case.dart';
 import 'package:lykke_mobile_mavn/base/router/external_router.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
@@ -14,6 +15,7 @@ import '../test_constants.dart';
 Router _mockRouter;
 ExternalRouter _mockExternalRouter;
 GetMobileSettingsUseCase _mockGetMobileSettingsUseCase;
+CustomerBloc _mockCustomerBloc;
 QrContentManager _subject;
 
 void main() {
@@ -22,10 +24,15 @@ void main() {
       _mockRouter = MockRouter();
       _mockExternalRouter = MockExternalRouter();
       _mockGetMobileSettingsUseCase = MockGetMobileSettingsUseCase();
+      _mockCustomerBloc = MockCustomerBloc(CustomerUninitializedState());
       when(_mockGetMobileSettingsUseCase.execute())
           .thenReturn(TestConstants.stubMobileSettings);
       _subject = QrContentManager(
-          _mockRouter, _mockExternalRouter, _mockGetMobileSettingsUseCase);
+        _mockRouter,
+        _mockExternalRouter,
+        _mockGetMobileSettingsUseCase,
+        _mockCustomerBloc,
+      );
     });
 
     testWidgets('test url content', (widgetTester) async {

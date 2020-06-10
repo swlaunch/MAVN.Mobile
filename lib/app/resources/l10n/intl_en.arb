@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-06-03T12:51:33.653973",
+  "@@last_modified": "2020-06-09T17:18:22.134277",
   "networkErrorTitle": "Internet connection problem",
   "@networkErrorTitle": {
     "type": "text",
@@ -61,6 +61,21 @@
   },
   "noVouchersInStockError": "Sorry, all vouchers are sold out",
   "@noVouchersInStockError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "noAvailableVouchersError": "Smart voucher campaign does not have available vouchers",
+  "@noAvailableVouchersError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "paymentProviderError": "There's a problem with payment provider",
+  "@paymentProviderError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "customerHaveAnotherReservedVoucherError": "You have another voucher purchase in progress. Please finalize it and try again.",
+  "@customerHaveAnotherReservedVoucherError": {
     "type": "text",
     "placeholders": {}
   },
@@ -416,6 +431,16 @@
   },
   "retryButton": "Retry",
   "@retryButton": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancelButton": "Cancel",
+  "@cancelButton": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "goBack": "Go back",
+  "@goBack": {
     "type": "text",
     "placeholders": {}
   },
@@ -3384,6 +3409,36 @@
   },
   "smeLinkingCredentialsError": "Please check credentials and try again",
   "@smeLinkingCredentialsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidateVoucher": "Invalidate Voucher",
+  "@invalidateVoucher": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scannedInfoDialogVoucherPositiveButton": "Invalidate Voucher",
+  "@scannedInfoDialogVoucherPositiveButton": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scannedInfoDialogVoucherError": "This voucher cannot be invalidated by your account.",
+  "@scannedInfoDialogVoucherError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "error": "Error",
+  "@error": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smeInvalidateVoucherSuccessPageTitle": "Voucher successfully redeemed",
+  "@smeInvalidateVoucherSuccessPageTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smeInvalidateVoucherSuccessDetails": "You have successfully redeemed this voucher.",
+  "@smeInvalidateVoucherSuccessDetails": {
     "type": "text",
     "placeholders": {}
   }

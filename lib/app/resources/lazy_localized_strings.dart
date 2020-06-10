@@ -80,6 +80,16 @@ class LazyLocalizedStrings {
   static LocalizedStringBuilder get noVouchersInStockError =>
       _builder((_) => _.noVouchersInStockError, 'noVouchersInStockError');
 
+  static LocalizedStringBuilder get noAvailableVouchersError =>
+      _builder((_) => _.noAvailableVouchersError, 'noAvailableVouchersError');
+
+  static LocalizedStringBuilder get paymentProviderError =>
+      _builder((_) => _.paymentProviderError, 'paymentProviderError');
+
+  static LocalizedStringBuilder get customerHaveAnotherReservedVoucherError =>
+      _builder((_) => _.customerHaveAnotherReservedVoucherError,
+          'customerHaveAnotherReservedVoucherError');
+
 // endregion Customer API errors
 //region Common Form Elements
 
@@ -314,6 +324,9 @@ class LazyLocalizedStrings {
 
   static LocalizedStringBuilder get retryButton =>
       _builder((_) => _.retryButton, 'retryButton');
+
+  static LocalizedStringBuilder get cancelButton =>
+      _builder((_) => _.cancelButton, 'cancelButton');
 
   static LocalizedStringBuilder get backToWalletButton =>
       _builder((_) => _.backToWalletButton, 'backToWalletButton');
@@ -2401,5 +2414,17 @@ class LazyLocalizedStrings {
 
   static LocalizedStringBuilder get smeLinkingCredentialsError => _builder(
       (_) => _.smeLinkingCredentialsError, 'smeLinkingCredentialsError');
+
 //endregion SME linking
+
+//region SME invalidate voucher
+
+  static LocalizedStringBuilder get scannedInfoDialogVoucherPositiveButton =>
+      _builder((_) => _.scannedInfoDialogVoucherPositiveButton,
+          'scannedInfoDialogVoucherPositiveButton');
+
+  static LocalizedStringBuilder get scannedInfoDialogVoucherError => _builder(
+      (_) => _.scannedInfoDialogVoucherError, 'scannedInfoDialogVoucherError');
+
+//endregion SME invalidate voucher
 }

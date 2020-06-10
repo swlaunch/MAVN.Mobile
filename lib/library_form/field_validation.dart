@@ -503,7 +503,7 @@ class PartnerLinkingCodeInvalidFieldValidation extends FieldValidation<String> {
     VoidCallback onValidationError,
   }) : super(
           validate: FieldValidators.alphaNumeric,
-          localizedString: LazyLocalizedStrings.paymentAmountInvalidError,
+          localizedString: LazyLocalizedStrings.partnerLinkingCodeInvalid,
           onValidationError: onValidationError,
         );
 }

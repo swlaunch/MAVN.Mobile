@@ -165,6 +165,8 @@ class RouterPageName {
 // region SME linking
   static const String smeLinkingPage = 'sme_linking_page';
   static const String smeLinkingSuccessPage = 'sme_linking_success_page';
+  static const String smeInvalidateVoucherPage = 'sme_invalidate_voucher_page';
+  static const String smeInvalidateSuccessPage = 'sme_invalidate_success_page';
 
 // endregion SME linking
 

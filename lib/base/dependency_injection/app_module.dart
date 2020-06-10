@@ -407,7 +407,7 @@ class AppModule extends Module {
     );
 
     //Qr Content Manager
-    provideSingleton(() => QrContentManager(get(), get(), get()));
+    provideSingleton(() => QrContentManager(get(), get(), get(), get()));
 
     //Use case
     provideSingleton(() => LoginUseCase(get(), get(), get()));

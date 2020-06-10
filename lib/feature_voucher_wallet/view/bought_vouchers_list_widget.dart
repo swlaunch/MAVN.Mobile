@@ -19,13 +19,6 @@ import 'package:lykke_mobile_mavn/library_ui_components/misc/spinner.dart';
 class BoughtVouchersList extends HookWidget {
   static const voucherHeroTag = 'voucher_';
 
-  final voucherTintColors = [
-    ColorStyles.piper,
-    ColorStyles.jakarta,
-    ColorStyles.blueStone,
-    ColorStyles.eminence,
-  ];
-
   @override
   Widget build(BuildContext context) {
     final router = useRouter();
@@ -100,7 +93,8 @@ class BoughtVouchersList extends HookWidget {
                         data.value.indexOf(voucher) == 0) {
                       tintColorIndex = 0;
                     }
-                    final voucherTintColor = voucherTintColors[tintColorIndex];
+                    final voucherTintColor =
+                        VoucherCardWidget.voucherTintColors[tintColorIndex];
                     return InkWell(
                       onTap: () => router.pushVoucherDetailsPage(
                         voucher: voucher,

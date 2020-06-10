@@ -9,8 +9,8 @@ class CustomDialog extends HookWidget {
   const CustomDialog({
     @required this.title,
     @required this.content,
-    @required this.positiveButtonText,
-    @required this.negativeButtonText,
+    this.positiveButtonText,
+    this.negativeButtonText,
     this.titleIcon,
   });
 

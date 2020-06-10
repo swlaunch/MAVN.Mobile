@@ -64,9 +64,9 @@ class TransactionFormBloc extends Bloc<TransactionFormState> {
     setState(BarcodeUninitializedState());
     try {
       final scanResult = await _barcodeScanManager.startScan();
-      sendEvent(BarcodeScanSuccessEvent(scanResult.rawContent));
+      sendEvent(BarcodeScanSuccessEvent(scanResult));
     } on PlatformException catch (e) {
-      if (e.code == BarcodeScanner.cameraAccessDenied) {
+      if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(BarcodeScanPermissionErrorState(
             LazyLocalizedStrings.barcodeScanPermissionError));
       } else {

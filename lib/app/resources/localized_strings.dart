@@ -148,6 +148,19 @@ class LocalizedStrings {
       Intl.message('Sorry, all vouchers are sold out',
           name: 'noVouchersInStockError');
 
+  String get noAvailableVouchersError =>
+      Intl.message('Smart voucher campaign does not have available vouchers',
+          name: 'noAvailableVouchersError');
+
+  String get paymentProviderError =>
+      Intl.message('There\'s a problem with payment provider',
+          name: 'paymentProviderError');
+
+  String get customerHaveAnotherReservedVoucherError => Intl.message(
+      // ignore: lines_longer_than_80_chars
+      'You have another voucher purchase in progress. Please finalize it and try again.',
+      name: 'customerHaveAnotherReservedVoucherError');
+
 // endregion Customer API errors
 //region Common Form Elements
 
@@ -433,6 +446,10 @@ class LocalizedStrings {
   String get continueButton => Intl.message('Continue', name: 'continueButton');
 
   String get retryButton => Intl.message('Retry', name: 'retryButton');
+
+  String get cancelButton => Intl.message('Cancel', name: 'cancelButton');
+
+  String get goBack => Intl.message('Go back', name: 'goBack');
 
   String get backToWalletButton =>
       Intl.message('Back to Wallet', name: 'backToWalletButton');
@@ -3146,6 +3163,7 @@ class LocalizedStrings {
         'This offer has no expiration date',
         name: 'voucherNoExpirationDate',
       );
+
 // endregion Voucher Details
 
 //region Notifications
@@ -3304,4 +3322,33 @@ class LocalizedStrings {
       );
 
 //endregion SME linking
+
+//region SME invalidate voucher
+
+  String get invalidateVoucher => Intl.message(
+        'Invalidate Voucher',
+        name: 'invalidateVoucher',
+      );
+
+  String get scannedInfoDialogVoucherPositiveButton =>
+      Intl.message('Invalidate Voucher',
+          name: 'scannedInfoDialogVoucherPositiveButton');
+
+  String get scannedInfoDialogVoucherError =>
+      Intl.message('This voucher cannot be invalidated by your account.',
+          name: 'scannedInfoDialogVoucherError');
+
+  String get error => Intl.message('Error', name: 'error');
+
+  String get smeInvalidateVoucherSuccessPageTitle =>
+      Intl.message('Voucher successfully redeemed',
+          name: 'smeInvalidateVoucherSuccessPageTitle');
+
+  String get smeInvalidateVoucherSuccessDetails => Intl.message(
+        // ignore: lines_longer_than_80_chars
+        'You have successfully redeemed this voucher.',
+        name: 'smeInvalidateVoucherSuccessDetails',
+      );
+
+//endregion SME invalidate voucher
 }

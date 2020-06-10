@@ -6,7 +6,7 @@ import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
-import 'package:lykke_mobile_mavn/feature_barcode_scan/actions/qr_content.dart';
+import 'package:lykke_mobile_mavn/feature_barcode_scan/actions/partner_info_qr_content.dart';
 import 'package:lykke_mobile_mavn/feature_barcode_scan/bloc/scan_barcode_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_barcode_scan/bloc/scan_barcode_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_link_sme_account/bloc/sme_linking_bloc.dart';
@@ -15,6 +15,7 @@ import 'package:lykke_mobile_mavn/feature_link_sme_account/view/sme_linking_form
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_custom_hooks/text_editing_controller_hook.dart';
 import 'package:lykke_mobile_mavn/library_form/form_mixin.dart';
+import 'package:lykke_mobile_mavn/library_tuple/tuple_extensions.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/error/generic_error_widget.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/layout/scaffold_with_app_bar.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/heading.dart';
@@ -57,13 +58,18 @@ class SmeLinkingPage extends HookWidget with FormMixin {
 
     useBlocEventListener(barcodeScanBloc, (event) {
       if (event is BarcodeScanSuccessEvent) {
-        final codes = event.qrAction.parseCodes();
+        final content = event.content;
+        final qrAction = PartnerInfoQrContent(content);
+        final codes = qrAction.decode();
 
         if (codes.isEmpty) return;
 
-        final scannedPartnerCode = codes[0];
-        final scannedLinkingCode = codes[1];
+        final scannedPartnerCode =
+            codes.getValueByKey(PartnerInfoQrContent.partnerCodeKey);
+        final scannedLinkingCode =
+            codes.getValueByKey(PartnerInfoQrContent.linkingCodeKey);
 
+        if (scannedPartnerCode == null || scannedLinkingCode == null) return;
         partnerCodeTextEditingController.text = scannedPartnerCode;
         linkingCodeTextEditingController.text = scannedLinkingCode;
       }

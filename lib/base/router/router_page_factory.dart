@@ -87,6 +87,9 @@ import 'package:lykke_mobile_mavn/feature_reset_password/di/reset_password_modul
 import 'package:lykke_mobile_mavn/feature_reset_password/view/reset_password_page.dart';
 import 'package:lykke_mobile_mavn/feature_reset_password/view/set_password_page.dart';
 import 'package:lykke_mobile_mavn/feature_reset_password/view/set_password_success_page.dart';
+import 'package:lykke_mobile_mavn/feature_sme_invalidate_voucher/di/sme_invalidate_voucher_module.dart';
+import 'package:lykke_mobile_mavn/feature_sme_invalidate_voucher/view/sme_invalidate_voucher_page.dart';
+import 'package:lykke_mobile_mavn/feature_sme_invalidate_voucher/view/sme_invalidate_voucher_success_page.dart';
 import 'package:lykke_mobile_mavn/feature_social/view/social_page.dart';
 import 'package:lykke_mobile_mavn/feature_spend/di/transfer_module.dart';
 import 'package:lykke_mobile_mavn/feature_splash/di/splash_module.dart';
@@ -535,6 +538,21 @@ class RouterPageFactory {
       );
 
   static Widget getSmeLinkingSuccessPage() => SmeLinkingSuccessPage();
+
+  static Widget getSmeInvalidateVoucherPage(
+          {@required String voucherShortCode}) =>
+      MultiProvider(
+        providers: [
+          ModuleProvider(module: SmeInvalidateVoucherModule()),
+          ModuleProvider(module: VoucherDetailsModule()),
+        ],
+        child: SmeInvalidateVoucherPage(
+          voucherShortCode: voucherShortCode,
+        ),
+      );
+
+  static Widget getSmeInvalidateVoucherSuccessPage() =>
+      SmeInvalidateVoucherSuccessPage();
 
   //endregion SME linking
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lykke_mobile_mavn/feature_barcode_scan/actions/qr_content.dart';
+import 'package:lykke_mobile_mavn/feature_barcode_scan/actions/voucher_qr_content.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class VoucherQRWidget extends StatelessWidget {
@@ -7,11 +9,6 @@ class VoucherQRWidget extends StatelessWidget {
     @required this.voucherCode,
     @required this.validationCode,
   });
-
-  static const separator = '&';
-  static const partnerIdKey = 'PId=';
-  static const shortCodeKey = 'SC=';
-  static const validationCodeKey = 'VC=';
 
   final String partnerId;
   final String voucherCode;
@@ -22,12 +19,9 @@ class VoucherQRWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //TODO extract somewhere that would fit nice architecturally
-    final qrValue = '$partnerIdKey$partnerId'
-        '$separator'
-        '$shortCodeKey$voucherCode'
-        '$separator'
-        '$validationCodeKey$validationCode';
-    print('QRRR $qrValue');
+    final qrValue = '${VoucherQrContent.partnerIdKey}$partnerId'
+        '${QrContent.separator}'
+        '${VoucherQrContent.shortCodeKey}$voucherCode';
     return QrImage(
       key: const Key('voucherQrCode'),
       data: qrValue,

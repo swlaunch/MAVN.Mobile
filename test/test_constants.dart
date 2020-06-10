@@ -1,4 +1,3 @@
-import 'package:barcode_scan/barcode_scan.dart';
 import 'package:dio/dio.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/common/offer_type.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/conversion/response_model/currency_converter_response_model.dart';
@@ -108,8 +107,7 @@ class TestConstants {
   static const stubUserIso2CodeUppercase = 'US';
   static const stubUserIso2CodeLowercase = 'us';
   static const stubUserIso3Code = 'USA';
-  static final ScanResult stubBarcodeScanResult =
-      ScanResult(rawContent: 'stubBarcode');
+  static const stubBarcode = 'stubBarcode';
 
   static const stubTermsUrl = 'stubTermsUrl';
 

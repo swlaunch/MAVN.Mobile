@@ -520,14 +520,12 @@ void main() {
       );
 
       await _mockBloc.testNewEvent(
-        event: BarcodeScanSuccessEvent(
-            TestConstants.stubBarcodeScanResult.rawContent),
+        event: BarcodeScanSuccessEvent(TestConstants.stubBarcode),
         widgetTester: widgetTester,
       );
 
       _formHelper.thenTextFieldHasValue(
-          key: _walletAddressTextField,
-          value: TestConstants.stubBarcodeScanResult.rawContent);
+          key: _walletAddressTextField, value: TestConstants.stubBarcode);
     });
 
     testWidgets('start scan - permission error', (widgetTester) async {
