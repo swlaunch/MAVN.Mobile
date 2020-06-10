@@ -24,7 +24,6 @@ class BiometricBloc extends Bloc<BiometricState> {
   final UserRepository _userRepository;
   final LoginBloc _loginBloc;
 
-  // Need provide manually
   final LocalizedStrings localizedStrings;
 
   @override
