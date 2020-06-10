@@ -18,7 +18,8 @@ import 'package:lykke_mobile_mavn/feature_bottom_bar/view/bottom_bar_page.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_details/view/campaign_details_page.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_list/di/campaign_list_module.dart';
 import 'package:lykke_mobile_mavn/feature_campaign_list/view/campaign_list_page.dart';
-import 'package:lykke_mobile_mavn/feature_campaign_list/view/campaign_map_page.dart';
+import 'package:lykke_mobile_mavn/feature_campaigns_map/di/campaign_map_module.dart';
+import 'package:lykke_mobile_mavn/feature_campaigns_map/view/campaign_map_page.dart';
 import 'package:lykke_mobile_mavn/feature_change_password/di/change_password_module.dart';
 import 'package:lykke_mobile_mavn/feature_change_password/view/change_password_page.dart';
 import 'package:lykke_mobile_mavn/feature_change_password/view/change_password_success_page.dart';
@@ -491,7 +492,7 @@ class RouterPageFactory {
       );
 
   static Widget getCampaignMapPage() => ModuleProvider(
-        module: CampaignListModule(),
+        module: CampaignMapModule(),
         child: CampaignMapPage(),
       );
 

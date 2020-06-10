@@ -12,13 +12,14 @@ class CampaignRepository {
   static const itemsPerPage = 30;
 
   Future<CampaignListResponseModel> getCampaigns({
+    int pageSize = itemsPerPage,
     int currentPage,
     double long,
     double lat,
     double radius,
   }) =>
       _campaignApi.getCampaigns(
-        pageSize: itemsPerPage,
+        pageSize: pageSize,
         currentPage: currentPage,
         long: long,
         lat: lat,
