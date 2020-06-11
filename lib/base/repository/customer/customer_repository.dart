@@ -85,7 +85,7 @@ class CustomerRepository {
 
   Future<TransactionHistoryResponseModel> getTransactionHistory({
     int currentPage = 1,
-    int pageSize = 1,
+    int pageSize = 30,
   }) =>
       _customerApi.getTransactionHistory(
         currentPage: currentPage,

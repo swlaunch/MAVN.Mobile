@@ -14,8 +14,8 @@ import 'package:lykke_mobile_mavn/feature_link_sme_account/bloc/sme_linking_bloc
 import 'package:lykke_mobile_mavn/feature_link_sme_account/view/sme_linking_form.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_custom_hooks/text_editing_controller_hook.dart';
+import 'package:lykke_mobile_mavn/library_extensions/tuple_extensions.dart';
 import 'package:lykke_mobile_mavn/library_form/form_mixin.dart';
-import 'package:lykke_mobile_mavn/library_tuple/tuple_extensions.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/error/generic_error_widget.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/layout/scaffold_with_app_bar.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/heading.dart';

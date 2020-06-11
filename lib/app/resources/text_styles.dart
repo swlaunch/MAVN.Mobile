@@ -412,13 +412,6 @@ class TextStyles {
     height: 1.2,
   );
 
-  static const transactionHistoryAmount = TextStyle(
-    color: ColorStyles.primaryDark,
-    fontFamily: commonFontFamily,
-    fontSize: 14,
-    fontWeight: FontWeight.w600,
-  );
-
   // Special font without color or size for the BottomBar text
   static const bottomBarItemText = TextStyle(
     fontFamily: commonFontFamily,
@@ -471,5 +464,45 @@ class TextStyles {
     fontSize: 24,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w900,
+  );
+
+  static const transactionHistoryHeader = TextStyle(
+    color: Colors.black,
+    fontFamily: commonFontFamily,
+    fontSize: 16,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w900,
+  );
+
+  static const transactionHistoryOperation = TextStyle(
+    color: Colors.black,
+    fontFamily: commonFontFamily,
+    fontSize: 12,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w900,
+  );
+
+  static const transactionHistoryCampaign = TextStyle(
+    color: Colors.black,
+    fontFamily: commonFontFamily,
+    fontSize: 20,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w800,
+  );
+
+  static const transactionHistoryPartner = TextStyle(
+    color: ColorStyles.manatee50,
+    fontFamily: commonFontFamily,
+    fontSize: 10,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w800,
+  );
+
+  static const transactionHistoryAmount = TextStyle(
+    color: ColorStyles.resolutionBlue,
+    fontFamily: commonFontFamily,
+    fontSize: 16,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w800,
   );
 }

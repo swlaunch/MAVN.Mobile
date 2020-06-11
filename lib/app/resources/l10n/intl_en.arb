@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-06-09T17:18:22.134277",
+  "@@last_modified": "2020-06-11T14:37:05.188010",
   "networkErrorTitle": "Internet connection problem",
   "@networkErrorTitle": {
     "type": "text",
@@ -3441,5 +3441,29 @@
   "@smeInvalidateVoucherSuccessDetails": {
     "type": "text",
     "placeholders": {}
+  },
+  "purchase": "Purchase",
+  "@purchase": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "use": "Use",
+  "@use": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sendTo": "Send to {recipient}",
+  "@sendTo": {
+    "type": "text",
+    "placeholders": {
+      "recipient": {}
+    }
+  },
+  "receiveFrom": "Receive from {sender}",
+  "@receiveFrom": {
+    "type": "text",
+    "placeholders": {
+      "sender": {}
+    }
   }
 }

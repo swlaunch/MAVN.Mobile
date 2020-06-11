@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/customer_api.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/request_model/login_request_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/request_model/register_request_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/transaction_history_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/errors.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/login_errors.dart';
 
@@ -277,29 +276,6 @@ void main() {
           'test_resources/mock_data/register/request/full.json',
           path: '/customers/register',
         );
-      });
-    });
-
-    group('getTransactionHistory tests', () {
-      test('getTransactionHistory - success 200', () async {
-        httpClient.mockResponseFromFile(
-            'test_resources/mock_data/history/operations/response/200.json');
-
-        final response = await _subject.getTransactionHistory(
-          currentPage: TestConstants.stubCurrentPage,
-          pageSize: TestConstants.stubCurrentPage,
-        );
-
-        expect(response.totalCount, TestConstants.stubTotalCount);
-        expect(response.transactionList[0].type, TransactionType.sendTransfer);
-        expect(response.transactionList[0].date, TestConstants.stubDateString);
-        expect(response.transactionList[0].amount, TestConstants.stubAmount);
-
-        httpClient
-            .assertGetRequest(path: '/history/operations', queryParameters: {
-          'CurrentPage': '${TestConstants.stubCurrentPage}',
-          'PageSize': '${TestConstants.stubCurrentPage}',
-        });
       });
     });
 

@@ -82,4 +82,10 @@ class ColorStyles {
   static const Color eminence = Color(0xff57266A);
   static const Color shark = Color(0xff2E2E2F);
   static const Color selectiveYellow = Color(0xffFFB100);
+  static const Color silver = Color(0xffBABABA);
+  static const Color apple = Color(0xff40B12B);
+  static const Color pictonBlue = Color(0xff2F8FEF);
+  static const Color manatee = Color(0xff979DA3);
+  static const Color manatee50 = Color(0x80979DA3);
+  static const Color wildSand = Color(0xFFF4F4F4);
 }

@@ -204,9 +204,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m67(token) => "From external wallet to ${token} wallet";
 
+  static m101(sender) => "Receive from ${sender}";
+
   static m68(token) => "Receive ${token} points";
 
   static m69(token) => "Transfer ${token}";
+
+  static m102(recipient) => "Send to ${recipient}";
 
   static m70(token) => "From ${token} wallet to external wallet";
 
@@ -1013,10 +1017,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy policy"),
         "propertyPaymentAvailableBalanceLabel":
             MessageLookupByLibrary.simpleMessage("Available balance"),
+        "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
         "receive": MessageLookupByLibrary.simpleMessage("Receive"),
         "receiveExternalWalletButton": MessageLookupByLibrary.simpleMessage(
             "Receive from external wallet"),
         "receiveExternalWalletButtonSubtitle": m67,
+        "receiveFrom": m101,
         "receiveTokenPageGenericErrorSubtitle":
             MessageLookupByLibrary.simpleMessage(
                 "Oh no! We\'re unable to display the QR code. Please try again."),
@@ -1131,6 +1137,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "scannedInfoDialogVoucherPositiveButton":
             MessageLookupByLibrary.simpleMessage("Invalidate Voucher"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "sendTo": m102,
         "sendToExternalWalletButton":
             MessageLookupByLibrary.simpleMessage("Transfer to external wallet"),
         "sendToExternalWalletButtonSubtitle": m70,
@@ -1322,6 +1329,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Unlinking in progress"),
         "unlinkWalletInProgressTitle": MessageLookupByLibrary.simpleMessage(
             "Your wallet is currently being unlinked"),
+        "use": MessageLookupByLibrary.simpleMessage("Use"),
         "useBiometricButton":
             MessageLookupByLibrary.simpleMessage("or use biometric"),
         "useFaceIDButton":

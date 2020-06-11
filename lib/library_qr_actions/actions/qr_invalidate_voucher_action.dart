@@ -3,8 +3,8 @@ import 'package:lykke_mobile_mavn/app/resources/lazy_localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/customer_bloc.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_barcode_scan/actions/voucher_qr_content.dart';
+import 'package:lykke_mobile_mavn/library_extensions/tuple_extensions.dart';
 import 'package:lykke_mobile_mavn/library_qr_actions/actions/qr_base_action.dart';
-import 'package:lykke_mobile_mavn/library_tuple/tuple_extensions.dart';
 
 class QrInvalidateVoucherAction extends QrBaseAction {
   QrInvalidateVoucherAction({

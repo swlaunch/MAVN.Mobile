@@ -5,7 +5,6 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_m
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/country/response_model/country_codes_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/customer_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/partner_response_model.dart';
-import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/transaction_history_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/customer/response_model/wallet_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_condition_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/earn/response_model/earn_rule_response_model.dart';
@@ -437,52 +436,6 @@ class TestConstants {
   static final stubEarnRuleListWithoutConditions = <EarnRule>[
     stubEarnRuleWithoutConditions
   ];
-
-  static final stubTransactionHistoryList = [
-    Transaction(
-        type: TransactionType.bonusReward,
-        amount: '1.00',
-        date: stubDateString,
-        actionRule: stubActionRule),
-    Transaction(
-        type: TransactionType.sendTransfer,
-        amount: '2.00',
-        date: stubDateString,
-        otherSideCustomerEmail: stubOtherSideCustomerEmail),
-    Transaction(
-        type: TransactionType.receiveTransfer,
-        amount: '3.00',
-        date: stubDateString,
-        otherSideCustomerEmail: stubOtherSideCustomerEmail),
-    Transaction(
-      type: TransactionType.paymentTransfer,
-      amount: '4.00',
-      date: stubDateString,
-    ),
-    Transaction(
-      type: TransactionType.partnerPaymentRefund,
-      amount: '5.00',
-      date: stubDateString,
-      partnerName: stubPartnerName,
-    ),
-    Transaction(
-      type: TransactionType.partnerPayment,
-      amount: '6.00',
-      date: stubDateFromLastYearString,
-      partnerName: stubPartnerName,
-    ),
-    Transaction(
-      type: TransactionType.voucherPurchasePayment,
-      amount: '7.00',
-      date: stubDateFromLastYearString,
-      actionRule: stubActionRule,
-    )
-  ];
-  static final stubTransactionHistoryResponseModel =
-      TransactionHistoryResponseModel(
-    transactionList: stubTransactionHistoryList,
-    totalCount: stubTotalCount,
-  );
 
   static final stubWalletLinkedResponseModel = WalletResponseModel(
     balance: stubTokenCurrencyWalletBalance,

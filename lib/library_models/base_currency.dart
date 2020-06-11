@@ -16,7 +16,7 @@ class BaseCurrency {
       return '';
     }
     final asset = assetSymbol ?? '';
-    return '$value $asset';
+    return '$displayValueWithoutTrailingZeroes $asset';
   }
 
   String get displayValueWithoutTrailingZeroes {

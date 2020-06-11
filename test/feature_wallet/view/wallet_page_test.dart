@@ -8,7 +8,6 @@ import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_balance/bloc/balance/balance_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_bottom_bar/di/bottom_bar_module.dart';
 import 'package:lykke_mobile_mavn/feature_notification/ui_components/badge_widget.dart';
-import 'package:lykke_mobile_mavn/feature_transaction_history/bloc/transaction_history_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/di/wallet_page_module.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/ui_components/wallet_disabled_widget.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/view/wallet_page.dart';
@@ -97,7 +96,7 @@ Future<void> _getSubjectWidget(WidgetTester tester,
 
   final mockWalletPageModule = MockWalletPageModule();
   final mockTransactionHistoryBloc =
-      MockTransactionHistoryBloc(TransactionHistoryUninitialized());
+      MockTransactionHistoryBloc(GenericListUninitializedState());
   final mockBottomBarModule = MockBottomBarModule();
   final mockBottomBarPageBloc = MockBottomBarPageBloc(null);
 

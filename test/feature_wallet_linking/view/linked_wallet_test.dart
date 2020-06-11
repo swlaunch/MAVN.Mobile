@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_balance/bloc/balance/balance_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_transaction_history/bloc/transaction_history_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/di/wallet_page_module.dart';
 import 'package:lykke_mobile_mavn/feature_wallet_linking/view/linked_wallet.dart';
 import 'package:lykke_mobile_mavn/library_dependency_injection/core.dart';
@@ -57,7 +57,7 @@ Widget _getSubjectWidget(
   _mockGetMobileSettingsUseCase = MockGetMobileSettingsUseCase();
   final mockWalletPageModule = MockWalletPageModule();
   final mockTransactionHistoryBloc =
-      MockTransactionHistoryBloc(TransactionHistoryUninitialized());
+      MockTransactionHistoryBloc(GenericListUninitializedState());
   final mockBottomBarModule = MockBottomBarModule();
   final mockBottomBarPageBloc = MockBottomBarPageBloc(null);
 

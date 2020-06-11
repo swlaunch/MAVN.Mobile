@@ -13,8 +13,7 @@ import 'package:lykke_mobile_mavn/feature_bottom_bar/bloc/bottom_bar_page_bloc.d
 import 'package:lykke_mobile_mavn/feature_bottom_bar/bloc/bottom_bar_refresh_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_payment_request_list/bloc/pending_payment_requests_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_transaction_history/bloc/transaction_history_bloc.dart';
-import 'package:lykke_mobile_mavn/feature_transaction_history/bloc/transaction_history_bloc_output.dart';
-import 'package:lykke_mobile_mavn/feature_transaction_history/view/transaction_history_view.dart';
+import 'package:lykke_mobile_mavn/feature_transaction_history/view/transaction_history_widget.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/bloc/wallet_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_wallet/ui_components/wallet_actions_widget.dart';
@@ -44,15 +43,14 @@ class WalletPage extends HookWidget {
         useBlocState<GenericListState>(partnerPaymentsPendingBloc);
 
     final transactionHistoryBloc = useTransactionHistoryBloc();
-    final transactionHistoryState =
-        useBlocState<TransactionHistoryState>(transactionHistoryBloc);
+    final transactionHistoryState = useBlocState(transactionHistoryBloc);
 
     final bottomBarPageBloc = useBottomBarPageBloc();
     final throttler = useThrottling(duration: const Duration(seconds: 30));
 
     void loadData() {
       partnerPaymentsPendingBloc.updateGenericList();
-      transactionHistoryBloc.loadTransactionHistory(reset: true);
+      transactionHistoryBloc.updateGenericList();
     }
 
     useBlocEventListener(balanceBloc, (event) {
@@ -87,34 +85,24 @@ class WalletPage extends HookWidget {
         backgroundColor: ColorStyles.alabaster,
         elevation: 0,
       ),
-      body: NotificationListener<ScrollNotification>(
-        onNotification: (scrollNotification) {
-          if (transactionHistoryBloc.currentState is TransactionHistoryLoaded &&
-              scrollNotification is ScrollUpdateNotification &&
-              scrollNotification.metrics.maxScrollExtent ==
-                  scrollNotification.metrics.pixels) {
-            transactionHistoryBloc.loadTransactionHistory();
-          }
-        },
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                _buildContent(
-                  isNetworkError,
-                  loadData,
-                  transactionHistoryBloc,
-                  walletIsDisabled,
-                  balanceBloc,
-                  router,
-                  balanceState,
-                  partnerPaymentsPendingState,
-                  walletState,
-                  tokenSymbol.value,
-                ),
-              ],
-            ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              _buildContent(
+                isNetworkError,
+                loadData,
+                transactionHistoryBloc,
+                walletIsDisabled,
+                balanceBloc,
+                router,
+                balanceState,
+                partnerPaymentsPendingState,
+                walletState,
+                tokenSymbol.value,
+              ),
+            ],
           ),
         ),
       ),
@@ -179,7 +167,7 @@ class WalletPage extends HookWidget {
                     router: router,
                     partnerPaymentsPendingState: partnerPaymentsPendingState,
                   ),
-                  TransactionHistoryView(),
+                  TransactionHistoryWidget(),
                 ],
               ),
               if (walletIsDisabled)

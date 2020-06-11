@@ -1,17 +1,18 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:lykke_mobile_mavn/library_models/fiat_currency.dart';
 import 'package:lykke_mobile_mavn/library_utils/enum_mapper.dart';
 
 class Transaction {
   Transaction({
     @required this.type,
     @required this.date,
-    @required this.amount,
-    this.actionRule = '',
+    @required this.price,
+    this.campaignName = '',
     this.otherSideCustomerEmail = '',
-    this.otherSideCustomerName = '',
     this.partnerName = '',
     this.instalmentName = '',
+    this.vertical = '',
   });
 
   Transaction.fromJson(Map<String, dynamic> json)
@@ -21,38 +22,30 @@ class Transaction {
           defaultValue: null,
         ),
         date = json['Timestamp'],
-        amount = json['Amount'],
-        actionRule = json['ActionRule'],
+        price = FiatCurrency(
+            value: double.tryParse(json['Amount']),
+            assetSymbol: json['Currency']),
+        campaignName = json['CampaignName'],
         otherSideCustomerEmail = json['OtherSideCustomerEmail'],
-        otherSideCustomerName = json['OtherSideCustomerName'],
         partnerName = json['PartnerName'],
-        instalmentName = json['InstalmentName'];
+        instalmentName = json['InstalmentName'],
+        vertical = json['Vertical'];
 
   final TransactionType type;
   final String date;
-  final String amount;
-  final String actionRule;
+  final FiatCurrency price;
+  final String campaignName;
   final String otherSideCustomerEmail;
-  final String otherSideCustomerName;
   final String partnerName;
   final String instalmentName;
+  final String vertical;
 }
 
 enum TransactionType {
-  sendTransfer,
-  receiveTransfer,
-  bonusReward,
-  paymentTransfer,
-  paymentTransferRefund,
-  partnerPayment,
-  partnerPaymentRefund,
-  referralStake,
-  releasedReferralStake,
-  walletLinkingFee,
-  linkedWalletSendTransfer,
-  linkedWalletReceiveTransfer,
-  transferToPublicFee,
-  voucherPurchasePayment
+  smartVoucherPayment,
+  smartVoucherUse,
+  smartVoucherTransferSend,
+  smartVoucherTransferReceive,
 }
 
 class TransactionHistoryResponseModel extends Equatable {

@@ -374,9 +374,9 @@ class MockBottomBarPageBloc extends MockBloc<RefreshState>
   MockBottomBarPageBloc(RefreshState initialState) : super(initialState);
 }
 
-class MockTransactionHistoryBloc extends MockBloc<TransactionHistoryState>
+class MockTransactionHistoryBloc extends MockBloc<GenericListState>
     implements TransactionHistoryBloc {
-  MockTransactionHistoryBloc(TransactionHistoryState initialState)
+  MockTransactionHistoryBloc(GenericListState initialState)
       : super(initialState);
 }
 

@@ -3351,4 +3351,30 @@ class LocalizedStrings {
       );
 
 //endregion SME invalidate voucher
+
+//region Voucher History
+
+  String get purchase => Intl.message(
+        'Purchase',
+        name: 'purchase',
+      );
+
+  String get use => Intl.message(
+        'Use',
+        name: 'use',
+      );
+
+  String sendTo(String recipient) => Intl.message(
+        'Send to $recipient',
+        args: [recipient],
+        name: 'sendTo',
+      );
+
+  String receiveFrom(String sender) => Intl.message(
+        'Receive from $sender',
+        args: [sender],
+        name: 'receiveFrom',
+      );
+
+//endregion Voucher History
 }

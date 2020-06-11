@@ -5,7 +5,7 @@ import 'package:lykke_mobile_mavn/app/resources/color_styles.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/app/resources/text_styles.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
-import 'package:lykke_mobile_mavn/feature_transaction_history/view/initials_widget.dart';
+import 'package:lykke_mobile_mavn/feature_transaction_history/ui_components/initials_widget.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/call_to_action.dart';
 
 class VoucherTopSection extends HookWidget {

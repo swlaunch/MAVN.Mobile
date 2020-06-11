@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class ScaledDownSvg extends StatelessWidget {
   const ScaledDownSvg({
     @required this.asset,
-    @required this.color,
+    this.color,
     Key key,
     this.height = 12,
     this.width = 12,
