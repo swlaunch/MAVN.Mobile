@@ -109,9 +109,11 @@ class CampaignMapPage extends HookWidget {
           (bounds.northeast.longitude + bounds.southwest.longitude) / 2.0;
       final radius = campaignMapBloc.getRadiusFromRegion(bounds);
 
-      unawaited(campaignMapBloc.loadCampaignsForLocation(
-          userPosition: UserPosition(lat: centerLat, long: centerLng),
-          radius: radius));
+      if (radius < 128.0) {
+        unawaited(campaignMapBloc.loadCampaignsForLocation(
+            userPosition: UserPosition(lat: centerLat, long: centerLng),
+            radius: radius));
+      }
     }
 
     return Scaffold(
