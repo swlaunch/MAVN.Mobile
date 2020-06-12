@@ -13,10 +13,15 @@ class SplashWidget extends HookWidget {
       child: Column(
         children: [
           const Spacer(flex: 1),
-          SvgPicture.asset(
-            SvgAssets.splashLogo,
-            height: 288,
-            width: 288,
+          Flexible(
+            child: FractionallySizedBox(
+              widthFactor: 0.7,
+              child: SvgPicture.asset(
+                SvgAssets.splashLogo,
+                height: 288,
+                width: 288,
+              ),
+            ),
           ),
           const Spacer(flex: 2),
         ],

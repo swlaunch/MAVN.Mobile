@@ -41,11 +41,14 @@ class WelcomePage extends HookWidget with DynamicLinkManagerMixin {
           children: <Widget>[
             const SizedBox(height: 106),
             Flexible(
-              child: SvgPicture.asset(
-                SvgAssets.splashLogo,
-                fit: BoxFit.contain,
-                height: 288,
-                width: 288,
+              child: FractionallySizedBox(
+                widthFactor: 0.7,
+                child: SvgPicture.asset(
+                  SvgAssets.splashLogo,
+                  fit: BoxFit.contain,
+                  height: 288,
+                  width: 288,
+                ),
               ),
             ),
             const SizedBox(height: 24),
