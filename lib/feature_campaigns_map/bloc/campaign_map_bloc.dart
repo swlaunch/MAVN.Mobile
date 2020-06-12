@@ -1,9 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart' hide LatLng;
-import 'package:latlong/latlong.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/exception_to_message_mapper.dart';
 import 'package:lykke_mobile_mavn/base/repository/campaign/campaign_repository.dart';
 import 'package:lykke_mobile_mavn/feature_campaigns_map/bloc/campaign_map_bloc_output.dart';
@@ -52,17 +48,6 @@ class CampaignMapBloc extends Bloc<CampaignMapState> {
 
       setState(CampaignMapErrorState(errorMessage));
     }
-  }
-
-  double getRadiusFromRegion(LatLngBounds bounds) {
-    final ne = bounds.northeast;
-    final sw = bounds.southwest;
-
-    const distance = Distance();
-    final double dist = distance(
-        LatLng(ne.latitude, ne.longitude), LatLng(sw.latitude, sw.longitude));
-
-    return dist / 2000.0;
   }
 }
 

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
+import 'package:latlong/latlong.dart' as lat_long;
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_campaigns_map/bloc/campaign_map_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_campaigns_map/bloc/campaign_map_bloc_output.dart';
@@ -13,6 +14,20 @@ import 'package:lykke_mobile_mavn/feature_location/bloc/user_location_bloc_state
 import 'package:lykke_mobile_mavn/feature_location/util/user_position.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:pedantic/pedantic.dart';
+
+extension GetRadius on LatLngBounds {
+  double getRadius() {
+    final ne = northeast;
+    final sw = southwest;
+
+    const distance = lat_long.Distance();
+    final double dist = distance(lat_long.LatLng(ne.latitude, ne.longitude),
+        lat_long.LatLng(sw.latitude, sw.longitude));
+
+    const metersPerKm = 1000.0;
+    return (dist / metersPerKm) / 2.0;
+  }
+}
 
 class CampaignMapPage extends HookWidget {
   static const _defaultInitialPosition = LatLng(47.3769, 8.5417);
@@ -58,7 +73,7 @@ class CampaignMapPage extends HookWidget {
                   currentUserLocation.value.lat,
                   currentUserLocation.value.long,
                 ),
-                zoom: 100,
+                zoom: 23,
               ),
             ),
           ),
@@ -80,7 +95,11 @@ class CampaignMapPage extends HookWidget {
           userLocationBloc.stopUsingLocation();
         }
 
-        ///TODO show all Switzerland
+        /// Load campaigns for default location
+        unawaited(campaignMapBloc.loadCampaignsForLocation(
+            userPosition: UserPosition(
+                lat: _defaultInitialPosition.latitude,
+                long: _defaultInitialPosition.longitude)));
       }
     });
 
@@ -107,7 +126,7 @@ class CampaignMapPage extends HookWidget {
           (bounds.northeast.latitude + bounds.southwest.latitude) / 2.0;
       final centerLng =
           (bounds.northeast.longitude + bounds.southwest.longitude) / 2.0;
-      final radius = campaignMapBloc.getRadiusFromRegion(bounds);
+      final radius = bounds.getRadius();
 
       if (radius < 128.0) {
         unawaited(campaignMapBloc.loadCampaignsForLocation(
