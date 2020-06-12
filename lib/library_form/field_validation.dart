@@ -507,3 +507,25 @@ class PartnerLinkingCodeInvalidFieldValidation extends FieldValidation<String> {
           onValidationError: onValidationError,
         );
 }
+
+class ReceiverEmailRequiredFieldValidation extends FieldValidation<String> {
+  ReceiverEmailRequiredFieldValidation({
+    VoidCallback onValidationError,
+  }) : super(
+          validate: FieldValidators.requiredText,
+          localizedString:
+              LazyLocalizedStrings.transferVoucherEmptyReceiverEmailError,
+          onValidationError: onValidationError,
+        );
+}
+
+class ReceiverEmailInvalidFieldValidation extends FieldValidation<String> {
+  ReceiverEmailInvalidFieldValidation({
+    VoidCallback onValidationError,
+  }) : super(
+          validate: FieldValidators.emailFormat,
+          localizedString:
+              LazyLocalizedStrings.transferVoucherInvalidReceiverEmailError,
+          onValidationError: onValidationError,
+        );
+}

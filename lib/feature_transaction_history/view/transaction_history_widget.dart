@@ -9,6 +9,10 @@ import 'package:lykke_mobile_mavn/feature_transaction_history/bloc/transaction_h
 import 'package:lykke_mobile_mavn/feature_transaction_history/ui_components/transaction_history_group.dart';
 import 'package:lykke_mobile_mavn/feature_transaction_history/ui_components/transaction_history_header.dart';
 import 'package:lykke_mobile_mavn/feature_transaction_history/ui_components/transaction_history_item.dart';
+import 'package:lykke_mobile_mavn/feature_transfer_vouchers/bloc/transfer_voucher_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_transfer_vouchers/bloc/transfer_voucher_bloc_output.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_purchase/bloc/voucher_purchase_success_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_voucher_purchase/bloc/voucher_purchase_success_bloc_output.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/list/infinite_list_view.dart';
 import 'package:lykke_mobile_mavn/library_ui_components/misc/spinner.dart';
@@ -18,6 +22,9 @@ class TransactionHistoryWidget extends HookWidget {
   Widget build(BuildContext context) {
     final transactionListBloc = useTransactionHistoryBloc();
     final transactionListBlocState = useBlocState(transactionListBloc);
+
+    final transferVoucherBloc = useTransferVoucherBloc();
+    final voucherPurchaseSuccessBloc = useVoucherPurchaseSuccessBloc();
 
     final transactionMapper = useTransactionMapper();
 
@@ -33,6 +40,18 @@ class TransactionHistoryWidget extends HookWidget {
       isErrorDismissed.value = false;
       transactionListBloc.getList();
     }
+
+    useBlocEventListener(transferVoucherBloc, (event) {
+      if (event is TransferVoucherSuccessEvent) {
+        loadInitialData();
+      }
+    });
+
+    useBlocEventListener(voucherPurchaseSuccessBloc, (event) {
+      if (event is VoucherPurchaseSuccessSuccessEvent) {
+        loadInitialData();
+      }
+    });
 
     useEffect(() {
       loadInitialData();

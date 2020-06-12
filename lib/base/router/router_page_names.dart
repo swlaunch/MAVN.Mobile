@@ -143,6 +143,9 @@ class RouterPageName {
 
   //region Voucher
   static const String voucherDetailsPage = 'voucher_details_page';
+  static const String voucherTransferPage = 'voucher_transfer_page';
+  static const String voucherTransferSuccessPage =
+      'voucher_transfer_success_page';
 
   //endregion Voucher
 

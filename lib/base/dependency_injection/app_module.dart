@@ -80,6 +80,7 @@ import 'package:lykke_mobile_mavn/feature_notification/bloc/notification_count_b
 import 'package:lykke_mobile_mavn/feature_notification/router/notification_router.dart';
 import 'package:lykke_mobile_mavn/feature_payment_request_list/bloc/pending_payment_requests_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_personal_details/bloc/delete_account_use_case.dart';
+import 'package:lykke_mobile_mavn/feature_transfer_vouchers/bloc/transfer_voucher_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_user_verification/bloc/user_verification_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_details/bloc/cancel_voucher_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_purchase/bloc/voucher_purchase_success_bloc.dart';
@@ -218,6 +219,8 @@ class AppModule extends Module {
   CancelVoucherBloc get cancelVoucherBloc => get();
 
   UserLocationBloc get userLocationBloc => get();
+
+  TransferVoucherBloc get transferVoucherBloc => get();
 
   @override
   void provideInstances() {
@@ -393,6 +396,8 @@ class AppModule extends Module {
     provideSingleton(() => CancelVoucherBloc(get(), get()));
 
     provideSingleton(() => UserLocationBloc(get()));
+
+    provideSingleton(() => TransferVoucherBloc(get(), get()));
 
     // Dynamic Link Manager
     provideSingleton(

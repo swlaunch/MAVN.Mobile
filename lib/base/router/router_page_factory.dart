@@ -98,6 +98,8 @@ import 'package:lykke_mobile_mavn/feature_splash/view/splash_page.dart';
 import 'package:lykke_mobile_mavn/feature_terms_and_policies/view/privacy_policy_page.dart';
 import 'package:lykke_mobile_mavn/feature_terms_and_policies/view/terms_of_use_page.dart';
 import 'package:lykke_mobile_mavn/feature_ticker/di/ticker_module.dart';
+import 'package:lykke_mobile_mavn/feature_transfer_vouchers/view/transfer_voucher_page.dart';
+import 'package:lykke_mobile_mavn/feature_transfer_vouchers/view/transfer_voucher_success_page.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_details/di/voucher_details_module.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_details/view/voucher_details_page.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_purchase/di/voucher_purchase_module.dart';
@@ -519,6 +521,14 @@ class RouterPageFactory {
         module: VoucherDetailsModule(),
         child: VoucherDetailsPage(voucher: voucher, voucherColor: voucherColor),
       );
+
+  static Widget getTransferVoucherPage({
+    String voucherShortCode,
+  }) =>
+      TransferVoucherPage(voucherCode: voucherShortCode);
+
+  static Widget getVoucherTransferSuccessPage(String receiverEmail) =>
+      TransferVoucherSuccessPage(receiverEmail: receiverEmail);
 
   //endregion Vouchers
 

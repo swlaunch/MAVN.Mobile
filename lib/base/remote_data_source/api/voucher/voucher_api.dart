@@ -1,6 +1,7 @@
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/request_model/cancel_voucher_request_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/campaign/response_model/voucher_purchase_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/http_client.dart';
+import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/request_model/voucher_transfer_request_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_details_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/base_api.dart';
@@ -12,6 +13,7 @@ class VoucherApi extends BaseApi {
   static const String voucherDetailsPath = '$vouchersPath/voucherShortCode';
   static const String paymentUrl = '$vouchersPath/paymentUrl';
   static const String cancelVoucherPath = '$vouchersPath/cancelReservation';
+  static const String transfer = '$vouchersPath/transfer';
 
   //query params
   static const String queryParamCurrentPage = 'CurrentPage';
@@ -57,6 +59,16 @@ class VoucherApi extends BaseApi {
       exceptionHandledHttpClientRequest(() async {
         await httpClient.post(
           cancelVoucherPath,
+          data: model.toJson(),
+        );
+      });
+
+  Future<void> transferVoucher(
+    VoucherTransferRequestModel model,
+  ) =>
+      exceptionHandledHttpClientRequest(() async {
+        await httpClient.post(
+          transfer,
           data: model.toJson(),
         );
       });

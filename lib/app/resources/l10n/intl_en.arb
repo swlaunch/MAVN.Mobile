@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-06-11T14:37:05.188010",
+  "@@last_modified": "2020-06-12T12:30:59.511117",
   "networkErrorTitle": "Internet connection problem",
   "@networkErrorTitle": {
     "type": "text",
@@ -3465,5 +3465,42 @@
     "placeholders": {
       "sender": {}
     }
+  },
+  "sendVoucher": "Send Voucher",
+  "@sendVoucher": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "transferVoucherReceiverEmailAddressHint": "Receiver Email",
+  "@transferVoucherReceiverEmailAddressHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "transferVoucherEmptyReceiverEmailError": "Receiver email is required",
+  "@transferVoucherEmptyReceiverEmailError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "transferVoucherInvalidReceiverEmailError": "This receiver email is invalid",
+  "@transferVoucherInvalidReceiverEmailError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "transferVoucherSuccessTitle": "Voucher successfully sent",
+  "@transferVoucherSuccessTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "transferVoucherSuccessDetails": "You successfully sent a voucher to {receiverEmail}",
+  "@transferVoucherSuccessDetails": {
+    "type": "text",
+    "placeholders": {
+      "receiverEmail": {}
+    }
+  },
+  "backToVouchers": "Back to vouchers",
+  "@backToVouchers": {
+    "type": "text",
+    "placeholders": {}
   }
 }

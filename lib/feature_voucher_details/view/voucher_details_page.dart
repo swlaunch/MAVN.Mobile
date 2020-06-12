@@ -72,10 +72,7 @@ class VoucherDetailsPage extends HookWidget {
     }, [voucherDetailsBloc]);
 
     void onSendToFriendTap() {
-      router.pushComingSoonPage(
-        title: localizedStrings.sendToFriend,
-        hasBackButton: true,
-      );
+      router.pushTransferVoucherPage(voucherShortCode: voucher.shortCode);
     }
 
     void getPaymentUrl() {

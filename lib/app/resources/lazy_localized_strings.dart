@@ -2427,4 +2427,16 @@ class LazyLocalizedStrings {
       (_) => _.scannedInfoDialogVoucherError, 'scannedInfoDialogVoucherError');
 
 //endregion SME invalidate voucher
+
+//region Voucher Transfer
+
+  static LocalizedStringBuilder get transferVoucherEmptyReceiverEmailError =>
+      _builder((_) => _.transferVoucherEmptyReceiverEmailError,
+          'transferVoucherEmptyReceiverEmailError');
+
+  static LocalizedStringBuilder get transferVoucherInvalidReceiverEmailError =>
+      _builder((_) => _.transferVoucherInvalidReceiverEmailError,
+          'transferVoucherInvalidReceiverEmailError');
+
+//endregion Voucher Transfer
 }

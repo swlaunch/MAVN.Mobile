@@ -251,6 +251,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m86(token) => "Transfer amount (${token})";
 
+  static m103(receiverEmail) =>
+      "You successfully sent a voucher to ${receiverEmail}";
+
   static m87(soldCount) => "${soldCount} used this offer";
 
   static m88(stockCount) =>
@@ -321,6 +324,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "You have no approved referrals at the moment"),
         "availableAt": m6,
         "backToTokenWalletButton": m7,
+        "backToVouchers":
+            MessageLookupByLibrary.simpleMessage("Back to vouchers"),
         "backToWalletButton":
             MessageLookupByLibrary.simpleMessage("Back to Wallet"),
         "balanceBoxErrorMessage": MessageLookupByLibrary.simpleMessage(
@@ -1144,6 +1149,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendToFriend":
             MessageLookupByLibrary.simpleMessage("Send to a friend"),
         "sendTokensButton": m71,
+        "sendVoucher": MessageLookupByLibrary.simpleMessage("Send Voucher"),
         "senderCustomerNotFoundError": MessageLookupByLibrary.simpleMessage(
             "Sorry, we couldn\'t find this account. Transfer canceled"),
         "setPasswordSuccessBackToAccountButton":
@@ -1320,6 +1326,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "transferTokenAmountLabel": m86,
         "transferTokensButton":
             MessageLookupByLibrary.simpleMessage("Send points"),
+        "transferVoucherEmptyReceiverEmailError":
+            MessageLookupByLibrary.simpleMessage("Receiver email is required"),
+        "transferVoucherInvalidReceiverEmailError":
+            MessageLookupByLibrary.simpleMessage(
+                "This receiver email is invalid"),
+        "transferVoucherReceiverEmailAddressHint":
+            MessageLookupByLibrary.simpleMessage("Receiver Email"),
+        "transferVoucherSuccessDetails": m103,
+        "transferVoucherSuccessTitle":
+            MessageLookupByLibrary.simpleMessage("Voucher successfully sent"),
         "unlinkExternalWalletButton":
             MessageLookupByLibrary.simpleMessage("Unlink external wallet"),
         "unlinkExternalWalletButtonSubtitle":

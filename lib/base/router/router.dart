@@ -774,6 +774,26 @@ class Router extends BaseRouter {
     );
   }
 
+  Future<void> pushTransferVoucherPage({
+    @required String voucherShortCode,
+  }) async {
+    await pushPage(
+      RouterPageFactory.getTransferVoucherPage(
+        voucherShortCode: voucherShortCode,
+      ),
+      pageName: RouterPageName.voucherTransferPage,
+    );
+  }
+
+  Future<void> replaceWithVoucherTransferSuccessPage({
+    @required String receiverEmail,
+  }) async {
+    await replacePage(
+      RouterPageFactory.getVoucherTransferSuccessPage(receiverEmail),
+      pageName: RouterPageName.voucherTransferSuccessPage,
+    );
+  }
+
   //endregion Vouchers
 
   //region Misc

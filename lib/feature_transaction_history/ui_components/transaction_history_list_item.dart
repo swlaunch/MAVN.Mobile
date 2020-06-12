@@ -69,7 +69,7 @@ class TransactionHistoryListItemWidget extends StatelessWidget {
                     children: <Widget>[
                       if (!StringUtils.isNullOrWhitespace(
                           transactionListItem?.partnerName))
-                        Expanded(
+                        Flexible(
                           child: Text(
                             transactionListItem.partnerName,
                             style: TextStyles.transactionHistoryPartner,
@@ -81,7 +81,7 @@ class TransactionHistoryListItemWidget extends StatelessWidget {
                               transactionListItem?.partnerName) &&
                           transactionListItem.time != null)
                         Text(
-                          '|',
+                          ' | ',
                           style: TextStyles.transactionHistoryPartner,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,

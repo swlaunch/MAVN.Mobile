@@ -6,6 +6,8 @@ import 'package:lykke_mobile_mavn/app/resources/svg_assets.dart';
 import 'package:lykke_mobile_mavn/base/common_blocs/generic_list_bloc_output.dart';
 import 'package:lykke_mobile_mavn/base/remote_data_source/api/voucher/response_model/voucher_response_model.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
+import 'package:lykke_mobile_mavn/feature_transfer_vouchers/bloc/transfer_voucher_bloc.dart';
+import 'package:lykke_mobile_mavn/feature_transfer_vouchers/bloc/transfer_voucher_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_details/bloc/cancel_voucher_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_purchase/bloc/voucher_purchase_success_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_voucher_purchase/bloc/voucher_purchase_success_bloc_output.dart';
@@ -28,6 +30,7 @@ class BoughtVouchersList extends HookWidget {
 
     final cancelVoucherBloc = useCancelVoucherBloc();
     final voucherPurchaseSuccessBloc = useVoucherPurchaseSuccessBloc();
+    final transferVoucherBloc = useTransferVoucherBloc();
 
     final data = useState(<VoucherResponseModel>[]);
     final isErrorDismissed = useState(false);
@@ -43,6 +46,12 @@ class BoughtVouchersList extends HookWidget {
 
     useBlocEventListener(voucherPurchaseSuccessBloc, (event) {
       if (event is VoucherPurchaseSuccessSuccessEvent) {
+        loadInitialData();
+      }
+    });
+
+    useBlocEventListener(transferVoucherBloc, (event) {
+      if (event is TransferVoucherSuccessEvent) {
         loadInitialData();
       }
     });

@@ -3377,4 +3377,39 @@ class LocalizedStrings {
       );
 
 //endregion Voucher History
+
+//region Voucher Transfer
+
+  String get sendVoucher => Intl.message('Send Voucher', name: 'sendVoucher');
+
+  String get transferVoucherReceiverEmailAddressHint =>
+      Intl.message('Receiver Email',
+          name: 'transferVoucherReceiverEmailAddressHint');
+
+  String get transferVoucherEmptyReceiverEmailError =>
+      Intl.message('Receiver email is required',
+          name: 'transferVoucherEmptyReceiverEmailError');
+
+  String get transferVoucherInvalidReceiverEmailError => Intl.message(
+        'This receiver email is invalid',
+        name: 'transferVoucherInvalidReceiverEmailError',
+      );
+
+  String get transferVoucherSuccessTitle => Intl.message(
+        'Voucher successfully sent',
+        name: 'transferVoucherSuccessTitle',
+      );
+
+  String transferVoucherSuccessDetails(String receiverEmail) => Intl.message(
+        'You successfully sent a voucher to $receiverEmail',
+        args: [receiverEmail],
+        name: 'transferVoucherSuccessDetails',
+      );
+
+  String get backToVouchers => Intl.message(
+        'Back to vouchers',
+        name: 'backToVouchers',
+      );
+
+//endregion Voucher Transfer
 }
