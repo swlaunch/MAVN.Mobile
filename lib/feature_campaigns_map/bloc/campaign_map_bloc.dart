@@ -4,7 +4,6 @@ import 'package:lykke_mobile_mavn/base/remote_data_source/api/error/exception_to
 import 'package:lykke_mobile_mavn/base/repository/campaign/campaign_repository.dart';
 import 'package:lykke_mobile_mavn/feature_campaigns_map/bloc/campaign_map_bloc_output.dart';
 import 'package:lykke_mobile_mavn/feature_campaigns_map/di/campaign_map_module.dart';
-import 'package:lykke_mobile_mavn/feature_location/util/user_position.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:lykke_mobile_mavn/library_dependency_injection/core.dart';
 
@@ -26,7 +25,8 @@ class CampaignMapBloc extends Bloc<CampaignMapState> {
   CampaignMapState initialState() => CampaignMapUninitializedState();
 
   Future<void> loadCampaignsForLocation({
-    @required UserPosition userPosition,
+    @required double lat,
+    @required double long,
     double radius,
   }) async {
     setState(CampaignMapLoadingState());
@@ -35,8 +35,8 @@ class CampaignMapBloc extends Bloc<CampaignMapState> {
       final campaignListResponse = await _campaignRepository.getCampaigns(
         pageSize: _pageSize,
         currentPage: 1,
-        long: userPosition.long,
-        lat: userPosition.lat,
+        long: long,
+        lat: lat,
         radius: radius ?? _defaultRadius,
       );
 

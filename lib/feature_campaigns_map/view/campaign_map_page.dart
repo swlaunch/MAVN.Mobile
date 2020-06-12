@@ -2,8 +2,8 @@ import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:latlong/latlong.dart' as lat_long;
+import 'package:lykke_mobile_mavn/app/resources/localized_strings.dart';
 import 'package:lykke_mobile_mavn/base/router/router.dart';
 import 'package:lykke_mobile_mavn/feature_campaigns_map/bloc/campaign_map_bloc.dart';
 import 'package:lykke_mobile_mavn/feature_campaigns_map/bloc/campaign_map_bloc_output.dart';
@@ -14,20 +14,6 @@ import 'package:lykke_mobile_mavn/feature_location/bloc/user_location_bloc_state
 import 'package:lykke_mobile_mavn/feature_location/util/user_position.dart';
 import 'package:lykke_mobile_mavn/library_bloc/core.dart';
 import 'package:pedantic/pedantic.dart';
-
-extension GetRadius on LatLngBounds {
-  double getRadius() {
-    final ne = northeast;
-    final sw = southwest;
-
-    const distance = lat_long.Distance();
-    final double dist = distance(lat_long.LatLng(ne.latitude, ne.longitude),
-        lat_long.LatLng(sw.latitude, sw.longitude));
-
-    const metersPerKm = 1000.0;
-    return (dist / metersPerKm) / 2.0;
-  }
-}
 
 class CampaignMapPage extends HookWidget {
   static const _defaultInitialPosition = LatLng(47.3769, 8.5417);
@@ -61,7 +47,9 @@ class CampaignMapPage extends HookWidget {
 
         ///load campaigns for this location
         unawaited(campaignMapBloc.loadCampaignsForLocation(
-            userPosition: event.userPosition));
+          lat: event.userPosition.lat,
+          long: event.userPosition.long,
+        ));
         currentUserLocation.value = event.userPosition;
 
         ///animate to user location
@@ -97,9 +85,8 @@ class CampaignMapPage extends HookWidget {
 
         /// Load campaigns for default location
         unawaited(campaignMapBloc.loadCampaignsForLocation(
-            userPosition: UserPosition(
-                lat: _defaultInitialPosition.latitude,
-                long: _defaultInitialPosition.longitude)));
+            lat: _defaultInitialPosition.latitude,
+            long: _defaultInitialPosition.longitude));
       }
     });
 
@@ -130,8 +117,7 @@ class CampaignMapPage extends HookWidget {
 
       if (radius < 128.0) {
         unawaited(campaignMapBloc.loadCampaignsForLocation(
-            userPosition: UserPosition(lat: centerLat, long: centerLng),
-            radius: radius));
+            lat: centerLat, long: centerLng, radius: radius));
       }
     }
 
@@ -157,13 +143,18 @@ class CampaignMapPage extends HookWidget {
       ),
     );
   }
+}
 
-  CameraPosition _getInitialCameraPosition(
-      UserLocationState userLocationState) {
-    final location = userLocationState is UserLocationLoadedState
-        ? LatLng(userLocationState.userPosition.lat,
-            userLocationState.userPosition.long)
-        : _defaultInitialPosition;
-    return CameraPosition(target: location);
+extension GetRadius on LatLngBounds {
+  double getRadius() {
+    final ne = northeast;
+    final sw = southwest;
+
+    const distance = lat_long.Distance();
+    final double dist = distance(lat_long.LatLng(ne.latitude, ne.longitude),
+        lat_long.LatLng(sw.latitude, sw.longitude));
+
+    const metersPerKm = 1000.0;
+    return (dist / metersPerKm) / 2.0;
   }
 }
